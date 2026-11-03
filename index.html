@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Veille PLF 2027 — Fiscalité des affaires</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{ color-scheme:light;
+  --bg:#ffffff; --paper:#ffffff; --ink:#111111; --muted:#6b6b6b; --line:#e6e6e6; --soft:#f6f6f6;
+  --accent:#c60076; --accent-soft:#fbeaf3;
+  --ok:#111111; --ko:#8a8a8a; --info:#6b6b6b;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:920px;margin:0 auto;padding:28px 20px 72px}
+header{border-top:4px solid var(--accent);padding-top:22px}
+header h1{font-weight:300;font-size:32px;line-height:1.15;margin:8px 0 10px;letter-spacing:-.02em}
+.kicker{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600}
+.sub{color:var(--muted);margin:0 0 18px;max-width:640px}
+.status{background:var(--soft);padding:18px 20px;margin:18px 0 10px}
+.status h2{font-size:16px;font-weight:600;margin:0 0 6px}
+.status p{margin:4px 0}
+.status .upd{font-size:12px;color:var(--muted);margin-top:10px}
+.alert{border-left:3px solid var(--accent);padding:4px 0 4px 12px;margin-top:12px;font-size:14px}
+.timeline{display:flex;overflow-x:auto;margin:14px 0 6px;scrollbar-width:thin;border-top:1px solid var(--line)}
+.step{flex:0 0 auto;min-width:128px;padding:10px 14px 10px 0;font-size:12.5px;color:var(--muted);position:relative}
+.step:before{content:"";position:absolute;top:-4px;left:0;width:7px;height:7px;border-radius:50%;background:var(--line)}
+.step b{display:block;font-size:11.5px;font-weight:600;letter-spacing:.02em}
+.step.done{color:var(--ink)} .step.done:before{background:var(--ink)}
+.step.now{color:var(--accent)} .step.now:before{background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.tabs{display:flex;gap:18px;overflow-x:auto;border-bottom:1px solid var(--line);margin:26px 0 16px}
+.tab{white-space:nowrap;background:none;border:0;padding:10px 0;font:inherit;font-weight:500;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab[aria-selected=true]{color:var(--ink);border-color:var(--accent)}
+.tab .n{font-size:11px;color:var(--accent);margin-left:4px;font-weight:600}
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:12px}
+.filters input,.filters select{font:inherit;font-size:14px;padding:9px 0;border:0;border-bottom:1px solid var(--line);border-radius:0;background:transparent;color:var(--ink);outline:none}
+.filters input:focus,.filters select:focus{border-color:var(--accent)}
+.filters input{flex:1 1 240px}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:8px;margin-bottom:6px}
+.chip{flex:0 0 auto;font:inherit;font-size:12.5px;border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:0;padding:5px 12px;cursor:pointer}
+.chip[aria-pressed=true]{background:var(--accent);color:#fff;border-color:var(--accent)}
+.count{font-size:12px;color:var(--muted);margin:6px 0 4px;text-transform:uppercase;letter-spacing:.1em}
+.card{padding:20px 0;border-bottom:1px solid var(--line)}
+.card .top{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px;margin-bottom:6px;font-size:12.5px}
+.num{font-weight:600;font-variant-numeric:tabular-nums}
+.badge{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;white-space:nowrap}
+.b-adopte{color:var(--ink)} .b-adopte:before{content:"● ";color:var(--accent)}
+.b-rejete,.b-supprime{color:var(--ko)} .b-rejete:before,.b-supprime:before{content:"○ "}
+.b-attente{color:var(--info)} .b-attente:before{content:"◐ "}
+.b-gouv{color:var(--muted);font-weight:500;text-transform:none;letter-spacing:0}
+.b-new{background:var(--accent);color:#fff;padding:1px 6px}
+.theme{font-size:12px;color:var(--muted)}
+.card h3{font-size:18px;font-weight:500;margin:2px 0 6px;line-height:1.35;letter-spacing:-.01em}
+.meta{font-size:12.5px;color:var(--muted)}
+.card p{margin:8px 0 0}
+.pratique{margin-top:12px;padding:2px 0 2px 14px;border-left:2px solid var(--accent);font-size:14px}
+.pratique strong{color:var(--accent);font-weight:600}
+.src{font-size:12.5px;margin-top:10px}
+.src a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent)}
+.actu{border-left:1px solid var(--line);padding:0 0 20px 18px;margin-left:3px;position:relative}
+.actu:before{content:"";position:absolute;left:-4px;top:6px;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.actu .d{font-size:11.5px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.actu h4{margin:2px 0 4px;font-size:16px;font-weight:500}
+.actu p{margin:0;font-size:14px;color:var(--ink)}
+.empty{padding:32px 0;color:var(--muted)}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+.brief-date{font-size:11.5px;color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:.12em}
+.brief h2{font-weight:300;font-size:24px;letter-spacing:-.01em;margin:4px 0 8px}
+.brief .intro{color:var(--muted);margin:0 0 14px}
+.brief ol{list-style:none;padding:0;margin:0;counter-reset:b}
+.brief li{counter-increment:b;padding:12px 0 12px 34px;border-bottom:1px solid var(--line);position:relative}
+.brief li:before{content:counter(b,decimal-leading-zero);position:absolute;left:0;top:13px;font-size:12px;font-weight:600;color:var(--accent)}
+.brief li .ref{font-size:12px;color:var(--muted);display:block;margin-top:2px}
+.brief li a{color:inherit;text-decoration:none;border-bottom:1px solid var(--accent);cursor:pointer}
+.past{margin-top:28px}
+.past summary{cursor:pointer;font-size:13px;color:var(--muted);padding:8px 0}
+.past .brief{padding-top:14px;margin-top:6px;border-top:1px solid var(--line)}
+.past .brief h2{font-size:18px}
+.search-box{position:relative;margin:4px 0 10px}
+.search-box input{width:100%;font:inherit;font-size:20px;font-weight:300;padding:14px 40px 14px 0;border:0;border-bottom:2px solid var(--ink);background:transparent;color:var(--ink);outline:none;border-radius:0}
+.search-box input:focus{border-color:var(--accent)}
+.search-box button{position:absolute;right:0;top:12px;border:0;background:none;font-size:22px;color:var(--muted);cursor:pointer;padding:4px 6px}
+.hint{font-size:12.5px;color:var(--muted);margin:0 0 12px}
+.an-box{background:var(--soft);padding:14px 16px;margin:16px 0 4px}
+.an-box h4{margin:0 0 8px;font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);font-weight:600}
+.an-box a{display:block;padding:7px 0;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);font-size:14px}
+.an-box a:last-child{border-bottom:0}
+.an-box a:after{content:"  ↗";color:var(--accent)}
+.an-links{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;margin-top:10px}
+.an-links a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent)}
+.an-links a:after{content:" ↗";color:var(--accent);font-size:11px}
+mark{background:var(--accent-soft);color:inherit;padding:0 1px}
+@media (min-width:1024px){
+  .wrap{max-width:1280px;padding:40px 48px 80px}
+  header h1{font-size:44px;max-width:900px}
+  .sub{font-size:16px}
+  .layout{display:grid;grid-template-columns:300px minmax(0,1fr);gap:56px;align-items:start}
+  .side{position:sticky;top:24px;max-height:calc(100vh - 48px);overflow:auto}
+  .status{margin-top:0}
+  .timeline{flex-direction:column;overflow:visible;border-top:0;border-left:1px solid var(--line);margin:22px 0 0 4px}
+  .step{min-width:0;padding:0 0 18px 20px}
+  .step:before{top:5px;left:-4px}
+  .tabs{margin-top:0}
+  .tab{font-size:15.5px}
+  .search-box input{font-size:26px}
+  #s-results,#list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:40px}
+  .card h3{font-size:19px}
+  .brief h2{font-size:30px}
+  .brief ol{columns:2;column-gap:48px}
+  .brief li{break-inside:avoid}
+  .an-box{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:32px}
+  .an-box h4{grid-column:1/-1}
+  .an-box a:last-child{border-bottom:1px solid var(--line)}
+  #actus{columns:2;column-gap:48px}
+  .actu{break-inside:avoid}
+  .filters{flex-wrap:nowrap}
+  .chips{flex-wrap:wrap;overflow:visible}
+}
+@media (min-width:1500px){
+  .wrap{max-width:1440px}
+  #s-results,#list{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+.fd-it{display:block;width:100%;text-align:left;background:none;border:0;border-bottom:1px solid var(--line);padding:16px 0 16px 14px;font:inherit;color:var(--ink);cursor:pointer;position:relative}
+.fd-it:before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:2px;background:var(--accent)}
+.fd-it .d{font-size:11.5px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.fd-it b{display:block;font-size:17px;font-weight:500;line-height:1.35;margin:3px 0 4px}
+.fd-it small{display:block;color:var(--muted);font-size:13.5px}
+.fd-it:hover b{color:var(--accent)}
+.back{background:none;border:0;font:inherit;color:var(--accent);font-weight:600;cursor:pointer;padding:6px 0;margin-bottom:8px}
+.fd-detail h2{font-weight:300;font-size:26px;line-height:1.2;letter-spacing:-.01em;margin:6px 0 8px}
+.fd-detail .resume p{margin:0 0 10px}
+.fd-detail .ref{font-weight:600;white-space:nowrap}
+.sect{font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);margin:22px 0 8px}
+.refs{margin:0;padding-left:18px;font-size:14px}.refs li{margin:2px 0}
+.retenir{background:var(--accent-soft);padding:14px 16px;margin:18px 0}
+.retenir .bt{font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+.fcard{border:1px solid var(--line);margin-bottom:8px}
+.fcard summary{cursor:pointer;padding:12px 14px;font-weight:500;list-style:none}
+.fcard summary::-webkit-details-marker{display:none}
+.fcard summary:after{content:"+";float:right;color:var(--accent);font-weight:600}
+.fcard[open] summary:after{content:"–"}
+.fcard div{padding:0 14px 12px;color:var(--ink)}.fcard div p{margin:0}
+.quiz{border:1px solid var(--line);padding:14px;margin-bottom:10px}
+.quiz .q{font-weight:500;margin-bottom:10px}
+.quiz button{display:block;width:100%;text-align:left;font:inherit;font-size:14.5px;background:var(--soft);border:1px solid transparent;color:var(--ink);padding:10px 12px;margin-bottom:6px;cursor:pointer}
+.quiz button.ok{border-color:var(--ink);background:#fff;font-weight:600}
+.quiz button.ok:before{content:"✓  ";color:var(--accent)}
+.quiz button.ko{color:var(--ko);text-decoration:line-through}
+.quiz .e{font-size:13.5px;color:var(--muted);margin-top:6px}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">Veille législative · fiscalité des affaires</div>
+    <h1>PLF 2027 — les amendements qui comptent pour la pratique</h1>
+    <p class="sub">IS, groupes, transmission, apport-cession, reprise, management package, procédures. Mise à jour automatique chaque matin.</p>
+  </header>
+
+  <div class="layout">
+  <aside class="side">
+  <section class="status" id="status">
+    <h2 id="st-title">Chargement de l'état du texte…</h2>
+    <p id="st-text"></p>
+    <div id="st-alert" class="alert hidden"></div>
+    <p class="upd" id="st-upd"></p>
+  </section>
+
+  <div class="timeline" id="timeline"></div>
+  </aside>
+  <main class="main">
+
+  <nav class="tabs" role="tablist">
+    <button class="tab" role="tab" aria-selected="true" data-tab="brief">Le point du matin</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="search">Recherche</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="amdt">Amendements <span class="n" id="n-amdt">0</span></button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="actu">Fil d'actu <span class="n" id="n-actu">0</span></button>
+  </nav>
+
+  <section id="pane-brief"><div id="brief-now"></div><details class="past hidden" id="past"><summary>Points précédents</summary><div id="brief-past"></div></details></section>
+
+  <section id="pane-search" class="hidden">
+    <div class="search-box"><input id="sq" type="text" placeholder="Dutreil, 150-0 B ter, I-3089, holding…" autocomplete="off" enterkeyhint="search"><button id="sq-clear" aria-label="Effacer" class="hidden">×</button></div>
+    <p class="hint">Mot-clé, article du CGI ou du LPF, numéro d'amendement, auteur ou groupe. Les résultats s'affichent pendant la saisie.</p>
+    <div class="chips" id="sugg"></div>
+    <div class="count" id="s-count"></div>
+    <div id="s-results"></div>
+    <div class="an-box" id="an-box"></div>
+  </section>
+
+  <section id="pane-amdt" class="hidden">
+    <div class="chips" id="themes"></div>
+    <div class="filters">
+      <input id="q" type="search" placeholder="Rechercher : n°, article CGI, auteur, mot-clé…">
+      <select id="f-statut">
+        <option value="">Tous statuts</option>
+        <option value="adopte">Adoptés</option>
+        <option value="supprime">Articles supprimés</option>
+        <option value="rejete">Rejetés</option>
+        <option value="attente">En discussion</option>
+      </select>
+      <select id="f-tri">
+        <option value="date">Plus récents</option>
+        <option value="article">Par article du PLF</option>
+      </select>
+    </div>
+    <div class="count" id="count"></div>
+    <div id="list"></div>
+  </section>
+
+  <section id="pane-actu" class="hidden">
+    <div id="fd-list">
+      <p class="hint">Les actualités du PLF 2027 commentées pour la pratique, de la plus récente à la plus ancienne.</p>
+      <div class="filters"><input id="fq" type="text" placeholder="Rechercher dans les actualités…" autocomplete="off"></div>
+      <div class="chips" id="fd-th"></div>
+      <div id="actus"></div>
+    </div>
+    <div id="fd-detail" class="hidden"></div>
+  </section>
+
+  </main>
+  </div>
+
+  <footer>
+    Synthèse établie à partir du dossier législatif de l'Assemblée nationale et de la presse fiscale spécialisée.
+    Les votes de première lecture sont provisoires tant que la loi n'est pas promulguée : vérifier le texte de l'amendement avant tout conseil.
+  </footer>
+</div>
+
+<script src="data.js"></script>
+<script>
+const THEMES = {
+  is:"IS & groupes", invest:"Investissement & amortissements", transmission:"Transmission & Dutreil",
+  plusvalues:"Plus-values & apport-cession", reprise:"Reprise d'entreprise", distrib:"Dividendes & rachats",
+  salaries:"Actionnariat salarié & BSPCE", innovation:"Innovation (JEI, CIR, C3IV)", procedure:"Procédures & contrôle",
+  enreg:"Enregistrement & droits", international:"International", autre:"Autres"
+};
+const STATUTS = { adopte:["Adopté","b-adopte"], rejete:["Rejeté","b-rejete"], supprime:["Article supprimé","b-supprime"], attente:["En discussion","b-attente"] };
+let AMDT = [], ACTUS = [], META = null, theme = "", lastSeen = null;
+
+try { lastSeen = localStorage.getItem("plf27-lastseen"); } catch(e) {}
+function markSeen(){ try { localStorage.setItem("plf27-lastseen", new Date().toISOString()); } catch(e) {} }
+
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fdate = d => { if(!d) return ""; const x = new Date(d); return isNaN(x) ? esc(d) : x.toLocaleDateString("fr-FR",{day:"numeric",month:"short",year:"numeric"}); };
+const artNum = a => { const m = String(a.articlePLF||"").match(/(\d+)/); return m ? +m[1] : 999; };
+const safeUrl = u => /^https:\/\//.test(u||"") ? u : null;
+
+const AN_DOSSIER = "https://www.assemblee-nationale.fr/dyn/17/dossiers/PLF_2027";
+const AN_LISTE = "https://www.assemblee-nationale.fr/dyn/17/amendements?dossier_legislatif=DLR5L17N54629&examen=EXANR5L17PO838901B3210P1D1";
+const anUrl = (cf, n) => `https://www.assemblee-nationale.fr/dyn/17/amendements/3210A/${cf?"CION_FIN/CF":"AN/"}${n}`;
+function anRefs(num){ const out=[]; const re=/\bI-(CF)?(\d{1,5})\b/g; let m; while((m=re.exec(String(num||"")))) out.push({label:"I-"+(m[1]||"")+m[2], url:anUrl(!!m[1], m[2])}); return out; }
+const fold = t => String(t||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+const compact = t => fold(t).replace(/\b(articles?|art|cgi|lpf|n°|no)\b\.?/g,"").replace(/[^a-z0-9]/g,"");
+const SYN = {"apport cession":"150-0 b ter","dutreil":"787 b","exit tax":"167 bis","jei":"44 sexies","cir":"244 quater b","c3iv":"244 quater i","bspce":"163 bis g","aga":"80 quaterdecies","actions gratuites":"80 quaterdecies","rescrit":"l. 80 a","surtaxe":"art. 15","rachat":"rachat"};
+function haystack(a){ return [a.num,a.titre,a.objet,a.auteurs,a.groupe,a.articlePLF,a.cgi,a.pratique,THEMES[a.theme],a.etape].join(" | "); }
+function matches(a, q){
+  if(!q) return true;
+  const h = fold(haystack(a)), hc = compact(haystack(a));
+  return fold(q).split(/\s+(?:et|\+)\s+|,/).every(part => {
+    part = part.trim(); if(!part) return true;
+    const syn = SYN[fold(part)];
+    if(syn && (h.includes(fold(syn)) || hc.includes(compact(syn)))) return true;
+    if(h.includes(part)) return true;
+    const c = compact(part); if(c.length>=2 && hc.includes(c)) return true;
+    return part.split(/\s+/).every(w => w.length<2 || h.includes(w));
+  });
+}
+function hl(text, q){
+  const t = esc(text); if(!q) return t;
+  const fq = fold(q).trim(), ft = fold(t);
+  const words = (fq.length>2 && ft.includes(fq) ? [fq] : fq.split(/[\s,]+/).filter(w => w.length>3)).map(w => w.replace(/[.*+?^${}()|[\]\\]/g,"\\$&"));
+  if(!words.length) return t;
+  const src = fold(t), re = new RegExp(words.join("|"),"g"); let out="", last=0, m;
+  while((m = re.exec(src))){ out += t.slice(last,m.index) + "<mark>" + t.slice(m.index, m.index+m[0].length) + "</mark>"; last = m.index+m[0].length; if(!m[0].length) re.lastIndex++; }
+  return out + t.slice(last);
+}
+function cardHtml(a, q){
+  const s = STATUTS[a.statut] || [esc(a.statut),"b-attente"];
+  const isNew = lastSeen && a.ajoute && a.ajoute > lastSeen;
+  const url = safeUrl(a.source), refs = anRefs(a.num);
+  return `<article class="card">
+      <div class="top">
+        <span class="num">${hl(a.num,q)}</span>
+        <span class="badge ${s[1]}">${s[0]}</span>
+        ${a.gouv ? `<span class="badge b-gouv">Avis gouv. : ${esc(a.gouv)}</span>`:""}
+        ${isNew ? `<span class="badge b-new">Nouveau</span>`:""}
+        <span class="theme">· ${esc(THEMES[a.theme]||a.theme)}</span>
+      </div>
+      <h3>${hl(a.titre,q)}</h3>
+      <div class="meta">${[a.articlePLF && "PLF "+hl(a.articlePLF,q), a.cgi && hl(a.cgi,q), a.auteurs && esc(a.auteurs) + (a.groupe? " ("+esc(a.groupe)+")":""), a.etape && esc(a.etape), a.date && fdate(a.date)].filter(Boolean).join(" · ")}</div>
+      <p>${hl(a.objet,q)}</p>
+      ${a.pratique ? `<div class="pratique"><strong>Pour la pratique — </strong>${hl(a.pratique,q)}</div>`:""}
+      <div class="an-links">${refs.length ? refs.map(r=>`<a href="${r.url}" target="_blank" rel="noopener">${r.label} sur assemblee-nationale.fr</a>`).join("") : `<a href="${AN_DOSSIER}" target="_blank" rel="noopener">Dossier PLF 2027 sur assemblee-nationale.fr</a>`}
+      ${url ? `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(a.sourceTitre||"Source")}</a>`:""}</div>
+    </article>`;
+}
+const SUGG = ["Dutreil","150-0 B ter","Suramortissement","Holding","Rachat d'actions","Exit tax","BSPCE","Pacte Papin","JEI","Crédit-vendeur","Rescrit","787 B"];
+let sTimer = null;
+function renderSearch(){
+  const q = $("#sq").value.trim();
+  $("#sq-clear").classList.toggle("hidden", !q);
+  $("#sugg").innerHTML = SUGG.map(w => `<button class="chip" data-s="${esc(w)}" aria-pressed="${fold(q)===fold(w)}">${esc(w)}</button>`).join("");
+  const rows = q ? AMDT.filter(a => matches(a,q)).sort((x,y)=>(x.statut==="adopte"?0:1)-(y.statut==="adopte"?0:1) || String(y.date||"").localeCompare(String(x.date||""))) : [];
+  $("#s-count").textContent = q ? (rows.length ? `${rows.length} résultat${rows.length>1?"s":""} dans la veille` : "Aucun résultat dans la veille") : "";
+  $("#s-results").innerHTML = rows.map(a => cardHtml(a,q)).join("");
+  const nm = q.match(/^(?:i-?)?(cf)?\s*-?\s*(\d{1,5})$/i);
+  const links = [];
+  if(nm) links.push([anUrl(!!nm[1], nm[2]), `Ouvrir l'amendement I-${nm[1]?"CF":""}${nm[2]} sur le site de l'Assemblée`]);
+  if(q && !nm) links.push([`https://www.google.com/search?q=${encodeURIComponent('site:assemblee-nationale.fr/dyn/17/amendements/3210A "'+q+'"')}`, `Tous les amendements du PLF 2027 mentionnant « ${q} »`]);
+  links.push([AN_LISTE, "Liste complète des amendements de la 1re partie (séance)"]);
+  links.push([AN_LISTE + "&sort=Adopt%C3%A9", "Amendements adoptés en premier"]);
+  links.push([AN_DOSSIER, "Dossier législatif du PLF 2027"]);
+  $("#an-box").innerHTML = `<h4>Sur le site de l'Assemblée nationale</h4>` + links.map(([u,t]) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)}</a>`).join("");
+}
+function renderThemes(){
+  const counts = {}; AMDT.forEach(a => counts[a.theme] = (counts[a.theme]||0)+1);
+  const keys = Object.keys(THEMES).filter(k => counts[k]);
+  $("#themes").innerHTML = `<button class="chip" aria-pressed="${!theme}" data-t="">Tous (${AMDT.length})</button>` +
+    keys.map(k => `<button class="chip" aria-pressed="${theme===k}" data-t="${k}">${THEMES[k]} (${counts[k]})</button>`).join("");
+}
+function renderList(){
+  const q = $("#q").value.trim().toLowerCase(), st = $("#f-statut").value, tri = $("#f-tri").value;
+  let rows = AMDT.filter(a => (!theme || a.theme===theme) && (!st || a.statut===st) &&
+    matches(a,q));
+  rows.sort(tri==="article" ? (x,y)=>artNum(x)-artNum(y) || String(x.num).localeCompare(y.num) : (x,y)=>String(y.date||"").localeCompare(String(x.date||"")));
+  $("#count").textContent = rows.length + (rows.length>1?" amendements":" amendement");
+  if(!rows.length){ $("#list").innerHTML = `<div class="empty">${AMDT.length ? "Aucun amendement ne correspond à ces filtres." : "Aucun amendement enregistré pour l'instant."}</div>`; return; }
+  $("#list").innerHTML = rows.map(a => cardHtml(a,"")).join("");
+}
+let fdTheme="";
+function renderActus(){
+  const q = fold($("#fq").value.trim());
+  const rows = [...ACTUS].sort((x,y)=>String(y.date).localeCompare(String(x.date)));
+  $("#n-actu").textContent = rows.length;
+  const counts={}; rows.forEach(a=>counts[a.theme]=(counts[a.theme]||0)+1);
+  $("#fd-th").innerHTML = `<button class="chip" data-fth="" aria-pressed="${!fdTheme}">Toutes (${rows.length})</button>` + Object.keys(THEMES).filter(k=>counts[k]).map(k=>`<button class="chip" data-fth="${k}" aria-pressed="${fdTheme===k}">${THEMES[k]} (${counts[k]})</button>`).join("");
+  const strip = h => String(h||"").replace(/<[^>]+>/g," ");
+  const vis = rows.filter(a => (!fdTheme || a.theme===fdTheme) && (!q || fold([a.titre,strip(a.resume||a.texte),a.retenir,(a.refs||[]).join(" "),a.sourceTitre].join(" ")).includes(q)));
+  $("#actus").innerHTML = vis.length ? vis.map(a => `<button class="fd-it" data-fd="${esc(a.id)}">
+      <span class="d">${fdate(a.date)} · ${esc(THEMES[a.theme]||"Actualité")}</span>
+      <b>${esc(a.titre)}</b><small>${esc(a.retenir || a.texte || "")}</small></button>`).join("")
+    : `<div class="empty">${rows.length ? "Aucune actualité ne correspond." : "Pas encore d'actualité."}</div>`;
+}
+function openActu(id){
+  const a = ACTUS.find(x=>x.id===id); if(!a) return;
+  const url = safeUrl(a.source);
+  const resume = a.resume ? String(a.resume).replace(/<(?!\/?(p|b|i|ul|li|span)( class="ref")?>)[^>]*>/g,"") : `<p>${esc(a.texte||"")}</p>`;
+  $("#fd-detail").innerHTML = `<div class="fd-detail">
+    <button class="back" data-fdback>← Toutes les actualités</button>
+    <div class="brief-date">${fdate(a.date)} · ${esc(THEMES[a.theme]||"Actualité")}</div>
+    <h2>${esc(a.titre)}</h2>
+    <div class="meta">${esc(a.sourceTitre||"")}</div>
+    <div class="sect">Fiche</div><div class="resume">${resume}</div>
+    ${a.retenir?`<div class="retenir"><div class="bt">À retenir pour le conseil</div>${esc(a.retenir)}</div>`:""}
+    ${(a.refs||[]).length?`<div class="sect">Références</div><ul class="refs">${a.refs.map(r=>`<li>${esc(r)}</li>`).join("")}</ul>`:""}
+    ${(a.amdts||[]).length?`<div class="sect">Amendements liés</div><div class="chips" style="flex-wrap:wrap">${a.amdts.map(k=>`<button class="chip" data-goto="${esc(k)}">${esc(k)} →</button>`).join("")}</div>`:""}
+    ${(a.cards||[]).length?`<div class="sect">Cartes</div>${a.cards.map(c=>`<details class="fcard"><summary>${esc(c.q)}</summary><div>${String(c.a||"").replace(/<(?!\/?(p|b|i|ul|li)>)[^>]*>/g,"")}</div></details>`).join("")}`:""}
+    ${(a.qcm||[]).length?`<div class="sect">Quiz</div>${a.qcm.map((q,i)=>`<div class="quiz" data-qz="${i}"><div class="q">${esc(q.q)}</div>${q.o.map((o,j)=>`<button data-qo="${j}">${esc(o)}</button>`).join("")}<div class="e hidden">${esc(q.e||"")}</div></div>`).join("")}`:""}
+    ${url?`<div class="an-links" style="margin-top:18px"><a href="${esc(url)}" target="_blank" rel="noopener">Lire l'article original — ${esc(a.sourceTitre||"source")}</a></div>`:""}
+  </div>`;
+  $("#fd-detail").dataset.id = id;
+  $("#fd-list").classList.add("hidden"); $("#fd-detail").classList.remove("hidden");
+  showPane("actu"); window.scrollTo({top:$(".tabs").offsetTop-10});
+}
+function closeActu(){ $("#fd-detail").classList.add("hidden"); $("#fd-list").classList.remove("hidden"); }
+function renderMeta(){
+  if(!META){ return; }
+  $("#st-title").textContent = META.titre || "État du texte";
+  $("#st-text").textContent = META.texte || "";
+  const al = $("#st-alert"); if(META.alerte){ al.textContent = META.alerte; al.classList.remove("hidden"); } else al.classList.add("hidden");
+  $("#st-upd").textContent = META.majLe ? "Dernière mise à jour : " + new Date(META.majLe).toLocaleString("fr-FR",{dateStyle:"long",timeStyle:"short"}) : "";
+  const steps = Array.isArray(META.etapes) ? META.etapes : [];
+  $("#timeline").innerHTML = steps.map(s => `<div class="step ${s.etat==="fait"?"done":s.etat==="encours"?"now":""}"><b>${esc(s.date)}</b>${esc(s.label)}</div>`).join("");
+}
+function showPane(name){
+  document.querySelectorAll(".tab").forEach(b => b.setAttribute("aria-selected", b.dataset.tab===name));
+  if(name==="search") setTimeout(()=>$("#sq").focus(),50);
+  ["brief","search","amdt","actu"].forEach(p => $("#pane-"+p).classList.toggle("hidden", p!==name));
+}
+function gotoAmdt(q){ $("#sq").value=q; renderSearch(); showPane("search"); window.scrollTo({top:$(".tabs").offsetTop-10,behavior:"smooth"}); }
+let BRIEFS = [];
+function briefHtml(b){
+  const items = Array.isArray(b.items)?b.items:[];
+  return `<div class="brief"><div class="brief-date">${b.date?new Date(b.date+"T08:00:00").toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long"}):""}</div>
+    <h2>${esc(b.titre||"Le point du matin")}</h2>${b.intro?`<p class="intro">${esc(b.intro)}</p>`:""}
+    <ol>${items.map(i=>`<li>${esc(i.phrase)}${i.num?`<span class="ref"><a data-goto="${esc(i.cle||i.num)}">${esc(i.num)}</a></span>`:""}</li>`).join("")}</ol></div>`;
+}
+function renderBriefs(){
+  const rows=[...BRIEFS].sort((x,y)=>String(y.date).localeCompare(String(x.date)));
+  $("#brief-now").innerHTML = rows.length ? briefHtml(rows[0]) : `<div class="empty">Le premier point du matin arrive demain.</div>`;
+  $("#past").classList.toggle("hidden", rows.length<2);
+  $("#brief-past").innerHTML = rows.slice(1,15).map(briefHtml).join("");
+}
+function render(){ $("#n-amdt").textContent = AMDT.length; renderThemes(); renderList(); renderSearch(); }
+
+document.addEventListener("click", e => {
+  const r = e.target.closest("[data-goto]"); if(r){ e.preventDefault(); gotoAmdt(r.dataset.goto); return; }
+  const fd = e.target.closest("[data-fd]"); if(fd){ openActu(fd.dataset.fd); return; }
+  if(e.target.closest("[data-fdback]")){ closeActu(); return; }
+  const fth = e.target.closest("[data-fth]"); if(fth){ fdTheme = fth.dataset.fth; renderActus(); return; }
+  const qo = e.target.closest("[data-qo]"); if(qo){ const box = qo.closest(".quiz"); if(box.dataset.done) return; box.dataset.done="1";
+    const a = ACTUS.find(x=>x.id===$("#fd-detail").dataset.id); const q = a.qcm[+box.dataset.qz];
+    box.querySelectorAll("[data-qo]").forEach(b=>{ const j=+b.dataset.qo; if(j===q.c) b.classList.add("ok"); else if(b===qo) b.classList.add("ko"); });
+    box.querySelector(".e").classList.remove("hidden"); return; }
+  const sg = e.target.closest("[data-s]"); if(sg){ $("#sq").value = sg.dataset.s; renderSearch(); return; }
+  if(e.target.closest("#sq-clear")){ $("#sq").value=""; renderSearch(); $("#sq").focus(); return; }
+  const c = e.target.closest(".chip"); if(c){ theme = c.dataset.t; render(); return; }
+  const t = e.target.closest(".tab"); if(t){
+    document.querySelectorAll(".tab").forEach(b => b.setAttribute("aria-selected", b===t));
+    if(t.dataset.tab==="actu") closeActu();
+    showPane(t.dataset.tab);
+  }
+});
+["#q","#f-statut","#f-tri"].forEach(s => $(s).addEventListener("input", renderList));
+$("#fq").addEventListener("input", renderActus);
+$("#sq").addEventListener("input", () => { clearTimeout(sTimer); sTimer = setTimeout(renderSearch, 80); });
+
+(function init(){
+  const V = window.VEILLE || {};
+  META = V.meta || null; AMDT = Array.isArray(V.amendements) ? V.amendements : [];
+  BRIEFS = Array.isArray(V.briefs) ? V.briefs : []; ACTUS = Array.isArray(V.actus) ? V.actus : [];
+  if(!META){ $("#st-title").textContent = "Données indisponibles"; $("#st-text").textContent = "Le fichier de la veille (data.js) n'a pas pu être chargé."; }
+  renderMeta(); render(); renderActus(); renderBriefs();
+  const h = location.hash.slice(1); if(["brief","search","amdt","actu"].includes(h)) showPane(h);
+  window.addEventListener("pagehide", markSeen);
+  document.addEventListener("visibilitychange", () => { if(document.visibilityState==="hidden") markSeen(); });
+})();
+</script>
+</body>
+</html>
