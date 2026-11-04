@@ -148,7 +148,7 @@ window.VEILLE = {
    "num": "I-2200",
    "titre": "Plus-values à long terme : coordination du sous-compte titres avec les dépréciations",
    "objet": "Coordination à l'art. 39, 1-5° du CGI entre le sous-compte des titres relevant du régime des plus-values à long terme et les règles de dépréciation.",
-   "pratique": "Mesure technique pour les holdings détenant des titres de participation : revoir le traitement des dépréciations sur titres éligibles.",
+   "pratique": "Mesure technique pour les holdings détenant des titres de participation : revoir le traitement des dépréciations sur titres éligibles. Voisin du régime de la quote-part de frais et charges sur les plus-values de titres de participation (art. 219, I-a quinquies).",
    "statut": "adopte",
    "articlePLF": "après art. 9",
    "cgi": "CGI art. 39, 1-5°",
@@ -712,6 +712,44 @@ window.VEILLE = {
    "source": "https://www.legifiscal.fr/actualites-fiscales/4709-plf-2027-taxe-holdings-deputes-veulent-entrer-tresorerie-dormante.html",
    "sourceTitre": "Legifiscal — 30 oct. 2026",
    "ajoute": "2026-11-04T07:24:26Z"
+  },
+  {
+   "id": "I-CF1737",
+   "num": "I-CF1737",
+   "titre": "« Niche Copé » : quote-part de frais et charges portée de 12 % à 16 % sur les plus-values de titres de participation",
+   "objet": "Les plus-values de cession de titres de participation sont exonérées d'IS (CGI art. 219, I-a quinquies) sous réserve de réintégrer une quote-part de frais et charges de 12 %. L'amendement la porterait à 16 % pour les exercices clos à compter du 31 décembre 2027. La commission a en revanche écarté la suppression pure et simple de la niche Copé.",
+   "pratique": "Adopté en commission seulement : la séance repart du texte du Gouvernement et son sort en séance n'est pas confirmé à ce stade. La même hausse avait été votée en commission en 2024 puis abandonnée. À surveiller pour les cessions de filiales programmées en 2027.",
+   "statut": "adopte",
+   "articlePLF": "après art. 9",
+   "cgi": "CGI art. 219, I-a quinquies",
+   "auteurs": "Mattei",
+   "groupe": "Les Démocrates",
+   "gouv": "",
+   "theme": "is",
+   "etape": "Commission des finances (sort en séance non confirmé)",
+   "date": "2026-10-08",
+   "source": "https://www.maxcompta.com/blogs/actualites/budget-2027-commission-finances-rejet-partie-recettes",
+   "sourceTitre": "Max Compta — 11 oct. 2026",
+   "ajoute": "2026-11-04T07:27:40Z"
+  },
+  {
+   "id": "I-CF46",
+   "num": "I-CF46",
+   "titre": "Régime mère-fille : seuil de détention relevé de 5 % à 10 %",
+   "objet": "L'amendement relèverait de 5 % à 10 % le seuil de détention du capital ouvrant droit au régime mère-fille et supprimerait l'assouplissement de 2015 (2,5 % du capital et 5 % des droits de vote dans certains cas). Rappel : seule une quote-part de frais et charges de 5 % des dividendes est imposée, 1 % au sein d'un groupe intégré.",
+   "pratique": "Sort de l'amendement non confirmé dans les sources consultées. S'il prospérait, les participations comprises entre 5 % et 10 % sortiraient du régime : à recenser dans les portefeuilles des holdings.",
+   "statut": "inconnu",
+   "articlePLF": "après art. 9",
+   "cgi": "CGI art. 145 et 216",
+   "auteurs": "",
+   "groupe": "",
+   "gouv": "",
+   "theme": "is",
+   "etape": "Commission des finances (sort non confirmé)",
+   "date": "2026-10-04",
+   "source": "https://www.assemblee-nationale.fr/dyn/17/amendements/3210A/CION_FIN/CF46",
+   "sourceTitre": "Assemblée nationale — I-CF46",
+   "ajoute": "2026-11-04T07:27:40Z"
   }
  ],
  "briefs": [
@@ -729,6 +767,11 @@ window.VEILLE = {
      "phrase": "Holdings patrimoniales : la taxe de l'art. 235 ter C s'étendrait à la trésorerie et aux placements au taux de 2 %, sauf réinvestissement sous trois ans, contre l'avis du Gouvernement.",
      "num": "I-3807",
      "cle": "I-3807"
+    },
+    {
+     "phrase": "Niche Copé : la commission avait porté la quote-part de frais et charges de 12 % à 16 % sur les plus-values de titres de participation ; son sort en séance n'est pas confirmé.",
+     "num": "I-CF1737",
+     "cle": "quote-part"
     },
     {
      "phrase": "Correction : l'abattement de 500 000 € du dirigeant partant serait ouvert aux associés de sociétés d'exercice libéral, et non à toutes les sociétés de personnes.",

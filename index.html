@@ -155,6 +155,11 @@ mark{background:var(--accent-soft);color:inherit;padding:0 1px}
 .quiz button.ok:before{content:"✓  ";color:var(--accent)}
 .quiz button.ko{color:var(--ko);text-decoration:line-through}
 .quiz .e{font-size:13.5px;color:var(--muted);margin-top:6px}
+.empty-s{background:var(--soft);padding:16px;margin:6px 0 10px;font-size:14.5px}
+.empty-s b{display:block;margin-bottom:4px;font-size:15.5px}
+.empty-s .btn{display:inline-block;margin-top:12px;background:var(--accent);color:#fff;text-decoration:none;padding:10px 14px;font-weight:600}
+body.searching .side{display:none}
+@media (min-width:1024px){ body.searching .layout{grid-template-columns:minmax(0,1fr)} }
 .hidden{display:none}
 </style>
 </head>
@@ -248,7 +253,7 @@ const THEMES = {
   salaries:"Actionnariat salarié & BSPCE", innovation:"Innovation (JEI, CIR, C3IV)", procedure:"Procédures & contrôle",
   enreg:"Enregistrement & droits", international:"International", autre:"Autres"
 };
-const STATUTS = { adopte:["Adopté","b-adopte"], rejete:["Rejeté","b-rejete"], supprime:["Article supprimé","b-supprime"], attente:["En discussion","b-attente"] };
+const STATUTS = { adopte:["Adopté","b-adopte"], rejete:["Rejeté","b-rejete"], supprime:["Article supprimé","b-supprime"], attente:["En discussion","b-attente"], inconnu:["Sort non confirmé","b-attente"] };
 let AMDT = [], ACTUS = [], META = null, theme = "", lastSeen = null;
 
 try { lastSeen = localStorage.getItem("plf27-lastseen"); } catch(e) {}
@@ -266,7 +271,7 @@ const anUrl = (cf, n) => `https://www.assemblee-nationale.fr/dyn/17/amendements/
 function anRefs(num){ const out=[]; const re=/\bI-(CF)?(\d{1,5})\b/g; let m; while((m=re.exec(String(num||"")))) out.push({label:"I-"+(m[1]||"")+m[2], url:anUrl(!!m[1], m[2])}); return out; }
 const fold = t => String(t||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
 const compact = t => fold(t).replace(/\b(articles?|art|cgi|lpf|n°|no)\b\.?/g,"").replace(/[^a-z0-9]/g,"");
-const SYN = {"apport cession":"150-0 b ter","dutreil":"787 b","exit tax":"167 bis","jei":"44 sexies","cir":"244 quater b","c3iv":"244 quater i","bspce":"163 bis g","aga":"80 quaterdecies","actions gratuites":"80 quaterdecies","rescrit":"l. 80 a","surtaxe":"art. 15","rachat":"rachat"};
+const SYN = {"quote-part":"quote-part","quote part":"quote-part","qpfc":"quote-part","niche cope":"quote-part","titres de participation":"219","mere-fille":"mère-fille","mere fille":"mère-fille","regime mere":"mère-fille","holding animatrice":"787 b","tresorerie":"235 ter c","holdings patrimoniales":"235 ter c","apport cession":"150-0 b ter","dutreil":"787 b","exit tax":"167 bis","jei":"44 sexies","cir":"244 quater b","c3iv":"244 quater i","bspce":"163 bis g","aga":"80 quaterdecies","actions gratuites":"80 quaterdecies","rescrit":"l. 80 a","surtaxe":"art. 15","rachat":"rachat"};
 function haystack(a){ return [a.num,a.titre,a.objet,a.auteurs,a.groupe,a.articlePLF,a.cgi,a.pratique,THEMES[a.theme],a.etape].join(" | "); }
 function matches(a, q){
   if(!q) return true;
@@ -314,10 +319,12 @@ let sTimer = null;
 function renderSearch(){
   const q = $("#sq").value.trim();
   $("#sq-clear").classList.toggle("hidden", !q);
+  document.body.classList.toggle("searching", !!q);
   $("#sugg").innerHTML = SUGG.map(w => `<button class="chip" data-s="${esc(w)}" aria-pressed="${fold(q)===fold(w)}">${esc(w)}</button>`).join("");
-  const rows = q ? AMDT.filter(a => matches(a,q)).sort((x,y)=>(x.statut==="adopte"?0:1)-(y.statut==="adopte"?0:1) || String(y.date||"").localeCompare(String(x.date||""))) : [];
-  $("#s-count").textContent = q ? (rows.length ? `${rows.length} résultat${rows.length>1?"s":""} dans la veille` : "Aucun résultat dans la veille") : "";
-  $("#s-results").innerHTML = rows.map(a => cardHtml(a,q)).join("");
+  const inTitle = a => matches({titre:a.titre,cgi:a.cgi,num:a.num}, q) ? 0 : 1;
+  const rows = q ? AMDT.filter(a => matches(a,q)).sort((x,y)=> inTitle(x)-inTitle(y) || (x.statut==="adopte"?0:1)-(y.statut==="adopte"?0:1) || String(y.date||"").localeCompare(String(x.date||""))) : [];
+  $("#s-count").textContent = q ? (rows.length ? `${rows.length} résultat${rows.length>1?"s":""} dans la veille` : "") : "";
+  $("#s-results").innerHTML = (q && !rows.length) ? `<div class="empty-s"><b>Rien sur « ${esc(q)} » dans la veille.</b> La veille ne retient que les amendements les plus importants pour la pratique. Pour voir tous les amendements déposés sur le PLF 2027 qui en parlent, adoptés ou non :<a class="btn" href="https://www.google.com/search?q=${encodeURIComponent('site:assemblee-nationale.fr/dyn/17/amendements/3210A "'+q+'"')}" target="_blank" rel="noopener">Chercher « ${esc(q)} » sur assemblee-nationale.fr ↗</a></div>` : rows.map(a => cardHtml(a,q)).join("");
   const nm = q.match(/^(?:i-?)?(cf)?\s*-?\s*(\d{1,5})$/i);
   const links = [];
   if(nm) links.push([anUrl(!!nm[1], nm[2]), `Ouvrir l'amendement I-${nm[1]?"CF":""}${nm[2]} sur le site de l'Assemblée`]);
