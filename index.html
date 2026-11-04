@@ -84,6 +84,10 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-si
 .search-box input:focus{border-color:var(--accent)}
 .search-box button{position:absolute;right:0;top:12px;border:0;background:none;font-size:22px;color:var(--muted);cursor:pointer;padding:4px 6px}
 .hint{font-size:12.5px;color:var(--muted);margin:0 0 12px}
+.search-box.top{margin:6px 0 18px;padding-left:30px}
+.search-box.top .lens{position:absolute;left:0;top:10px;font-size:24px;color:var(--accent)}
+.search-box.top input{font-size:18px;padding:12px 40px 12px 0;border-bottom:2px solid var(--accent)}
+.search-box.top button{top:9px}
 .an-box{background:var(--soft);padding:14px 16px;margin:16px 0 4px}
 .an-box h4{margin:0 0 8px;font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--accent);font-weight:600}
 .an-box a{display:block;padding:7px 0;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);font-size:14px}
@@ -105,7 +109,8 @@ mark{background:var(--accent-soft);color:inherit;padding:0 1px}
   .step:before{top:5px;left:-4px}
   .tabs{margin-top:0}
   .tab{font-size:15.5px}
-  .search-box input{font-size:26px}
+  .search-box.top input{font-size:22px}
+  .search-box.top{max-width:900px}
   #s-results,#list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:40px}
   .card h3{font-size:19px}
   .brief h2{font-size:30px}
@@ -160,6 +165,11 @@ mark{background:var(--accent-soft);color:inherit;padding:0 1px}
     <h1>PLF 2027 — les amendements qui comptent pour la pratique</h1>
     <p class="sub">IS, groupes, transmission, apport-cession, reprise, management package, procédures. Mise à jour automatique chaque matin.</p>
   </header>
+  <div class="search-box top" role="search">
+    <span class="lens" aria-hidden="true">⌕</span>
+    <input id="sq" type="text" placeholder="Dutreil, 150-0 B ter, I-3089…" autocomplete="off" enterkeyhint="search" aria-label="Rechercher dans la veille">
+    <button id="sq-clear" aria-label="Effacer" class="hidden">×</button>
+  </div>
 
   <div class="layout">
   <aside class="side">
@@ -184,8 +194,7 @@ mark{background:var(--accent-soft);color:inherit;padding:0 1px}
   <section id="pane-brief"><div id="brief-now"></div><details class="past hidden" id="past"><summary>Points précédents</summary><div id="brief-past"></div></details></section>
 
   <section id="pane-search" class="hidden">
-    <div class="search-box"><input id="sq" type="text" placeholder="Dutreil, 150-0 B ter, I-3089, holding…" autocomplete="off" enterkeyhint="search"><button id="sq-clear" aria-label="Effacer" class="hidden">×</button></div>
-    <p class="hint">Mot-clé, article du CGI ou du LPF, numéro d'amendement, auteur ou groupe. Les résultats s'affichent pendant la saisie.</p>
+    <p class="hint">Tape dans la barre de recherche en haut de la page : mot-clé, article du CGI ou du LPF, numéro d'amendement, auteur ou groupe. Les résultats s'affichent pendant la saisie. Ou touche une suggestion :</p>
     <div class="chips" id="sugg"></div>
     <div class="count" id="s-count"></div>
     <div id="s-results"></div>
@@ -380,7 +389,7 @@ function renderMeta(){
 }
 function showPane(name){
   document.querySelectorAll(".tab").forEach(b => b.setAttribute("aria-selected", b.dataset.tab===name));
-  if(name==="search") setTimeout(()=>$("#sq").focus(),50);
+  if(name==="search" && !$("#sq").value.trim()) setTimeout(()=>{ window.scrollTo({top:$("#sq").getBoundingClientRect().top+window.scrollY-20,behavior:"smooth"}); $("#sq").focus(); },50);
   ["brief","search","amdt","actu"].forEach(p => $("#pane-"+p).classList.toggle("hidden", p!==name));
 }
 function gotoAmdt(q){ $("#sq").value=q; renderSearch(); showPane("search"); window.scrollTo({top:$(".tabs").offsetTop-10,behavior:"smooth"}); }
@@ -419,7 +428,9 @@ document.addEventListener("click", e => {
 });
 ["#q","#f-statut","#f-tri"].forEach(s => $(s).addEventListener("input", renderList));
 $("#fq").addEventListener("input", renderActus);
-$("#sq").addEventListener("input", () => { clearTimeout(sTimer); sTimer = setTimeout(renderSearch, 80); });
+$("#sq").addEventListener("input", () => { clearTimeout(sTimer); sTimer = setTimeout(renderSearch, 80); if($("#pane-search").classList.contains("hidden")) showPane("search"); });
+$("#sq").addEventListener("focus", () => { if($("#sq").value.trim()) showPane("search"); });
+$("#sq").addEventListener("keydown", e => { if(e.key==="Enter"){ e.preventDefault(); renderSearch(); showPane("search"); $("#sq").blur(); window.scrollTo({top:$(".tabs").offsetTop-10,behavior:"smooth"}); } });
 
 (function init(){
   const V = window.VEILLE || {};
