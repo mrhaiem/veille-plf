@@ -1,9 +1,9 @@
 window.VEILLE = {
  "meta": {
-  "titre": "1re lecture à l'Assemblée — vote solennel sur la 1re partie ce mardi 3 novembre",
-  "texte": "Les députés ont achevé l'examen en séance de la partie « recettes » (13 oct. – 2 nov.). Plusieurs mesures phares du Gouvernement ont été supprimées (surtaxe d'IS, rabot de l'abattement retraités) et de nombreux articles additionnels votés, souvent contre l'avis du Gouvernement.",
-  "alerte": "Si la 1re partie est rejetée au vote solennel, tous les amendements ci-dessous tombent et le Sénat repartira du texte initial du Gouvernement. Le recours au 49.3 reste possible.",
-  "majLe": "2026-11-03T15:30:00Z",
+  "titre": "1re lecture à l'Assemblée — vote sur la partie recettes reporté, examen prolongé jusqu'au 6 novembre",
+  "texte": "Faute d'avoir épuisé les quelque 3 400 amendements déposés, le vote solennel prévu le 3 novembre n'a pas eu lieu : la partie recettes sera mise aux voix à la fin de son examen, que l'Assemblée a programmé jusqu'au vendredi 6 novembre. Les amendements adoptés depuis le 13 octobre restent provisoires.",
+  "alerte": "Plusieurs groupes (RN, UDR, Horizons, DR) annoncent un rejet de la partie recettes : dans ce cas, tous les amendements ci-dessous tombent et le Sénat repartira du texte du Gouvernement. Le 49.3 reste possible.",
+  "majLe": "2026-11-04T07:24:26Z",
   "etapes": [
    {
     "date": "1er oct.",
@@ -22,17 +22,17 @@ window.VEILLE = {
    },
    {
     "date": "3 nov.",
-    "label": "Vote solennel 1re partie",
+    "label": "Vote solennel reporté",
+    "etat": "fait"
+   },
+   {
+    "date": "3 – 6 nov.",
+    "label": "Fin de l'examen de la 1re partie, puis vote",
     "etat": "encours"
    },
    {
-    "date": "3 – 16 nov.",
-    "label": "2e partie (dépenses)",
-    "etat": ""
-   },
-   {
     "date": "17 nov.",
-    "label": "Vote sur l'ensemble (AN)",
+    "label": "Date limite de la 1re lecture (AN)",
     "etat": ""
    },
    {
@@ -393,9 +393,9 @@ window.VEILLE = {
   {
    "id": "I-239",
    "num": "I-239",
-   "titre": "Abattement de 500 000 € du dirigeant partant étendu aux associés de sociétés de personnes",
-   "objet": "Extension de l'abattement fixe de l'art. 150-0 D ter aux associés de sociétés de personnes, pour les cessions réalisées à compter de 2027.",
-   "pratique": "Périmètre exact (sociétés visées, conditions de fonctions) à vérifier sur le texte de l'amendement.",
+   "titre": "Abattement de 500 000 € du dirigeant partant ouvert aux associés de sociétés d'exercice libéral",
+   "objet": "L'abattement fixe de l'art. 150-0 D ter, réservé aux dirigeants partant à la retraite, serait ouvert aux associés de sociétés d'exercice libéral, pour les cessions réalisées à compter de 2027.",
+   "pratique": "Intéresse directement les professions libérales (avocats, médecins, experts-comptables) qui cèdent leurs parts de SEL au départ à la retraite.",
    "statut": "adopte",
    "articlePLF": "après art. 5",
    "cgi": "CGI art. 150-0 D ter",
@@ -693,9 +693,55 @@ window.VEILLE = {
    "source": "https://blog.avocats.deloitte.fr/plf-2027-analyse-des-mesures-les-plus-significatives/",
    "sourceTitre": "Deloitte Société d'Avocats",
    "ajoute": "2026-11-03T15:20:00Z"
+  },
+  {
+   "id": "I-3807",
+   "num": "I-3807",
+   "titre": "Taxe sur les holdings patrimoniales étendue à la trésorerie et aux placements (2 %)",
+   "objet": "La taxe créée par la LF 2026 (CGI art. 235 ter C), limitée aux biens somptuaires taxés à 20 %, s'étendrait aux dépôts, comptes à terme, valeurs mobilières, OPC, contrats de capitalisation et créances, au taux de 2 %. Sont exclues les participations d'au moins 5 % dans des sociétés opérationnelles ou animatrices, les titres éligibles au PEA-PME, FCPR, FPCI et ELTIF, et les sommes réinvesties dans les trois ans.",
+   "pratique": "Pour une holding familiale qui conserve de la trésorerie sans projet, l'enjeu est réel (60 000 € par an pour 3 M€ placés). Documenter dès maintenant les projets de réinvestissement à trois ans et la qualification des participations.",
+   "statut": "adopte",
+   "articlePLF": "après art. 15",
+   "cgi": "CGI art. 235 ter C, II, A, 8° (nouveau)",
+   "auteurs": "Mattei",
+   "groupe": "Les Démocrates",
+   "gouv": "défavorable",
+   "theme": "is",
+   "etape": "AN séance 1re lecture",
+   "date": "2026-10-28",
+   "source": "https://www.legifiscal.fr/actualites-fiscales/4709-plf-2027-taxe-holdings-deputes-veulent-entrer-tresorerie-dormante.html",
+   "sourceTitre": "Legifiscal — 30 oct. 2026",
+   "ajoute": "2026-11-04T07:24:26Z"
   }
  ],
  "briefs": [
+  {
+   "date": "2026-11-04",
+   "titre": "Vote reporté, examen prolongé jusqu'à vendredi",
+   "intro": "Le vote sur la partie recettes n'a pas eu lieu le 3 novembre : l'Assemblée finit l'examen d'ici au 6 novembre et votera ensuite ; un rejet reste probable.",
+   "items": [
+    {
+     "phrase": "Le vote solennel du 3 novembre est reporté faute d'avoir épuisé les amendements : tout ce qui a été voté depuis le 13 octobre reste suspendu au vote final de la partie recettes.",
+     "num": "Calendrier",
+     "cle": "surtaxe"
+    },
+    {
+     "phrase": "Holdings patrimoniales : la taxe de l'art. 235 ter C s'étendrait à la trésorerie et aux placements au taux de 2 %, sauf réinvestissement sous trois ans, contre l'avis du Gouvernement.",
+     "num": "I-3807",
+     "cle": "I-3807"
+    },
+    {
+     "phrase": "Correction : l'abattement de 500 000 € du dirigeant partant serait ouvert aux associés de sociétés d'exercice libéral, et non à toutes les sociétés de personnes.",
+     "num": "I-239",
+     "cle": "I-239"
+    },
+    {
+     "phrase": "Rappel : le suramortissement 4.0, voté à 160 voix contre 4, reste la mesure entreprise la plus solide ; sécuriser les dates de commande ferme postérieures au 1er octobre 2026.",
+     "num": "I-3654",
+     "cle": "suramortissement"
+    }
+   ]
+  },
   {
    "date": "2026-11-03",
    "titre": "Jour de vote solennel sur la partie recettes",
@@ -741,13 +787,121 @@ window.VEILLE = {
  ],
  "actus": [
   {
+   "id": "2026-11-03-report",
+   "date": "2026-11-03",
+   "titre": "Le vote sur la partie recettes reporté : l'Assemblée poursuit l'examen jusqu'au 6 novembre",
+   "source": "https://projetarcadie.com/budget-2027-pas-de-vote-solennel/",
+   "sourceTitre": "Projet Arcadie — 3 nov. 2026",
+   "theme": "autre",
+   "resume": "<p>Le vote solennel sur la première partie du PLF 2027, inscrit le <b>mardi 3 novembre<\/b> après les questions au Gouvernement, n'a pas eu lieu. Avec près de <b>3 400 amendements<\/b> déposés en séance, les débats n'ont pas permis d'en venir à bout dans le temps prévu. La partie recettes sera donc mise aux voix <b>à l'issue de son examen<\/b>, sans vote solennel ; l'Assemblée a programmé la suite de la discussion jusqu'au <b>vendredi 6 novembre<\/b>.<\/p><p>Selon Projet Arcadie, l'issue paraît peu incertaine : le RN, l'UDR, Horizons et la Droite républicaine annonceraient un vote contre, et la gauche devrait les rejoindre. Un rejet ferait <b>tomber tous les amendements<\/b> adoptés depuis le 13 octobre et rétablirait les articles supprimés ; la seconde partie ne pourrait pas être examinée et le texte du Gouvernement partirait au Sénat.<\/p><p>D'après NosParlementaires, <span class=\"ref\">322 amendements<\/span> avaient été adoptés en séance au 1er novembre, en 415 scrutins.<\/p>",
+   "refs": [
+    "PLF 2027 (AN n° 3210), 1re partie",
+    "LOLF, art. 42 (pas de 2e partie sans adoption de la 1re)",
+    "Constitution, art. 47 (délai de 40 jours)"
+   ],
+   "retenir": "Tant que la partie recettes n'est pas votée, aucun amendement de l'Assemblée n'est acquis : les arbitrages de fin d'année doivent se fonder sur le texte du Gouvernement et sur le droit en vigueur.",
+   "amdts": [
+    "surtaxe",
+    "I-3089",
+    "I-3807",
+    "I-1387"
+   ],
+   "cards": [
+    {
+     "q": "Pourquoi le vote du 3 novembre n'a-t-il pas eu lieu ?",
+     "a": "<p>L'examen des quelque 3 400 amendements déposés en séance n'était pas terminé. La partie recettes sera mise aux voix à la fin de la discussion, programmée jusqu'au 6 novembre, sans vote solennel.<\/p>"
+    },
+    {
+     "q": "Que se passe-t-il si la partie recettes est rejetée ?",
+     "a": "<p>Les amendements adoptés par les députés tombent, la seconde partie ne peut pas être examinée (LOLF, art. 42) et c'est le texte initial du Gouvernement qui est transmis au Sénat.<\/p>"
+    }
+   ],
+   "qcm": [
+    {
+     "q": "Jusqu'à quelle date l'Assemblée a-t-elle programmé l'examen de la 1re partie ?",
+     "o": [
+      "Mardi 3 novembre",
+      "Vendredi 6 novembre",
+      "Mardi 17 novembre",
+      "Mercredi 18 novembre"
+     ],
+     "c": 1,
+     "e": "L'Assemblée a programmé la suite de l'examen de la première partie du 27 octobre au vendredi 6 novembre."
+    },
+    {
+     "q": "Combien d'amendements avaient été adoptés en séance au 1er novembre selon NosParlementaires ?",
+     "o": [
+      "211",
+      "415",
+      "3 400",
+      "322"
+     ],
+     "c": 3,
+     "e": "322 amendements adoptés en 415 scrutins ; 211 est le chiffre de la commission des finances."
+    }
+   ]
+  },
+  {
+   "id": "2026-10-30-holdings",
+   "date": "2026-10-30",
+   "titre": "Taxe sur les holdings patrimoniales : les députés y font entrer la trésorerie dormante",
+   "source": "https://www.legifiscal.fr/actualites-fiscales/4709-plf-2027-taxe-holdings-deputes-veulent-entrer-tresorerie-dormante.html",
+   "sourceTitre": "Legifiscal — 30 oct. 2026",
+   "theme": "is",
+   "resume": "<p>Créée par la <span class=\"ref\">loi de finances pour 2026<\/span>, la taxe sur les holdings patrimoniales (<span class=\"ref\">CGI art. 235 ter C<\/span>) n'a pas encore été appliquée. Dans sa version votée, elle vise les sociétés à l'IS d'au moins 5 M€ d'actifs, contrôlées à 50 % par une personne physique et percevant surtout des revenus passifs, et taxe à <b>20 %<\/b> une liste fermée de biens somptuaires ; la trésorerie et les placements en étaient sortis.<\/p><p>L'amendement <span class=\"ref\">I-3807<\/span> de Jean-Paul Mattei y ajoute, au taux de <b>2 %<\/b>, les dépôts, comptes à terme, valeurs mobilières, OPC, contrats de capitalisation et créances. Restent exclus les participations d'au moins 5 % dans des sociétés opérationnelles ou animatrices, les titres éligibles au PEA-PME, FCPR, FPCI et ELTIF, et les sommes que la holding s'engage à <b>réinvestir sous trois ans<\/b> dans une société opérationnelle ou dans du logement loué à un tiers.<\/p><p>Legifiscal y voit un retour partiel à l'ambition du projet initial de 2025. Fiscalonline relève que l'adoption s'est faite contre l'avis du Gouvernement et du rapporteur.<\/p>",
+   "refs": [
+    "CGI art. 235 ter C",
+    "LF 2026, art. 7",
+    "I-3807 (Mattei, Les Démocrates)"
+   ],
+   "retenir": "Une holding qui garde de la trésorerie sans affectation pourrait payer 2 % par an : il faut documenter dès maintenant les projets de réinvestissement à trois ans de chaque client concerné.",
+   "amdts": [
+    "I-3807",
+    "holding"
+   ],
+   "cards": [
+    {
+     "q": "Quels actifs l'amendement I-3807 ajoute-t-il à l'assiette ?",
+     "a": "<p>Les dépôts, comptes à terme et livrets, les valeurs mobilières et parts d'OPC, les contrats de capitalisation et les créances, taxés à 2 %.<\/p>"
+    },
+    {
+     "q": "Comment une holding peut-elle échapper à la taxe sur sa trésorerie ?",
+     "a": "<p>En déclarant chaque année les sommes qu'elle s'engage à réinvestir sous trois ans dans une société opérationnelle ou dans des logements loués hors du cercle familial. À défaut de réinvestissement, la taxe est due avec intérêts de retard.<\/p>"
+    }
+   ],
+   "qcm": [
+    {
+     "q": "Quel taux l'amendement I-3807 applique-t-il à la trésorerie des holdings ?",
+     "o": [
+      "2 %",
+      "20 %",
+      "0,5 %",
+      "5 %"
+     ],
+     "c": 0,
+     "e": "La trésorerie et les placements seraient taxés à 2 %, les biens somptuaires restant à 20 %."
+    },
+    {
+     "q": "Quel est le délai de réinvestissement qui permet d'écarter la taxe ?",
+     "o": [
+      "Un an",
+      "Cinq ans",
+      "Trois ans",
+      "Dix-huit mois"
+     ],
+     "c": 2,
+     "e": "Les sommes réinvesties dans un délai de trois ans sont exclues, sous réserve d'une déclaration annuelle."
+    }
+   ]
+  },
+  {
    "id": "2026-11-02-semaine",
    "date": "2026-11-02",
    "titre": "Fin de l'examen de la 1re partie : l'Assemblée défait plusieurs mesures phares du Gouvernement",
    "source": "https://www.legiwatch.fr/post/decryptage-plf-2027-2026-11-02",
    "sourceTitre": "Legiwatch — décryptage de la semaine",
    "theme": "is",
-   "resume": "<p>Entre le 26 octobre et le 2 novembre, les députés ont parcouru les articles 5 à 17 et au-delà, avec plus de 600 amendements déposés sur la seule semaine. Le bilan est contrasté pour le Gouvernement : le <b>suramortissement industriel</b> de l'article 9 a fait consensus (<span class=\"ref\">160 voix contre 4</span>), mais la <b>surtaxe des grandes entreprises</b> (art. 15) a été supprimée à deux voix près et l'<b>article 18</b> sur les provisions assurantielles a été rejeté (<span class=\"ref\">22 voix contre 29</span>).</p><p>Au total, une dizaine d'articles du projet ont été supprimés ou rejetés en séance, dont le rabot de l'abattement des retraités et la ponction sur les collectivités. À l'inverse, des majorités de circonstance ont voté des mesures que le Gouvernement combat : taxation des rachats d'actions, contribution sur les « super-dividendes », IS des multinationales assis sur la part française du CA mondial.</p><p>Tout reste suspendu au <b>vote solennel du 3 novembre</b> : un rejet de la 1re partie ferait tomber l'ensemble de ces votes.</p>",
+   "resume": "<p>Entre le 26 octobre et le 2 novembre, les députés ont parcouru les articles 5 à 17 et au-delà, avec plus de 600 amendements déposés sur la seule semaine. Le bilan est contrasté pour le Gouvernement : le <b>suramortissement industriel<\/b> de l'article 9 a fait consensus (<span class=\"ref\">160 voix contre 4<\/span>), mais la <b>surtaxe des grandes entreprises<\/b> (art. 15) a été supprimée à deux voix près et l'<b>article 18<\/b> sur les provisions assurantielles a été rejeté (<span class=\"ref\">22 voix contre 29<\/span>).<\/p><p>Au total, une dizaine d'articles du projet ont été supprimés ou rejetés en séance, dont le rabot de l'abattement des retraités et la ponction sur les collectivités. À l'inverse, des majorités de circonstance ont voté des mesures que le Gouvernement combat : taxation des rachats d'actions, contribution sur les « super-dividendes », IS des multinationales assis sur la part française du CA mondial.<\/p><p>Tout reste suspendu au <b>vote solennel du 3 novembre<\/b> : un rejet de la 1re partie ferait tomber l'ensemble de ces votes.<\/p>",
    "refs": [
     "PLF 2027, art. 9 (suramortissement 4.0)",
     "PLF 2027, art. 15 (contribution exceptionnelle)",
@@ -763,11 +917,11 @@ window.VEILLE = {
    "cards": [
     {
      "q": "Quelle mesure entreprise a fait l'objet du vote le plus large ?",
-     "a": "<p>L'article 9 créant le suramortissement « industrie 4.0 » pour les PME et ETI, adopté par 160 voix contre 4 et élargi à l'IA et à la cybersécurité.</p>"
+     "a": "<p>L'article 9 créant le suramortissement « industrie 4.0 » pour les PME et ETI, adopté par 160 voix contre 4 et élargi à l'IA et à la cybersécurité.<\/p>"
     },
     {
      "q": "Que deviennent les amendements adoptés si la 1re partie est rejetée ?",
-     "a": "<p>Ils tombent tous : le texte transmis au Sénat est alors le projet initial du Gouvernement, sans les modifications votées par les députés.</p>"
+     "a": "<p>Ils tombent tous : le texte transmis au Sénat est alors le projet initial du Gouvernement, sans les modifications votées par les députés.<\/p>"
     }
    ],
    "qcm": [
@@ -802,7 +956,7 @@ window.VEILLE = {
    "source": "https://www.legifiscal.fr/actualites-fiscales/4713-plf-2027-lmnp-exit-tax-dutreil-amendements-adoptes-29-30-octobre.html",
    "sourceTitre": "Legifiscal — 2 nov. 2026",
    "theme": "reprise",
-   "resume": "<p>En deux jours, l'Assemblée a adopté une centaine d'amendements, souvent contre l'avis du Gouvernement. Côté <b>transmission d'entreprise</b>, le pacte « Papin » de l'article 10 est adopté mais remanié : il s'ouvre aux reprises par une <b>société majoritairement détenue par des salariés</b> (<span class=\"ref\">I-3881</span>), son suramortissement est plafonné à <b>10 % du CA</b> hors microentreprises (<span class=\"ref\">I-784</span>) et la plus-value serait imposée de façon <b>fractionnée en cas de crédit-vendeur</b> (<span class=\"ref\">I-3335</span>).</p><p>Sur le <b>pacte Dutreil</b>, deux votes vont en sens contraire : une condition d'âge du donataire (18-60 ans, <span class=\"ref\">I-3784</span>) et une exonération totale pour les non-cotées contre des engagements de 3 et 10 ans (<span class=\"ref\">I-668</span>). L'<b>exit tax</b> verrait son délai de dégrèvement porté à 15 ans (<span class=\"ref\">I-462 et identiques</span>).</p><p>Les grandes sociétés sont aussi visées : droit de 10 % sur les annulations d'actions des cotées de plus de 7 Md€ (<span class=\"ref\">I-1387</span>) et contribution de 5 % sur les dividendes exceptionnels (<span class=\"ref\">I-3944</span>).</p>",
+   "resume": "<p>En deux jours, l'Assemblée a adopté une centaine d'amendements, souvent contre l'avis du Gouvernement. Côté <b>transmission d'entreprise<\/b>, le pacte « Papin » de l'article 10 est adopté mais remanié : il s'ouvre aux reprises par une <b>société majoritairement détenue par des salariés<\/b> (<span class=\"ref\">I-3881<\/span>), son suramortissement est plafonné à <b>10 % du CA<\/b> hors microentreprises (<span class=\"ref\">I-784<\/span>) et la plus-value serait imposée de façon <b>fractionnée en cas de crédit-vendeur<\/b> (<span class=\"ref\">I-3335<\/span>).<\/p><p>Sur le <b>pacte Dutreil<\/b>, deux votes vont en sens contraire : une condition d'âge du donataire (18-60 ans, <span class=\"ref\">I-3784<\/span>) et une exonération totale pour les non-cotées contre des engagements de 3 et 10 ans (<span class=\"ref\">I-668<\/span>). L'<b>exit tax<\/b> verrait son délai de dégrèvement porté à 15 ans (<span class=\"ref\">I-462 et identiques<\/span>).<\/p><p>Les grandes sociétés sont aussi visées : droit de 10 % sur les annulations d'actions des cotées de plus de 7 Md€ (<span class=\"ref\">I-1387<\/span>) et contribution de 5 % sur les dividendes exceptionnels (<span class=\"ref\">I-3944<\/span>).<\/p>",
    "refs": [
     "PLF 2027, art. 10",
     "CGI art. 787 B",
@@ -825,15 +979,15 @@ window.VEILLE = {
    "cards": [
     {
      "q": "Quels sont les trois aménagements votés sur le pacte Papin ?",
-     "a": "<p>Ouverture aux reprises via une société majoritairement détenue par des salariés, plafonnement du suramortissement à 10 % du CA (sauf microentreprises) et imposition fractionnée de la plus-value en cas de crédit-vendeur.</p>"
+     "a": "<p>Ouverture aux reprises via une société majoritairement détenue par des salariés, plafonnement du suramortissement à 10 % du CA (sauf microentreprises) et imposition fractionnée de la plus-value en cas de crédit-vendeur.<\/p>"
     },
     {
      "q": "Pourquoi parle-t-on de signal contradictoire sur le Dutreil ?",
-     "a": "<p>Un amendement durcit le dispositif (au moins un donataire de 18 à 60 ans) tandis qu'un autre l'élargit (exonération totale pour les non-cotées contre des engagements de 3 et 10 ans).</p>"
+     "a": "<p>Un amendement durcit le dispositif (au moins un donataire de 18 à 60 ans) tandis qu'un autre l'élargit (exonération totale pour les non-cotées contre des engagements de 3 et 10 ans).<\/p>"
     },
     {
      "q": "Quel est le nouveau délai de dégrèvement voté pour l'exit tax ?",
-     "a": "<p>15 ans, contre 2 ans aujourd'hui (5 ans au-delà de 2,57 M€ de patrimoine concerné).</p>"
+     "a": "<p>15 ans, contre 2 ans aujourd'hui (5 ans au-delà de 2,57 M€ de patrimoine concerné).<\/p>"
     }
    ],
    "qcm": [
@@ -868,7 +1022,7 @@ window.VEILLE = {
    "source": "https://lcp.fr/actualites/budget-2027-la-surtaxe-sur-les-benefices-des-grandes-entreprises-supprimee-a-ce-stade",
    "sourceTitre": "LCP — 27 oct. 2026",
    "theme": "is",
-   "resume": "<p>Le Gouvernement voulait reconduire pour un <b>troisième exercice</b> la contribution exceptionnelle sur les bénéfices des grandes entreprises créée par la <span class=\"ref\">loi de finances pour 2025</span>, avec des taux ramenés à 15,7 % et 31,4 % et un rendement attendu d'environ 5 Md€. L'article 15 a été <b>supprimé à deux voix près</b>, par une coalition hétéroclite allant d'Horizons et de députés EPR au RN et à l'UDR.</p><p>Dans la foulée, l'Assemblée a adopté de justesse (<span class=\"ref\">74 voix contre 72</span>) l'amendement Sansu <span class=\"ref\">I-3945</span> qui détermine le bénéfice imposable des groupes de plus de 100 M€ de CA selon la <b>part française de leur chiffre d'affaires mondial</b>, contre l'avis du Gouvernement.</p><p>Ces votes restent provisoires : la presse parlementaire jugeait probable un rejet de l'ensemble de la partie recettes.</p>",
+   "resume": "<p>Le Gouvernement voulait reconduire pour un <b>troisième exercice<\/b> la contribution exceptionnelle sur les bénéfices des grandes entreprises créée par la <span class=\"ref\">loi de finances pour 2025<\/span>, avec des taux ramenés à 15,7 % et 31,4 % et un rendement attendu d'environ 5 Md€. L'article 15 a été <b>supprimé à deux voix près<\/b>, par une coalition hétéroclite allant d'Horizons et de députés EPR au RN et à l'UDR.<\/p><p>Dans la foulée, l'Assemblée a adopté de justesse (<span class=\"ref\">74 voix contre 72<\/span>) l'amendement Sansu <span class=\"ref\">I-3945<\/span> qui détermine le bénéfice imposable des groupes de plus de 100 M€ de CA selon la <b>part française de leur chiffre d'affaires mondial<\/b>, contre l'avis du Gouvernement.<\/p><p>Ces votes restent provisoires : la presse parlementaire jugeait probable un rejet de l'ensemble de la partie recettes.<\/p>",
    "refs": [
     "PLF 2027, art. 15",
     "Loi n° 2025-127 du 14 février 2025, art. 48",
@@ -882,11 +1036,11 @@ window.VEILLE = {
    "cards": [
     {
      "q": "Quels taux étaient prévus pour le 3e exercice de la contribution exceptionnelle ?",
-     "a": "<p>15,7 % pour les entreprises de moins de 3 Md€ de CA et 31,4 % au-delà, avec des mécanismes de lissage.</p>"
+     "a": "<p>15,7 % pour les entreprises de moins de 3 Md€ de CA et 31,4 % au-delà, avec des mécanismes de lissage.<\/p>"
     },
     {
      "q": "Que prévoit l'amendement I-3945 ?",
-     "a": "<p>Pour les groupes de plus de 100 M€ de CA, le bénéfice imposable en France serait calculé selon la part du chiffre d'affaires mondial réalisée en France, ce qui rompt avec l'approche par entité et les prix de transfert.</p>"
+     "a": "<p>Pour les groupes de plus de 100 M€ de CA, le bénéfice imposable en France serait calculé selon la part du chiffre d'affaires mondial réalisée en France, ce qui rompt avec l'approche par entité et les prix de transfert.<\/p>"
     }
    ],
    "qcm": [
@@ -921,7 +1075,7 @@ window.VEILLE = {
    "source": "https://www.legifiscal.fr/actualites-fiscales/4704-plf-2027-suramortissement-elargi-surtaxe-is-supprimee-jei-assouplie.html",
    "sourceTitre": "Legifiscal — 28 oct. 2026",
    "theme": "invest",
-   "resume": "<p>L'article 9 crée un <b>suramortissement temporaire</b> (<span class=\"ref\">CGI art. 39 decies H</span>) pour les PME et ETI au régime réel qui acquièrent des biens industriels neufs entre 2027 et 2029 : 80 % pour les petites entreprises, 40 % pour les moyennes et les ETI. Douze amendements identiques l'étendent aux <b>logiciels et équipements recourant à l'IA</b> (<span class=\"ref\">I-3654</span>), deux autres à la <b>cybersécurité</b> (<span class=\"ref\">I-522, I-2277</span>).</p><p>Le C3IV s'ouvrirait aux petits réacteurs modulaires (<span class=\"ref\">I-2305</span>) et un suramortissement de 40 % viserait les avions neufs moins émetteurs (<span class=\"ref\">I-1229</span>). Pour les <b>jeunes entreprises innovantes</b>, Paul Midy obtient trois assouplissements : seuil de R&amp;D abaissé à 15 % des charges, neutralisation des coûts d'industrialisation et avantages portés à 12 ans pour les JEI de rupture (<span class=\"ref\">I-1382, I-2633, I-1372</span>).</p>",
+   "resume": "<p>L'article 9 crée un <b>suramortissement temporaire<\/b> (<span class=\"ref\">CGI art. 39 decies H<\/span>) pour les PME et ETI au régime réel qui acquièrent des biens industriels neufs entre 2027 et 2029 : 80 % pour les petites entreprises, 40 % pour les moyennes et les ETI. Douze amendements identiques l'étendent aux <b>logiciels et équipements recourant à l'IA<\/b> (<span class=\"ref\">I-3654<\/span>), deux autres à la <b>cybersécurité<\/b> (<span class=\"ref\">I-522, I-2277<\/span>).<\/p><p>Le C3IV s'ouvrirait aux petits réacteurs modulaires (<span class=\"ref\">I-2305<\/span>) et un suramortissement de 40 % viserait les avions neufs moins émetteurs (<span class=\"ref\">I-1229<\/span>). Pour les <b>jeunes entreprises innovantes<\/b>, Paul Midy obtient trois assouplissements : seuil de R&amp;D abaissé à 15 % des charges, neutralisation des coûts d'industrialisation et avantages portés à 12 ans pour les JEI de rupture (<span class=\"ref\">I-1382, I-2633, I-1372<\/span>).<\/p>",
    "refs": [
     "PLF 2027, art. 9",
     "CGI art. 39 decies H (nouveau)",
@@ -939,11 +1093,11 @@ window.VEILLE = {
    "cards": [
     {
      "q": "Quels taux de suramortissement prévoit l'article 9 ?",
-     "a": "<p>80 % pour les petites entreprises et 40 % pour les moyennes entreprises et les ETI, relevés en zones d'aide à finalité régionale.</p>"
+     "a": "<p>80 % pour les petites entreprises et 40 % pour les moyennes entreprises et les ETI, relevés en zones d'aide à finalité régionale.<\/p>"
     },
     {
      "q": "Quels assouplissements du statut JEI ont été votés ?",
-     "a": "<p>Seuil de dépenses de R&amp;D abaissé de 20 % à 15 % des charges, exclusion des coûts d'industrialisation du ratio et durée des avantages portée de 8 à 12 ans pour les JEI de rupture.</p>"
+     "a": "<p>Seuil de dépenses de R&amp;D abaissé de 20 % à 15 % des charges, exclusion des coûts d'industrialisation du ratio et durée des avantages portée de 8 à 12 ans pour les JEI de rupture.<\/p>"
     }
    ],
    "qcm": [
@@ -978,7 +1132,7 @@ window.VEILLE = {
    "source": "https://www.legifiscal.fr/actualites-fiscales/4693-amendements-plf-2027-adoptes-deputes-suite.html",
    "sourceTitre": "Legifiscal — 21 oct. 2026",
    "theme": "plusvalues",
-   "resume": "<p>Le projet du Gouvernement mettait fin au <b>report d'imposition de l'apport-cession</b> (<span class=\"ref\">CGI art. 150-0 B ter</span>) en cas de transmission à titre gratuit, supprimait la purge de la plus-value par donation et prévoyait un paiement fractionné sur cinq ans, pour les transmissions réalisées <b>à compter du 1er octobre 2026</b>.</p><p>L'amendement du rapporteur général Philippe Juvin (<span class=\"ref\">I-3089</span>) recentre la réforme : la <b>succession ne met plus fin au report</b>, les règles de donation de titres de holding sont revues, les moins-values peuvent s'imputer sur la plus-value en report et le paiement est étalé sur <b>10 ans</b>. Un sous-amendement écologiste (<span class=\"ref\">I-3985</span>) étend toutefois le régime aux apports antérieurs au 7 octobre 2026.</p><p>Les députés ont aussi corrigé l'apport d'entreprise individuelle (<span class=\"ref\">I-2912</span>), étendu l'abattement de 500 000 € (<span class=\"ref\">I-239</span>) et facilité les holdings de salariés et les BSPCE (<span class=\"ref\">I-3652, I-1445</span>).</p>",
+   "resume": "<p>Le projet du Gouvernement mettait fin au <b>report d'imposition de l'apport-cession<\/b> (<span class=\"ref\">CGI art. 150-0 B ter<\/span>) en cas de transmission à titre gratuit, supprimait la purge de la plus-value par donation et prévoyait un paiement fractionné sur cinq ans, pour les transmissions réalisées <b>à compter du 1er octobre 2026<\/b>.<\/p><p>L'amendement du rapporteur général Philippe Juvin (<span class=\"ref\">I-3089<\/span>) recentre la réforme : la <b>succession ne met plus fin au report<\/b>, les règles de donation de titres de holding sont revues, les moins-values peuvent s'imputer sur la plus-value en report et le paiement est étalé sur <b>10 ans<\/b>. Un sous-amendement écologiste (<span class=\"ref\">I-3985<\/span>) étend toutefois le régime aux apports antérieurs au 7 octobre 2026.<\/p><p>Les députés ont aussi corrigé l'apport d'entreprise individuelle (<span class=\"ref\">I-2912<\/span>), étendu l'abattement de 500 000 € (<span class=\"ref\">I-239<\/span>) et facilité les holdings de salariés et les BSPCE (<span class=\"ref\">I-3652, I-1445<\/span>).<\/p>",
    "refs": [
     "PLF 2027, art. 5",
     "CGI art. 150-0 B ter",
@@ -998,11 +1152,11 @@ window.VEILLE = {
    "cards": [
     {
      "q": "Qu'est-ce que l'amendement I-3089 change pour la succession ?",
-     "a": "<p>La succession ne met plus fin au report d'imposition de la plus-value d'apport, contrairement au texte initial qui visait toute transmission à titre gratuit.</p>"
+     "a": "<p>La succession ne met plus fin au report d'imposition de la plus-value d'apport, contrairement au texte initial qui visait toute transmission à titre gratuit.<\/p>"
     },
     {
      "q": "Pourquoi le sous-amendement I-3985 est-il sensible ?",
-     "a": "<p>Il applique le nouveau régime aux apports réalisés avant le 7 octobre 2026, donc au stock de reports existants, ce qui soulève une question de rétroactivité au regard de la garantie des droits.</p>"
+     "a": "<p>Il applique le nouveau régime aux apports réalisés avant le 7 octobre 2026, donc au stock de reports existants, ce qui soulève une question de rétroactivité au regard de la garantie des droits.<\/p>"
     }
    ],
    "qcm": [
@@ -1037,7 +1191,7 @@ window.VEILLE = {
    "source": "https://www.maxcompta.com/blogs/actualites/budget-2027-commission-finances-rejet-partie-recettes",
    "sourceTitre": "Max Compta",
    "theme": "autre",
-   "resume": "<p>Le 9 octobre au soir, la commission des finances a rejeté la première partie du PLF 2027 par <span class=\"ref\">31 voix contre 3 et 2 abstentions</span>, après avoir adopté 211 des 1 830 amendements déposés. Ce rejet n'a pas d'effet juridique direct : la séance publique repart du <b>texte du Gouvernement</b>, et chaque amendement voté en commission doit être redéposé puis revoté.</p><p>Les votes de commission servent toutefois de <b>signal</b> sur ce qui reviendra dans l'hémicycle : extension du suramortissement 4.0 à la cybersécurité, conditions d'emploi et de dividendes pour en bénéficier, remplacement de la taxe sur les rachats d'actions par un droit de 10 % sur les annulations des grandes cotées. Plusieurs de ces pistes ont effectivement été adoptées en séance trois semaines plus tard.</p>",
+   "resume": "<p>Le 9 octobre au soir, la commission des finances a rejeté la première partie du PLF 2027 par <span class=\"ref\">31 voix contre 3 et 2 abstentions<\/span>, après avoir adopté 211 des 1 830 amendements déposés. Ce rejet n'a pas d'effet juridique direct : la séance publique repart du <b>texte du Gouvernement<\/b>, et chaque amendement voté en commission doit être redéposé puis revoté.<\/p><p>Les votes de commission servent toutefois de <b>signal<\/b> sur ce qui reviendra dans l'hémicycle : extension du suramortissement 4.0 à la cybersécurité, conditions d'emploi et de dividendes pour en bénéficier, remplacement de la taxe sur les rachats d'actions par un droit de 10 % sur les annulations des grandes cotées. Plusieurs de ces pistes ont effectivement été adoptées en séance trois semaines plus tard.<\/p>",
    "refs": [
     "PLF 2027 (AN n° 3210), 1re partie",
     "I-CF1342, I-CF1425 (cybersécurité)",
@@ -1051,11 +1205,11 @@ window.VEILLE = {
    "cards": [
     {
      "q": "Quelle est la portée d'un rejet de la 1re partie en commission ?",
-     "a": "<p>Aucune sur le texte examiné en séance, qui repart du projet du Gouvernement. Les amendements adoptés en commission doivent être redéposés et revotés.</p>"
+     "a": "<p>Aucune sur le texte examiné en séance, qui repart du projet du Gouvernement. Les amendements adoptés en commission doivent être redéposés et revotés.<\/p>"
     },
     {
      "q": "Combien d'amendements la commission avait-elle adoptés ?",
-     "a": "<p>211 sur 1 830 déposés, avant de rejeter l'ensemble de la partie recettes.</p>"
+     "a": "<p>211 sur 1 830 déposés, avant de rejeter l'ensemble de la partie recettes.<\/p>"
     }
    ],
    "qcm": [
@@ -1090,7 +1244,7 @@ window.VEILLE = {
    "source": "https://blog.avocats.deloitte.fr/plf-2027-analyse-des-mesures-les-plus-significatives/",
    "sourceTitre": "Deloitte Société d'Avocats — analyse",
    "theme": "procedure",
-   "resume": "<p>Déposé le 1er octobre (<span class=\"ref\">AN n° 3210</span>), le projet combine soutien à l'investissement et mesures de rendement. Côté entreprises : <b>suramortissement 4.0</b> et extension du C3IV (<span class=\"ref\">art. 9</span>), <b>pacte « Papin »</b> pour la reprise de TPE/PME (<span class=\"ref\">art. 10</span>), prorogation de la <b>contribution exceptionnelle</b> des grandes entreprises (<span class=\"ref\">art. 15</span>) et réforme de l'<b>apport-cession</b> (<span class=\"ref\">art. 5</span>).</p><p>Plusieurs mesures de procédure intéressent directement les praticiens : expérimentation d'un <b>rescrit « silence vaut accord »</b> sous trois mois pour les entreprises partenaires et certaines PME (<span class=\"ref\">art. 29</span>), enregistrement direct des actes de cession de titres de <b>sociétés à prépondérance immobilière</b> et nouvelles amendes pour défaut de communication (<span class=\"ref\">art. 30</span>), dématérialisation du contrôle des comptabilités informatisées (<span class=\"ref\">art. 31</span>). L'entrée en vigueur par défaut est fixée par l'article 33.</p>",
+   "resume": "<p>Déposé le 1er octobre (<span class=\"ref\">AN n° 3210<\/span>), le projet combine soutien à l'investissement et mesures de rendement. Côté entreprises : <b>suramortissement 4.0<\/b> et extension du C3IV (<span class=\"ref\">art. 9<\/span>), <b>pacte « Papin »<\/b> pour la reprise de TPE/PME (<span class=\"ref\">art. 10<\/span>), prorogation de la <b>contribution exceptionnelle<\/b> des grandes entreprises (<span class=\"ref\">art. 15<\/span>) et réforme de l'<b>apport-cession<\/b> (<span class=\"ref\">art. 5<\/span>).<\/p><p>Plusieurs mesures de procédure intéressent directement les praticiens : expérimentation d'un <b>rescrit « silence vaut accord »<\/b> sous trois mois pour les entreprises partenaires et certaines PME (<span class=\"ref\">art. 29<\/span>), enregistrement direct des actes de cession de titres de <b>sociétés à prépondérance immobilière<\/b> et nouvelles amendes pour défaut de communication (<span class=\"ref\">art. 30<\/span>), dématérialisation du contrôle des comptabilités informatisées (<span class=\"ref\">art. 31<\/span>). L'entrée en vigueur par défaut est fixée par l'article 33.<\/p>",
    "refs": [
     "PLF 2027, art. 5, 9, 10, 15",
     "PLF 2027, art. 29 — LPF art. L. 80 A",
@@ -1109,11 +1263,11 @@ window.VEILLE = {
    "cards": [
     {
      "q": "Que prévoit l'expérimentation de l'article 29 ?",
-     "a": "<p>Jusqu'au 31 décembre 2028, pour les rescrits généraux des entreprises partenaires et de certaines PME, l'absence de réponse motivée sous trois mois vaudrait accord, sauf saisine de la DLF ou du SJCF.</p>"
+     "a": "<p>Jusqu'au 31 décembre 2028, pour les rescrits généraux des entreprises partenaires et de certaines PME, l'absence de réponse motivée sous trois mois vaudrait accord, sauf saisine de la DLF ou du SJCF.<\/p>"
     },
     {
      "q": "Quelle est la règle d'entrée en vigueur par défaut ?",
-     "a": "<p>Le 1er janvier 2027, ou le 31 décembre 2026 pour les impositions dont le fait générateur est la clôture de l'exercice (article 33).</p>"
+     "a": "<p>Le 1er janvier 2027, ou le 31 décembre 2026 pour les impositions dont le fait générateur est la clôture de l'exercice (article 33).<\/p>"
     }
    ],
    "qcm": [
