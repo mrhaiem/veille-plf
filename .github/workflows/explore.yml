@@ -7,10 +7,8 @@ jobs:
       - run: |
           UA="Mozilla/5.0"
           curl -sL -A "$UA" "https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/cion_fin" -o cf.html
-          grep -oE 'href="[^"]*comptes-rendus/cion_fin/[^"]*"' cf.html | sort -u | head -30
-          grep -oE '.{200}(finances pour 2027|PLF).{200}' cf.html | head -5
-          u=$(grep -oE 'href="[^"]*comptes-rendus/cion_fin/[^"]*"' cf.html | head -1 | sed 's/href="//;s/"$//'); case "$u" in http*) ;; *) u="https://www.assemblee-nationale.fr$u";; esac; echo "U=$u"
-          curl -sL -A "$UA" "$u" -o c1.html; wc -c c1.html; grep -oE '.{300}I-CF[0-9]+.{100}' c1.html | head -3
-          curl -sL -o r.zip https://data.assemblee-nationale.fr/static/openData/repository/17/vp/reunions/Agenda.json.zip; ls -la r.zip
-          mkdir r; cd r; unzip -q ../r.zip; grep -rl "PO59048" . | xargs grep -l '2026-10-' | head -3 > l; for f in $(cat l); do head -c 1500 $f; echo; done
-          grep -rl "PO59048" . | xargs grep -lE '"dateDebut":\s*"2026-10-(0[5-9]|1[0-4])' | head -20 | while read f; do python3 -c "import json,sys;d=json.load(open(sys.argv[1]));r=d.get('reunion',d);print(r.get('uid'),r.get('timeStampDebut'),json.dumps(r.get('compteRenduRef') or r.get('cycleDeVie'),ensure_ascii=False)[:200], json.dumps(r.get('ODJ'),ensure_ascii=False)[:300])" $f; done
+          grep -oE 'href="[^"]*"' cf.html | grep -iE 'compte|cion_fin|cr' | sort -u | head -40
+          curl -sL -A "$UA" https://www.assemblee-nationale.fr/dyn/17/amendements/3210A/CION_FIN/CF1737 -o c.html; grep -oE '[a-zA-Z]*Redirect[^"]*' c.html | sort -u; grep -oE '.{200}(Réunion|réunion du|Examiné).{200}' c.html | head -3
+          curl -sL -o r.zip https://data.assemblee-nationale.fr/static/openData/repository/17/vp/reunions/Agenda.json.zip; mkdir r; cd r; unzip -q ../r.zip
+          for f in $(grep -rl '"organeReuniRef": "PO59048"' . | xargs grep -l '3210' | xargs grep -lE '"timeStampDebut": "2026-10-(0[5-9]|1[0-6])'); do python3 -c "
+          import json,sys;r=json.load(open(sys.argv[1]))['reunion'];print(r['uid'],r['timeStampDebut'][:16],r['cycleDeVie']['etat'],[k for k in r if k not in('participants','lieu')], json.dumps(r.get('compteRenduRef'))[:120], (r.get('ODJ') or {}).get('convocationODJ',{}).get('item','')[:1] )" $f; done | sort -k2
