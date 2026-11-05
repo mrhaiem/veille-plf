@@ -351,22 +351,40 @@ function loadAll(){
 }
 const STOP = new Set(["de","des","du","la","le","les","l","d","et","a","au","aux","en","pour","sur","par","un","une","dans","ou","sa","son","ses","leur","leurs","que","qui","ce","cet","cette","art","article","cgi"]);
 function qterms(q){ return [...new Set(fold(q).split(/[^a-z0-9]+/).filter(w => w.length > 1 && !STOP.has(w)))]; }
+function toks(t){ return t.split(/[^a-z0-9]+/).filter(Boolean); }
+function bestWindow(text, terms){
+  // plus petite fenêtre de mots contenant tous les mots-clés (préfixe : entreprise ~ entreprises) ; extra = mots intercalés
+  const tk = toks(text), ev = [];
+  tk.forEach((w, i) => terms.forEach((t, j) => { if(w.startsWith(t)) ev.push([i, j]); }));
+  if(!ev.length) return null;
+  const need = terms.length, cnt = new Array(need).fill(0); let have = 0, lo = 0, best = Infinity;
+  for(let hi = 0; hi < ev.length; hi++){
+    if(cnt[ev[hi][1]]++ === 0) have++;
+    while(have === need){ best = Math.min(best, ev[hi][0] - ev[lo][0] + 1); if(--cnt[ev[lo][1]] === 0) have--; lo++; }
+  }
+  return best === Infinity ? null : best - need;
+}
+function sameSentence(text, terms){
+  return text.split(/[.;!?]\s/).some(x => { const tk = toks(x); return terms.every(t => tk.some(w => w.startsWith(t))); });
+}
 function relevance(prim, all, q, terms){
-  // prim = texte prioritaire (résumé / titre), all = tout le texte ; renvoie {score, cov}
-  let sc = 0, hit = 0;
-  const ph = fold(q).replace(/\s+/g, " ").trim();
-  if(ph.length > 3){ if(prim.includes(ph)) sc += 120; else if(all.includes(ph)) sc += 70; }
-  for(const t of terms){
-    const re = new RegExp("(^|[^a-z0-9])" + t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "g");
-    const nP = (prim.match(re) || []).length, nA = (all.match(re) || []).length;
-    if(nA || nP){ hit++; sc += (nP ? 10 : 0) + Math.min(nA, 4) * 2; }
+  // prim = résumé / titre, all = tout le texte ; renvoie {score, cov}
+  if(!terms.length) return { score: 0, cov: 1 };
+  const tkA = toks(all);
+  const hit = terms.filter(t => tkA.some(w => w.startsWith(t))).length, cov = hit / terms.length;
+  let sc = cov * 60;
+  if(terms.length === 1){
+    const tkP = toks(prim), nP = tkP.filter(w => w.startsWith(terms[0])).length, nA = tkA.filter(w => w.startsWith(terms[0])).length;
+    return { score: sc + (nP ? 40 : 0) + Math.min(nA, 5) * 4, cov };
   }
-  for(let i = 0; i + 1 < terms.length; i++){
-    const near = new RegExp(terms[i] + "[a-z]*(?:[^a-z0-9]+[a-z0-9]+){0,3}?[^a-z0-9]+" + terms[i+1]);
-    if(near.test(prim)) sc += 18; else if(near.test(all)) sc += 10;
+  if(hit === terms.length){
+    const wP = bestWindow(prim, terms), wA = bestWindow(all, terms);
+    if(wP !== null && wP <= 6) sc += 400 - wP * 12;          // mots-clés groupés dans le résumé
+    else if(wA !== null && wA <= 6) sc += 300 - wA * 12;     // groupés ailleurs dans le texte
+    else if(sameSentence(all, terms)) sc += 150;             // dans la même phrase mais éloignés
+    else sc += 60;                                           // dispersés dans le texte
   }
-  const cov = terms.length ? hit / terms.length : 1;
-  return { score: sc + cov * 60, cov };
+  return { score: sc, cov };
 }
 function snip(t, q){
   t = String(t||""); if(t.length <= 300) return t;
