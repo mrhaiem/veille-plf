@@ -342,7 +342,7 @@ function loadAll(){
   if(ALLp) return ALLp;
   $("#all-count").textContent = "Chargement des amendements…";
   ALLp = fetch("amendements.json").then(r => r.ok ? r.json() : Promise.reject(r.status)).then(j => {
-    j.amendements.forEach(r => { const t = [r.n, r.art, r.aut, r.g, r.r, r.x, r.p, (r.k||[]).map(k => "article " + k + " du cgi").join(" ; ")].join(" | "); r._h = fold(t); r._c = compact(t); r._rs = fold(r.r || ""); r._g = grpS(r.s); });
+    j.amendements.forEach(r => { const t = [r.n, r.art, r.aut, r.g, r.r, r.x, r.p, (r.k||[]).map(k => "article " + k + " du cgi").join(" ; ")].join(" | "); r._h = fold(t); r._c = compact(t); r._rs = fold(r.r || ""); r._hn = normT(t); r._g = grpS(r.s); });
     ALL = j; renderAll();
   }).catch(() => { ALL = {err:1}; renderAll(); });
   return ALLp;
@@ -384,6 +384,62 @@ function relevance(prim, all, q, terms){
   }
   return { score: sc, cov };
 }
+// Correspondance articles du CGI / LPF <-> noms usuels des régimes (recherche dans les deux sens)
+const THES = {
+  "150-0 b ter": ["apport-cession", "apport cession", "report d'imposition de la plus-value d'apport"],
+  "150-0 d ter": ["abattement fixe de 500 000", "dirigeant partant a la retraite", "depart a la retraite du dirigeant"],
+  "151 octies": ["apport d'une entreprise individuelle", "apport d'entreprise individuelle"],
+  "151 septies": ["plus-values professionnelles des petites entreprises"],
+  "238 quindecies": ["transmission d'une entreprise individuelle", "transmission d'une branche complete d'activite"],
+  "787 b": ["pacte dutreil", "dutreil"],
+  "787 c": ["dutreil entreprise individuelle"],
+  "145": ["regime mere-fille", "regime des societes meres", "societes meres et filiales"],
+  "216": ["regime mere-fille", "regime des societes meres", "societes meres et filiales"],
+  "219": ["taux reduit d'impot sur les societes", "taux reduit de 15 %", "quote-part de frais et charges", "niche cope", "plus-values a long terme sur titres de participation"],
+  "223 a": ["integration fiscale", "groupe fiscal"],
+  "223 b": ["integration fiscale", "groupe fiscal"],
+  "209 b": ["societes etrangeres controlees", "cfc"],
+  "210 a": ["regime de faveur des fusions", "regime special des fusions"],
+  "210-0 a": ["regime de faveur des fusions", "regime special des fusions"],
+  "212 bis": ["rabot des charges financieres", "limitation des charges financieres"],
+  "57": ["prix de transfert"],
+  "119 bis": ["retenue a la source sur les dividendes"],
+  "119 bis a": ["cumcum", "arbitrage de dividendes", "arbitrages de dividendes"],
+  "167 bis": ["exit tax"],
+  "235 ter c": ["holdings patrimoniales", "taxe sur les holdings"],
+  "235 ter zd": ["taxe sur les transactions financieres", "ttf"],
+  "244 quater b": ["credit d'impot recherche", "cir", "jeunes docteurs"],
+  "244 quater i": ["c3iv", "credit d'impot au titre des investissements dans l'industrie verte", "industrie verte"],
+  "44 sexies-0 a": ["jeune entreprise innovante", "jeunes entreprises innovantes", "jei"],
+  "39 decies h": ["suramortissement industrie 4.0", "industrie 4.0"],
+  "39 decies j": ["pacte papin"],
+  "163 bis g": ["bspce", "bons de souscription de parts de createur d'entreprise"],
+  "80 quaterdecies": ["actions gratuites", "aga"],
+  "990 d": ["taxe de 3 %", "taxe annuelle de 3 %"],
+  "1740 a bis": ["amende des conseils", "prestation permettant la commission de manquements"],
+  "l. 80 a": ["rescrit"],
+  "l. 80 b": ["rescrit"],
+  "l. 247": ["transaction fiscale", "remise gracieuse", "reglement d'ensemble", "reglements d'ensemble"],
+  "l. 64": ["abus de droit"],
+  "l. 47 a": ["controle des comptabilites informatisees", "fec"]
+};
+const normT = t => fold(t).replace(/[-\u2010-\u2015']/g, " ").replace(/\s+/g, " ").trim();
+const THES_N = Object.fromEntries(Object.entries(THES).map(([k, v]) => [k, v.map(normT)]));
+const THES_RE = Object.fromEntries(Object.entries(THES_N).map(([k, v]) => [k, v.map(a => new RegExp("(^|[^a-z0-9])" + a.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "(?![a-z0-9])"))]));
+let ART_RE = null;
+function artRe(k){
+  if(!ART_RE) ART_RE = {};
+  if(!(k in ART_RE)){ const a = artQuery(k); ART_RE[k] = a ? new RegExp(a.re.source) : null; }
+  return ART_RE[k];
+}
+function conceptHit(r, arts){
+  // 2 = article cité (relevé ou dans le texte), 1 = nom du régime présent dans le texte, 0 = rien
+  if(Array.isArray(r.k) && r.k.some(k => arts.includes(k))) return 2;
+  if(arts.some(k => { const re = artRe(k); return re && re.test(r._h); })) return 2;
+  return arts.some(k => (THES_RE[k] || []).some(re => re.test(r._hn))) ? 1 : 0;
+}
+function aliasesOf(core){ return THES_N[core.replace(/\s*-\s*/g, "-").replace(/\s+/g, " ").trim()] || []; }
+function articlesOf(q){ const nq = normT(q); return nq.length < 3 ? [] : Object.keys(THES_N).filter(k => THES_N[k].some(a => a === nq || (nq.length > 5 && a.startsWith(nq + " ")) || (a.length > 4 && (" " + nq + " ").includes(" " + a + " ")))); }
 const SUFX = "bis|ter|quater|quinquies|sexies|septies|octies|nonies|decies|undecies|duodecies|terdecies|quaterdecies|quindecies|sexdecies|septdecies|octodecies|novodecies|vicies";
 function artQuery(q){
   // « 219 », « art. 219 », « 150-0 B ter », « 787 B », « 39 decies H », « 219 du CGI », « L. 80 A »
@@ -414,6 +470,9 @@ function artScore(r, aq){
     if(sc > 600) break;
   }
   if(sc && r._rs && (aq.re.lastIndex = 0, aq.re.test(r._rs))) sc += 60;   // cité dans le résumé
+  // nom usuel du régime (« apport-cession » pour 150-0 B ter…)
+  const key = ((aq.lpf ? "l. " : "") + aq.core).replace(/\s*-\s*/g, "-").replace(/\s+/g, " ").trim();
+  if(THES_RE[key]){ const h = conceptHit(r, [key]); if(h) sc += (h === 2 ? 300 : 0) + (THES_RE[key].some(re => re.test(normT(r.r || ""))) ? 120 : 0) + (sc ? 0 : 160); }
   // article du PLF visé (« ART. 15 », « APRÈS ART. 15 »)
   const a = fold(r.art || "");
   if(!aq.lpf && new RegExp("art\\.? ?" + aq.num + "(?![0-9a-z])").test(a)) sc += aq.hasArt ? 200 : 40;
@@ -456,9 +515,16 @@ function renderAll(){
       if(sc > 0){ r._sc = sc; base.push(r); }
     }
   }
+  const qArts = aq ? [] : articlesOf(q), normQ = normT(q);
   for(const r of (aq ? [] : ALL.amendements)){
     if(isNum){ if(/^I+-/.test(nq) ? clean(r.n)===nq : strip(r.n)===nq){ r._sc = 1000; base.push(r); } continue; }
-    const strict = matchText(r._h, r._c, q);
+    if(qArts.length){
+      // nom de régime reconnu : même ensemble que la recherche par article (article cité OU nom du régime présent)
+      const h = conceptHit(r, qArts);
+      if(h){ r._sc = (h === 2 ? 300 : 200) + (qArts.some(k => THES_RE[k].some(re => re.test(normT(r.r || "")))) ? 120 : 0) + relevance(r._rs, r._h, q, terms).score * 0.2; base.push(r); }
+      continue;
+    }
+    const strict = matchText(r._h, r._c, q) || (normQ.length > 3 && r._hn.includes(normQ));
     const rel = relevance(r._rs, r._h, q, terms);
     if(strict || rel.cov >= need){ r._sc = rel.score + (strict ? 15 : 0); base.push(r); }
   }
