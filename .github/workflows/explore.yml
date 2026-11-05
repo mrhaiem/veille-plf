@@ -6,25 +6,11 @@ jobs:
     steps:
       - run: |
           UA="Mozilla/5.0"
-          curl -sL -o z.zip https://data.assemblee-nationale.fr/static/openData/repository/17/loi/amendements_div_legis/Amendements.json.zip
-          mkdir z && cd z && unzip -q ../z.zip && cd ..
-          python3 - <<'P'
-          import json,glob,re,collections
-          fs=[f for f in glob.glob('z/**/*.json',recursive=True) if 'B3210' in f]
-          print('files',len(fs))
-          C=collections.Counter(); ex={}
-          for f in fs:
-              s=open(f).read()
-              m=re.search(r'"seanceDiscussionRef":\s*("[^"]*"|null|\{[^}]*\})',s)
-              n=re.search(r'"numeroLong":\s*"([^"]*)"',s).group(1)
-              v=m.group(1) if m else 'ABSENT'
-              kind=('CF' if 'CF' in n else ('II' if n.startswith('II') else 'I'))+':'+('vide' if v in ('ABSENT','null','""') else v[:20])
-              C[kind]+=1; ex.setdefault(kind,n)
-              if n in ('3089','I-3089','I-CF1737'): print(n, v, re.findall(r'"(\w*(?:eunion|eance|xamen)\w*)":\s*("[^"]*"|null)',s))
-          for k,c in C.most_common(30): print(c,k,ex[k])
-          P
-          curl -sL -A "$UA" https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-ordinaire-de-2026-2027/troisieme-seance-du-vendredi-16-octobre-2026 -o cr.html; wc -c cr.html
-          grep -oE '.{400}3089.{150}' cr.html | head -3
-          grep -oE '(id|name)="[^"]{1,40}"' cr.html | sort | uniq -c | sort -rn | head -15
-          grep -oE '(id|name)="[^"]{1,40}"' cr.html | head -30
-          ls; curl -sL -A "$UA" "https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/cion_fin" -o cf.html; wc -c cf.html; grep -oE 'href="[^"]*comptes-rendus/cion_fin/[^"]*"' cf.html | head -10
+          curl -sL -A "$UA" "https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/cion_fin" -o cf.html
+          grep -oE 'href="[^"]*comptes-rendus/cion_fin/[^"]*"' cf.html | sort -u | head -30
+          grep -oE '.{200}(finances pour 2027|PLF).{200}' cf.html | head -5
+          u=$(grep -oE 'href="[^"]*comptes-rendus/cion_fin/[^"]*"' cf.html | head -1 | sed 's/href="//;s/"$//'); case "$u" in http*) ;; *) u="https://www.assemblee-nationale.fr$u";; esac; echo "U=$u"
+          curl -sL -A "$UA" "$u" -o c1.html; wc -c c1.html; grep -oE '.{300}I-CF[0-9]+.{100}' c1.html | head -3
+          curl -sL -o r.zip https://data.assemblee-nationale.fr/static/openData/repository/17/vp/reunions/Agenda.json.zip; ls -la r.zip
+          mkdir r; cd r; unzip -q ../r.zip; grep -rl "PO59048" . | xargs grep -l '2026-10-' | head -3 > l; for f in $(cat l); do head -c 1500 $f; echo; done
+          grep -rl "PO59048" . | xargs grep -lE '"dateDebut":\s*"2026-10-(0[5-9]|1[0-4])' | head -20 | while read f; do python3 -c "import json,sys;d=json.load(open(sys.argv[1]));r=d.get('reunion',d);print(r.get('uid'),r.get('timeStampDebut'),json.dumps(r.get('compteRenduRef') or r.get('cycleDeVie'),ensure_ascii=False)[:200], json.dumps(r.get('ODJ'),ensure_ascii=False)[:300])" $f; done
