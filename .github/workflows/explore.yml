@@ -1,0 +1,17 @@
+name: explore
+on: workflow_dispatch
+jobs:
+  x:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          set -x
+          UA="Mozilla/5.0"
+          curl -sL -A "$UA" https://www.assemblee-nationale.fr/dyn/17/amendements/3210A/AN/3089 -o a.html; wc -c a.html
+          grep -oiE 'href="[^"]*(compte|video|seance|debat|discussion)[^"]*"' a.html | sort -u | head -40
+          grep -oiE '.{120}(compte rendu|vidéo|Voir la discussion).{160}' a.html | head -20
+          curl -sL -A "$UA" https://www.assemblee-nationale.fr/dyn/17/amendements/3210A/CION_FIN/CF1737 -o c.html; wc -c c.html
+          grep -oiE 'href="[^"]*(compte|video|seance|debat|discussion|reunion)[^"]*"' c.html | sort -u | head -40
+          curl -sL -o s.zip https://data.assemblee-nationale.fr/static/openData/repository/17/vp/syceronbrut/syseron.xml.zip; ls -la s.zip; unzip -l s.zip | tail -5
+          mkdir s && cd s && unzip -q ../s.zip; find . -type f | head -3; F=$(grep -l "3210" -r . | head -50 | xargs ls -t | head -3); echo "$F"
+          for f in $(grep -lE "amendement n.{0,3}3089" -r . | head -2); do echo "== $f"; head -c 3000 $f; echo; grep -oE '.{600}3089.{400}' $f | head -2; done
