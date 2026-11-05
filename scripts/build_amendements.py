@@ -159,7 +159,8 @@ def main(out="amendements.json"):
             disp = text(corps.get("dispositif") if isinstance(corps, dict) else "", 220)
             cf = "CF" in str(num) or "CION_FIN" in name or "CF" in prefixe
             partie = "B" if str(num).startswith("II-") else "A"
-            n_only = re.sub(r"^I+-", "", str(num)).replace("CF", "")
+            m_num = re.search(r"(\d+)", re.sub(r"^I+-", "", str(num)))
+            n_only = m_num.group(1) if m_num else ""
             url = f"https://www.assemblee-nationale.fr/dyn/{LEG}/amendements/3210{partie}/{'CION_FIN/CF' if cf else 'AN/'}{n_only}" if n_only else ""
             rows.append({
                 "n": num, "o": ordre, "uid": uid,

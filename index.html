@@ -359,8 +359,8 @@ function renderAll(){
   if(!ALL){ loadAll(); return; }
   if(ALL.err){ $("#all-count").textContent = "La base complète n'est pas disponible ici (elle se charge sur le site en ligne)."; $("#all-res").innerHTML=""; $("#all-f").innerHTML=""; $("#all-l").innerHTML=""; $("#all-more").classList.add("hidden"); return; }
   const nq = q.replace(/\s/g,"").toUpperCase(), isNum = /^(I{1,2}-)?(CF)?\d{1,5}$/.test(nq);
-  const strip = n => String(n).replace(/^I+-/,"");
-  const base = ALL.amendements.filter(r => isNum ? (/^I+-/.test(nq) ? r.n===nq : strip(r.n)===nq) : matchText(r._h, r._c, q));
+  const clean = n => String(n).replace(/\s*\(.*\)\s*$/,"").toUpperCase(), strip = n => clean(n).replace(/^I+-/,"");
+  const base = ALL.amendements.filter(r => isNum ? (/^I+-/.test(nq) ? clean(r.n)===nq : strip(r.n)===nq) : matchText(r._h, r._c, q));
   const cnt = k => base.filter(r => r._g===k).length;
   const lieu = r => !allL || r.c===allL;
   $("#all-f").innerHTML = [["","Tous",base.length],["adopte","Adoptés",cnt("adopte")],["rejete","Rejetés",cnt("rejete")],["autre","Non soutenus, tombés, retirés…",cnt("autre")]]
