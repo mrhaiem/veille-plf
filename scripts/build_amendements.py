@@ -128,6 +128,52 @@ def resume(expo, disp, art):
     return r
 
 
+PENDING = ("A discuter", "En traitement", "En recevabilité", "")
+
+
+def refresh(rows):
+    """Le fichier global de l'open data est en retard sur les votes : pour chaque amendement encore
+    « à discuter » ou « en traitement », on relit sa fiche officielle individuelle (mise à jour en continu)."""
+    from concurrent.futures import ThreadPoolExecutor
+    todo = [r for r in rows if r.get("uid") and r.get("s", "") in PENDING]
+    print("statuts à vérifier sur les fiches individuelles :", len(todo), flush=True)
+
+    def one(r):
+        url = f"https://www.assemblee-nationale.fr/dyn/opendata/{r['uid']}.xml"
+        for i in range(2):
+            try:
+                with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=30) as resp:
+                    x = resp.read().decode("utf-8", "replace")
+                break
+            except Exception:
+                x = ""
+                time.sleep(1 + i)
+        if not x:
+            return r, None
+        def tag(name):
+            m = re.search(rf"<{name}>([^<]*)</{name}>", x)
+            return html.unescape(m.group(1)).strip() if m else ""
+        sort = tag("sort")
+        m_e = re.search(r"<etat>.*?<libelle>([^<]*)</libelle>", x, re.S)
+        m_se = re.search(r"<sousEtat>.*?<libelle>([^<]*)</libelle>", x, re.S)
+        st = sort or (html.unescape(m_se.group(1)).strip() if m_se else "") or (html.unescape(m_e.group(1)).strip() if m_e else "")
+        return r, (st, tag("dateSort")[:10])
+
+    changed = failed = 0
+    with ThreadPoolExecutor(max_workers=8) as ex:
+        for r, res in ex.map(one, todo):
+            if res is None:
+                failed += 1
+                continue
+            st, ds = res
+            if st and st != r["s"]:
+                r["s"] = st
+                changed += 1
+            if ds and not r.get("ds"):
+                r["ds"] = ds
+    print(f"statuts mis à jour : {changed} | fiches illisibles : {failed}", flush=True)
+
+
 def groups_map():
     data = first(*ORG_URLS)
     m = {}
@@ -221,6 +267,7 @@ def main(out="amendements.json"):
         print("EXEMPLE (clés) :", list(sample.keys()), flush=True)
         print(json.dumps(sample, ensure_ascii=False)[:2500], flush=True)
     rows.sort(key=lambda r: (r["c"] != "séance", -int(re.sub(r"\D", "", str(r["o"])) or 0)))
+    refresh(rows)
     for r in rows:
         r.pop("uid", None); r.pop("o", None)
     from collections import Counter
@@ -228,6 +275,8 @@ def main(out="amendements.json"):
     if not rows:
         print("ERREUR : aucun amendement trouvé pour", TEXTE, flush=True)
         sys.exit(1)
+    from collections import Counter as _C
+    print("statuts après vérification :", _C(r["s"] for r in rows).most_common(10), flush=True)
     meta = {"maj": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "texte": "PLF 2027 (AN n° 3210)",
             "total": len(rows), "source": "Open data de l'Assemblée nationale"}
     with open(out, "w", encoding="utf-8") as f:

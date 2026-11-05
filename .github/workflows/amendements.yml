@@ -2,7 +2,7 @@ name: Collecte des amendements PLF 2027
 
 on:
   schedule:
-    - cron: "17 5 * * *"   # chaque jour vers 6 h 17 (Paris, heure d'hiver)
+    - cron: "17 5,8,11,14,17,20 * * *"   # 6 h 17, 9 h 17, 12 h 17, 15 h 17, 18 h 17, 21 h 17 (Paris, heure d'hiver)
   workflow_dispatch:
 
 permissions:
