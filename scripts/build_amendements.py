@@ -148,12 +148,15 @@ def main(out="amendements.json"):
                 art = f"{'Après' if pos.lower().startswith('apr') else 'Avant'} {art}"
             sig = a.get("signataires")
             sig = sig if isinstance(sig, dict) else {}
-            aut = S(sig.get("libelle"))
+            aut = html.unescape(S(sig.get("libelle"))).replace("\xa0", " ")
+            aut = re.sub(r"\s+", " ", aut).strip()
+            if "," in aut or " et " in aut:
+                aut = re.split(r",| et ", aut)[0].strip() + " et al."
             gref = S(get(sig, "auteur", "groupePolitiqueRef"))
             typeaut = S(get(sig, "auteur", "typeAuteur"))
             corps = get(a, "corps", "contenuAuteur") or a.get("corps") or {}
-            expo = text(corps.get("exposeSommaire") if isinstance(corps, dict) else "", 700)
-            disp = text(corps.get("dispositif") if isinstance(corps, dict) else "", 350)
+            expo = text(corps.get("exposeSommaire") if isinstance(corps, dict) else "", 480)
+            disp = text(corps.get("dispositif") if isinstance(corps, dict) else "", 220)
             cf = "CF" in str(num) or "CION_FIN" in name or "CF" in prefixe
             partie = "B" if str(num).startswith("II-") else "A"
             n_only = re.sub(r"^I+-", "", str(num)).replace("CF", "")
@@ -169,6 +172,8 @@ def main(out="amendements.json"):
         print("EXEMPLE (clés) :", list(sample.keys()), flush=True)
         print(json.dumps(sample, ensure_ascii=False)[:2500], flush=True)
     rows.sort(key=lambda r: (r["c"] != "séance", -int(re.sub(r"\D", "", str(r["o"])) or 0)))
+    for r in rows:
+        r.pop("uid", None); r.pop("o", None)
     from collections import Counter
     print("amendements :", len(rows), "| statuts :", Counter(r["s"] for r in rows).most_common(12), flush=True)
     if not rows:

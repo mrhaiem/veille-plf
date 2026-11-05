@@ -3,7 +3,7 @@ window.VEILLE = {
   "titre": "1re lecture à l'Assemblée — vote sur la partie recettes reporté, examen prolongé jusqu'au 6 novembre",
   "texte": "Faute d'avoir épuisé les quelque 3 400 amendements déposés, le vote solennel prévu le 3 novembre n'a pas eu lieu : la partie recettes sera mise aux voix à la fin de son examen, que l'Assemblée a programmé jusqu'au vendredi 6 novembre. Les amendements adoptés depuis le 13 octobre restent provisoires.",
   "alerte": "Plusieurs groupes (RN, UDR, Horizons, DR) annoncent un rejet de la partie recettes : dans ce cas, tous les amendements ci-dessous tombent et le Sénat repartira du texte du Gouvernement. Le 49.3 reste possible.",
-  "majLe": "2026-11-04T07:24:26Z",
+  "majLe": "2026-11-05T05:50:00Z",
   "etapes": [
    {
     "date": "1er oct.",
@@ -716,17 +716,17 @@ window.VEILLE = {
   {
    "id": "I-CF1737",
    "num": "I-CF1737",
-   "titre": "« Niche Copé » : quote-part de frais et charges portée de 12 % à 16 % sur les plus-values de titres de participation",
+   "titre": "« Niche Copé » : la hausse de la quote-part de 12 % à 16 % adoptée en commission, puis rejetée en séance",
    "objet": "Les plus-values de cession de titres de participation sont exonérées d'IS (CGI art. 219, I-a quinquies) sous réserve de réintégrer une quote-part de frais et charges de 12 %. L'amendement la porterait à 16 % pour les exercices clos à compter du 31 décembre 2027. La commission a en revanche écarté la suppression pure et simple de la niche Copé.",
-   "pratique": "Adopté en commission seulement : la séance repart du texte du Gouvernement et son sort en séance n'est pas confirmé à ce stade. La même hausse avait été votée en commission en 2024 puis abandonnée. À surveiller pour les cessions de filiales programmées en 2027.",
-   "statut": "adopte",
+   "pratique": "La commission l'avait adoptée le 8 octobre, mais les amendements identiques déposés en séance (I-3782 Mattei, I-50 Sas) ont été rejetés le 27 octobre : la quote-part reste à 12 % dans le texte de l'Assemblée.",
+   "statut": "rejete",
    "articlePLF": "après art. 9",
    "cgi": "CGI art. 219, I-a quinquies",
    "auteurs": "Mattei",
    "groupe": "Les Démocrates",
    "gouv": "",
    "theme": "is",
-   "etape": "Commission des finances (sort en séance non confirmé)",
+   "etape": "Adopté en commission, rejeté en séance",
    "date": "2026-10-08",
    "source": "https://www.maxcompta.com/blogs/actualites/budget-2027-commission-finances-rejet-partie-recettes",
    "sourceTitre": "Max Compta — 11 oct. 2026",
@@ -737,22 +737,49 @@ window.VEILLE = {
    "num": "I-CF46",
    "titre": "Régime mère-fille : seuil de détention relevé de 5 % à 10 %",
    "objet": "L'amendement relèverait de 5 % à 10 % le seuil de détention du capital ouvrant droit au régime mère-fille et supprimerait l'assouplissement de 2015 (2,5 % du capital et 5 % des droits de vote dans certains cas). Rappel : seule une quote-part de frais et charges de 5 % des dividendes est imposée, 1 % au sein d'un groupe intégré.",
-   "pratique": "Sort de l'amendement non confirmé dans les sources consultées. S'il prospérait, les participations comprises entre 5 % et 10 % sortiraient du régime : à recenser dans les portefeuilles des holdings.",
-   "statut": "inconnu",
+   "pratique": "Rejeté en commission le 8 octobre, et l'amendement LFI d'encadrement du régime mère-fille a aussi été rejeté en séance (I-2630, 27 oct.). Pas de changement du seuil de 5 % à ce stade.",
+   "statut": "rejete",
    "articlePLF": "après art. 9",
    "cgi": "CGI art. 145 et 216",
-   "auteurs": "",
-   "groupe": "",
+   "auteurs": "Sas",
+   "groupe": "Écologiste et social",
    "gouv": "",
    "theme": "is",
-   "etape": "Commission des finances (sort non confirmé)",
-   "date": "2026-10-04",
+   "etape": "Commission des finances",
+   "date": "2026-10-08",
    "source": "https://www.assemblee-nationale.fr/dyn/17/amendements/3210A/CION_FIN/CF46",
    "sourceTitre": "Assemblée nationale — I-CF46",
    "ajoute": "2026-11-04T07:27:40Z"
   }
  ],
  "briefs": [
+  {
+   "date": "2026-11-05",
+   "titre": "Recherche dans tous les amendements, et deux corrections",
+   "intro": "L'Assemblée poursuit l'examen de la partie recettes jusqu'au 6 novembre ; le vote final viendra ensuite.",
+   "items": [
+    {
+     "phrase": "La recherche couvre désormais les 11 505 amendements déposés sur le PLF 2027, en commission et en séance, adoptés ou non, mis à jour chaque nuit depuis l'open data de l'Assemblée.",
+     "num": "Recherche",
+     "cle": "quote-part"
+    },
+    {
+     "phrase": "Correction : la hausse de la quote-part de la niche Copé de 12 % à 16 %, adoptée en commission, a été rejetée en séance le 27 octobre (I-3782, I-50).",
+     "num": "I-CF1737",
+     "cle": "quote-part"
+    },
+    {
+     "phrase": "Correction : le relèvement du seuil du régime mère-fille de 5 % à 10 % (I-CF46) a été rejeté en commission.",
+     "num": "I-CF46",
+     "cle": "mère-fille"
+    },
+    {
+     "phrase": "Holdings patrimoniales : l'extension de la taxe à la trésorerie au taux de 2 % (I-3807) reste adoptée, sous réserve du vote final.",
+     "num": "I-3807",
+     "cle": "I-3807"
+    }
+   ]
+  },
   {
    "date": "2026-11-04",
    "titre": "Vote reporté, examen prolongé jusqu'à vendredi",
@@ -767,11 +794,6 @@ window.VEILLE = {
      "phrase": "Holdings patrimoniales : la taxe de l'art. 235 ter C s'étendrait à la trésorerie et aux placements au taux de 2 %, sauf réinvestissement sous trois ans, contre l'avis du Gouvernement.",
      "num": "I-3807",
      "cle": "I-3807"
-    },
-    {
-     "phrase": "Niche Copé : la commission avait porté la quote-part de frais et charges de 12 % à 16 % sur les plus-values de titres de participation ; son sort en séance n'est pas confirmé.",
-     "num": "I-CF1737",
-     "cle": "quote-part"
     },
     {
      "phrase": "Correction : l'abattement de 500 000 € du dirigeant partant serait ouvert aux associés de sociétés d'exercice libéral, et non à toutes les sociétés de personnes.",

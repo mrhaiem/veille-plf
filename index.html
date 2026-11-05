@@ -160,6 +160,12 @@ mark{background:var(--accent-soft);color:inherit;padding:0 1px}
 .empty-s .btn{display:inline-block;margin-top:12px;background:var(--accent);color:#fff;text-decoration:none;padding:10px 14px;font-weight:600}
 body.searching .side{display:none}
 @media (min-width:1024px){ body.searching .layout{grid-template-columns:minmax(0,1fr)} }
+.arow{padding:14px 0;border-bottom:1px solid var(--line)}
+.arow .top{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center;font-size:12.5px;margin-bottom:3px}
+.arow .num{font-weight:600;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent)}
+.arow .num:after{content:" ↗";color:var(--accent);font-size:11px}
+.arow p{margin:4px 0 0;font-size:14px}
+.b-autre{color:var(--muted)}.b-autre:before{content:"– "}
 .hidden{display:none}
 </style>
 </head>
@@ -199,10 +205,20 @@ body.searching .side{display:none}
   <section id="pane-brief"><div id="brief-now"></div><details class="past hidden" id="past"><summary>Points précédents</summary><div id="brief-past"></div></details></section>
 
   <section id="pane-search" class="hidden">
-    <p class="hint">Tape dans la barre de recherche en haut de la page : mot-clé, article du CGI ou du LPF, numéro d'amendement, auteur ou groupe. Les résultats s'affichent pendant la saisie. Ou touche une suggestion :</p>
+    <p class="hint">Tape dans la barre en haut : mot-clé, article du CGI, numéro d'amendement, député ou groupe. La recherche porte sur la sélection commentée puis sur les 11 000 amendements déposés. Ou touche une suggestion :</p>
     <div class="chips" id="sugg"></div>
+    <div id="sel-sec" class="hidden"><div class="sect">Sélection commentée de la veille</div>
     <div class="count" id="s-count"></div>
-    <div id="s-results"></div>
+    <div id="s-results"></div></div>
+    <div id="all-sec" class="hidden">
+      <div class="sect">Tous les amendements déposés sur le PLF 2027</div>
+      <div class="chips" id="all-f" style="flex-wrap:wrap"></div>
+      <div class="chips" id="all-l" style="flex-wrap:wrap"></div>
+      <div class="count" id="all-count"></div>
+      <div id="all-res"></div>
+      <button id="all-more" class="chip hidden" style="margin-top:10px">Afficher 30 de plus</button>
+      <p class="hint" id="all-src" style="margin-top:12px"></p>
+    </div>
     <div class="an-box" id="an-box"></div>
   </section>
 
@@ -275,7 +291,9 @@ const SYN = {"quote-part":"quote-part","quote part":"quote-part","qpfc":"quote-p
 function haystack(a){ return [a.num,a.titre,a.objet,a.auteurs,a.groupe,a.articlePLF,a.cgi,a.pratique,THEMES[a.theme],a.etape].join(" | "); }
 function matches(a, q){
   if(!q) return true;
-  const h = fold(haystack(a)), hc = compact(haystack(a));
+  return matchText(fold(haystack(a)), compact(haystack(a)), q);
+}
+function matchText(h, hc, q){
   return fold(q).split(/\s+(?:et|\+)\s+|,/).every(part => {
     part = part.trim(); if(!part) return true;
     const syn = SYN[fold(part)];
@@ -316,6 +334,51 @@ function cardHtml(a, q){
 }
 const SUGG = ["Dutreil","150-0 B ter","Suramortissement","Holding","Rachat d'actions","Exit tax","BSPCE","Pacte Papin","JEI","Crédit-vendeur","Rescrit","787 B"];
 let sTimer = null;
+let ALL = null, ALLp = null, allF = "", allL = "", allLim = 30;
+const grpS = s => /^adopt/i.test(s) ? "adopte" : /^rejet/i.test(s) ? "rejete" : "autre";
+function loadAll(){
+  if(ALLp) return ALLp;
+  $("#all-count").textContent = "Chargement des amendements…";
+  ALLp = fetch("amendements.json").then(r => r.ok ? r.json() : Promise.reject(r.status)).then(j => {
+    j.amendements.forEach(r => { const t = [r.n, r.art, r.aut, r.g, r.x, r.p].join(" | "); r._h = fold(t); r._c = compact(t); r._g = grpS(r.s); });
+    ALL = j; renderAll();
+  }).catch(() => { ALL = {err:1}; renderAll(); });
+  return ALLp;
+}
+function snip(t, q){
+  t = String(t||""); if(t.length <= 300) return t;
+  const f = fold(t), w = fold(q).split(/[\s,]+/).filter(x => x.length>2);
+  let i = -1; for(const x of w){ const j = f.indexOf(x); if(j>=0 && (i<0 || j<i)) i = j; }
+  const st = i > 140 ? i - 100 : 0;
+  return (st ? "…" : "") + t.slice(st, st + 300).trim() + (st + 300 < t.length ? "…" : "");
+}
+function renderAll(){
+  const q = $("#sq").value.trim();
+  $("#all-sec").classList.toggle("hidden", !q);
+  if(!q) return;
+  if(!ALL){ loadAll(); return; }
+  if(ALL.err){ $("#all-count").textContent = "La base complète n'est pas disponible ici (elle se charge sur le site en ligne)."; $("#all-res").innerHTML=""; $("#all-f").innerHTML=""; $("#all-l").innerHTML=""; $("#all-more").classList.add("hidden"); return; }
+  const nq = q.replace(/\s/g,"").toUpperCase(), isNum = /^(I{1,2}-)?(CF)?\d{1,5}$/.test(nq);
+  const strip = n => String(n).replace(/^I+-/,"");
+  const base = ALL.amendements.filter(r => isNum ? (/^I+-/.test(nq) ? r.n===nq : strip(r.n)===nq) : matchText(r._h, r._c, q));
+  const cnt = k => base.filter(r => r._g===k).length;
+  const lieu = r => !allL || r.c===allL;
+  $("#all-f").innerHTML = [["","Tous",base.length],["adopte","Adoptés",cnt("adopte")],["rejete","Rejetés",cnt("rejete")],["autre","Non soutenus, tombés, retirés…",cnt("autre")]]
+    .map(([k,l,n]) => `<button class="chip" data-af="${k}" aria-pressed="${allF===k}">${l} (${n})</button>`).join("");
+  $("#all-l").innerHTML = [["","Séance et commission"],["séance","Séance"],["commission","Commission"]]
+    .map(([k,l]) => `<button class="chip" data-al="${k}" aria-pressed="${allL===k}">${l}</button>`).join("");
+  const rows = base.filter(r => (!allF || r._g===allF) && lieu(r))
+    .sort((x,y) => (x._g==="adopte"?0:1)-(y._g==="adopte"?0:1) || (x.c==="séance"?0:1)-(y.c==="séance"?0:1) || String(y.ds||y.d).localeCompare(String(x.ds||x.d)));
+  $("#all-count").textContent = rows.length ? `${rows.length} amendement${rows.length>1?"s":""}` : "Aucun amendement ne correspond.";
+  const cls = {adopte:"b-adopte", rejete:"b-rejete", autre:"b-autre"};
+  $("#all-res").innerHTML = rows.slice(0, allLim).map(r => `<article class="arow">
+    <div class="top">${r.u?`<a class="num" href="${esc(r.u)}" target="_blank" rel="noopener">${esc(r.n)}</a>`:`<span class="num">${esc(r.n)}</span>`}
+      <span class="badge ${cls[r._g]}">${esc(r.s||"—")}</span><span class="theme">${esc(r.art)} · ${esc(r.c)}</span></div>
+    <div class="meta">${esc(r.aut)}${r.g?" ("+esc(r.g)+")":""}${(r.ds||r.d)?" · "+fdate(r.ds||r.d):""}</div>
+    <p>${hl(snip(r.x || r.p, q), q)}</p></article>`).join("");
+  $("#all-more").classList.toggle("hidden", rows.length <= allLim);
+  $("#all-src").textContent = ALL.meta ? `Source : ${ALL.meta.source}, ${ALL.meta.total} amendements, mise à jour du ${new Date(ALL.meta.maj).toLocaleString("fr-FR",{dateStyle:"long",timeStyle:"short"})}.` : "";
+}
 function renderSearch(){
   const q = $("#sq").value.trim();
   $("#sq-clear").classList.toggle("hidden", !q);
@@ -323,8 +386,10 @@ function renderSearch(){
   $("#sugg").innerHTML = SUGG.map(w => `<button class="chip" data-s="${esc(w)}" aria-pressed="${fold(q)===fold(w)}">${esc(w)}</button>`).join("");
   const inTitle = a => matches({titre:a.titre,cgi:a.cgi,num:a.num}, q) ? 0 : 1;
   const rows = q ? AMDT.filter(a => matches(a,q)).sort((x,y)=> inTitle(x)-inTitle(y) || (x.statut==="adopte"?0:1)-(y.statut==="adopte"?0:1) || String(y.date||"").localeCompare(String(x.date||""))) : [];
-  $("#s-count").textContent = q ? (rows.length ? `${rows.length} résultat${rows.length>1?"s":""} dans la veille` : "") : "";
-  $("#s-results").innerHTML = (q && !rows.length) ? `<div class="empty-s"><b>Rien sur « ${esc(q)} » dans la veille.</b> La veille ne retient que les amendements les plus importants pour la pratique. Pour voir tous les amendements déposés sur le PLF 2027 qui en parlent, adoptés ou non :<a class="btn" href="https://www.google.com/search?q=${encodeURIComponent('site:assemblee-nationale.fr/dyn/17/amendements/3210A "'+q+'"')}" target="_blank" rel="noopener">Chercher « ${esc(q)} » sur assemblee-nationale.fr ↗</a></div>` : rows.map(a => cardHtml(a,q)).join("");
+  $("#sel-sec").classList.toggle("hidden", !q);
+  $("#s-count").textContent = q ? (rows.length ? `${rows.length} résultat${rows.length>1?"s":""} commenté${rows.length>1?"s":""}` : "Rien dans la sélection commentée : voir tous les amendements déposés ci-dessous.") : "";
+  $("#s-results").innerHTML = rows.map(a => cardHtml(a,q)).join("");
+  allLim = 30; renderAll();
   const nm = q.match(/^(?:i-?)?(cf)?\s*-?\s*(\d{1,5})$/i);
   const links = [];
   if(nm) links.push([anUrl(!!nm[1], nm[2]), `Ouvrir l'amendement I-${nm[1]?"CF":""}${nm[2]} sur le site de l'Assemblée`]);
@@ -424,6 +489,9 @@ document.addEventListener("click", e => {
     const a = ACTUS.find(x=>x.id===$("#fd-detail").dataset.id); const q = a.qcm[+box.dataset.qz];
     box.querySelectorAll("[data-qo]").forEach(b=>{ const j=+b.dataset.qo; if(j===q.c) b.classList.add("ok"); else if(b===qo) b.classList.add("ko"); });
     box.querySelector(".e").classList.remove("hidden"); return; }
+  const af = e.target.closest("[data-af]"); if(af){ allF = af.dataset.af; allLim = 30; renderAll(); return; }
+  const al = e.target.closest("[data-al]"); if(al){ allL = al.dataset.al; allLim = 30; renderAll(); return; }
+  if(e.target.closest("#all-more")){ allLim += 30; renderAll(); return; }
   const sg = e.target.closest("[data-s]"); if(sg){ $("#sq").value = sg.dataset.s; renderSearch(); return; }
   if(e.target.closest("#sq-clear")){ $("#sq").value=""; renderSearch(); $("#sq").focus(); return; }
   const c = e.target.closest(".chip"); if(c){ theme = c.dataset.t; render(); return; }
