@@ -79,9 +79,53 @@ def find_key(o, key):
 def text(h, n):
     if not isinstance(h, str):
         return ""
-    t = html.unescape(re.sub(r"<[^>]+>", " ", h))
+    t = html.unescape(html.unescape(re.sub(r"<[^>]+>", " ", h)))
     t = re.sub(r"\s+", " ", t).strip()
-    return t if len(t) <= n else t[: n].rsplit(" ", 1)[0] + "…"
+    if len(t) <= n:
+        return t
+    cut = t[: n]
+    m = max(cut.rfind(". "), cut.rfind(" ; "), cut.rfind("! "), cut.rfind("? "))
+    return cut[: m + 1] if m > n * 0.5 else cut.rsplit(" ", 1)[0] + "…"
+
+
+SENT = re.compile(r"(?<=[.!?…])\s+(?=[«\"(A-ZÀ-ÖØ-Ý])")
+STRONG = re.compile(r"\b(cet|ce|le présent|du présent|notre|leur|un)\s+(sous-)?amendement|cet article additionnel|par le présent|^il est proposé|^nous proposons|^le groupe [^.]{0,60} (propose|souhaite|vise)", re.I)
+GOOD = re.compile(r"(amendement|article additionnel|dispositif|présente? (mesure|proposition))[^.]{0,120}?\b(vise|visent|a pour (objet|but|effet)|ont pour objet|propose|tend|prévoi|permet|supprim|rétabli|port|étend|exclu|ouvr|instaur|cré|institu|relèv|abaiss|rédui|augment|proro|plafonn|exon|limit|appliqu|align|corrig|précis|modifi|remplac|ramèn|fix|introdui|sécuris|rend|transform|interdi|soumet|assujetti|mett?r?e? fin|revien)", re.I)
+GENERIC = re.compile(r"(aborde ce budget|pacte entre les générations|nos enfants en hériteront|amendement d.appel|amendement de repli\.?$)", re.I)
+
+
+def sentences(t):
+    return [x.strip() for x in SENT.split(t) if len(x.strip()) > 2]
+
+
+def resume(expo, disp, art):
+    ss = sentences(expo)
+    pick = []
+    cands = [i for i, x in enumerate(ss) if STRONG.search(x) and GOOD.search(x) and not GENERIC.search(x)]
+    cands = cands or [i for i, x in enumerate(ss) if STRONG.search(x) and not GENERIC.search(x)]
+    cands = cands or [i for i, x in enumerate(ss) if GOOD.search(x) and not GENERIC.search(x)]
+    for i in cands[:1]:
+        x = ss[i]
+        if True:
+            pick = [x]
+            if i > 0 and re.search(r"\b(ces|cette|celle-ci|celui-ci|ce dispositif|ce régime|cette taxe|cette mesure)\b", x, re.I) and len(ss[i - 1]) < 260 and not GENERIC.search(ss[i - 1]):
+                pick.insert(0, ss[i - 1])
+            elif len(x) < 90 and i + 1 < len(ss):
+                pick.append(ss[i + 1])
+            break
+    if not pick:
+        good = [x for x in ss if not GENERIC.search(x)]
+        if good:
+            pick = [good[0]] + ([good[1]] if len(good[0]) < 90 and len(good) > 1 else [])
+    r = " ".join(pick)
+    if len(r) > 480:
+        r = r[:480].rsplit(" ", 1)[0] + "…"
+    d = disp.strip()
+    if re.match(r"^Supprimer (cet|l.)article", d, re.I):
+        r = (f"Supprime l'{art.lower()}." if art else "Amendement de suppression.") + (" " + r if r else "")
+    elif not r and d:
+        r = d if len(d) <= 300 else d[:300].rsplit(" ", 1)[0] + "…"
+    return r
 
 
 def groups_map():
@@ -155,19 +199,23 @@ def main(out="amendements.json"):
             gref = S(get(sig, "auteur", "groupePolitiqueRef"))
             typeaut = S(get(sig, "auteur", "typeAuteur"))
             corps = get(a, "corps", "contenuAuteur") or a.get("corps") or {}
-            expo = text(corps.get("exposeSommaire") if isinstance(corps, dict) else "", 480)
-            disp = text(corps.get("dispositif") if isinstance(corps, dict) else "", 220)
-            cf = "CF" in str(num) or "CION_FIN" in name or "CF" in prefixe
+            expo_full = text(corps.get("exposeSommaire") if isinstance(corps, dict) else "", 100000)
+            disp_full = text(corps.get("dispositif") if isinstance(corps, dict) else "", 100000)
+            expo = text(expo_full, 900)
+            disp = text(disp_full, 260)
+            res = resume(expo_full, disp_full, art)
+            cf = prefixe.upper() == "CF" or re.match(r"^I+-CF", str(num) or "") is not None
+            autre_org = bool(prefixe) and prefixe.upper() not in ("AN", "CF")
             partie = "B" if str(num).startswith("II-") else "A"
             m_num = re.search(r"(\d+)", re.sub(r"^I+-", "", str(num)))
             n_only = m_num.group(1) if m_num else ""
-            url = f"https://www.assemblee-nationale.fr/dyn/{LEG}/amendements/3210{partie}/{'CION_FIN/CF' if cf else 'AN/'}{n_only}" if n_only else ""
+            url = f"https://www.assemblee-nationale.fr/dyn/{LEG}/amendements/3210{partie}/{'CION_FIN/CF' if cf else 'AN/'}{n_only}" if (n_only and not autre_org) else ""
             rows.append({
                 "n": num, "o": ordre, "uid": uid,
                 "d": S(cv.get("dateDepot"))[:10], "ds": S(cv.get("dateSort"))[:10],
                 "s": statut, "art": art, "aut": aut if aut else typeaut,
-                "g": grp.get(gref, ""), "x": expo, "p": disp,
-                "c": "commission" if cf else "séance", "u": url,
+                "g": grp.get(gref, ""), "r": res, "x": expo, "p": disp,
+                "c": "commission" if (cf or autre_org) else "séance", "u": url,
             })
     if sample is not None:
         print("EXEMPLE (clés) :", list(sample.keys()), flush=True)

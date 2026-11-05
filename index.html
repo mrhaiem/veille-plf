@@ -166,6 +166,10 @@ body.searching .side{display:none}
 .arow .num:after{content:" ↗";color:var(--accent);font-size:11px}
 .arow p{margin:4px 0 0;font-size:14px}
 .b-autre{color:var(--muted)}.b-autre:before{content:"– "}
+.arow .res{margin:6px 0 0}
+.arow .res b{color:var(--accent);font-weight:600}
+.arow .psg{font-size:13px;color:var(--muted);margin:6px 0 0;padding-left:10px;border-left:2px solid var(--line)}
+.arow .psg span{font-weight:600}
 .hidden{display:none}
 </style>
 </head>
@@ -352,6 +356,17 @@ function snip(t, q){
   const st = i > 140 ? i - 100 : 0;
   return (st ? "…" : "") + t.slice(st, st + 300).trim() + (st + 300 < t.length ? "…" : "");
 }
+function passage(r, q){
+  // phrase entière contenant le mot-clé, si celui-ci n'apparaît pas déjà dans le résumé
+  const terms = fold(q).split(/[\s,]+/).filter(x => x.length > 2);
+  if(!terms.length || !r.r) return "";
+  const inRes = fold(r.r); if(terms.every(t => inRes.includes(t))) return "";
+  const txt = [r.x, r.p].filter(Boolean).join(" ");
+  const sents = txt.split(/(?<=[.!?…])\s+(?=[«"(A-ZÀ-ÖØ-Ý])/);
+  const hit = sents.find(x => terms.some(t => fold(x).includes(t)));
+  if(!hit) return "";
+  return hit.length <= 420 ? hit : hit.slice(0, 420).replace(/\s+\S*$/, "") + "…";
+}
 function renderAll(){
   const q = $("#sq").value.trim();
   $("#all-sec").classList.toggle("hidden", !q);
@@ -375,7 +390,9 @@ function renderAll(){
     <div class="top">${r.u?`<a class="num" href="${esc(r.u)}" target="_blank" rel="noopener">${esc(r.n)}</a>`:`<span class="num">${esc(r.n)}</span>`}
       <span class="badge ${cls[r._g]}">${esc(r.s||"—")}</span><span class="theme">${esc(r.art)} · ${esc(r.c)}</span></div>
     <div class="meta">${esc(r.aut)}${r.g?" ("+esc(r.g)+")":""}${(r.ds||r.d)?" · "+fdate(r.ds||r.d):""}</div>
-    <p>${hl(snip(r.x || r.p, q), q)}</p></article>`).join("");
+    ${r.r ? `<p class="res"><b>En bref :</b> ${hl(r.r, q)}</p>` : ""}
+    ${(() => { const ps = passage(r, q); return ps ? `<p class="psg"><span>Passage contenant « ${esc(q)} » :</span> ${hl(ps, q)}</p>` : ""; })()}
+    ${!r.r ? `<p>${hl(snip(r.x || r.p, q), q)}</p>` : ""}</article>`).join("");
   $("#all-more").classList.toggle("hidden", rows.length <= allLim);
   $("#all-src").textContent = ALL.meta ? `Source : ${ALL.meta.source}, ${ALL.meta.total} amendements, mise à jour du ${new Date(ALL.meta.maj).toLocaleString("fr-FR",{dateStyle:"long",timeStyle:"short"})}.` : "";
 }
