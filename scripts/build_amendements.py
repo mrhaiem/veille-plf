@@ -295,8 +295,9 @@ def main(out="amendements.json"):
             m_num = re.search(r"(\d+)", re.sub(r"^I+-", "", str(num)))
             n_only = m_num.group(1) if m_num else ""
             url = f"https://www.assemblee-nationale.fr/dyn/{LEG}/amendements/3210{partie}/{'CION_FIN/CF' if cf else 'AN/'}{n_only}" if (n_only and not autre_org) else ""
+            puid = S(a.get("amendementParentRef"))
             rows.append({
-                "n": num, "o": ordre, "uid": uid,
+                "n": num, "o": ordre, "uid": uid, "_puid": puid,
                 "d": S(cv.get("dateDepot"))[:10], "ds": S(cv.get("dateSort"))[:10],
                 "s": statut, "art": art, "aut": aut if aut else typeaut,
                 "g": grp.get(gref, ""), "r": res, "k": refs, "x": expo, "p": disp,
@@ -307,6 +308,12 @@ def main(out="amendements.json"):
         print(json.dumps(sample, ensure_ascii=False)[:2500], flush=True)
     rows.sort(key=lambda r: (r["c"] != "séance", -int(re.sub(r"\D", "", str(r["o"])) or 0)))
     refresh(rows)
+    by_uid = {r["uid"]: r["n"] for r in rows if r.get("uid")}
+    for r in rows:
+        pu = r.pop("_puid", "")
+        if pu and pu in by_uid:
+            r["par"] = by_uid[pu]
+    print("sous-amendements rattachés :", sum(1 for r in rows if r.get("par")), flush=True)
     for r in rows:
         r.pop("uid", None); r.pop("o", None)
     from collections import Counter

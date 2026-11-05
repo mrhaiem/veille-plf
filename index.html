@@ -343,7 +343,7 @@ function loadAll(){
   $("#all-count").textContent = "Chargement des amendements…";
   ALLp = fetch("amendements.json").then(r => r.ok ? r.json() : Promise.reject(r.status)).then(j => {
     j.amendements.forEach(r => { const t = [r.n, r.art, r.aut, r.g, r.r, r.x, r.p, (r.k||[]).map(k => "article " + k + " du cgi").join(" ; ")].join(" | "); r._h = fold(t); r._c = compact(t); r._rs = fold(r.r || ""); r._hn = normT(t); r._g = grpS(r.s); });
-    ALL = j; renderAll();
+    IDX = Object.fromEntries(j.amendements.map(r => [r.n, r])); ALL = j; renderAll();
   }).catch(() => { ALL = {err:1}; renderAll(); });
   return ALLp;
 }
@@ -432,9 +432,14 @@ function artRe(k){
   if(!(k in ART_RE)){ const a = artQuery(k); ART_RE[k] = a ? new RegExp(a.re.source) : null; }
   return ART_RE[k];
 }
-function conceptHit(r, arts){
-  // 2 = article cité (relevé ou dans le texte), 1 = nom du régime présent dans le texte, 0 = rien
+// Articles du PLF 2027 consacrés entièrement à un régime : tout amendement qui les vise en relève
+const PLF_ART = { "150-0 b ter": ["5"], "39 decies j": ["10"], "l. 80 a": ["29"] };
+let IDX = null;
+function conceptHit(r, arts, depth){
+  // 2 = article cité (relevé ou dans le texte) ou article du PLF dédié, 1 = nom du régime présent, 0 = rien
   if(Array.isArray(r.k) && r.k.some(k => arts.includes(k))) return 2;
+  if(/^I-/.test(r.n)){ const m = fold(r.art || "").match(/^art\.? ?(\d+)$/); if(m && arts.some(k => (PLF_ART[k] || []).includes(m[1]))) return 2; }
+  if(!depth && r.par && IDX && IDX[r.par]){ const h = conceptHit(IDX[r.par], arts, 1); if(h) return h; }
   if(arts.some(k => { const re = artRe(k); return re && re.test(r._h); })) return 2;
   return arts.some(k => (THES_RE[k] || []).some(re => re.test(r._hn))) ? 1 : 0;
 }
