@@ -1,9 +1,9 @@
 window.VEILLE = {
  "meta": {
   "titre": "1re lecture à l'Assemblée — vote sur la partie recettes reporté, examen prolongé jusqu'au 6 novembre",
-  "texte": "Faute d'avoir épuisé les quelque 3 400 amendements déposés, le vote solennel prévu le 3 novembre n'a pas eu lieu : la partie recettes sera mise aux voix à la fin de son examen, que l'Assemblée a programmé jusqu'au vendredi 6 novembre. Les amendements adoptés depuis le 13 octobre restent provisoires.",
+  "texte": "L'Assemblée poursuit jusqu'au vendredi 6 novembre l'examen de la partie recettes, dont le vote n'a pas encore eu lieu. Les amendements adoptés restent provisoires : un rejet de la partie recettes ferait tomber l'ensemble.",
   "alerte": "Plusieurs groupes (RN, UDR, Horizons, DR) annoncent un rejet de la partie recettes : dans ce cas, tous les amendements ci-dessous tombent et le Sénat repartira du texte du Gouvernement. Le 49.3 reste possible.",
-  "majLe": "2026-11-05T05:50:00Z",
+  "majLe": "2026-11-05T06:30:00Z",
   "etapes": [
    {
     "date": "1er oct.",
@@ -271,7 +271,7 @@ window.VEILLE = {
    "gouv": "",
    "theme": "transmission",
    "etape": "AN séance 1re lecture",
-   "date": "2026-10-29",
+   "date": "2026-10-30",
    "source": "https://www.legifiscal.fr/actualites-fiscales/4713-plf-2027-lmnp-exit-tax-dutreil-amendements-adoptes-29-30-octobre.html",
    "sourceTitre": "Legifiscal — 2 nov. 2026",
    "ajoute": "2026-11-03T15:20:00Z"
@@ -290,7 +290,7 @@ window.VEILLE = {
    "gouv": "",
    "theme": "transmission",
    "etape": "AN séance 1re lecture",
-   "date": "2026-10-29",
+   "date": "2026-10-30",
    "source": "https://www.legifiscal.fr/actualites-fiscales/4713-plf-2027-lmnp-exit-tax-dutreil-amendements-adoptes-29-30-octobre.html",
    "sourceTitre": "Legifiscal — 2 nov. 2026",
    "ajoute": "2026-11-03T15:20:00Z"
@@ -309,14 +309,14 @@ window.VEILLE = {
    "gouv": "",
    "theme": "transmission",
    "etape": "Commission des finances",
-   "date": "2026-10-04",
+   "date": "2026-10-08",
    "source": "https://www.assemblee-nationale.fr/dyn/17/amendements/3210A/CION_FIN/CF1368.pdf",
    "sourceTitre": "Assemblée nationale",
    "ajoute": "2026-11-03T15:20:00Z"
   },
   {
    "id": "I-462",
-   "num": "I-462, I-470, I-3789, I-3934",
+   "num": "I-462, I-470, I-2408, I-3789, I-3934",
    "titre": "Exit tax : délai de dégrèvement porté à 15 ans",
    "objet": "Le délai au terme duquel l'impôt en sursis est dégrevé passerait de 2 ans (5 ans au-delà de 2,57 M€) à 15 ans.",
    "pratique": "Change l'économie d'un transfert de domicile de dirigeant-actionnaire ; à anticiper dans les projets d'expatriation.",
@@ -328,7 +328,7 @@ window.VEILLE = {
    "gouv": "",
    "theme": "international",
    "etape": "AN séance 1re lecture",
-   "date": "2026-10-29",
+   "date": "2026-10-30",
    "source": "https://www.legifiscal.fr/actualites-fiscales/4713-plf-2027-lmnp-exit-tax-dutreil-amendements-adoptes-29-30-octobre.html",
    "sourceTitre": "Legifiscal — 2 nov. 2026",
    "ajoute": "2026-11-03T15:20:00Z"
@@ -347,7 +347,7 @@ window.VEILLE = {
    "gouv": "",
    "theme": "plusvalues",
    "etape": "AN séance 1re lecture",
-   "date": "2026-10-20",
+   "date": "2026-10-16",
    "source": "https://www.legifiscal.fr/actualites-fiscales/4693-amendements-plf-2027-adoptes-deputes-suite.html",
    "sourceTitre": "Legifiscal — 21 oct. 2026",
    "ajoute": "2026-11-03T15:20:00Z"
@@ -366,7 +366,7 @@ window.VEILLE = {
    "gouv": "",
    "theme": "plusvalues",
    "etape": "AN séance 1re lecture",
-   "date": "2026-10-20",
+   "date": "2026-10-16",
    "source": "https://www.legifiscal.fr/actualites-fiscales/4693-amendements-plf-2027-adoptes-deputes-suite.html",
    "sourceTitre": "Legifiscal — 21 oct. 2026",
    "ajoute": "2026-11-03T15:20:00Z"
@@ -385,7 +385,7 @@ window.VEILLE = {
    "gouv": "",
    "theme": "plusvalues",
    "etape": "AN séance 1re lecture",
-   "date": "2026-10-20",
+   "date": "2026-10-16",
    "source": "https://www.legifiscal.fr/actualites-fiscales/4693-amendements-plf-2027-adoptes-deputes-suite.html",
    "sourceTitre": "Legifiscal — 21 oct. 2026",
    "ajoute": "2026-11-03T15:20:00Z"
@@ -404,7 +404,7 @@ window.VEILLE = {
    "gouv": "",
    "theme": "plusvalues",
    "etape": "AN séance 1re lecture",
-   "date": "2026-10-20",
+   "date": "2026-10-16",
    "source": "https://www.legifiscal.fr/actualites-fiscales/4693-amendements-plf-2027-adoptes-deputes-suite.html",
    "sourceTitre": "Legifiscal — 21 oct. 2026",
    "ajoute": "2026-11-03T15:20:00Z"
@@ -518,7 +518,7 @@ window.VEILLE = {
    "gouv": "",
    "theme": "salaries",
    "etape": "AN séance 1re lecture",
-   "date": "2026-10-20",
+   "date": "2026-10-16",
    "source": "https://www.legifiscal.fr/actualites-fiscales/4693-amendements-plf-2027-adoptes-deputes-suite.html",
    "sourceTitre": "Legifiscal — 21 oct. 2026",
    "ajoute": "2026-11-03T15:20:00Z"
@@ -537,7 +537,7 @@ window.VEILLE = {
    "gouv": "",
    "theme": "salaries",
    "etape": "AN séance 1re lecture",
-   "date": "2026-10-20",
+   "date": "2026-10-16",
    "source": "https://www.legifiscal.fr/actualites-fiscales/4693-amendements-plf-2027-adoptes-deputes-suite.html",
    "sourceTitre": "Legifiscal — 21 oct. 2026",
    "ajoute": "2026-11-03T15:20:00Z"
@@ -556,7 +556,7 @@ window.VEILLE = {
    "gouv": "",
    "theme": "salaries",
    "etape": "AN séance 1re lecture",
-   "date": "2026-10-20",
+   "date": "2026-10-16",
    "source": "https://www.legifiscal.fr/actualites-fiscales/4693-amendements-plf-2027-adoptes-deputes-suite.html",
    "sourceTitre": "Legifiscal — 21 oct. 2026",
    "ajoute": "2026-11-03T15:20:00Z"
@@ -575,7 +575,7 @@ window.VEILLE = {
    "gouv": "",
    "theme": "salaries",
    "etape": "AN séance 1re lecture",
-   "date": "2026-10-20",
+   "date": "2026-10-16",
    "source": "https://www.legifiscal.fr/actualites-fiscales/4693-amendements-plf-2027-adoptes-deputes-suite.html",
    "sourceTitre": "Legifiscal — 21 oct. 2026",
    "ajoute": "2026-11-03T15:20:00Z"
@@ -594,7 +594,7 @@ window.VEILLE = {
    "gouv": "",
    "theme": "autre",
    "etape": "AN séance 1re lecture",
-   "date": "2026-10-20",
+   "date": "2026-10-16",
    "source": "https://www.legifiscal.fr/actualites-fiscales/4693-amendements-plf-2027-adoptes-deputes-suite.html",
    "sourceTitre": "Legifiscal — 21 oct. 2026",
    "ajoute": "2026-11-03T15:20:00Z"
@@ -750,9 +750,98 @@ window.VEILLE = {
    "source": "https://www.assemblee-nationale.fr/dyn/17/amendements/3210A/CION_FIN/CF46",
    "sourceTitre": "Assemblée nationale — I-CF46",
    "ajoute": "2026-11-04T07:27:40Z"
+  },
+  {
+   "id": "I-3659",
+   "num": "I-3659",
+   "titre": "CII ouvert aux entreprises de taille intermédiaire",
+   "objet": "Le crédit d'impôt innovation (art. 244 quater B), aujourd'hui réservé aux PME, serait ouvert aux ETI afin d'atténuer l'effet de seuil à 250 salariés.",
+   "pratique": "Intéresse les groupes ETI engagés dans des prototypes ; dispositif provisoire tant que le texte n'est pas définitivement adopté.",
+   "statut": "adopte",
+   "articlePLF": "après art. 15",
+   "cgi": "CGI art. 244 quater B",
+   "auteurs": "",
+   "groupe": "EPR",
+   "gouv": "",
+   "theme": "innovation",
+   "etape": "AN séance 1re lecture",
+   "date": "2026-10-28",
+   "source": "https://www.assemblee-nationale.fr/dyn/17/amendements/3210A/AN/3659",
+   "sourceTitre": "Assemblée nationale — amendement I-3659",
+   "ajoute": "2026-11-05T06:30:00Z"
+  },
+  {
+   "id": "I-2592",
+   "num": "I-2592",
+   "titre": "Abrogation de la réduction de moitié des bases foncières industrielles (TFPB/CFE)",
+   "objet": "Abroge le 4 du A du III de l'article 29 de la LFI 2021, qui divise par deux les bases des locaux industriels en TFPB et CFE ; la perte de recettes serait compensée par un gage.",
+   "pratique": "Si maintenu, renchérirait les impôts de production des industriels propriétaires ou exploitants de sites ; à surveiller pour les modèles d'investissement industriel.",
+   "statut": "adopte",
+   "articlePLF": "après art. 41",
+   "cgi": "LFI 2021 art. 29",
+   "auteurs": "",
+   "groupe": "SOC",
+   "gouv": "",
+   "theme": "autre",
+   "etape": "AN séance 1re lecture",
+   "date": "2026-10-27",
+   "source": "https://www.assemblee-nationale.fr/dyn/17/amendements/3210A/AN/2592",
+   "sourceTitre": "Assemblée nationale — amendement I-2592 (Rect)",
+   "ajoute": "2026-11-05T06:30:00Z"
+  },
+  {
+   "id": "I-1328",
+   "num": "I-1328",
+   "titre": "« Dividende social » : 1 € aux salariés pour 1 € aux actionnaires",
+   "objet": "Instaure un dividende social dans les entreprises soumises à l'obligation de participation (art. L. 3322-2 du code du travail), selon le principe d'un euro aux salariés pour un euro versé aux actionnaires.",
+   "pratique": "Mécanisme de partage de la valeur à surveiller en cas de distributions importantes ; modalités précises à lire dans le dispositif avant toute conclusion.",
+   "statut": "adopte",
+   "articlePLF": "après art. 15",
+   "cgi": "Code du travail art. L. 3322-2",
+   "auteurs": "",
+   "groupe": "SOC",
+   "gouv": "",
+   "theme": "salaries",
+   "etape": "AN séance 1re lecture",
+   "date": "2026-11-02",
+   "source": "https://www.assemblee-nationale.fr/dyn/17/amendements/3210A/AN/1328",
+   "sourceTitre": "Assemblée nationale — amendement I-1328",
+   "ajoute": "2026-11-05T06:30:00Z"
   }
  ],
  "briefs": [
+  {
+   "date": "2026-11-05",
+   "titre": "Dates alignées sur l'open data, trois ajouts « entreprises »",
+   "intro": "L'Assemblée poursuit l'examen de la partie recettes jusqu'au 6 novembre ; aucun vote final n'est encore confirmé par nos sources.",
+   "items": [
+    {
+     "phrase": "Le CII serait ouvert aux ETI (I-3659, adopté le 28 octobre) : fin de l'effet de seuil à 250 salariés pour les prototypes et installations pilotes.",
+     "num": "I-3659",
+     "cle": "I-3659"
+    },
+    {
+     "phrase": "Adopté le 27 octobre : l'abrogation de la réduction de moitié des bases de TFPB et de CFE des locaux industriels (I-2592) alourdirait les impôts de production des industriels si elle était conservée.",
+     "num": "I-2592",
+     "cle": "I-2592"
+    },
+    {
+     "phrase": "Un « dividende social » (1 € aux salariés pour 1 € aux actionnaires, I-1328) a été adopté le 2 novembre dans les entreprises soumises à la participation.",
+     "num": "I-1328",
+     "cle": "I-1328"
+    },
+    {
+     "phrase": "Exit tax : I-2408, adopté le 30 octobre, rétablit aussi le délai de 15 ans, comme le groupe I-462 déjà suivi.",
+     "num": "I-2408",
+     "cle": "exit tax"
+    },
+    {
+     "phrase": "Correction : les dates de sort de plusieurs fiches (apport-cession, Dutreil, exit tax, actions gratuites, BSPCE…) ont été alignées sur l'open data officiel.",
+     "num": "Base",
+     "cle": "Dutreil"
+    }
+   ]
+  },
   {
    "date": "2026-11-05",
    "titre": "Recherche dans tous les amendements, et deux corrections",
