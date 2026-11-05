@@ -38,6 +38,18 @@ def first(*urls):
     return None
 
 
+def S(v):
+    if isinstance(v, str):
+        return v
+    if isinstance(v, (int, float)):
+        return str(v)
+    if isinstance(v, dict):
+        for k in ("libelle", "#text", "value"):
+            if isinstance(v.get(k), str):
+                return v[k]
+    return ""
+
+
 def get(o, *path):
     for p in path:
         if isinstance(o, dict):
@@ -115,27 +127,30 @@ def main(out="amendements.json"):
                 continue
             if sample is None:
                 sample = a
-            ident = a.get("identification", {}) or {}
-            num = ident.get("numeroLong") or find_key(a, "numeroLong") or ""
-            ordre = ident.get("numeroOrdreDepot") or find_key(a, "numeroOrdreDepot") or ""
-            prefixe = ident.get("prefixeOrganeExamen") or ""
-            uid = a.get("uid", "")
-            cv = a.get("cycleDeVie", {}) or {}
-            sort = cv.get("sort") or ""
-            if isinstance(sort, dict):
-                sort = sort.get("libelle") or sort.get("#text") or ""
-            etat = get(cv, "etatDesTraitements", "etat", "libelle") or ""
-            sous = get(cv, "etatDesTraitements", "sousEtat", "libelle") or ""
+                print("EXEMPLE BRUT :", json.dumps(a, ensure_ascii=False)[:3000], flush=True)
+            ident = a.get("identification")
+            ident = ident if isinstance(ident, dict) else {}
+            num = S(ident.get("numeroLong")) or S(find_key(a, "numeroLong"))
+            ordre = S(ident.get("numeroOrdreDepot")) or S(find_key(a, "numeroOrdreDepot"))
+            prefixe = S(ident.get("prefixeOrganeExamen"))
+            uid = S(a.get("uid"))
+            cv = a.get("cycleDeVie")
+            cv = cv if isinstance(cv, dict) else {}
+            sort = S(cv.get("sort"))
+            etat = S(get(cv, "etatDesTraitements", "etat", "libelle"))
+            sous = S(get(cv, "etatDesTraitements", "sousEtat", "libelle"))
             statut = sort or sous or etat
-            div = get(a, "pointeurFragmentTexte", "division") or {}
-            art = div.get("articleDesignationCourte") or div.get("titre") or ""
-            pos = div.get("avant_A_Apres") or ""
+            div = get(a, "pointeurFragmentTexte", "division")
+            div = div if isinstance(div, dict) else {}
+            art = S(div.get("articleDesignationCourte")) or S(div.get("titre"))
+            pos = S(div.get("avant_A_Apres"))
             if pos and pos.lower() not in ("a", "à") and art and not art.lower().startswith(("avant", "après", "apres")):
                 art = f"{'Après' if pos.lower().startswith('apr') else 'Avant'} {art}"
-            sig = a.get("signataires", {}) or {}
-            aut = sig.get("libelle") or ""
-            gref = get(sig, "auteur", "groupePolitiqueRef") or ""
-            typeaut = get(sig, "auteur", "typeAuteur") or ""
+            sig = a.get("signataires")
+            sig = sig if isinstance(sig, dict) else {}
+            aut = S(sig.get("libelle"))
+            gref = S(get(sig, "auteur", "groupePolitiqueRef"))
+            typeaut = S(get(sig, "auteur", "typeAuteur"))
             corps = get(a, "corps", "contenuAuteur") or a.get("corps") or {}
             expo = text(corps.get("exposeSommaire") if isinstance(corps, dict) else "", 700)
             disp = text(corps.get("dispositif") if isinstance(corps, dict) else "", 350)
@@ -145,7 +160,7 @@ def main(out="amendements.json"):
             url = f"https://www.assemblee-nationale.fr/dyn/{LEG}/amendements/3210{partie}/{'CION_FIN/CF' if cf else 'AN/'}{n_only}" if n_only else ""
             rows.append({
                 "n": num, "o": ordre, "uid": uid,
-                "d": (cv.get("dateDepot") or "")[:10], "ds": (cv.get("dateSort") or "")[:10],
+                "d": S(cv.get("dateDepot"))[:10], "ds": S(cv.get("dateSort"))[:10],
                 "s": statut, "art": art, "aut": aut if aut else typeaut,
                 "g": grp.get(gref, ""), "x": expo, "p": disp,
                 "c": "commission" if cf else "séance", "u": url,
