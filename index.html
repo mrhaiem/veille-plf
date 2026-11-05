@@ -423,9 +423,13 @@ const THES = {
   "l. 64": ["abus de droit"],
   "l. 47 a": ["controle des comptabilites informatisees", "fec"]
 };
-const normT = t => fold(t).replace(/[-\u2010-\u2015']/g, " ").replace(/\s+/g, " ").trim();
+const normT = t => fold(t).replace(/[-\u2010-\u2015'\u2018\u2019\u02bc`]/g, " ").replace(/\s+/g, " ").trim();
 const THES_N = Object.fromEntries(Object.entries(THES).map(([k, v]) => [k, v.map(normT)]));
 const THES_RE = Object.fromEntries(Object.entries(THES_N).map(([k, v]) => [k, v.map(a => new RegExp("(^|[^a-z0-9])" + a.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "(?![a-z0-9])"))]));
+// formulations descriptives d'un régime (texte normalisé : sans accents, tirets et apostrophes remplacés par des espaces)
+const THES_X = {
+  "150-0 b ter": [/report d imposition[^.;]{0,80}\bapports?\b/, /\bapports?\b[^.;]{0,80}report d imposition/, /plus values? d apport/]
+};
 let ART_RE = null;
 function artRe(k){
   if(!ART_RE) ART_RE = {};
@@ -441,6 +445,7 @@ function conceptHit(r, arts, depth){
   if(/^I-/.test(r.n)){ const m = fold(r.art || "").match(/^art\.? ?(\d+)$/); if(m && arts.some(k => (PLF_ART[k] || []).includes(m[1]))) return 2; }
   if(!depth && r.par && IDX && IDX[r.par]){ const h = conceptHit(IDX[r.par], arts, 1); if(h) return h; }
   if(arts.some(k => { const re = artRe(k); return re && re.test(r._h); })) return 2;
+  if(arts.some(k => (THES_X[k] || []).some(re => re.test(r._hn)))) return 1;
   return arts.some(k => (THES_RE[k] || []).some(re => re.test(r._hn))) ? 1 : 0;
 }
 function aliasesOf(core){ return THES_N[core.replace(/\s*-\s*/g, "-").replace(/\s+/g, " ").trim()] || []; }
