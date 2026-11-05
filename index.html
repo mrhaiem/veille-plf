@@ -209,13 +209,13 @@ body.searching .side{display:none}
   <section id="pane-brief"><div id="brief-now"></div><details class="past hidden" id="past"><summary>Points précédents</summary><div id="brief-past"></div></details></section>
 
   <section id="pane-search" class="hidden">
-    <p class="hint">Tape dans la barre en haut : mot-clé, article du CGI, numéro d'amendement, député ou groupe. La recherche porte sur la sélection commentée puis sur les 11 000 amendements déposés. Ou touche une suggestion :</p>
+    <p class="hint">Tape dans la barre en haut : mot-clé, article du CGI, numéro d'amendement, député ou groupe. La recherche porte sur les 11 000 amendements déposés, classés par pertinence. Ou touche une suggestion :</p>
     <div class="chips" id="sugg"></div>
     <div id="sel-sec" class="hidden"><div class="sect">Sélection commentée de la veille</div>
     <div class="count" id="s-count"></div>
     <div id="s-results"></div></div>
     <div id="all-sec" class="hidden">
-      <div class="sect">Tous les amendements déposés sur le PLF 2027</div>
+      <div class="sect">Amendements déposés sur le PLF 2027</div>
       <div class="chips" id="all-f" style="flex-wrap:wrap"></div>
       <div class="chips" id="all-l" style="flex-wrap:wrap"></div>
       <div class="count" id="all-count"></div>
@@ -448,7 +448,7 @@ function renderSearch(){
   const cterms = qterms(q);
   const csc = a => relevance(fold([a.titre, a.cgi, a.num].join(" ")), fold(haystack(a)), q, cterms).score;
   const rows = q ? AMDT.filter(a => matches(a,q)).map(a => (a._sc = csc(a), a)).sort((x,y)=> (y._sc - x._sc) || (x.statut==="adopte"?0:1)-(y.statut==="adopte"?0:1) || String(y.date||"").localeCompare(String(x.date||""))) : [];
-  $("#sel-sec").classList.toggle("hidden", !q);
+  $("#sel-sec").classList.add("hidden");
   $("#s-count").textContent = q ? (rows.length ? `${rows.length} résultat${rows.length>1?"s":""} commenté${rows.length>1?"s":""}` : "Rien dans la sélection commentée : voir tous les amendements déposés ci-dessous.") : "";
   $("#s-results").innerHTML = rows.map(a => cardHtml(a,q)).join("");
   allLim = 30; renderAll();
