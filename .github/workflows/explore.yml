@@ -6,9 +6,4 @@ jobs:
     steps:
       - run: |
           UA="Mozilla/5.0"
-          curl -sL -A "$UA" "https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/cion_fin" -o cf.html
-          grep -oE 'href="[^"]*"' cf.html | grep -iE 'compte|cion_fin|cr' | sort -u | head -40
-          curl -sL -A "$UA" https://www.assemblee-nationale.fr/dyn/17/amendements/3210A/CION_FIN/CF1737 -o c.html; grep -oE '[a-zA-Z]*Redirect[^"]*' c.html | sort -u; grep -oE '.{200}(Réunion|réunion du|Examiné).{200}' c.html | head -3
-          curl -sL -o r.zip https://data.assemblee-nationale.fr/static/openData/repository/17/vp/reunions/Agenda.json.zip; mkdir r; cd r; unzip -q ../r.zip
-          for f in $(grep -rl '"organeReuniRef": "PO59048"' . | xargs grep -l '3210' | xargs grep -lE '"timeStampDebut": "2026-10-(0[5-9]|1[0-6])'); do python3 -c "
-          import json,sys;r=json.load(open(sys.argv[1]))['reunion'];print(r['uid'],r['timeStampDebut'][:16],r['cycleDeVie']['etat'],[k for k in r if k not in('participants','lieu')], json.dumps(r.get('compteRenduRef'))[:120], (r.get('ODJ') or {}).get('convocationODJ',{}).get('item','')[:1] )" $f; done | sort -k2
+          for u in https://www.assemblee-nationale.fr/dyn/opendata/CRCANR5L17S2027PO59048N008.html https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/cion_fin/CRCANR5L17S2027PO59048N008 https://www.assemblee-nationale.fr/dyn/crReunionRedirect/RUANR5L17S2027IDC461253 https://www.assemblee-nationale.fr/dyn/crCommissionRedirect/RUANR5L17S2027IDC461253 https://www.assemblee-nationale.fr/dyn/opendata/CRCANR5L17S2027PO59048N008.xml; do echo "## $u"; curl -sL -A "$UA" -o p -w '%{http_code} %{url_effective} %{size_download}\n' "$u"; grep -oE 'I-CF[0-9]+' p | sort -u | wc -l; grep -oE '.{250}I-CF[0-9]+.{80}' p | head -2; grep -oE '(id)="[^"]{1,30}"' p | head -8; done
