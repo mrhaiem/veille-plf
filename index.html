@@ -344,10 +344,29 @@ function loadAll(){
   if(ALLp) return ALLp;
   $("#all-count").textContent = "Chargement des amendements…";
   ALLp = fetch("amendements.json").then(r => r.ok ? r.json() : Promise.reject(r.status)).then(j => {
-    j.amendements.forEach(r => { const t = [r.n, r.art, r.aut, r.g, r.x, r.p].join(" | "); r._h = fold(t); r._c = compact(t); r._g = grpS(r.s); });
+    j.amendements.forEach(r => { const t = [r.n, r.art, r.aut, r.g, r.r, r.x, r.p].join(" | "); r._h = fold(t); r._c = compact(t); r._rs = fold(r.r || ""); r._g = grpS(r.s); });
     ALL = j; renderAll();
   }).catch(() => { ALL = {err:1}; renderAll(); });
   return ALLp;
+}
+const STOP = new Set(["de","des","du","la","le","les","l","d","et","a","au","aux","en","pour","sur","par","un","une","dans","ou","sa","son","ses","leur","leurs","que","qui","ce","cet","cette","art","article","cgi"]);
+function qterms(q){ return [...new Set(fold(q).split(/[^a-z0-9]+/).filter(w => w.length > 1 && !STOP.has(w)))]; }
+function relevance(prim, all, q, terms){
+  // prim = texte prioritaire (résumé / titre), all = tout le texte ; renvoie {score, cov}
+  let sc = 0, hit = 0;
+  const ph = fold(q).replace(/\s+/g, " ").trim();
+  if(ph.length > 3){ if(prim.includes(ph)) sc += 120; else if(all.includes(ph)) sc += 70; }
+  for(const t of terms){
+    const re = new RegExp("(^|[^a-z0-9])" + t.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "g");
+    const nP = (prim.match(re) || []).length, nA = (all.match(re) || []).length;
+    if(nA || nP){ hit++; sc += (nP ? 10 : 0) + Math.min(nA, 4) * 2; }
+  }
+  for(let i = 0; i + 1 < terms.length; i++){
+    const near = new RegExp(terms[i] + "[a-z]*(?:[^a-z0-9]+[a-z0-9]+){0,3}?[^a-z0-9]+" + terms[i+1]);
+    if(near.test(prim)) sc += 18; else if(near.test(all)) sc += 10;
+  }
+  const cov = terms.length ? hit / terms.length : 1;
+  return { score: sc + cov * 60, cov };
 }
 function snip(t, q){
   t = String(t||""); if(t.length <= 300) return t;
@@ -375,7 +394,14 @@ function renderAll(){
   if(ALL.err){ $("#all-count").textContent = "La base complète n'est pas disponible ici (elle se charge sur le site en ligne)."; $("#all-res").innerHTML=""; $("#all-f").innerHTML=""; $("#all-l").innerHTML=""; $("#all-more").classList.add("hidden"); return; }
   const nq = q.replace(/\s/g,"").toUpperCase(), isNum = /^(I{1,2}-)?(CF)?\d{1,5}$/.test(nq);
   const clean = n => String(n).replace(/\s*\(.*\)\s*$/,"").toUpperCase(), strip = n => clean(n).replace(/^I+-/,"");
-  const base = ALL.amendements.filter(r => isNum ? (/^I+-/.test(nq) ? clean(r.n)===nq : strip(r.n)===nq) : matchText(r._h, r._c, q));
+  const terms = qterms(q), need = terms.length >= 3 ? Math.ceil(terms.length * 0.6) / terms.length : 1;
+  const base = [];
+  for(const r of ALL.amendements){
+    if(isNum){ if(/^I+-/.test(nq) ? clean(r.n)===nq : strip(r.n)===nq){ r._sc = 1000; base.push(r); } continue; }
+    const strict = matchText(r._h, r._c, q);
+    const rel = relevance(r._rs, r._h, q, terms);
+    if(strict || rel.cov >= need){ r._sc = rel.score + (strict ? 15 : 0); base.push(r); }
+  }
   const cnt = k => base.filter(r => r._g===k).length;
   const lieu = r => !allL || r.c===allL;
   $("#all-f").innerHTML = [["","Tous",base.length],["adopte","Adoptés",cnt("adopte")],["rejete","Rejetés",cnt("rejete")],["autre","Non soutenus, tombés, retirés…",cnt("autre")]]
@@ -383,7 +409,7 @@ function renderAll(){
   $("#all-l").innerHTML = [["","Séance et commission"],["séance","Séance"],["commission","Commission"]]
     .map(([k,l]) => `<button class="chip" data-al="${k}" aria-pressed="${allL===k}">${l}</button>`).join("");
   const rows = base.filter(r => (!allF || r._g===allF) && lieu(r))
-    .sort((x,y) => (x._g==="adopte"?0:1)-(y._g==="adopte"?0:1) || (x.c==="séance"?0:1)-(y.c==="séance"?0:1) || String(y.ds||y.d).localeCompare(String(x.ds||x.d)));
+    .sort((x,y) => (y._sc - x._sc) || (x._g==="adopte"?0:1)-(y._g==="adopte"?0:1) || (x.c==="séance"?0:1)-(y.c==="séance"?0:1) || String(y.ds||y.d).localeCompare(String(x.ds||x.d)));
   $("#all-count").textContent = rows.length ? `${rows.length} amendement${rows.length>1?"s":""}` : "Aucun amendement ne correspond.";
   const cls = {adopte:"b-adopte", rejete:"b-rejete", autre:"b-autre"};
   $("#all-res").innerHTML = rows.slice(0, allLim).map(r => `<article class="arow">
@@ -401,8 +427,9 @@ function renderSearch(){
   $("#sq-clear").classList.toggle("hidden", !q);
   document.body.classList.toggle("searching", !!q);
   $("#sugg").innerHTML = SUGG.map(w => `<button class="chip" data-s="${esc(w)}" aria-pressed="${fold(q)===fold(w)}">${esc(w)}</button>`).join("");
-  const inTitle = a => matches({titre:a.titre,cgi:a.cgi,num:a.num}, q) ? 0 : 1;
-  const rows = q ? AMDT.filter(a => matches(a,q)).sort((x,y)=> inTitle(x)-inTitle(y) || (x.statut==="adopte"?0:1)-(y.statut==="adopte"?0:1) || String(y.date||"").localeCompare(String(x.date||""))) : [];
+  const cterms = qterms(q);
+  const csc = a => relevance(fold([a.titre, a.cgi, a.num].join(" ")), fold(haystack(a)), q, cterms).score;
+  const rows = q ? AMDT.filter(a => matches(a,q)).map(a => (a._sc = csc(a), a)).sort((x,y)=> (y._sc - x._sc) || (x.statut==="adopte"?0:1)-(y.statut==="adopte"?0:1) || String(y.date||"").localeCompare(String(x.date||""))) : [];
   $("#sel-sec").classList.toggle("hidden", !q);
   $("#s-count").textContent = q ? (rows.length ? `${rows.length} résultat${rows.length>1?"s":""} commenté${rows.length>1?"s":""}` : "Rien dans la sélection commentée : voir tous les amendements déposés ci-dessous.") : "";
   $("#s-results").innerHTML = rows.map(a => cardHtml(a,q)).join("");
