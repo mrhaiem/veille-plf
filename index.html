@@ -209,7 +209,7 @@ body.searching .side{display:none}
   <section id="pane-brief"><div id="brief-now"></div><details class="past hidden" id="past"><summary>Points précédents</summary><div id="brief-past"></div></details></section>
 
   <section id="pane-search" class="hidden">
-    <p class="hint">Tape dans la barre en haut : mot-clé, article du CGI, numéro d'amendement, député ou groupe. La recherche porte sur les 11 000 amendements déposés, classés par pertinence. Ou touche une suggestion :</p>
+    <p class="hint">Tape dans la barre en haut : mot-clé, article du CGI (219, 150-0 B ter, 787 B, 39 decies H…), numéro d'amendement (I-3089), député ou groupe. La recherche porte sur les 11 000 amendements déposés, classés par pertinence. Ou touche une suggestion :</p>
     <div class="chips" id="sugg"></div>
     <div id="sel-sec" class="hidden"><div id="s-count"></div><div id="s-results"></div></div>
     <div id="all-sec" class="hidden">
@@ -287,7 +287,7 @@ const AN_DOSSIER = "https://www.assemblee-nationale.fr/dyn/17/dossiers/PLF_2027"
 const AN_LISTE = "https://www.assemblee-nationale.fr/dyn/17/amendements?dossier_legislatif=DLR5L17N54629&examen=EXANR5L17PO838901B3210P1D1";
 const anUrl = (cf, n) => `https://www.assemblee-nationale.fr/dyn/17/amendements/3210A/${cf?"CION_FIN/CF":"AN/"}${n}`;
 function anRefs(num){ const out=[]; const re=/\bI-(CF)?(\d{1,5})\b/g; let m; while((m=re.exec(String(num||"")))) out.push({label:"I-"+(m[1]||"")+m[2], url:anUrl(!!m[1], m[2])}); return out; }
-const fold = t => String(t||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+const fold = t => String(t||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[\u2010-\u2015\u2212]/g,"-").replace(/[\u00a0\u202f]/g," ");
 const compact = t => fold(t).replace(/\b(articles?|art|cgi|lpf|n°|no)\b\.?/g,"").replace(/[^a-z0-9]/g,"");
 const SYN = {"quote-part":"quote-part","quote part":"quote-part","qpfc":"quote-part","niche cope":"quote-part","titres de participation":"219","mere-fille":"mère-fille","mere fille":"mère-fille","regime mere":"mère-fille","holding animatrice":"787 b","tresorerie":"235 ter c","holdings patrimoniales":"235 ter c","apport cession":"150-0 b ter","dutreil":"787 b","exit tax":"167 bis","jei":"44 sexies","cir":"244 quater b","c3iv":"244 quater i","bspce":"163 bis g","aga":"80 quaterdecies","actions gratuites":"80 quaterdecies","rescrit":"l. 80 a","surtaxe":"art. 15","rachat":"rachat"};
 function haystack(a){ return [a.num,a.titre,a.objet,a.auteurs,a.groupe,a.articlePLF,a.cgi,a.pratique,THEMES[a.theme],a.etape].join(" | "); }
@@ -384,6 +384,37 @@ function relevance(prim, all, q, terms){
   }
   return { score: sc, cov };
 }
+const SUFX = "bis|ter|quater|quinquies|sexies|septies|octies|nonies|decies|undecies|duodecies|terdecies|quaterdecies|quindecies|sexdecies|septdecies|octodecies|novodecies|vicies";
+function artQuery(q){
+  // « 219 », « art. 219 », « 150-0 B ter », « 787 B », « 39 decies H », « 219 du CGI », « L. 80 A »
+  const f = fold(q).replace(/\s+/g," ").trim().replace(/\b(du |de l.|code general des impots|cgi|lpf)\b/g,"").trim();
+  const m = f.match(new RegExp("^(?:articles? |art\\.? ?)?(l\\.? ?)?(\\d{1,4}(?: ?- ?\\d{1,2})?(?: ?[a-z](?![a-z]))?(?: (?:" + SUFX + "))?(?: ?[a-z]{1,2}(?![a-z]))?(?: (?:" + SUFX + "))?)$"));
+  if(!m) return null;
+  const core = m[2].trim(), hasArt = /^art/.test(f), lpf = !!m[1];
+  const parts = core.split(/\s*-\s*|\s+|(?<=\d)(?=[a-z])/).filter(Boolean);
+  const pat = parts.map(x => x.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("[\\s.-]*");
+  const hasSuf = new RegExp("\\b(" + SUFX + ")\\b").test(core) || /[a-z]$/.test(core);
+  const tail = hasSuf ? "(?![0-9a-z])" : "(?![0-9])(?!\\s*(?:" + SUFX + ")\\b)(?![\\s.,]*\\d)";
+  return { re: new RegExp("(^|[^0-9a-z,])" + (lpf ? "l[\\s.]*" : "") + pat + tail, "g"), num: parts[0], core, hasArt, lpf };
+}
+function artScore(r, aq){
+  const txt = r._h; let sc = 0, m; aq.re.lastIndex = 0;
+  const pureNum = /^\d+$/.test(aq.core);
+  while((m = aq.re.exec(txt))){
+    const i = m.index, before = txt.slice(Math.max(0, i - 30), i + 1), after = txt.slice(i + m[0].length, i + m[0].length + 60);
+    if(/\d\s*[-\/]\s*$/.test(before) || /\bn[o°]\s*\d*[-\s]*$/.test(before) || /(loi|decret|ordonnance)[^.]{0,25}$/.test(before)) continue;   // « loi n° 2021-219 », etc.
+    const ctx = /\bart(icle)?s?\b\.?|\bart\./.test(before) || /^[\s,]*(du |de l.)?(code general des impots|cgi|lpf|livre des procedures)/.test(after);
+    if(ctx) sc += 120; else if(!pureNum && !aq.hasArt) sc += 15;
+    if(sc > 600) break;
+  }
+  if(sc && r._rs && (aq.re.lastIndex = 0, aq.re.test(r._rs))) sc += 60;   // cité dans le résumé
+  // article du PLF visé (« ART. 15 », « APRÈS ART. 15 »)
+  const a = fold(r.art || "");
+  if(!aq.lpf && new RegExp("art\\.? ?" + aq.num + "(?![0-9a-z])").test(a)) sc += aq.hasArt ? 200 : 40;
+  // numéro d'amendement identique (I-219, II-219, I-CF219)
+  if(/^\d+$/.test(aq.core) && String(r.n).replace(/\s*\(.*$/,"").replace(/^I+-(CF)?/,"") === aq.core) sc += 30;
+  return sc;
+}
 function snip(t, q){
   t = String(t||""); if(t.length <= 300) return t;
   const f = fold(t), w = fold(q).split(/[\s,]+/).filter(x => x.length>2);
@@ -412,7 +443,14 @@ function renderAll(){
   const clean = n => String(n).replace(/\s*\(.*\)\s*$/,"").toUpperCase(), strip = n => clean(n).replace(/^I+-/,"");
   const terms = qterms(q), need = terms.length >= 3 ? Math.ceil(terms.length * 0.6) / terms.length : 1;
   const base = [];
-  for(const r of ALL.amendements){
+  const aq = artQuery(q);
+  if(aq){
+    for(const r of ALL.amendements){
+      const sc = artScore(r, aq);
+      if(sc > 0){ r._sc = sc; base.push(r); }
+    }
+  }
+  for(const r of (aq ? [] : ALL.amendements)){
     if(isNum){ if(/^I+-/.test(nq) ? clean(r.n)===nq : strip(r.n)===nq){ r._sc = 1000; base.push(r); } continue; }
     const strict = matchText(r._h, r._c, q);
     const rel = relevance(r._rs, r._h, q, terms);
