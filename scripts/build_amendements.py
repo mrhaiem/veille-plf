@@ -363,6 +363,45 @@ def debats(rows):
         print("!! liens commission :", e, flush=True)
 
 
+# ---------------------------------------------------------------- rapport général (tome II)
+RAPPORT = {
+    "c": ("RAPPANR5L17B3291-tII-v1", "commentaire"),   # commentaires des articles (1re partie)
+    "e": ("RAPPANR5L17B3291-tII-v2", "examen"),        # comptes rendus de l'examen des articles en commission
+}
+ART_RE = re.compile(r"^(?:(après|avant)\s+l\W?\s*)?article\s+(liminaire|premier|1er|\d+)(\s+(?:%s))?\b" % "bis|ter|quater|quinquies|sexies|septies|octies|nonies|decies", re.I)
+
+
+def art_key(t):
+    t = re.sub(r"\s+", " ", t.replace("\xa0", " ")).strip()
+    m = ART_RE.match(t)
+    if not m:
+        return None
+    n = m.group(2).lower()
+    n = "1ER" if n in ("premier", "1er", "1") else n.upper()
+    k = f"ART. {n}{(' ' + m.group(3).strip().upper()) if m.group(3) else ''}"
+    if m.group(1):
+        k = ("APRÈS " if m.group(1).lower().startswith("apr") else "AVANT ") + k
+    return k
+
+
+def rapport_links():
+    out = {}
+    for code, (uid, label) in RAPPORT.items():
+        url = f"{BASE}/dyn/opendata/{uid}.html"
+        u, h = get_page(url)
+        if not u:
+            print("rapport indisponible :", uid, flush=True)
+            continue
+        n = 0
+        for m in re.finditer(r'<a href="#([^"]+)"[^>]*>(.*?)</a>', h, re.S):
+            t = html.unescape(re.sub(r"<[^>]+>", "", m.group(2)))
+            k = art_key(t)
+            if k and code not in out.setdefault(k, {}):
+                out[k][code] = f"{url}#{m.group(1)}"; n += 1
+        print(f"rapport {label} ({uid}) : {n} articles ancrés", flush=True)
+    return out
+
+
 TEXTES = []
 
 
@@ -480,6 +519,10 @@ def main(out="amendements.json"):
     print("résumés rédigés appliqués :", nres, flush=True)
     meta = {"maj": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "texte": "PLF 2027 (AN n° 3210)",
             "total": len(rows), "source": "Open data de l'Assemblée nationale"}
+    try:
+        meta["rap"] = rapport_links()
+    except Exception as e:
+        print("!! rapport :", e, flush=True)
     with open(out, "w", encoding="utf-8") as f:
         json.dump({"meta": meta, "amendements": rows}, f, ensure_ascii=False, separators=(",", ":"))
     print("écrit", out, os.path.getsize(out) // 1024, "Ko", flush=True)

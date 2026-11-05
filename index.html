@@ -99,6 +99,8 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-si
 .dbt{font-size:12px;color:var(--accent);text-decoration:none;border:1px solid var(--accent);border-radius:999px;padding:1px 9px;white-space:nowrap}
 .dbt:after{content:" ↗";font-size:10.5px}
 .dbt:hover{background:var(--accent);color:#fff}
+.rap{font-size:12px;color:var(--ink);text-decoration:none;border-bottom:1px dotted var(--accent);white-space:nowrap}
+.rap:after{content:" ↗";color:var(--accent);font-size:10.5px}
 mark{background:var(--accent-soft);color:inherit;padding:0 1px}
 @media (min-width:1024px){
   .wrap{max-width:1280px;padding:40px 48px 80px}
@@ -316,6 +318,14 @@ function hl(text, q){
   const src = fold(t), re = new RegExp(words.join("|"),"g"); let out="", last=0, m;
   while((m = re.exec(src))){ out += t.slice(last,m.index) + "<mark>" + t.slice(m.index, m.index+m[0].length) + "</mark>"; last = m.index+m[0].length; if(!m[0].length) re.lastIndex++; }
   return out + t.slice(last);
+}
+function rapLinks(r){
+  if(!/^I-/.test(r.n) || !ALL || !ALL.meta || !ALL.meta.rap) return "";
+  const k = String(r.art||"").toUpperCase().replace(/\bPREMIER\b/,"1ER").replace(/\s+/g," ").trim();
+  const e = ALL.meta.rap[k]; if(!e) return "";
+  const avt = /^(APRÈS|AVANT)/.test(k);
+  return [e.c && !avt ? `<a class="rap" href="${esc(e.c)}" target="_blank" rel="noopener" title="Commentaire de l'article dans le rapport général de la commission des finances (n° 3291, tome II)">Rapport</a>` : "",
+          e.e ? `<a class="rap" href="${esc(e.e)}" target="_blank" rel="noopener" title="Examen ${avt?"des articles additionnels":"de l'article"} en commission (rapport n° 3291, tome II)">Examen en commission</a>` : ""].join("");
 }
 function dlLink(n){
   const r = IDX && IDX[n];
@@ -559,7 +569,7 @@ function renderAll(){
   const cls = {adopte:"b-adopte", rejete:"b-rejete", autre:"b-autre"};
   $("#all-res").innerHTML = rows.slice(0, allLim).map(r => `<article class="arow">
     <div class="top">${r.u?`<a class="num" href="${esc(r.u)}" target="_blank" rel="noopener">${esc(r.n)}</a>`:`<span class="num">${esc(r.n)}</span>`}${r.dl?`<a class="dbt" href="${esc(r.dl)}" target="_blank" rel="noopener" title="Compte rendu des débats sur cet amendement">Débats</a>`:""}
-      <span class="badge ${cls[r._g]}">${esc(r.s||"—")}</span><span class="theme">${esc(r.art)} · ${esc(r.c)}</span></div>
+      <span class="badge ${cls[r._g]}">${esc(r.s||"—")}</span><span class="theme">${esc(r.art)} · ${esc(r.c)}</span>${rapLinks(r)}</div>
     <div class="meta">${esc(r.aut)}${r.g?" ("+esc(r.g)+")":""}${(r.ds||r.d)?" · "+fdate(r.ds||r.d):""}</div>
     ${r.r ? `<p class="res"><b>En bref :</b> ${hl(r.r, q)}</p>` : ""}
     ${(() => { const ps = passage(r, q); return ps ? `<p class="psg"><span>Passage contenant « ${esc(q)} » :</span> ${hl(ps, q)}</p>` : ""; })()}
