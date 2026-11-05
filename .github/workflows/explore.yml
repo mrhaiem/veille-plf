@@ -6,21 +6,14 @@ jobs:
     steps:
       - run: |
           UA="Mozilla/5.0"
-          curl -sL -o d.zip https://data.assemblee-nationale.fr/static/openData/repository/17/loi/dossiers_legislatifs/Dossiers_Legislatifs.json.zip && mkdir d && cd d && unzip -q ../d.zip && cd ..
+          for v in v1 v2; do u=https://www.assemblee-nationale.fr/dyn/opendata/RAPPANR5L17B3291-tII-$v.html; curl -sL -A "$UA" -o $v.html -w "$v %{http_code} %{size_download}\n" $u; curl -sL -A "$UA" -o /dev/null -w "pretty %{http_code} %{size_download}\n" https://www.assemblee-nationale.fr/dyn/17/rapports/cion_fin/l17b3291-tii-${v}_rapport-fond; done
           python3 - <<'P'
-          import json
-          d=json.load(open('d/json/document/RAPPANR5L17B3291.json'))['document']
-          def walk(x,dep=0):
-              print('  '*dep, x.get('uid'), (x.get('titres') or {}).get('titrePrincipalCourt'), (x.get('notice') or {}).get('numNotice'), x.get('denominationStructurelle'))
-              dv=(x.get('divisions') or {}).get('division')
-              if isinstance(dv,dict): dv=[dv]
-              for c in dv or []: walk(c,dep+1)
-          walk(d)
+          import re,html
+          for v in ('v1','v2'):
+              s=open(v+'.html',encoding='utf-8',errors='replace').read()
+              toc=re.findall(r'<a href="#(_Toc\d+)">(.*?)</a>',s,re.S)
+              print('==',v,'toc links',len(toc))
+              for a,t in toc:
+                  t=re.sub(r'\s+',' ',html.unescape(re.sub('<[^>]+>','',t))).strip()
+                  if re.match(r'(?i)(article|après|avant)',t): print(a,'|',t[:110])
           P
-          for u in $(python3 -c "
-          import json
-          d=json.load(open('d/json/document/RAPPANR5L17B3291.json'))['document']
-          dv=(d.get('divisions') or {}).get('division') or []
-          dv=[dv] if isinstance(dv,dict) else dv
-          print(' '.join(x['uid'] for x in dv))"); do curl -sL -A "$UA" -o p -w "$u %{http_code} %{size_download}\n" "https://www.assemblee-nationale.fr/dyn/opendata/$u.html"; grep -oE '(id|name)="[^"]{1,30}"' p | head -5; grep -oE '<h[1-4][^>]*>.{0,200}' p | head -12; done
-          curl -sL -A "$UA" https://www.assemblee-nationale.fr/dyn/17/rapports/cion_fin/l17b3291-tii_rapport-fond -o q; grep -oE 'href="[^"]*"' q | grep -iE '3291|pdf|tome' | sort -u | head
