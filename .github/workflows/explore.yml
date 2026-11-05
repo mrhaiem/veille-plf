@@ -1,9 +1,0 @@
-name: explore
-on: workflow_dispatch
-jobs:
-  x:
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          UA="Mozilla/5.0"
-          for u in https://www.assemblee-nationale.fr/dyn/opendata/CRCANR5L17S2027PO59048N008.html https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/cion_fin/CRCANR5L17S2027PO59048N008 https://www.assemblee-nationale.fr/dyn/crReunionRedirect/RUANR5L17S2027IDC461253 https://www.assemblee-nationale.fr/dyn/crCommissionRedirect/RUANR5L17S2027IDC461253 https://www.assemblee-nationale.fr/dyn/opendata/CRCANR5L17S2027PO59048N008.xml; do echo "## $u"; curl -sL -A "$UA" -o p -w '%{http_code} %{url_effective} %{size_download}\n' "$u"; grep -oE 'I-CF[0-9]+' p | sort -u | wc -l; grep -oE '.{250}I-CF[0-9]+.{80}' p | head -2; grep -oE '(id)="[^"]{1,30}"' p | head -8; done

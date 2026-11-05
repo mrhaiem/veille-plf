@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Construit amendements.json : tous les amendements déposés sur le PLF 2027 (AN, texte n° 3210),
 à partir de l'open data de l'Assemblée nationale. Exécuté chaque jour par GitHub Actions."""
+import urllib.error
 import io, json, os, re, sys, time, urllib.request, zipfile, html
 
 TEXTE = "B3210"          # PLF 2027
@@ -157,6 +158,9 @@ def refresh(rows):
         m_e = re.search(r"<etat>.*?<libelle>([^<]*)</libelle>", x, re.S)
         m_se = re.search(r"<sousEtat>.*?<libelle>([^<]*)</libelle>", x, re.S)
         st = sort or (html.unescape(m_se.group(1)).strip() if m_se else "") or (html.unescape(m_e.group(1)).strip() if m_e else "")
+        sd = tag("seanceDiscussionRef")
+        if sd.startswith("RU"):
+            r["_sd"] = sd
         return r, (st, tag("dateSort")[:10])
 
     changed = 0
@@ -231,6 +235,134 @@ def groups_map():
     return m
 
 
+# ---------------------------------------------------------------- liens vers les débats
+BASE = "https://www.assemblee-nationale.fr"
+CF_ORGANE = "PO59048"   # commission des finances
+AGENDA_URL = f"https://data.assemblee-nationale.fr/static/openData/repository/{LEG}/vp/reunions/Agenda.json.zip"
+
+
+def get_page(url, tries=3):
+    """Renvoie (url finale, html) ou (None, '')."""
+    for i in range(tries):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (veille-plf-2027)"})
+            with urllib.request.urlopen(req, timeout=60) as resp:
+                return resp.geturl(), resp.read().decode("utf-8", "replace")
+        except urllib.error.HTTPError as e:
+            if e.code == 404:
+                return None, ""
+            time.sleep(2 + 3 * i)
+        except Exception:
+            time.sleep(2 + 3 * i)
+    return None, ""
+
+
+def seance_links(rows):
+    """Séance publique : chaque amendement porte la référence de la séance où il a été discuté ;
+    le sommaire du compte rendu donne une ancre par amendement (classe crs-sommaire-lienAdt)."""
+    from concurrent.futures import ThreadPoolExecutor
+    refs = sorted({r["_sd"] for r in rows if r.get("_sd", "").startswith("RU")})
+    print("séances de discussion référencées :", len(refs), flush=True)
+
+    def one(ref):
+        url, h = get_page(f"{BASE}/dyn/crSeanceRedirect/{ref}")
+        if not url or "/comptes-rendus/seance/" not in url:
+            return ref, None, {}
+        url = url.split("#")[0]
+        anchors = {}
+        for m in re.finditer(r'class="crs-sommaire-lienAdt"\s+href="#([^"]+)"\s*>([^<]+)<', h):
+            for n in re.findall(r"\d+", m.group(2)):
+                anchors.setdefault(n, m.group(1))
+        return ref, url, anchors
+
+    with ThreadPoolExecutor(max_workers=4) as ex:
+        res = {ref: (u, a) for ref, u, a in ex.map(one, refs)}
+    ok = deep = 0
+    for r in rows:
+        u, anchors = res.get(r.get("_sd", ""), (None, {}))
+        if not u:
+            continue
+        n = re.sub(r"\D", "", re.sub(r"^I+-", "", r["n"]))
+        if n in anchors:
+            r["dl"] = f"{u}#{anchors[n]}"; deep += 1
+        else:
+            r["dl"] = u
+        ok += 1
+    print(f"liens débats séance : {ok} (dont {deep} pointant sur le passage) | comptes rendus indisponibles : {sum(1 for v in res.values() if not v[0])}", flush=True)
+
+
+def plain(h):
+    h = re.sub(r"<[^>]+>", "", h)
+    h = html.unescape(h).replace("‑", "-").replace("‐", "-").replace("\xa0", " ")
+    return h
+
+
+def commission_links(rows):
+    """Commission des finances : comptes rendus des réunions (open data « Agenda » → compteRenduRef),
+    puis recherche de la première mention de chaque amendement I-CF / II-CF ; lien avec fragment de texte."""
+    cf = [r for r in rows if re.match(r"^I+-CF\d+$", r["n"])]
+    if not cf:
+        return
+    data = fetch(AGENDA_URL)
+    if not data:
+        print("agenda indisponible : pas de liens débats en commission", flush=True)
+        return
+    reus = []
+    with zipfile.ZipFile(io.BytesIO(data)) as z:
+        for name in z.namelist():
+            if not name.endswith(".json"):
+                continue
+            raw = z.read(name)
+            if CF_ORGANE.encode() not in raw or b"3210" not in raw:
+                continue
+            try:
+                ru = json.loads(raw).get("reunion", {})
+            except Exception:
+                continue
+            if ru.get("organeReuniRef") != CF_ORGANE:
+                continue
+            ts = S(ru.get("timeStampDebut"))
+            cr = S(ru.get("compteRenduRef"))
+            if ts >= "2026-10-01" and cr.startswith("CR"):
+                reus.append((ts, cr))
+    reus.sort()
+    print("réunions de la commission des finances sur le PLF avec compte rendu :", len(reus), flush=True)
+    found = {}   # numéro -> [(date, url)]
+    for ts, cr in reus:
+        url = f"{BASE}/dyn/opendata/{cr}.html"
+        u, h = get_page(url)
+        if not u or len(h) < 5000:
+            continue
+        t = plain(h)
+        for m in re.finditer(r"(?<![A-Z])(I{1,2})\s?-\s?CF\s?(\d+)", t):
+            key = f"{m.group(1)}-CF{m.group(2)}"
+            lst = found.setdefault(key, [])
+            if not lst or lst[-1][1] != url:
+                lst.append((ts[:10], url))
+    n = 0
+    for r in cf:
+        lst = found.get(r["n"])
+        if not lst:
+            continue
+        same = [x for x in lst if r.get("ds") and x[0] == r["ds"]]
+        d, url = (same or lst)[0]
+        num = re.sub(r"^I+-", "", r["n"])
+        r["dl"] = f"{url}#:~:text={num}"
+        n += 1
+    print(f"liens débats commission : {n} / {len(cf)} amendements de commission", flush=True)
+
+
+def debats(rows):
+    try:
+        seance_links(rows)
+    except Exception as e:
+        print("!! liens séance :", e, flush=True)
+    try:
+        commission_links(rows)
+    except Exception as e:
+        print("!! liens commission :", e, flush=True)
+
+
 TEXTES = []
 
 
@@ -302,7 +434,7 @@ def main(out="amendements.json"):
             if str(num).startswith("I-"):
                 TEXTES.append({"n": num, "art": art, "e": text(expo_full, 2500), "p": text(disp_full, 2500)})
             rows.append({
-                "n": num, "o": ordre, "uid": uid, "_puid": puid,
+                "n": num, "o": ordre, "uid": uid, "_puid": puid, "_sd": S(a.get("seanceDiscussionRef")),
                 "d": S(cv.get("dateDepot"))[:10], "ds": S(cv.get("dateSort"))[:10],
                 "s": statut, "art": art, "aut": aut if aut else typeaut,
                 "g": grp.get(gref, ""), "r": res, "k": refs, "x": expo, "p": disp,
@@ -319,8 +451,9 @@ def main(out="amendements.json"):
         if pu and pu in by_uid:
             r["par"] = by_uid[pu]
     print("sous-amendements rattachés :", sum(1 for r in rows if r.get("par")), flush=True)
+    debats(rows)
     for r in rows:
-        r.pop("uid", None); r.pop("o", None)
+        r.pop("uid", None); r.pop("o", None); r.pop("_sd", None)
     from collections import Counter
     print("amendements :", len(rows), "| statuts :", Counter(r["s"] for r in rows).most_common(12), flush=True)
     if not rows:

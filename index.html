@@ -96,6 +96,9 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-si
 .an-links{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;margin-top:10px}
 .an-links a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent)}
 .an-links a:after{content:" ↗";color:var(--accent);font-size:11px}
+.dbt{font-size:12px;color:var(--accent);text-decoration:none;border:1px solid var(--accent);border-radius:999px;padding:1px 9px;white-space:nowrap}
+.dbt:after{content:" ↗";font-size:10.5px}
+.dbt:hover{background:var(--accent);color:#fff}
 mark{background:var(--accent-soft);color:inherit;padding:0 1px}
 @media (min-width:1024px){
   .wrap{max-width:1280px;padding:40px 48px 80px}
@@ -314,6 +317,12 @@ function hl(text, q){
   while((m = re.exec(src))){ out += t.slice(last,m.index) + "<mark>" + t.slice(m.index, m.index+m[0].length) + "</mark>"; last = m.index+m[0].length; if(!m[0].length) re.lastIndex++; }
   return out + t.slice(last);
 }
+function dlLink(n){
+  const r = IDX && IDX[n];
+  if(r && r.dl) return `<a class="dbt-l" href="${esc(r.dl)}" target="_blank" rel="noopener">Débats sur ${esc(n)}</a>`;
+  return IDX ? "" : `<span class="dl-slot" data-n="${esc(n)}"></span>`;
+}
+function fillDl(){ document.querySelectorAll(".dl-slot").forEach(el => { el.outerHTML = dlLink(el.dataset.n); }); }
 function cardHtml(a, q){
   const s = STATUTS[a.statut] || [esc(a.statut),"b-attente"];
   const isNew = lastSeen && a.ajoute && a.ajoute > lastSeen;
@@ -330,7 +339,7 @@ function cardHtml(a, q){
       <div class="meta">${[a.articlePLF && "PLF "+hl(a.articlePLF,q), a.cgi && hl(a.cgi,q), a.auteurs && esc(a.auteurs) + (a.groupe? " ("+esc(a.groupe)+")":""), a.etape && esc(a.etape), a.date && fdate(a.date)].filter(Boolean).join(" · ")}</div>
       <p>${hl(a.objet,q)}</p>
       ${a.pratique ? `<div class="pratique"><strong>Pour la pratique — </strong>${hl(a.pratique,q)}</div>`:""}
-      <div class="an-links">${refs.length ? refs.map(r=>`<a href="${r.url}" target="_blank" rel="noopener">${r.label} sur assemblee-nationale.fr</a>`).join("") : `<a href="${AN_DOSSIER}" target="_blank" rel="noopener">Dossier PLF 2027 sur assemblee-nationale.fr</a>`}
+      <div class="an-links">${refs.length ? refs.map(r=>`<a href="${r.url}" target="_blank" rel="noopener">${r.label} sur assemblee-nationale.fr</a>${dlLink(r.label)}`).join("") : `<a href="${AN_DOSSIER}" target="_blank" rel="noopener">Dossier PLF 2027 sur assemblee-nationale.fr</a>`}
       ${url ? `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(a.sourceTitre||"Source")}</a>`:""}</div>
     </article>`;
 }
@@ -343,7 +352,7 @@ function loadAll(){
   $("#all-count").textContent = "Chargement des amendements…";
   ALLp = fetch("amendements.json").then(r => r.ok ? r.json() : Promise.reject(r.status)).then(j => {
     j.amendements.forEach(r => { const t = [r.n, r.art, r.aut, r.g, r.r, r.x, r.p, (r.k||[]).map(k => "article " + k + " du cgi").join(" ; ")].join(" | "); r._h = fold(t); r._c = compact(t); r._rs = fold(r.r || ""); r._hn = normT(t); r._g = grpS(r.s); });
-    IDX = Object.fromEntries(j.amendements.map(r => [r.n, r])); ALL = j; renderAll();
+    IDX = Object.fromEntries(j.amendements.map(r => [r.n, r])); ALL = j; renderAll(); fillDl();
   }).catch(() => { ALL = {err:1}; renderAll(); });
   return ALLp;
 }
@@ -549,7 +558,7 @@ function renderAll(){
   $("#all-count").textContent = rows.length ? `${rows.length} amendement${rows.length>1?"s":""}` : "Aucun amendement ne correspond.";
   const cls = {adopte:"b-adopte", rejete:"b-rejete", autre:"b-autre"};
   $("#all-res").innerHTML = rows.slice(0, allLim).map(r => `<article class="arow">
-    <div class="top">${r.u?`<a class="num" href="${esc(r.u)}" target="_blank" rel="noopener">${esc(r.n)}</a>`:`<span class="num">${esc(r.n)}</span>`}
+    <div class="top">${r.u?`<a class="num" href="${esc(r.u)}" target="_blank" rel="noopener">${esc(r.n)}</a>`:`<span class="num">${esc(r.n)}</span>`}${r.dl?`<a class="dbt" href="${esc(r.dl)}" target="_blank" rel="noopener" title="Compte rendu des débats sur cet amendement">Débats</a>`:""}
       <span class="badge ${cls[r._g]}">${esc(r.s||"—")}</span><span class="theme">${esc(r.art)} · ${esc(r.c)}</span></div>
     <div class="meta">${esc(r.aut)}${r.g?" ("+esc(r.g)+")":""}${(r.ds||r.d)?" · "+fdate(r.ds||r.d):""}</div>
     ${r.r ? `<p class="res"><b>En bref :</b> ${hl(r.r, q)}</p>` : ""}
@@ -692,6 +701,7 @@ $("#sq").addEventListener("keydown", e => { if(e.key==="Enter"){ e.preventDefaul
   BRIEFS = Array.isArray(V.briefs) ? V.briefs : []; ACTUS = Array.isArray(V.actus) ? V.actus : [];
   if(!META){ $("#st-title").textContent = "Données indisponibles"; $("#st-text").textContent = "Le fichier de la veille (data.js) n'a pas pu être chargé."; }
   renderMeta(); render(); renderActus(); renderBriefs();
+  setTimeout(() => { if(!ALLp) loadAll(); }, 1200);
   const h = location.hash.slice(1); if(["brief","search","amdt","actu"].includes(h)) showPane(h);
   window.addEventListener("pagehide", markSeen);
   document.addEventListener("visibilitychange", () => { if(document.visibilityState==="hidden") markSeen(); });
