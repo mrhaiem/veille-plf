@@ -3,7 +3,7 @@ window.VEILLE = {
   "titre": "1re lecture à l'Assemblée — vote sur la partie recettes reporté, examen prolongé jusqu'au 6 novembre",
   "texte": "L'Assemblée poursuit jusqu'au vendredi 6 novembre l'examen de la partie recettes, dont le vote n'a pas encore eu lieu. Les amendements adoptés restent provisoires : un rejet de la partie recettes ferait tomber l'ensemble.",
   "alerte": "Plusieurs groupes (RN, UDR, Horizons, DR) annoncent un rejet de la partie recettes : dans ce cas, tous les amendements ci-dessous tombent et le Sénat repartira du texte du Gouvernement. Le 49.3 reste possible.",
-  "majLe": "2026-11-05T06:30:00Z",
+  "majLe": "2026-11-05T11:04:57Z",
   "etapes": [
    {
     "date": "1er oct.",
@@ -807,65 +807,162 @@ window.VEILLE = {
    "source": "https://www.assemblee-nationale.fr/dyn/17/amendements/3210A/AN/1328",
    "sourceTitre": "Assemblée nationale — amendement I-1328",
    "ajoute": "2026-11-05T06:30:00Z"
+  },
+  {
+   "id": "I-3808",
+   "num": "I-3808, I-2434",
+   "titre": "Arbitrages de dividendes (« CumCum ») : nouvel article 119 bis A et agrément des établissements financiers",
+   "objet": "Deux amendements adoptés le 3 novembre créent un article 119 bis A du CGI pour lutter contre les montages « CumCum », par lesquels des actionnaires soumis à la retenue à la source transfèrent temporairement leurs titres à des établissements exonérés autour du détachement du dividende. I-2434 subordonne la pratique de l'exonération de retenue à la source par les établissements financiers à un agrément, retirable en cas d'abus, sur le modèle américain.",
+   "pratique": "Concerne directement les banques, prime brokers et fonds pratiquant le prêt-emprunt ou les dérivés sur actions françaises autour des dates de dividende. À articuler avec le dispositif anti-abus de 2019 ; texte exact du dispositif à lire avant tout conseil.",
+   "statut": "adopte",
+   "articlePLF": "après art. 32",
+   "cgi": "CGI art. 119 bis A (nouveau)",
+   "auteurs": "Vigier ; Pirès Beaune",
+   "groupe": "Les Démocrates ; Socialistes",
+   "gouv": "",
+   "theme": "international",
+   "etape": "AN séance 1re lecture",
+   "date": "2026-11-03",
+   "source": "https://www.assemblee-nationale.fr/dyn/17/amendements/3210A/AN/3808",
+   "sourceTitre": "Assemblée nationale — fiche de l'amendement",
+   "ajoute": "2026-11-05T11:04:57Z"
+  },
+  {
+   "id": "I-3243",
+   "num": "I-3243",
+   "titre": "Sanction des conseils : l'amende de l'article 1740 A bis portée à 100 % des honoraires",
+   "objet": "L'amende visant les professionnels qui fournissent intentionnellement une prestation permettant directement la commission de manquements fiscaux graves passerait de 50 % à 100 % des revenus tirés de la prestation, le minimum de 10 000 € restant inchangé.",
+   "pratique": "Vise directement les cabinets d'avocats et de conseil : l'enjeu de conformité interne (revue des montages, documentation de l'intention) se renforce. Le périmètre des manquements visés reste celui de l'article 1740 A bis.",
+   "statut": "adopte",
+   "articlePLF": "après art. 32",
+   "cgi": "CGI art. 1740 A bis",
+   "auteurs": "Taupiac",
+   "groupe": "LIOT",
+   "gouv": "",
+   "theme": "procedure",
+   "etape": "AN séance 1re lecture",
+   "date": "2026-11-03",
+   "source": "https://www.assemblee-nationale.fr/dyn/17/amendements/3210A/AN/3243",
+   "sourceTitre": "Assemblée nationale — fiche de l'amendement",
+   "ajoute": "2026-11-05T11:04:57Z"
+  },
+  {
+   "id": "I-3925",
+   "num": "I-3925",
+   "titre": "Règlements d'ensemble : un cadre légal dans le LPF",
+   "objet": "Nouvel article L. 247-00 A du LPF donnant un cadre juridique aux règlements d'ensemble conclus avec l'administration à l'issue d'un contrôle fiscal, pratique jugée opaque par les rapporteurs Nicolas Sansu et Mathilde Feld.",
+   "pratique": "Touche la pratique transactionnelle en contentieux fiscal des grands groupes : prévoir plus de formalisme et de transparence dans la négociation des règlements d'ensemble. Conditions précises à vérifier sur le texte adopté.",
+   "statut": "adopte",
+   "articlePLF": "après art. 32",
+   "cgi": "LPF art. L. 247-00 A (nouveau)",
+   "auteurs": "Sansu",
+   "groupe": "GDR",
+   "gouv": "",
+   "theme": "procedure",
+   "etape": "AN séance 1re lecture",
+   "date": "2026-11-03",
+   "source": "https://www.assemblee-nationale.fr/dyn/17/amendements/3210A/AN/3925",
+   "sourceTitre": "Assemblée nationale — fiche de l'amendement",
+   "ajoute": "2026-11-05T11:04:57Z"
+  },
+  {
+   "id": "I-3723",
+   "num": "I-3723",
+   "titre": "Défaut de réponse aux demandes de l'administration (L. 80 R) : amende portée à 50 000 € par demande",
+   "objet": "L'article 30 créait une amende de 10 000 € par demande en cas de refus de communiquer les documents demandés dans le cadre du contrôle de l'article L. 80 R du LPF (institutions financières, prestataires sur crypto-actifs, opérateurs de plateformes). L'amendement la porte à 50 000 €.",
+   "pratique": "Pour les établissements financiers clients, les demandes de l'administration au titre de L. 80 R deviennent un risque de sanction significatif : organiser un circuit de réponse.",
+   "statut": "adopte",
+   "articlePLF": "art. 30",
+   "cgi": "LPF art. L. 80 R",
+   "auteurs": "Arrighi",
+   "groupe": "Écologiste et social",
+   "gouv": "",
+   "theme": "procedure",
+   "etape": "AN séance 1re lecture",
+   "date": "2026-11-03",
+   "source": "https://www.assemblee-nationale.fr/dyn/17/amendements/3210A/AN/3723",
+   "sourceTitre": "Assemblée nationale — fiche de l'amendement",
+   "ajoute": "2026-11-05T11:04:57Z"
+  },
+  {
+   "id": "I-2527",
+   "num": "I-2527",
+   "titre": "Taxe sur les transactions financières élargie aux opérations intra-journalières et au trading haute fréquence",
+   "objet": "Réécriture de l'article 235 ter ZD du CGI : la TTF s'appliquerait aux transactions intra-journalières et au trading à haute fréquence, avec un volet environnemental, et serait recouvrée par l'administration fiscale plutôt que par les acteurs financiers. Les auteurs chiffrent le gain jusqu'à 11 Md€ par an.",
+   "pratique": "Changement majeur pour les banques et intermédiaires de marché s'il survivait ; adopté contre la logique du texte gouvernemental et très exposé à la navette.",
+   "statut": "adopte",
+   "articlePLF": "après art. 23",
+   "cgi": "CGI art. 235 ter ZD",
+   "auteurs": "Le Coq",
+   "groupe": "LFI",
+   "gouv": "",
+   "theme": "distrib",
+   "etape": "AN séance 1re lecture",
+   "date": "2026-11-02",
+   "source": "https://www.assemblee-nationale.fr/dyn/17/amendements/3210A/AN/2527",
+   "sourceTitre": "Assemblée nationale — fiche de l'amendement",
+   "ajoute": "2026-11-05T11:04:57Z"
+  },
+  {
+   "id": "I-1063",
+   "num": "I-1063, I-1061",
+   "titre": "Contribution exceptionnelle sur la valorisation boursière de « grandes entreprises stratégiques »",
+   "objet": "Deux amendements d'appel LFI adoptés le 2 novembre instituent, au titre du premier exercice clos à compter du 31 décembre 2026, une contribution exceptionnelle sur la valorisation boursière de grandes entreprises dites stratégiques (exemples cités : Vinci Autoroutes, ArcelorMittal), pouvant être acquittée en actions. À ne pas confondre avec la contribution exceptionnelle sur les bénéfices (art. 15), supprimée.",
+   "pratique": "Risque d'image pour les groupes cotés plus que risque juridique : la constitutionnalité d'un prélèvement assis sur la capitalisation et ciblé est très douteuse. À suivre au Sénat.",
+   "statut": "adopte",
+   "articlePLF": "après art. 15",
+   "cgi": "CGI art. 223 A (mentionné)",
+   "auteurs": "Trouvé",
+   "groupe": "LFI",
+   "gouv": "",
+   "theme": "is",
+   "etape": "AN séance 1re lecture",
+   "date": "2026-11-02",
+   "source": "https://www.assemblee-nationale.fr/dyn/17/amendements/3210A/AN/1063",
+   "sourceTitre": "Assemblée nationale — fiche de l'amendement",
+   "ajoute": "2026-11-05T11:04:57Z"
   }
  ],
  "briefs": [
   {
    "date": "2026-11-05",
-   "titre": "Dates alignées sur l'open data, trois ajouts « entreprises »",
-   "intro": "L'Assemblée poursuit l'examen de la partie recettes jusqu'au 6 novembre ; aucun vote final n'est encore confirmé par nos sources.",
+   "titre": "CumCum, sanction des conseils, règlements d'ensemble : les votes qui comptent",
+   "intro": "Hier (4 novembre), l'Assemblée a terminé la partie recettes sur les taxes affectées (CCI, agences de l'eau, frais d'inscription en classes préparatoires) : aucun vote structurant pour un fiscaliste d'affaires. Les votes à retenir sont ceux des 2 et 3 novembre, tous suspendus au vote final de la partie recettes.",
    "items": [
     {
-     "phrase": "Le CII serait ouvert aux ETI (I-3659, adopté le 28 octobre) : fin de l'effet de seuil à 250 salariés pour les prototypes et installations pilotes.",
-     "num": "I-3659",
-     "cle": "I-3659"
+     "phrase": "Dividendes : un nouvel article 119 bis A du CGI s'attaque aux arbitrages « CumCum » et subordonnerait l'exonération de retenue à la source pratiquée par les établissements financiers à un agrément retirable en cas d'abus.",
+     "num": "I-3808, I-2434",
+     "cle": "I-2434"
     },
     {
-     "phrase": "Adopté le 27 octobre : l'abrogation de la réduction de moitié des bases de TFPB et de CFE des locaux industriels (I-2592) alourdirait les impôts de production des industriels si elle était conservée.",
-     "num": "I-2592",
-     "cle": "I-2592"
+     "phrase": "Conseils : l'amende pour les professionnels qui facilitent intentionnellement un manquement fiscal grave passerait de 50 % à 100 % des honoraires (CGI art. 1740 A bis).",
+     "num": "I-3243",
+     "cle": "1740 A bis"
     },
     {
-     "phrase": "Un « dividende social » (1 € aux salariés pour 1 € aux actionnaires, I-1328) a été adopté le 2 novembre dans les entreprises soumises à la participation.",
+     "phrase": "Contentieux : les règlements d'ensemble conclus après un contrôle fiscal recevraient un cadre légal (nouvel art. L. 247-00 A du LPF).",
+     "num": "I-3925",
+     "cle": "I-3925"
+    },
+    {
+     "phrase": "Marchés : la taxe sur les transactions financières serait étendue aux opérations intra-journalières et au trading haute fréquence, et recouvrée par l'administration (CGI art. 235 ter ZD).",
+     "num": "I-2527",
+     "cle": "I-2527"
+    },
+    {
+     "phrase": "Établissements financiers : l'amende pour défaut de réponse aux demandes de l'administration au titre de L. 80 R passerait de 10 000 € à 50 000 € par demande.",
+     "num": "I-3723",
+     "cle": "I-3723"
+    },
+    {
+     "phrase": "Groupes cotés : deux amendements d'appel créent une contribution exceptionnelle sur la valorisation boursière de « grandes entreprises stratégiques » ; constitutionnalité très douteuse, mais signal politique à suivre.",
+     "num": "I-1063, I-1061",
+     "cle": "valorisation boursière"
+    },
+    {
+     "phrase": "Distributions : un « dividende social » (1 € aux salariés pour 1 € aux actionnaires) serait instauré dans les entreprises soumises à la participation.",
      "num": "I-1328",
-     "cle": "I-1328"
-    },
-    {
-     "phrase": "Exit tax : I-2408, adopté le 30 octobre, rétablit aussi le délai de 15 ans, comme le groupe I-462 déjà suivi.",
-     "num": "I-2408",
-     "cle": "exit tax"
-    },
-    {
-     "phrase": "Correction : les dates de sort de plusieurs fiches (apport-cession, Dutreil, exit tax, actions gratuites, BSPCE…) ont été alignées sur l'open data officiel.",
-     "num": "Base",
-     "cle": "Dutreil"
-    }
-   ]
-  },
-  {
-   "date": "2026-11-05",
-   "titre": "Recherche dans tous les amendements, et deux corrections",
-   "intro": "L'Assemblée poursuit l'examen de la partie recettes jusqu'au 6 novembre ; le vote final viendra ensuite.",
-   "items": [
-    {
-     "phrase": "La recherche couvre désormais les 11 505 amendements déposés sur le PLF 2027, en commission et en séance, adoptés ou non, mis à jour chaque nuit depuis l'open data de l'Assemblée.",
-     "num": "Recherche",
-     "cle": "quote-part"
-    },
-    {
-     "phrase": "Correction : la hausse de la quote-part de la niche Copé de 12 % à 16 %, adoptée en commission, a été rejetée en séance le 27 octobre (I-3782, I-50).",
-     "num": "I-CF1737",
-     "cle": "quote-part"
-    },
-    {
-     "phrase": "Correction : le relèvement du seuil du régime mère-fille de 5 % à 10 % (I-CF46) a été rejeté en commission.",
-     "num": "I-CF46",
-     "cle": "mère-fille"
-    },
-    {
-     "phrase": "Holdings patrimoniales : l'extension de la taxe à la trésorerie au taux de 2 % (I-3807) reste adoptée, sous réserve du vote final.",
-     "num": "I-3807",
-     "cle": "I-3807"
+     "cle": "dividende social"
     }
    ]
   },
