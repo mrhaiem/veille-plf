@@ -79,7 +79,7 @@ def find_key(o, key):
 def text(h, n):
     if not isinstance(h, str):
         return ""
-    t = html.unescape(html.unescape(re.sub(r"<[^>]+>", " ", h)))
+    t = html.unescape(re.sub(r"<[^>]+>", " ", h)).replace("&amp;", "&")
     t = re.sub(r"\s+", " ", t).strip()
     if len(t) <= n:
         return t
@@ -201,7 +201,7 @@ def main(out="amendements.json"):
             corps = get(a, "corps", "contenuAuteur") or a.get("corps") or {}
             expo_full = text(corps.get("exposeSommaire") if isinstance(corps, dict) else "", 100000)
             disp_full = text(corps.get("dispositif") if isinstance(corps, dict) else "", 100000)
-            expo = text(expo_full, 900)
+            expo = text(expo_full, 700)
             disp = text(disp_full, 260)
             res = resume(expo_full, disp_full, art)
             cf = prefixe.upper() == "CF" or re.match(r"^I+-CF", str(num) or "") is not None
