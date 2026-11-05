@@ -181,6 +181,37 @@ def refresh(rows):
     print(f"statuts mis à jour : {changed} | fiches restées illisibles : {len(failed)}", flush=True)
 
 
+SUFX = r"(?:bis|ter|quater|quinquies|sexies|septies|octies|nonies|decies|undecies|duodecies|terdecies|quaterdecies|quindecies|sexdecies|septdecies|octodecies|novodecies|vicies)"
+REF = rf"(?-i:(?:L\.?\s*|R\.?\s*|A\.?\s*)?)\d{{1,4}}(?:\s*-\s*\d{{1,2}}(?!\d))?(?:\s+(?:(?-i:[A-Z]{{1,2}})|{SUFX})\b){{0,4}}"
+REFLIST = re.compile(rf"\barticles?\s+({REF}(?:\s*(?:,|\bet\b|\bou\b|\bà\b)\s*{REF})*)", re.I)
+CODE = re.compile(r"^[^.;]{0,90}?\b(du\s+code\s+général\s+des\s+impôts|du\s+CGI|du\s+même\s+code|dudit\s+code|du\s+livre\s+des\s+procédures\s+fiscales|du\s+LPF|de\s+l.annexe\s+[IV]+\s+au\s+code\s+général)", re.I)
+OTHER = re.compile(r"^[^.;]{0,40}?\b(du\s+code\s+(de\s+la|du|de\s+l|des|monétaire|civil|de\s+commerce|rural|des\s+douanes|de\s+la\s+sécurité)|de\s+la\s+loi|de\s+l.ordonnance|du\s+décret|de\s+la\s+présente\s+loi|du\s+présent\s+projet)", re.I)
+
+
+def norm_ref(x):
+    x = re.sub(r"\s+", " ", x.replace("\u2011", "-").replace("\u2010", "-")).strip().lower()
+    x = re.sub(r"\s*-\s*", "-", x)
+    x = re.sub(r"^([lra])\.?\s*", r"\1. ", x) if re.match(r"^[lra]\.?\s*\d", x) else x
+    return x
+
+
+def cgi_refs(*texts):
+    out = []
+    for t in texts:
+        t = (t or "").replace("\u00a0", " ").replace("\u202f", " ").replace("\u2011", "-")
+        for m in REFLIST.finditer(t):
+            after = t[m.end(): m.end() + 120]
+            if OTHER.match(after) and not CODE.match(after):
+                continue
+            if not CODE.match(after):
+                continue
+            for ref in re.findall(REF, m.group(1)):
+                r = norm_ref(ref)
+                if r and r not in out:
+                    out.append(r)
+    return out[:30]
+
+
 def groups_map():
     data = first(*ORG_URLS)
     m = {}
@@ -257,6 +288,7 @@ def main(out="amendements.json"):
             expo = text(expo_full, 700)
             disp = text(disp_full, 260)
             res = resume(expo_full, disp_full, art)
+            refs = cgi_refs(disp_full, expo_full)
             cf = prefixe.upper() == "CF" or re.match(r"^I+-CF", str(num) or "") is not None
             autre_org = bool(prefixe) and prefixe.upper() not in ("AN", "CF")
             partie = "B" if str(num).startswith("II-") else "A"
@@ -267,7 +299,7 @@ def main(out="amendements.json"):
                 "n": num, "o": ordre, "uid": uid,
                 "d": S(cv.get("dateDepot"))[:10], "ds": S(cv.get("dateSort"))[:10],
                 "s": statut, "art": art, "aut": aut if aut else typeaut,
-                "g": grp.get(gref, ""), "r": res, "x": expo, "p": disp,
+                "g": grp.get(gref, ""), "r": res, "k": refs, "x": expo, "p": disp,
                 "c": "commission" if (cf or autre_org) else "séance", "u": url,
             })
     if sample is not None:
@@ -284,6 +316,7 @@ def main(out="amendements.json"):
         sys.exit(1)
     from collections import Counter as _C
     print("statuts après vérification :", _C(r["s"] for r in rows).most_common(10), flush=True)
+    print("amendements avec références CGI/LPF :", sum(1 for r in rows if r.get("k")), flush=True)
     meta = {"maj": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "texte": "PLF 2027 (AN n° 3210)",
             "total": len(rows), "source": "Open data de l'Assemblée nationale"}
     with open(out, "w", encoding="utf-8") as f:

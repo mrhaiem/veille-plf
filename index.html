@@ -342,7 +342,7 @@ function loadAll(){
   if(ALLp) return ALLp;
   $("#all-count").textContent = "Chargement des amendements…";
   ALLp = fetch("amendements.json").then(r => r.ok ? r.json() : Promise.reject(r.status)).then(j => {
-    j.amendements.forEach(r => { const t = [r.n, r.art, r.aut, r.g, r.r, r.x, r.p].join(" | "); r._h = fold(t); r._c = compact(t); r._rs = fold(r.r || ""); r._g = grpS(r.s); });
+    j.amendements.forEach(r => { const t = [r.n, r.art, r.aut, r.g, r.r, r.x, r.p, (r.k||[]).map(k => "article " + k + " du cgi").join(" ; ")].join(" | "); r._h = fold(t); r._c = compact(t); r._rs = fold(r.r || ""); r._g = grpS(r.s); });
     ALL = j; renderAll();
   }).catch(() => { ALL = {err:1}; renderAll(); });
   return ALLp;
@@ -399,6 +399,12 @@ function artQuery(q){
 }
 function artScore(r, aq){
   const txt = r._h; let sc = 0, m; aq.re.lastIndex = 0;
+  // références CGI / LPF relevées dans le texte intégral de l'amendement (champ k)
+  if(Array.isArray(r.k) && r.k.length){
+    const nq = (aq.lpf ? "l. " : "") + aq.core.replace(/\s*-\s*/g,"-").replace(/\s+/g," ").trim();
+    if(r.k.includes(nq)) sc += 300;
+    else if(!/^l\. /.test(nq) && !/^\d+$/.test(nq) && r.k.some(x => x.startsWith(nq + " "))) sc += 200;
+  }
   const pureNum = /^\d+$/.test(aq.core);
   while((m = aq.re.exec(txt))){
     const i = m.index, before = txt.slice(Math.max(0, i - 30), i + 1), after = txt.slice(i + m[0].length, i + m[0].length + 60);
