@@ -6,21 +6,25 @@ jobs:
     steps:
       - run: |
           UA="Mozilla/5.0"
-          curl -sIL -A "$UA" https://www.assemblee-nationale.fr/dyn/crSeanceRedirect/RUANR5L17S2027IDS30949 | grep -iE '^(HTTP|location)'
           curl -sL -o z.zip https://data.assemblee-nationale.fr/static/openData/repository/17/loi/amendements_div_legis/Amendements.json.zip
           mkdir z && cd z && unzip -q ../z.zip && cd ..
-          f=$(grep -rl '"numeroLong": *"3089"' z | grep B3210 | head -1); echo "== $f"; python3 -c "import json,sys;d=json.load(open(sys.argv[1]));print(json.dumps(d,ensure_ascii=False)[:200]);import re;s=json.dumps(d,ensure_ascii=False);[print(m) for m in re.findall(r'\"[a-zA-Z]*(?:[Ss]eance|[Rr]eunion|[Dd]iscussion|[Ee]xamen)[a-zA-Z]*\": *(?:\"[^\"]*\"|\{[^}]*\}|null)',s)]" $f
-          f=$(grep -rl '"numeroLong": *"I-CF1737"' z | head -1); echo "== $f"; python3 -c "import json,sys,re;s=open(sys.argv[1]).read();[print(m) for m in re.findall(r'\"[a-zA-Z]*(?:[Ss]eance|[Rr]eunion|[Dd]iscussion|[Ee]xamen)[a-zA-Z]*\": *(?:\"[^\"]*\"|\{[^}]*\}|null)',s)]" $f
-          echo "== stats seanceDiscussionRef"; grep -rl B3210 z | xargs grep -ho '"seanceDiscussionRef": *[^,]*' | sort | uniq -c | sort -rn | head -15
-          curl -sL -o s.zip https://data.assemblee-nationale.fr/static/openData/repository/17/vp/syceronbrut/syseron.xml.zip; mkdir s; cd s; unzip -q ../s.zip
-          grep -l "RUANR5L17S2027IDS30949" -r . | head
-          f=$(grep -l "RUANR5L17S2027IDS30949" -r . | head -1); head -c 2500 $f; echo
-          python3 - "$f" <<'P'
-          import sys,re
-          s=open(sys.argv[1]).read()
-          for m in re.finditer(r'3089',s):
-              print('----',s[max(0,m.start()-900):m.start()+300].replace('\n',' '))
-              break
-          print(sorted(set(re.findall(r'<(\w+)[ >]',s)))[:80])
+          python3 - <<'P'
+          import json,glob,re,collections
+          fs=[f for f in glob.glob('z/**/*.json',recursive=True) if 'B3210' in f]
+          print('files',len(fs))
+          C=collections.Counter(); ex={}
+          for f in fs:
+              s=open(f).read()
+              m=re.search(r'"seanceDiscussionRef":\s*("[^"]*"|null|\{[^}]*\})',s)
+              n=re.search(r'"numeroLong":\s*"([^"]*)"',s).group(1)
+              v=m.group(1) if m else 'ABSENT'
+              kind=('CF' if 'CF' in n else ('II' if n.startswith('II') else 'I'))+':'+('vide' if v in ('ABSENT','null','""') else v[:20])
+              C[kind]+=1; ex.setdefault(kind,n)
+              if n in ('3089','I-3089','I-CF1737'): print(n, v, re.findall(r'"(\w*(?:eunion|eance|xamen)\w*)":\s*("[^"]*"|null)',s))
+          for k,c in C.most_common(30): print(c,k,ex[k])
           P
-          curl -sL -A "$UA" "https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/$(basename $f .xml)" -o cr.html; wc -c cr.html; grep -oE 'id="[^"]{2,40}"' cr.html | head -20; grep -oE '.{300}3089.{100}' cr.html | head -2
+          curl -sL -A "$UA" https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/seance/session-ordinaire-de-2026-2027/troisieme-seance-du-vendredi-16-octobre-2026 -o cr.html; wc -c cr.html
+          grep -oE '.{400}3089.{150}' cr.html | head -3
+          grep -oE '(id|name)="[^"]{1,40}"' cr.html | sort | uniq -c | sort -rn | head -15
+          grep -oE '(id|name)="[^"]{1,40}"' cr.html | head -30
+          ls; curl -sL -A "$UA" "https://www.assemblee-nationale.fr/dyn/17/comptes-rendus/cion_fin" -o cf.html; wc -c cf.html; grep -oE 'href="[^"]*comptes-rendus/cion_fin/[^"]*"' cf.html | head -10
