@@ -89,7 +89,7 @@ def text(h, n):
 
 
 SENT = re.compile(r"(?<=[.!?…])\s+(?=[«\"(A-ZÀ-ÖØ-Ý])")
-STRONG = re.compile(r"\b(cet|ce|le présent|du présent|notre|leur|un)\s+(sous-)?amendement|cet article additionnel|par le présent|^il est proposé|^nous proposons|^le groupe [^.]{0,60} (propose|souhaite|vise)", re.I)
+STRONG = re.compile(r"\b(cet|ce|le présent|du présent|notre|leur|un)\s+(sous-)?amendement|cet article additionnel|par le présent|^il est proposé|^nous proposons|la (présente )?mesure proposée|le dispositif proposé|^il s.agit de|^l.objet de cet|^cet article|^le groupe [^.]{0,60} (propose|souhaite|vise)", re.I)
 GOOD = re.compile(r"(amendement|article additionnel|dispositif|présente? (mesure|proposition))[^.]{0,120}?\b(vise|visent|a pour (objet|but|effet)|ont pour objet|propose|tend|prévoi|permet|supprim|rétabli|port|étend|exclu|ouvr|instaur|cré|institu|relèv|abaiss|rédui|augment|proro|plafonn|exon|limit|appliqu|align|corrig|précis|modifi|remplac|ramèn|fix|introdui|sécuris|rend|transform|interdi|soumet|assujetti|mett?r?e? fin|revien)", re.I)
 GENERIC = re.compile(r"(aborde ce budget|pacte entre les générations|nos enfants en hériteront|amendement d.appel|amendement de repli\.?$)", re.I)
 
