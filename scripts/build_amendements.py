@@ -159,19 +159,26 @@ def refresh(rows):
         st = sort or (html.unescape(m_se.group(1)).strip() if m_se else "") or (html.unescape(m_e.group(1)).strip() if m_e else "")
         return r, (st, tag("dateSort")[:10])
 
-    changed = failed = 0
-    with ThreadPoolExecutor(max_workers=8) as ex:
-        for r, res in ex.map(one, todo):
-            if res is None:
-                failed += 1
-                continue
-            st, ds = res
-            if st and st != r["s"]:
-                r["s"] = st
-                changed += 1
-            if ds and not r.get("ds"):
-                r["ds"] = ds
-    print(f"statuts mis à jour : {changed} | fiches illisibles : {failed}", flush=True)
+    changed = 0
+    for passe, workers in ((1, 6), (2, 2), (3, 1)):
+        failed = []
+        with ThreadPoolExecutor(max_workers=workers) as ex:
+            for r, res in ex.map(one, todo):
+                if res is None:
+                    failed.append(r)
+                    continue
+                st, ds = res
+                if st and st != r["s"]:
+                    r["s"] = st
+                    changed += 1
+                if ds and not r.get("ds"):
+                    r["ds"] = ds
+        print(f"passe {passe} : {len(todo) - len(failed)} lues, {len(failed)} illisibles", flush=True)
+        if not failed:
+            break
+        todo = failed
+        time.sleep(20)
+    print(f"statuts mis à jour : {changed} | fiches restées illisibles : {len(failed)}", flush=True)
 
 
 def groups_map():
