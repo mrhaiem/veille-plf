@@ -231,6 +231,9 @@ def groups_map():
     return m
 
 
+TEXTES = []
+
+
 def main(out="amendements.json"):
     data = first(*AMDT_URLS)
     if not data:
@@ -296,6 +299,8 @@ def main(out="amendements.json"):
             n_only = m_num.group(1) if m_num else ""
             url = f"https://www.assemblee-nationale.fr/dyn/{LEG}/amendements/3210{partie}/{'CION_FIN/CF' if cf else 'AN/'}{n_only}" if (n_only and not autre_org) else ""
             puid = S(a.get("amendementParentRef"))
+            if str(num).startswith("I-"):
+                TEXTES.append({"n": num, "art": art, "e": text(expo_full, 2500), "p": text(disp_full, 2500)})
             rows.append({
                 "n": num, "o": ordre, "uid": uid, "_puid": puid,
                 "d": S(cv.get("dateDepot"))[:10], "ds": S(cv.get("dateSort"))[:10],
@@ -324,6 +329,22 @@ def main(out="amendements.json"):
     from collections import Counter as _C
     print("statuts après vérification :", _C(r["s"] for r in rows).most_common(10), flush=True)
     print("amendements avec références CGI/LPF :", sum(1 for r in rows if r.get("k")), flush=True)
+    # textes intégraux de la 1re partie (pour la rédaction des résumés) et résumés rédigés
+    os.makedirs("textes", exist_ok=True)
+    stat = {r["n"]: r["s"] for r in rows}
+    for t in TEXTES:
+        t["s"] = stat.get(t["n"], "")
+    with open("textes/premiere_partie.json", "w", encoding="utf-8") as f:
+        json.dump(TEXTES, f, ensure_ascii=False, separators=(",", ":"))
+    try:
+        res = json.load(open("resumes.json", encoding="utf-8"))
+    except Exception:
+        res = {}
+    nres = 0
+    for r in rows:
+        if res.get(r["n"]):
+            r["r"] = res[r["n"]]; r["rs"] = 1; nres += 1
+    print("résumés rédigés appliqués :", nres, flush=True)
     meta = {"maj": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "texte": "PLF 2027 (AN n° 3210)",
             "total": len(rows), "source": "Open data de l'Assemblée nationale"}
     with open(out, "w", encoding="utf-8") as f:
