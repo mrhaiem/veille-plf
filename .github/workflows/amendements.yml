@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: "17 * * * *"   # toutes les heures (GitHub retarde ou saute souvent les passages programmés)
   workflow_dispatch:
+  push:                      # relance aussi à chaque publication de résumés (la planification GitHub n'est pas fiable)
+    branches: [main]
+    paths: ["resumes.json", "data.js"]
 
 permissions:
   contents: write
