@@ -3,7 +3,7 @@ window.VEILLE = {
   "titre": "1re lecture à l'Assemblée — vote sur la partie recettes reporté, examen prolongé jusqu'au 6 novembre",
   "texte": "L'Assemblée poursuit jusqu'au vendredi 6 novembre l'examen de la partie recettes, dont le vote n'a pas encore eu lieu. Les amendements adoptés restent provisoires : un rejet de la partie recettes ferait tomber l'ensemble.",
   "alerte": "Plusieurs groupes (RN, UDR, Horizons, DR) annoncent un rejet de la partie recettes : dans ce cas, tous les amendements ci-dessous tombent et le Sénat repartira du texte du Gouvernement. Le 49.3 reste possible.",
-  "majLe": "2026-11-05T11:04:57Z",
+  "majLe": "2026-11-06T06:30:00Z",
   "etapes": [
    {
     "date": "1er oct.",
@@ -924,6 +924,28 @@ window.VEILLE = {
   }
  ],
  "briefs": [
+  {
+   "date": "2026-11-06",
+   "titre": "Point de la nuit : pas de nouvel adopté structurant, vote recettes toujours attendu",
+   "intro": "La base de l'Assemblée arrêtée au 6 novembre ne montre aucun nouvel amendement adopté relevant de la fiscalité des affaires depuis le 4 novembre, et la presse consultée ne rapporte pas encore l'issue du vote sur la partie recettes.",
+   "items": [
+    {
+     "phrase": "Taxes affectées : plusieurs amendements identiques adoptés le 4 novembre à l'article 42 (I-3663, I-3628, I-3263, I-2711, I-2351…) relèvent à 235,1 M€ la ligne du plafond de la taxe pour frais de chambres de commerce (exposé : plafond ramené de 505 à 380 M€ dans le projet), ce qui limite la baisse du plafond affecté aux CCI ; l'impact est indirect pour les entreprises.",
+     "num": "I-3663, I-3628, I-3263",
+     "cle": "I-3663"
+    },
+    {
+     "phrase": "Vérification : les amendements adoptés restent alignés sur le sort officiel de la base ; les numéros I-2305, I-784, I-2592, I-4006 et I-4007 n'y figurent pas, leur statut reste donc celui relevé dans la presse et à confirmer sur le site de l'Assemblée.",
+     "num": "I-2305, I-784, I-2592",
+     "cle": "I-2305"
+    },
+    {
+     "phrase": "Calendrier : aucune source consultée ne confirme à ce stade le résultat du vote sur la partie recettes ; un rejet reste présenté comme probable, ce qui ferait tomber tous les amendements adoptés en séance et renverrait le Sénat au texte du Gouvernement.",
+     "num": "",
+     "cle": "vote solennel"
+    }
+   ]
+  },
   {
    "date": "2026-11-05",
    "titre": "CumCum, sanction des conseils, règlements d'ensemble : les votes qui comptent",
