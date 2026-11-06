@@ -99,6 +99,21 @@ footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-si
 .dbt{font-size:12px;color:var(--accent);text-decoration:none;border:1px solid var(--accent);border-radius:999px;padding:1px 9px;white-space:nowrap}
 .dbt:after{content:" ↗";font-size:10.5px}
 .dbt:hover{background:var(--accent);color:#fff}
+.special{border:2px solid var(--accent);border-left-width:8px;background:#fff5fa;padding:16px 18px 14px;margin:0 0 18px;border-radius:4px}
+.special .sp-k{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.special h2{margin:4px 0 6px;font-size:21px;line-height:1.25}
+.special .chapo{margin:0 0 10px;font-size:15px}
+.special details{border-top:1px solid #f1c6dc;padding:8px 0}
+.special summary{cursor:pointer;font-weight:600;color:var(--ink)}
+.special summary::marker{color:var(--accent)}
+.special ul{margin:8px 0 2px 0;padding-left:18px}.special li{margin:5px 0;font-size:14.5px;line-height:1.5}
+.special .sp-src{font-size:12px;margin-top:8px;color:#555}.special .sp-src a{color:var(--ink);border-bottom:1px solid var(--accent);text-decoration:none;margin-right:12px}
+.special .sp-toggle{margin-top:8px;font-size:13px;background:none;border:1px solid var(--accent);color:var(--accent);border-radius:999px;padding:4px 12px;cursor:pointer}
+.special.min details,.special.min .sp-src{display:none}
+body.searching .special{display:none}
+.special .sp-a{color:var(--accent);cursor:pointer;border-bottom:1px solid var(--accent);font-weight:600}
+.caduc{font-size:11px;color:#8a0050;border:1px dashed #c60076;border-radius:999px;padding:0 7px}
+
 .rap{font-size:12px;color:var(--ink);text-decoration:none;border-bottom:1px dotted var(--accent);white-space:nowrap}
 .rap:after{content:" ↗";color:var(--accent);font-size:10.5px}
 mark{background:var(--accent-soft);color:inherit;padding:0 1px}
@@ -204,6 +219,7 @@ body.searching .side{display:none}
   </aside>
   <main class="main">
 
+  <section id="special" class="special hidden" aria-labelledby="sp-title"></section>
   <nav class="tabs" role="tablist">
     <button class="tab" role="tab" aria-selected="true" data-tab="brief">Le point du matin</button>
     <button class="tab" role="tab" aria-selected="false" data-tab="search">Recherche</button>
@@ -318,6 +334,21 @@ function hl(text, q){
   const src = fold(t), re = new RegExp(words.join("|"),"g"); let out="", last=0, m;
   while((m = re.exec(src))){ out += t.slice(last,m.index) + "<mark>" + t.slice(m.index, m.index+m[0].length) + "</mark>"; last = m.index+m[0].length; if(!m[0].length) re.lastIndex++; }
   return out + t.slice(last);
+}
+
+function renderSpecial(){
+  const S = (window.VEILLE||{}).special, el = $("#special");
+  if(!S){ el.classList.add("hidden"); return; }
+  const link = t => t.replace(/\b(I-\d{2,5})\b/g, '<a data-goto="$1" class="sp-a">$1</a>');
+  el.innerHTML = `<div class="sp-k">Événement majeur</div><h2 id="sp-title">${esc(S.titre)}</h2><p class="chapo">${esc(S.chapo)}</p>
+    ${S.sections.map((x,i)=>`<details ${i<2?"open":""}><summary>${esc(x.t)}</summary><ul>${x.p.map(p=>`<li>${link(p)}</li>`).join("")}</ul></details>`).join("")}
+    <div class="sp-src">Sources : ${S.sources.map(([t,u])=>`<a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)} ↗</a>`).join("")}</div>
+    <button class="sp-toggle" type="button">Réduire</button>`;
+  el.classList.remove("hidden");
+  const tg = el.querySelector(".sp-toggle");
+  const set = m => { el.classList.toggle("min", m); tg.textContent = m ? "Lire le détail" : "Réduire"; try{ localStorage.setItem("sp-min-"+S.id, m?"1":""); }catch(e){} };
+  let m = false; try{ m = localStorage.getItem("sp-min-"+S.id)==="1"; }catch(e){}
+  set(m); tg.onclick = () => set(!el.classList.contains("min"));
 }
 function rapLinks(r){
   if(!/^I-/.test(r.n) || !ALL || !ALL.meta || !ALL.meta.rap) return "";
@@ -569,7 +600,7 @@ function renderAll(){
   const cls = {adopte:"b-adopte", rejete:"b-rejete", autre:"b-autre"};
   $("#all-res").innerHTML = rows.slice(0, allLim).map(r => `<article class="arow">
     <div class="top">${r.u?`<a class="num" href="${esc(r.u)}" target="_blank" rel="noopener">${esc(r.n)}</a>`:`<span class="num">${esc(r.n)}</span>`}${r.dl?`<a class="dbt" href="${esc(r.dl)}" target="_blank" rel="noopener" title="Compte rendu des débats sur cet amendement">Débats</a>`:""}
-      <span class="badge ${cls[r._g]}">${esc(r.s||"—")}</span><span class="theme">${esc(r.art)} · ${esc(r.c)}</span>${rapLinks(r)}</div>
+      <span class="badge ${cls[r._g]}">${esc(r.s||"—")}</span>${r._g==="adopte"?`<span class="caduc" title="Le projet a été rejeté en 1re lecture le 4 novembre 2026 : les amendements adoptés à l'Assemblée sont tombés">caduc depuis le rejet du 4/11</span>`:""}<span class="theme">${esc(r.art)} · ${esc(r.c)}</span>${rapLinks(r)}</div>
     <div class="meta">${esc(r.aut)}${r.g?" ("+esc(r.g)+")":""}${(r.ds||r.d)?" · "+fdate(r.ds||r.d):""}</div>
     ${r.r ? `<p class="res"><b>En bref :</b> ${hl(r.r, q)}</p>` : ""}
     ${(() => { const ps = passage(r, q); return ps ? `<p class="psg"><span>Passage contenant « ${esc(q)} » :</span> ${hl(ps, q)}</p>` : ""; })()}
@@ -710,7 +741,7 @@ $("#sq").addEventListener("keydown", e => { if(e.key==="Enter"){ e.preventDefaul
   META = V.meta || null; AMDT = Array.isArray(V.amendements) ? V.amendements : [];
   BRIEFS = Array.isArray(V.briefs) ? V.briefs : []; ACTUS = Array.isArray(V.actus) ? V.actus : [];
   if(!META){ $("#st-title").textContent = "Données indisponibles"; $("#st-text").textContent = "Le fichier de la veille (data.js) n'a pas pu être chargé."; }
-  renderMeta(); render(); renderActus(); renderBriefs();
+  renderMeta(); renderSpecial(); render(); renderActus(); renderBriefs();
   setTimeout(() => { if(!ALLp) loadAll(); }, 1200);
   const h = location.hash.slice(1); if(["brief","search","amdt","actu"].includes(h)) showPane(h);
   window.addEventListener("pagehide", markSeen);
