@@ -1,9 +1,9 @@
 window.VEILLE = {
  "meta": {
-  "titre": "Texte rejeté à l'Assemblée le 4 novembre — le Sénat repart du projet du Gouvernement (pas de nouvelle étape au 7 novembre)",
+  "titre": "Texte rejeté à l'Assemblée le 4 novembre — le Sénat repart du projet du Gouvernement (commission des finances du Sénat attendue le 12 novembre)",
   "texte": "Mercredi 4 novembre au soir, l'Assemblée a rejeté la première partie du PLF 2027 (458 voix contre 0). Le projet est donc rejeté en première lecture : la seconde partie n'a pas été examinée et tous les amendements adoptés par les députés tombent.",
   "alerte": "Les amendements « adoptés » affichés sur ce site n'ont plus d'effet juridique : ils ne valent qu'indication de ce qui pourrait être redéposé au Sénat.",
-  "majLe": "2026-11-07T07:00:00Z",
+  "majLe": "2026-11-08T07:00:00Z",
   "etapes": [
    {
     "date": "1er oct.",
@@ -26,8 +26,8 @@ window.VEILLE = {
     "etat": "fait"
    },
    {
-    "date": "nov.",
-    "label": "Sénat : examen du texte initial du Gouvernement",
+    "date": "12 nov.",
+    "label": "Sénat : commission des finances, articles de la 1re partie",
     "etat": "encours"
    },
    {
@@ -981,6 +981,23 @@ window.VEILLE = {
   }
  ],
  "briefs": [
+  {
+   "date": "2026-11-08",
+   "titre": "Pause avant le Sénat : contrôle de la sélection",
+   "intro": "Aucune nouvelle étape depuis le rejet du 4 novembre ; la commission des finances du Sénat doit examiner les articles de la première partie le 12 novembre selon son site, la séance publique étant annoncée à partir du 20 novembre selon les sources consultées.",
+   "items": [
+    {
+     "phrase": "Contrôle de la sélection contre la base officielle : les statuts et dates concordent, sauf quatre numéros introuvables sous cette forme dans la base (I-2305, I-784, I-4006, I-2592), à vérifier avant de s'y référer.",
+     "num": "I-2305, I-784, I-4006, I-2592",
+     "cle": "I-2305"
+    },
+    {
+     "phrase": "Aucun nouvel amendement adopté depuis le 4 novembre dans la base de l'Assemblée : tous ceux déjà listés sont tombés avec le rejet du texte et ne valent que comme pistes à surveiller au Sénat.",
+     "num": "",
+     "cle": "Sénat"
+    }
+   ]
+  },
   {
    "date": "2026-11-07",
    "titre": "Entre l'Assemblée et le Sénat : tri des derniers votes des 3 et 4 novembre",
