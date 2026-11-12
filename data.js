@@ -1,9 +1,9 @@
 window.VEILLE = {
  "meta": {
-  "titre": "Sénat : la commission des finances examine jeudi 12 novembre les articles de la 1re partie (texte initial du Gouvernement)",
-  "texte": "Après le rejet du texte à l'Assemblée le 4 novembre, la rapporteure générale du Sénat, Christine Lavarde, a jugé trop optimiste le scénario économique du Gouvernement. La commission des finances examine les articles de la première partie le 12 novembre, avant la séance publique à partir du 20 novembre.",
+  "titre": "Sénat : la commission des finances examine ce jeudi 12 novembre les articles de la 1re partie (texte initial du Gouvernement)",
+  "texte": "Après le rejet du texte à l'Assemblée le 4 novembre, le Sénat repart de la copie initiale du Gouvernement ; la commission des finances en examine les articles de première partie aujourd'hui. La séance publique s'ouvre le 20 novembre, pour un vote solennel le 9 décembre.",
   "alerte": "Les amendements « adoptés » par les députés sont tous tombés : le droit applicable à suivre est le texte initial (dont la reconduction de la surtaxe d'IS, art. 15) tel que le Sénat le modifiera à partir du 12 novembre.",
-  "majLe": "2026-11-11T06:33:35Z",
+  "majLe": "2026-11-12T06:33:05Z",
   "etapes": [
    {
     "date": "1er oct.",
@@ -982,6 +982,38 @@ window.VEILLE = {
  ],
  "briefs": [
   {
+   "date": "2026-11-12",
+   "titre": "Jour de commission au Sénat",
+   "intro": "La commission des finances du Sénat examine aujourd'hui les articles de la première partie sur le texte initial ; aucun nouveau vote n'est encore publié.",
+   "items": [
+    {
+     "phrase": "Légifiscal juge peu probable le retour au Sénat de l'exit tax portée à 15 ans et de la contribution sur les super-dividendes : pour les départs et les distributions, le droit en vigueur et le texte initial restent la base de conseil.",
+     "num": "I-462, I-3944",
+     "cle": "exit tax"
+    },
+    {
+     "phrase": "La question de l'exonération temporaire des dons reste ouverte, et des sénateurs de droite pourraient redéposer des amendements pro-investisseurs (LMNP, PTZ) : à vérifier dans les liasses de la commission et de la séance.",
+     "num": "",
+     "cle": "Sénat"
+    },
+    {
+     "phrase": "Contrôle de la sélection contre la base officielle : aucun changement de sort sur les fiches suivies ; tous les amendements adoptés à l'Assemblée restent tombés depuis le rejet du 4 novembre.",
+     "num": "",
+     "cle": "tombé"
+    },
+    {
+     "phrase": "Tri de la base : aucun nouvel amendement adopté depuis la veille ; la seule modification (I-1, abattement des retraités) relève de la fiscalité des particuliers et n'est pas retenue.",
+     "num": "",
+     "cle": "I-1"
+    },
+    {
+     "phrase": "L'article 15 du texte initial (reconduction de la contribution exceptionnelle des grandes entreprises) est le premier point à surveiller dans les votes de la commission sénatoriale.",
+     "num": "",
+     "cle": "art. 15"
+    }
+   ]
+  },
+  {
    "date": "2026-11-11",
    "titre": "Veille de la commission des finances du Sénat",
    "intro": "Pas de nouveau vote depuis le rejet du 4 novembre : la commission des finances du Sénat examine demain, 12 novembre, les articles de la première partie sur le texte initial du Gouvernement.",
@@ -1203,6 +1235,59 @@ window.VEILLE = {
  ],
  "actus": [
   {
+   "id": "2026-11-05-retour-senat",
+   "date": "2026-11-05",
+   "titre": "Après le rejet à l'Assemblée : quels amendements des députés pourraient revenir au Sénat ?",
+   "source": "https://www.legifiscal.fr/actualites-fiscales/4722-plf-2027-rejete-assemblee-amendements-pourraient-revenir-senat.html",
+   "sourceTitre": "Légifiscal — 5 nov. 2026",
+   "theme": "procedure",
+   "resume": "<p>Au lendemain du rejet de la première partie (<b>458 voix contre 0<\/b>, le 4 novembre), Légifiscal fait le tri entre les mesures votées par les députés qui ont des chances d'être reprises au Sénat et celles qui paraissent condamnées. Le point de départ ne change pas : le Sénat est saisi du <b>texte initial du Gouvernement<\/b> et tous les amendements adoptés depuis le 13 octobre sont tombés.<\/p><p>Selon l'article, les mesures les plus offensives, comme le <b>délai de l'exit tax porté à 15 ans<\/b> ou la <b>contribution sur les « super-dividendes »<\/b>, ont peu de chances de revenir devant une majorité sénatoriale hostile aux hausses d'impôt. D'autres sujets restent ouverts, notamment l'<b>exonération temporaire des dons<\/b>. Des sénateurs de droite pourraient enfin redéposer des amendements favorables aux investisseurs (par exemple sur le <b>plafonnement LMNP<\/b> ou le PTZ), sans que rien ne soit acquis.<\/p><p>Calendrier rappelé : séance publique au Sénat à partir du <b>20 novembre<\/b>, vote solennel le <b>9 décembre<\/b>, CMP à la <b>mi-décembre<\/b>.<\/p>",
+   "refs": [
+    "Constitution, art. 45 et 47",
+    "CGI, art. 167 bis"
+   ],
+   "retenir": "Pour l'exit tax et les distributions, raisonner sur le droit en vigueur et le texte initial : les durcissements votés par les députés ont peu de chances d'être repris par le Sénat.",
+   "amdts": [
+    "I-462",
+    "I-3944",
+    "Sénat"
+   ],
+   "cards": [
+    {
+     "q": "Le délai de 15 ans pour l'exit tax est-il encore d'actualité ?",
+     "a": "<p>Pas à ce stade. L'amendement adopté à l'Assemblée (I-462 et identiques) est tombé avec le rejet du 4 novembre, et Légifiscal le range parmi les mesures <b>peu susceptibles<\/b> d'être reprises par le Sénat. Le délai de dégrèvement en vigueur reste la référence pour les départs envisagés.<\/p>"
+    },
+    {
+     "q": "Une mesure tombée peut-elle encore réapparaître dans la loi finale ?",
+     "a": "<p>Oui : elle peut être <b>redéposée par un sénateur<\/b>, ou réintroduite plus tard dans la navette (CMP, nouvelle lecture). Tant qu'aucun redépôt n'est constaté, il faut la traiter comme une simple piste et suivre les liasses d'amendements du Sénat.<\/p>"
+    }
+   ],
+   "qcm": [
+    {
+     "q": "Selon Légifiscal, quelle mesure votée par les députés a peu de chances de revenir au Sénat ?",
+     "o": [
+      "La reconduction de la surtaxe d'IS du texte initial",
+      "Le pacte Papin du Gouvernement",
+      "La contribution sur les « super-dividendes »",
+      "Le calendrier de la CMP"
+     ],
+     "c": 2,
+     "e": "L'article classe la contribution sur les super-dividendes, comme l'exit tax à 15 ans, parmi les mesures peu susceptibles d'être reprises par la majorité sénatoriale."
+    },
+    {
+     "q": "Quand est prévu le vote solennel du Sénat sur le PLF 2027 ?",
+     "o": [
+      "Le 9 décembre",
+      "Le 20 novembre",
+      "Le 12 novembre",
+      "À la mi-décembre, en CMP"
+     ],
+     "c": 0,
+     "e": "La séance publique débute le 20 novembre ; le vote solennel est prévu le 9 décembre, avant une CMP à la mi-décembre."
+    }
+   ]
+  },
+  {
    "id": "2026-11-04-senat-lavarde",
    "date": "2026-11-04",
    "titre": "Au Sénat, la rapporteure générale juge « hors sol » le scénario du PLF 2027 avant l'examen de la 1re partie",
@@ -1366,59 +1451,6 @@ window.VEILLE = {
    ]
   },
   {
-   "id": "2026-10-30-holdings",
-   "date": "2026-10-30",
-   "titre": "Taxe sur les holdings patrimoniales : les députés y font entrer la trésorerie dormante",
-   "source": "https://www.legifiscal.fr/actualites-fiscales/4709-plf-2027-taxe-holdings-deputes-veulent-entrer-tresorerie-dormante.html",
-   "sourceTitre": "Legifiscal — 30 oct. 2026",
-   "theme": "is",
-   "resume": "<p>Créée par la <span class=\"ref\">loi de finances pour 2026<\/span>, la taxe sur les holdings patrimoniales (<span class=\"ref\">CGI art. 235 ter C<\/span>) n'a pas encore été appliquée. Dans sa version votée, elle vise les sociétés à l'IS d'au moins 5 M€ d'actifs, contrôlées à 50 % par une personne physique et percevant surtout des revenus passifs, et taxe à <b>20 %<\/b> une liste fermée de biens somptuaires ; la trésorerie et les placements en étaient sortis.<\/p><p>L'amendement <span class=\"ref\">I-3807<\/span> de Jean-Paul Mattei y ajoute, au taux de <b>2 %<\/b>, les dépôts, comptes à terme, valeurs mobilières, OPC, contrats de capitalisation et créances. Restent exclus les participations d'au moins 5 % dans des sociétés opérationnelles ou animatrices, les titres éligibles au PEA-PME, FCPR, FPCI et ELTIF, et les sommes que la holding s'engage à <b>réinvestir sous trois ans<\/b> dans une société opérationnelle ou dans du logement loué à un tiers.<\/p><p>Legifiscal y voit un retour partiel à l'ambition du projet initial de 2025. Fiscalonline relève que l'adoption s'est faite contre l'avis du Gouvernement et du rapporteur.<\/p>",
-   "refs": [
-    "CGI art. 235 ter C",
-    "LF 2026, art. 7",
-    "I-3807 (Mattei, Les Démocrates)"
-   ],
-   "retenir": "Une holding qui garde de la trésorerie sans affectation pourrait payer 2 % par an : il faut documenter dès maintenant les projets de réinvestissement à trois ans de chaque client concerné.",
-   "amdts": [
-    "I-3807",
-    "holding"
-   ],
-   "cards": [
-    {
-     "q": "Quels actifs l'amendement I-3807 ajoute-t-il à l'assiette ?",
-     "a": "<p>Les dépôts, comptes à terme et livrets, les valeurs mobilières et parts d'OPC, les contrats de capitalisation et les créances, taxés à 2 %.<\/p>"
-    },
-    {
-     "q": "Comment une holding peut-elle échapper à la taxe sur sa trésorerie ?",
-     "a": "<p>En déclarant chaque année les sommes qu'elle s'engage à réinvestir sous trois ans dans une société opérationnelle ou dans des logements loués hors du cercle familial. À défaut de réinvestissement, la taxe est due avec intérêts de retard.<\/p>"
-    }
-   ],
-   "qcm": [
-    {
-     "q": "Quel taux l'amendement I-3807 applique-t-il à la trésorerie des holdings ?",
-     "o": [
-      "2 %",
-      "20 %",
-      "0,5 %",
-      "5 %"
-     ],
-     "c": 0,
-     "e": "La trésorerie et les placements seraient taxés à 2 %, les biens somptuaires restant à 20 %."
-    },
-    {
-     "q": "Quel est le délai de réinvestissement qui permet d'écarter la taxe ?",
-     "o": [
-      "Un an",
-      "Cinq ans",
-      "Trois ans",
-      "Dix-huit mois"
-     ],
-     "c": 2,
-     "e": "Les sommes réinvesties dans un délai de trois ans sont exclues, sous réserve d'une déclaration annuelle."
-    }
-   ]
-  },
-  {
    "id": "2026-11-02-semaine",
    "date": "2026-11-02",
    "titre": "Fin de l'examen de la 1re partie : l'Assemblée défait plusieurs mesures phares du Gouvernement",
@@ -1470,6 +1502,59 @@ window.VEILLE = {
      ],
      "c": 2,
      "e": "L'article 9 (suramortissement 4.0) a été adopté par 160 voix contre 4."
+    }
+   ]
+  },
+  {
+   "id": "2026-10-30-holdings",
+   "date": "2026-10-30",
+   "titre": "Taxe sur les holdings patrimoniales : les députés y font entrer la trésorerie dormante",
+   "source": "https://www.legifiscal.fr/actualites-fiscales/4709-plf-2027-taxe-holdings-deputes-veulent-entrer-tresorerie-dormante.html",
+   "sourceTitre": "Legifiscal — 30 oct. 2026",
+   "theme": "is",
+   "resume": "<p>Créée par la <span class=\"ref\">loi de finances pour 2026<\/span>, la taxe sur les holdings patrimoniales (<span class=\"ref\">CGI art. 235 ter C<\/span>) n'a pas encore été appliquée. Dans sa version votée, elle vise les sociétés à l'IS d'au moins 5 M€ d'actifs, contrôlées à 50 % par une personne physique et percevant surtout des revenus passifs, et taxe à <b>20 %<\/b> une liste fermée de biens somptuaires ; la trésorerie et les placements en étaient sortis.<\/p><p>L'amendement <span class=\"ref\">I-3807<\/span> de Jean-Paul Mattei y ajoute, au taux de <b>2 %<\/b>, les dépôts, comptes à terme, valeurs mobilières, OPC, contrats de capitalisation et créances. Restent exclus les participations d'au moins 5 % dans des sociétés opérationnelles ou animatrices, les titres éligibles au PEA-PME, FCPR, FPCI et ELTIF, et les sommes que la holding s'engage à <b>réinvestir sous trois ans<\/b> dans une société opérationnelle ou dans du logement loué à un tiers.<\/p><p>Legifiscal y voit un retour partiel à l'ambition du projet initial de 2025. Fiscalonline relève que l'adoption s'est faite contre l'avis du Gouvernement et du rapporteur.<\/p>",
+   "refs": [
+    "CGI art. 235 ter C",
+    "LF 2026, art. 7",
+    "I-3807 (Mattei, Les Démocrates)"
+   ],
+   "retenir": "Une holding qui garde de la trésorerie sans affectation pourrait payer 2 % par an : il faut documenter dès maintenant les projets de réinvestissement à trois ans de chaque client concerné.",
+   "amdts": [
+    "I-3807",
+    "holding"
+   ],
+   "cards": [
+    {
+     "q": "Quels actifs l'amendement I-3807 ajoute-t-il à l'assiette ?",
+     "a": "<p>Les dépôts, comptes à terme et livrets, les valeurs mobilières et parts d'OPC, les contrats de capitalisation et les créances, taxés à 2 %.<\/p>"
+    },
+    {
+     "q": "Comment une holding peut-elle échapper à la taxe sur sa trésorerie ?",
+     "a": "<p>En déclarant chaque année les sommes qu'elle s'engage à réinvestir sous trois ans dans une société opérationnelle ou dans des logements loués hors du cercle familial. À défaut de réinvestissement, la taxe est due avec intérêts de retard.<\/p>"
+    }
+   ],
+   "qcm": [
+    {
+     "q": "Quel taux l'amendement I-3807 applique-t-il à la trésorerie des holdings ?",
+     "o": [
+      "2 %",
+      "20 %",
+      "0,5 %",
+      "5 %"
+     ],
+     "c": 0,
+     "e": "La trésorerie et les placements seraient taxés à 2 %, les biens somptuaires restant à 20 %."
+    },
+    {
+     "q": "Quel est le délai de réinvestissement qui permet d'écarter la taxe ?",
+     "o": [
+      "Un an",
+      "Cinq ans",
+      "Trois ans",
+      "Dix-huit mois"
+     ],
+     "c": 2,
+     "e": "Les sommes réinvesties dans un délai de trois ans sont exclues, sous réserve d'une déclaration annuelle."
     }
    ]
   },
@@ -1540,59 +1625,6 @@ window.VEILLE = {
    ]
   },
   {
-   "id": "2026-10-27-art15",
-   "date": "2026-10-27",
-   "titre": "La surtaxe d'IS des grandes entreprises supprimée par 79 voix contre 77",
-   "source": "https://lcp.fr/actualites/budget-2027-la-surtaxe-sur-les-benefices-des-grandes-entreprises-supprimee-a-ce-stade",
-   "sourceTitre": "LCP — 27 oct. 2026",
-   "theme": "is",
-   "resume": "<p>Le Gouvernement voulait reconduire pour un <b>troisième exercice<\/b> la contribution exceptionnelle sur les bénéfices des grandes entreprises créée par la <span class=\"ref\">loi de finances pour 2025<\/span>, avec des taux ramenés à 15,7 % et 31,4 % et un rendement attendu d'environ 5 Md€. L'article 15 a été <b>supprimé à deux voix près<\/b>, par une coalition hétéroclite allant d'Horizons et de députés EPR au RN et à l'UDR.<\/p><p>Dans la foulée, l'Assemblée a adopté de justesse (<span class=\"ref\">74 voix contre 72<\/span>) l'amendement Sansu <span class=\"ref\">I-3945<\/span> qui détermine le bénéfice imposable des groupes de plus de 100 M€ de CA selon la <b>part française de leur chiffre d'affaires mondial<\/b>, contre l'avis du Gouvernement.<\/p><p>Ces votes restent provisoires : la presse parlementaire jugeait probable un rejet de l'ensemble de la partie recettes.<\/p>",
-   "refs": [
-    "PLF 2027, art. 15",
-    "Loi n° 2025-127 du 14 février 2025, art. 48",
-    "I-3945 — CGI art. 209-0 A bis (nouveau)"
-   ],
-   "retenir": "Ne pas déprovisionner la surtaxe sur la base de ce vote : une suppression obtenue à deux voix a peu de chances de résister au Sénat et à la CMP.",
-   "amdts": [
-    "surtaxe",
-    "I-3945"
-   ],
-   "cards": [
-    {
-     "q": "Quels taux étaient prévus pour le 3e exercice de la contribution exceptionnelle ?",
-     "a": "<p>15,7 % pour les entreprises de moins de 3 Md€ de CA et 31,4 % au-delà, avec des mécanismes de lissage.<\/p>"
-    },
-    {
-     "q": "Que prévoit l'amendement I-3945 ?",
-     "a": "<p>Pour les groupes de plus de 100 M€ de CA, le bénéfice imposable en France serait calculé selon la part du chiffre d'affaires mondial réalisée en France, ce qui rompt avec l'approche par entité et les prix de transfert.<\/p>"
-    }
-   ],
-   "qcm": [
-    {
-     "q": "Quel rendement le Gouvernement attendait-il de la surtaxe en 2027 ?",
-     "o": [
-      "Environ 1 Md€",
-      "Environ 5 Md€",
-      "Environ 10 Md€",
-      "Environ 2,5 Md€"
-     ],
-     "c": 1,
-     "e": "Le Gouvernement en attendait environ 5 milliards d'euros."
-    },
-    {
-     "q": "Quel seuil de CA vise l'amendement Sansu sur l'IS des multinationales ?",
-     "o": [
-      "1,5 Md€",
-      "750 M€",
-      "50 M€",
-      "100 M€"
-     ],
-     "c": 3,
-     "e": "I-3945 vise les groupes dont le chiffre d'affaires dépasse 100 M€."
-    }
-   ]
-  },
-  {
    "id": "2026-10-27-art9",
    "date": "2026-10-28",
    "titre": "Suramortissement 4.0 élargi à l'IA, JEI assouplie : les votes du 27 octobre",
@@ -1646,6 +1678,59 @@ window.VEILLE = {
      ],
      "c": 0,
      "e": "Les logiciels et équipements recourant à l'IA deviennent éligibles (I-3654 et identiques)."
+    }
+   ]
+  },
+  {
+   "id": "2026-10-27-art15",
+   "date": "2026-10-27",
+   "titre": "La surtaxe d'IS des grandes entreprises supprimée par 79 voix contre 77",
+   "source": "https://lcp.fr/actualites/budget-2027-la-surtaxe-sur-les-benefices-des-grandes-entreprises-supprimee-a-ce-stade",
+   "sourceTitre": "LCP — 27 oct. 2026",
+   "theme": "is",
+   "resume": "<p>Le Gouvernement voulait reconduire pour un <b>troisième exercice<\/b> la contribution exceptionnelle sur les bénéfices des grandes entreprises créée par la <span class=\"ref\">loi de finances pour 2025<\/span>, avec des taux ramenés à 15,7 % et 31,4 % et un rendement attendu d'environ 5 Md€. L'article 15 a été <b>supprimé à deux voix près<\/b>, par une coalition hétéroclite allant d'Horizons et de députés EPR au RN et à l'UDR.<\/p><p>Dans la foulée, l'Assemblée a adopté de justesse (<span class=\"ref\">74 voix contre 72<\/span>) l'amendement Sansu <span class=\"ref\">I-3945<\/span> qui détermine le bénéfice imposable des groupes de plus de 100 M€ de CA selon la <b>part française de leur chiffre d'affaires mondial<\/b>, contre l'avis du Gouvernement.<\/p><p>Ces votes restent provisoires : la presse parlementaire jugeait probable un rejet de l'ensemble de la partie recettes.<\/p>",
+   "refs": [
+    "PLF 2027, art. 15",
+    "Loi n° 2025-127 du 14 février 2025, art. 48",
+    "I-3945 — CGI art. 209-0 A bis (nouveau)"
+   ],
+   "retenir": "Ne pas déprovisionner la surtaxe sur la base de ce vote : une suppression obtenue à deux voix a peu de chances de résister au Sénat et à la CMP.",
+   "amdts": [
+    "surtaxe",
+    "I-3945"
+   ],
+   "cards": [
+    {
+     "q": "Quels taux étaient prévus pour le 3e exercice de la contribution exceptionnelle ?",
+     "a": "<p>15,7 % pour les entreprises de moins de 3 Md€ de CA et 31,4 % au-delà, avec des mécanismes de lissage.<\/p>"
+    },
+    {
+     "q": "Que prévoit l'amendement I-3945 ?",
+     "a": "<p>Pour les groupes de plus de 100 M€ de CA, le bénéfice imposable en France serait calculé selon la part du chiffre d'affaires mondial réalisée en France, ce qui rompt avec l'approche par entité et les prix de transfert.<\/p>"
+    }
+   ],
+   "qcm": [
+    {
+     "q": "Quel rendement le Gouvernement attendait-il de la surtaxe en 2027 ?",
+     "o": [
+      "Environ 1 Md€",
+      "Environ 5 Md€",
+      "Environ 10 Md€",
+      "Environ 2,5 Md€"
+     ],
+     "c": 1,
+     "e": "Le Gouvernement en attendait environ 5 milliards d'euros."
+    },
+    {
+     "q": "Quel seuil de CA vise l'amendement Sansu sur l'IS des multinationales ?",
+     "o": [
+      "1,5 Md€",
+      "750 M€",
+      "50 M€",
+      "100 M€"
+     ],
+     "c": 3,
+     "e": "I-3945 vise les groupes dont le chiffre d'affaires dépasse 100 M€."
     }
    ]
   },
