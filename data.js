@@ -1,9 +1,9 @@
 window.VEILLE = {
  "meta": {
-  "titre": "Sénat : la commission des finances examine ce jeudi 12 novembre les articles de la 1re partie (texte initial du Gouvernement)",
-  "texte": "Après le rejet du texte à l'Assemblée le 4 novembre, le Sénat repart de la copie initiale du Gouvernement ; la commission des finances en examine les articles de première partie aujourd'hui. La séance publique s'ouvre le 20 novembre, pour un vote solennel le 9 décembre.",
+  "titre": "Sénat : après la commission des finances du 12 novembre, cap sur la séance publique du 20 novembre",
+  "texte": "La commission des finances du Sénat a examiné le 12 novembre les articles de première partie du texte initial du Gouvernement ; ses votes détaillés ne sont pas encore accessibles dans nos sources vérifiées. La séance publique s'ouvre le 20 novembre, pour un vote solennel le 9 décembre.",
   "alerte": "Les amendements « adoptés » par les députés sont tous tombés : le droit applicable à suivre est le texte initial (dont la reconduction de la surtaxe d'IS, art. 15) tel que le Sénat le modifiera à partir du 12 novembre.",
-  "majLe": "2026-11-12T06:33:05Z",
+  "majLe": "2026-11-13T06:32:31Z",
   "etapes": [
    {
     "date": "1er oct.",
@@ -28,12 +28,12 @@ window.VEILLE = {
    {
     "date": "12 nov.",
     "label": "Sénat : commission des finances, articles de la 1re partie",
-    "etat": "encours"
+    "etat": "fait"
    },
    {
     "date": "20 nov.",
     "label": "Sénat : début de l'examen en séance",
-    "etat": ""
+    "etat": "encours"
    },
    {
     "date": "9 déc.",
@@ -981,6 +981,28 @@ window.VEILLE = {
   }
  ],
  "briefs": [
+  {
+   "date": "2026-11-13",
+   "titre": "Après la commission du Sénat, attente des votes publiés",
+   "intro": "La commission des finances du Sénat a examiné hier la première partie du texte initial ; la séance publique s'ouvre le 20 novembre.",
+   "items": [
+    {
+     "phrase": "Les votes de la commission des finances du Sénat sur la première partie ne sont pas encore vérifiables dans nos sources : la surtaxe d'IS (art. 15 du texte initial) reste le premier point à confirmer avant la séance du 20 novembre.",
+     "num": "",
+     "cle": "art. 15"
+    },
+    {
+     "phrase": "Contrôle de la sélection contre la base officielle : aucun changement de sort ; tous les amendements adoptés à l'Assemblée restent tombés depuis le rejet du 4 novembre.",
+     "num": "",
+     "cle": "tombé"
+    },
+    {
+     "phrase": "Tri de la base : 1 095 amendements de seconde partie ont été ajoutés à la base, tous « En traitement » et jamais examinés du fait du rejet du texte ; aucun nouvel amendement adopté à retenir.",
+     "num": "",
+     "cle": "II-"
+    }
+   ]
+  },
   {
    "date": "2026-11-12",
    "titre": "Jour de commission au Sénat",
