@@ -1,9 +1,9 @@
 window.VEILLE = {
  "meta": {
-  "titre": "Sénat : après la commission des finances du 12 novembre, cap sur la séance publique du 20 novembre",
-  "texte": "La commission des finances du Sénat a examiné le 12 novembre les articles de première partie du texte initial du Gouvernement ; ses votes détaillés ne sont pas encore accessibles dans nos sources vérifiées. La séance publique s'ouvre le 20 novembre, pour un vote solennel le 9 décembre.",
+  "titre": "Sénat : séance publique sur la 1re partie à partir du 20 novembre",
+  "texte": "La commission des finances du Sénat a examiné le 12 novembre la première partie du texte initial, sur le rapport de Christine Lavarde ; le détail de ses votes reste à vérifier dans nos sources. La séance publique s'ouvre le 20 novembre, pour un vote solennel le 9 décembre.",
   "alerte": "Les amendements « adoptés » par les députés sont tous tombés : le droit applicable à suivre est le texte initial (dont la reconduction de la surtaxe d'IS, art. 15) tel que le Sénat le modifiera à partir du 12 novembre.",
-  "majLe": "2026-11-13T06:32:31Z",
+  "majLe": "2026-11-14T06:32:26Z",
   "etapes": [
    {
     "date": "1er oct.",
@@ -981,6 +981,28 @@ window.VEILLE = {
   }
  ],
  "briefs": [
+  {
+   "date": "2026-11-14",
+   "titre": "Sénat : premières pistes de la rapporteure générale, votes encore à confirmer",
+   "intro": "Le texte initial du Gouvernement est entre les mains du Sénat, dont la séance publique s'ouvre le 20 novembre.",
+   "items": [
+    {
+     "phrase": "Selon CB News, la liasse provisoire de la rapporteure générale du Sénat, Christine Lavarde, publiée le 12 novembre, propose de supprimer l'article 16 du texte initial relatif à la TVA des services de télévision : à surveiller pour les opérateurs concernés, le vote en commission restant à confirmer.",
+     "num": "",
+     "cle": "TVA"
+    },
+    {
+     "phrase": "La surtaxe d'IS reconduite par l'article 15 du texte initial reste le premier point à suivre : le sort que lui réserve la commission des finances du Sénat n'est pas encore vérifiable dans nos sources.",
+     "num": "",
+     "cle": "art. 15"
+    },
+    {
+     "phrase": "Contrôle de la sélection contre la base officielle de l'Assemblée : base inchangée depuis hier, aucun nouvel amendement ni changement de sort ; les amendements adoptés par les députés restent tombés depuis le rejet du 4 novembre.",
+     "num": "",
+     "cle": "tombé"
+    }
+   ]
+  },
   {
    "date": "2026-11-13",
    "titre": "Après la commission du Sénat, attente des votes publiés",
