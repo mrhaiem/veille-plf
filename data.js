@@ -1,9 +1,9 @@
 window.VEILLE = {
  "meta": {
   "titre": "Sénat : séance publique sur la 1re partie à partir du 20 novembre",
-  "texte": "La commission des finances du Sénat a examiné le 12 novembre la première partie du texte initial, sur le rapport de Christine Lavarde ; le détail de ses votes reste à vérifier dans nos sources. La séance publique s'ouvre le 20 novembre, pour un vote solennel le 9 décembre.",
+  "texte": "La commission des finances du Sénat a examiné le 12 novembre la première partie du texte initial ; la liasse de la rapporteure générale Christine Lavarde propose notamment de recentrer l'apport-cession (art. 5) sur les plus-values réalisées. La séance publique s'ouvre le 20 novembre, pour un vote solennel le 9 décembre.",
   "alerte": "Les amendements « adoptés » par les députés sont tous tombés : le droit applicable à suivre est le texte initial (dont la reconduction de la surtaxe d'IS, art. 15) tel que le Sénat le modifiera à partir du 12 novembre.",
-  "majLe": "2026-11-14T06:32:26Z",
+  "majLe": "2026-11-15T06:33:00Z",
   "etapes": [
    {
     "date": "1er oct.",
@@ -982,6 +982,33 @@ window.VEILLE = {
  ],
  "briefs": [
   {
+   "date": "2026-11-15",
+   "titre": "Sénat : la rapporteure générale veut recentrer l'apport-cession",
+   "intro": "Le Sénat examine le texte initial du Gouvernement en séance publique à partir du 20 novembre, après le travail de sa commission des finances le 12 novembre.",
+   "items": [
+    {
+     "phrase": "La liasse provisoire de la rapporteure générale du Sénat propose de limiter l'article 5 (fin de la purge de la plus-value en report par donation) aux plus-values économiquement réalisées par cession des titres apportés, avec imputation d'une moins-value d'apport : piste favorable aux familles ayant fait un apport-cession, adoption en commission encore à confirmer.",
+     "num": "",
+     "cle": "apport-cession"
+    },
+    {
+     "phrase": "La surtaxe d'IS reconduite à l'article 15 du texte initial (réduite de 30 % par rapport à 2026 selon la presse) reste à suivre : aucune source ne dit encore si la commission du Sénat l'a modifiée.",
+     "num": "",
+     "cle": "art. 15"
+    },
+    {
+     "phrase": "La presse rapporte qu'en commission le Sénat a voté une clause du grand-père pour les LMNP débutées avant le 1er octobre 2026 face au plafonnement des amortissements de l'article 7 : utile pour les clients loueurs en meublé, vote en séance à venir.",
+     "num": "",
+     "cle": "LMNP"
+    },
+    {
+     "phrase": "Contrôle de la sélection contre la base officielle de l'Assemblée : base inchangée, aucun nouvel amendement ni changement de sort ; tous les amendements adoptés par les députés restent tombés depuis le rejet du 4 novembre.",
+     "num": "",
+     "cle": "tombé"
+    }
+   ]
+  },
+  {
    "date": "2026-11-14",
    "titre": "Sénat : premières pistes de la rapporteure générale, votes encore à confirmer",
    "intro": "Le texte initial du Gouvernement est entre les mains du Sénat, dont la séance publique s'ouvre le 20 novembre.",
@@ -1278,6 +1305,63 @@ window.VEILLE = {
   }
  ],
  "actus": [
+  {
+   "id": "2026-11-15-senat-apport",
+   "date": "2026-11-12",
+   "titre": "Apport-cession : la liasse de la rapporteure générale du Sénat recentre l'article 5 sur les plus-values réalisées",
+   "source": "https://www.senat.fr/fileadmin/cru-1794475262/Presse/Documents_pdf/PLF2027_Liasse_amdts_RG.pdf",
+   "sourceTitre": "Sénat — liasse provisoire des amendements de la rapporteure générale (1re partie), 12 nov. 2026",
+   "theme": "plusvalues",
+   "resume": "<p>La commission des finances du Sénat a publié la <b>liasse provisoire<\/b> des amendements de sa rapporteure générale, <b>Christine Lavarde<\/b>, sur la première partie du PLF 2027. Le Sénat travaille sur le <b>texte initial<\/b> du Gouvernement : les réécritures de l'<b>article 5<\/b> votées par les députés (dont le sous-amendement <span class=\"ref\">I-3985<\/span>) sont tombées avec le rejet du 4 novembre.<\/p><p>Selon les extraits disponibles, un amendement propose de limiter l'application de l'article 5, qui met fin à la purge de la plus-value en report lors d'une <b>donation ou succession<\/b> des titres reçus à l'apport, aux seules plus-values <b>économiquement réalisées<\/b>, c'est-à-dire en cas de cession des titres apportés. Un autre passage prévoit qu'une <b>moins-value constatée à l'apport<\/b> vienne en déduction de la plus-value en report.<\/p><p>Prudence : le document est provisoire, nos extraits sont fragmentaires et le sort de ces amendements en commission n'est pas confirmé par nos sources. Séance publique au Sénat à partir du <b>20 novembre<\/b>.<\/p>",
+   "refs": [
+    "CGI, art. 150-0 B ter",
+    "PLF 2027, art. 5"
+   ],
+   "retenir": "Pour les apports-cessions suivis d'une transmission, la piste sénatoriale limiterait la taxation aux titres apportés effectivement cédés : à surveiller avant tout conseil sur une donation post-apport en cours.",
+   "amdts": [
+    "apport-cession",
+    "art. 5",
+    "I-3985"
+   ],
+   "cards": [
+    {
+     "q": "Quel texte le Sénat examine-t-il sur l'apport-cession ?",
+     "a": "<p>Le <b>texte initial<\/b> de l'article 5 du Gouvernement : la version recentrée par l'Assemblée et le sous-amendement I-3985 sont tombés avec le rejet de la première partie le 4 novembre. Toute modification devra donc être réintroduite au Sénat puis confirmée en CMP.<\/p>"
+    },
+    {
+     "q": "Que propose la liasse de la rapporteure générale ?",
+     "a": "<p>D'après les extraits disponibles, de réserver la taxation de la plus-value en report aux plus-values <b>économiquement réalisées<\/b> par la cession des titres apportés, et de déduire de la plus-value en report une <b>moins-value constatée à l'apport<\/b>. La rédaction exacte et le vote en commission restent à vérifier.<\/p>"
+    },
+    {
+     "q": "Quel réflexe pour le conseil ?",
+     "a": "<p>Différer, si possible, la signature des donations de titres reçus en rémunération d'un apport placé en report tant que la rédaction finale de l'article 5 n'est pas connue, et chiffrer les deux scénarios (texte initial et version sénatoriale).<\/p>"
+    }
+   ],
+   "qcm": [
+    {
+     "q": "Quel texte sert de base à l'examen de l'article 5 au Sénat ?",
+     "o": [
+      "La version adoptée en séance par l'Assemblée",
+      "Le texte initial du Gouvernement",
+      "La version de la commission des finances de l'Assemblée",
+      "Le texte de la CMP"
+     ],
+     "c": 1,
+     "e": "Le rejet de la première partie le 4 novembre a fait tomber toutes les modifications des députés : le Sénat repart du texte initial."
+    },
+    {
+     "q": "Selon la liasse provisoire, la taxation de la plus-value en report serait limitée à quel cas ?",
+     "o": [
+      "Toute donation de titres reçus à l'apport, quelle que soit la date de l'apport ou de la donation",
+      "Les seules successions",
+      "Les plus-values économiquement réalisées par la cession des titres apportés",
+      "Les apports réalisés avant 2017"
+     ],
+     "c": 2,
+     "e": "L'amendement vise les plus-values économiquement réalisées, c'est-à-dire en cas de cession des titres apportés ; son adoption reste à confirmer."
+    }
+   ]
+  },
   {
    "id": "2026-11-05-retour-senat",
    "date": "2026-11-05",
