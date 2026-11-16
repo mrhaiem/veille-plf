@@ -1,9 +1,9 @@
 window.VEILLE = {
  "meta": {
   "titre": "Sénat : séance publique sur la 1re partie à partir du 20 novembre",
-  "texte": "La commission des finances du Sénat a examiné le 12 novembre la première partie du texte initial ; la liasse de la rapporteure générale Christine Lavarde propose notamment de recentrer l'apport-cession (art. 5) sur les plus-values réalisées. La séance publique s'ouvre le 20 novembre, pour un vote solennel le 9 décembre.",
+  "texte": "La commission des finances du Sénat a approuvé une soixantaine d'amendements sur les recettes du texte initial, s'opposant notamment au doublement de la TVA sur la télévision payante. La séance publique s'ouvre le 20 novembre, pour un vote solennel le 9 décembre.",
   "alerte": "Les amendements « adoptés » par les députés sont tous tombés : le droit applicable à suivre est le texte initial (dont la reconduction de la surtaxe d'IS, art. 15) tel que le Sénat le modifiera à partir du 12 novembre.",
-  "majLe": "2026-11-15T06:33:00Z",
+  "majLe": "2026-11-16T06:30:00Z",
   "etapes": [
    {
     "date": "1er oct.",
@@ -978,9 +978,55 @@ window.VEILLE = {
    "source": "https://www.assemblee-nationale.fr/dyn/17/amendements/3210A/AN/3699",
    "sourceTitre": "Assemblée nationale — fiche de l'amendement",
    "ajoute": "2026-11-07T07:00:00Z"
+  },
+  {
+   "id": "senat-art16-tva",
+   "num": "Sénat FINC.29",
+   "titre": "TVA de la télévision payante : la commission du Sénat s'oppose au passage de 10 % à 20 %",
+   "objet": "L'article 16 du texte initial porte de 10 % à 20 % le taux de TVA applicable à certains services de télévision. L'amendement FINC.29 de la rapporteure générale propose de supprimer l'article ; la presse indique que la commission des finances s'est opposée à ce doublement.",
+   "pratique": "Pour les opérateurs et distributeurs de services de télévision payante, le taux réduit pourrait être préservé ; prudence tant que le vote en séance (à partir du 20 novembre) et la CMP ne sont pas intervenus.",
+   "statut": "attente",
+   "articlePLF": "art. 16",
+   "cgi": "CGI, art. 279",
+   "auteurs": "Christine Lavarde (rapporteure générale)",
+   "groupe": "LR",
+   "gouv": "",
+   "theme": "autre",
+   "etape": "Sénat, commission des finances (vote en séance à venir)",
+   "date": "2026-11-12",
+   "source": "https://www.cbnews.fr/medias/plf-2027-senat-veut-preserver-tva-reduite-canal-taxer-davantage-publicite-plateformes-video",
+   "sourceTitre": "CB News",
+   "ajoute": "2026-11-16T06:30:00Z"
   }
  ],
  "briefs": [
+  {
+   "date": "2026-11-16",
+   "titre": "Sénat : la commission des finances a remodelé les recettes, séance le 20 novembre",
+   "intro": "Le Sénat examine le texte initial du Gouvernement ; sa commission des finances a arrêté sa position et la séance publique s'ouvre le 20 novembre.",
+   "items": [
+    {
+     "phrase": "Selon la presse, la commission des finances du Sénat a approuvé une soixantaine d'amendements sur les recettes, dont plusieurs rabotages de niches fiscales jugées inefficaces : le détail des mesures d'entreprise reste à vérifier avant la séance.",
+     "num": "",
+     "cle": "Sénat"
+    },
+    {
+     "phrase": "La commission s'est opposée au doublement de 10 % à 20 % de la TVA sur la télévision payante (art. 16, amendement de suppression FINC.29) : piste favorable aux opérateurs concernés, sous réserve du vote en séance.",
+     "num": "",
+     "cle": "TVA"
+    },
+    {
+     "phrase": "Surtaxe d'IS (art. 15) et apport-cession (art. 5) : aucune source accessible ne précise encore le vote de la commission ; ce sont les deux points à suivre dès l'ouverture de la séance le 20 novembre.",
+     "num": "",
+     "cle": "art. 15"
+    },
+    {
+     "phrase": "Contrôle de la sélection contre la base officielle de l'Assemblée : aucun nouvel amendement, un seul changement de sort (I-1, hors fiscalité des affaires) ; les amendements adoptés par les députés restent tombés depuis le rejet du 4 novembre.",
+     "num": "",
+     "cle": "tombé"
+    }
+   ]
+  },
   {
    "date": "2026-11-15",
    "titre": "Sénat : la rapporteure générale veut recentrer l'apport-cession",
@@ -1305,6 +1351,64 @@ window.VEILLE = {
   }
  ],
  "actus": [
+  {
+   "id": "2026-11-16-senat-commission",
+   "date": "2026-11-16",
+   "titre": "Sénat : la commission des finances adopte une soixantaine d'amendements sur les recettes du PLF 2027",
+   "source": "https://www.moneyvox.fr/votre-argent/actualites/111216/collectivites-epargnees-deficit-maitrise-le-senat-fait-ses-propositions-sur-le-budget-2027",
+   "sourceTitre": "Moneyvox — « Collectivités épargnées, déficit maîtrisé... Le Sénat fait ses propositions sur le budget 2027 »",
+   "theme": "autre",
+   "resume": "<p>Après le rejet du texte par l'Assemblée le 4 novembre, la <b>commission des finances du Sénat<\/b> a arrêté sa position sur le <b>texte initial<\/b> du PLF 2027. Selon la presse, une <b>soixantaine d'amendements<\/b> ont été approuvés sur la partie « recettes », pour l'essentiel à l'initiative de la rapporteure générale <b>Christine Lavarde<\/b> (LR).<\/p><p>La commission a notamment voté plusieurs amendements destinés à <b>rationaliser des niches fiscales<\/b> jugées inefficaces ou inégalitaires, et s'est opposée au <b>doublement de la TVA sur la télévision payante<\/b> prévu à l'<span class=\"ref\">art. 16<\/span> (amendement de suppression FINC.29). Côté collectivités, elle entend ramener leur effort de 5,5 milliards à <b>2 à 2,5 milliards d'euros<\/b>.<\/p><p>Les comptes rendus disponibles ne détaillent pas encore le sort des articles intéressant directement la fiscalité des affaires (surtaxe d'IS de l'<span class=\"ref\">art. 15<\/span>, apport-cession de l'<span class=\"ref\">art. 5<\/span>, Dutreil, holdings, CIR). La <b>séance publique<\/b> s'ouvre le <b>20 novembre<\/b> : c'est là que le texte du Sénat sera fixé, avant la CMP.<\/p>",
+   "refs": [
+    "PLF 2027, art. 16",
+    "PLF 2027, art. 15",
+    "PLF 2027, art. 5"
+   ],
+   "retenir": "La commission du Sénat a remodelé les recettes, mais le sort des mesures d'IS, d'apport-cession et de Dutreil reste à confirmer en séance à partir du 20 novembre.",
+   "amdts": [
+    "Sénat",
+    "art. 16",
+    "art. 15"
+   ],
+   "cards": [
+    {
+     "q": "Sur quel texte travaille le Sénat ?",
+     "a": "<p>Sur le <b>texte initial<\/b> du Gouvernement, puisque l'Assemblée a rejeté la première partie le 4 novembre. Les amendements votés par les députés sont tombés : seuls ceux que les sénateurs réintroduisent pourront figurer dans le texte transmis à la CMP.<\/p>"
+    },
+    {
+     "q": "Qu'a fait la commission sur la TVA de la télévision payante ?",
+     "a": "<p>Elle s'est opposée au relèvement de <b>10 % à 20 %<\/b> du taux prévu à l'article 16 ; l'amendement FINC.29 de la rapporteure générale en propose la suppression. Le vote en séance et la CMP restent nécessaires avant de conclure au maintien du taux réduit.<\/p>"
+    },
+    {
+     "q": "Quel réflexe pour le conseil ?",
+     "a": "<p>Ne pas tenir pour acquises les positions de la commission : surveiller la séance publique à partir du 20 novembre, en particulier sur la surtaxe d'IS, l'apport-cession et les niches fiscales visées, et chiffrer les scénarios avec et sans les amendements sénatoriaux.<\/p>"
+    }
+   ],
+   "qcm": [
+    {
+     "q": "Combien d'amendements la commission des finances du Sénat a-t-elle approuvés sur les recettes, selon la presse ?",
+     "o": [
+      "Une dizaine",
+      "Une soixantaine",
+      "Plus de quatre cents amendements",
+      "Aucun, faute de texte transmis"
+     ],
+     "c": 1,
+     "e": "La presse fait état d'une soixantaine d'amendements approuvés sur la partie recettes, principalement à l'initiative de la rapporteure générale."
+    },
+    {
+     "q": "Quelle mesure du texte initial la commission a-t-elle combattue ?",
+     "o": [
+      "La suppression du CIR",
+      "La hausse du taux normal de l'impôt sur les sociétés à 30 %",
+      "Le doublement de la TVA sur la télévision payante",
+      "La réforme du pacte Papin"
+     ],
+     "c": 2,
+     "e": "La commission s'est opposée au passage de 10 % à 20 % de la TVA sur la télévision payante prévu à l'article 16 (amendement FINC.29)."
+    }
+   ]
+  },
   {
    "id": "2026-11-15-senat-apport",
    "date": "2026-11-12",
