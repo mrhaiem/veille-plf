@@ -1,9 +1,9 @@
 window.VEILLE = {
  "meta": {
   "titre": "Sénat : séance publique sur la 1re partie à partir du 20 novembre",
-  "texte": "La commission des finances du Sénat a approuvé une soixantaine d'amendements sur les recettes du texte initial, s'opposant notamment au doublement de la TVA sur la télévision payante. La séance publique s'ouvre le 20 novembre, pour un vote solennel le 9 décembre.",
+  "texte": "La commission des finances du Sénat a arrêté sa position sur le texte initial ; la rapporteure générale vise un effort budgétaire supplémentaire de l'ordre de 6 milliards d'euros. La séance publique s'ouvre le 20 novembre, pour un vote solennel le 9 décembre.",
   "alerte": "Les amendements « adoptés » par les députés sont tous tombés : le droit applicable à suivre est le texte initial (dont la reconduction de la surtaxe d'IS, art. 15) tel que le Sénat le modifiera à partir du 12 novembre.",
-  "majLe": "2026-11-16T06:30:00Z",
+  "majLe": "2026-11-17T06:32:53Z",
   "etapes": [
    {
     "date": "1er oct.",
@@ -1001,6 +1001,33 @@ window.VEILLE = {
  ],
  "briefs": [
   {
+   "date": "2026-11-17",
+   "titre": "Sénat : cap sur 6 milliards d'effort, séance le 20 novembre",
+   "intro": "Le Sénat examine le texte initial du Gouvernement ; la séance publique sur la 1re partie s'ouvre le 20 novembre.",
+   "items": [
+    {
+     "phrase": "La rapporteure générale du Sénat vise un effort supplémentaire de l'ordre de 6 milliards d'euros, porté surtout par les ménages (abattement de 10 % sur les pensions) et la dépense publique, ce qui limite a priori la pression nouvelle sur l'IS.",
+     "num": "",
+     "cle": "Sénat"
+    },
+    {
+     "phrase": "Apport-cession (art. 5) : la rapporteure générale veut recentrer l'article, dont le Gouvernement attend environ 500 millions d'euros ; les opérations en cours sont à analyser sous plusieurs scénarios jusqu'à la CMP.",
+     "num": "",
+     "cle": "art. 5"
+    },
+    {
+     "phrase": "Surtaxe d'IS (art. 15) : aucune source accessible ne précise encore la position de la commission ; le vote en séance à partir du 20 novembre sera décisif.",
+     "num": "",
+     "cle": "art. 15"
+    },
+    {
+     "phrase": "Contrôle de la sélection contre la base officielle de l'Assemblée : aucun nouvel amendement ni changement de sort depuis la veille ; les amendements adoptés par les députés restent tombés depuis le rejet du 4 novembre.",
+     "num": "",
+     "cle": "tombé"
+    }
+   ]
+  },
+  {
    "date": "2026-11-16",
    "titre": "Sénat : la commission des finances a remodelé les recettes, séance le 20 novembre",
    "intro": "Le Sénat examine le texte initial du Gouvernement ; sa commission des finances a arrêté sa position et la séance publique s'ouvre le 20 novembre.",
@@ -1351,6 +1378,63 @@ window.VEILLE = {
   }
  ],
  "actus": [
+  {
+   "id": "2026-11-17-senat-effort",
+   "date": "2026-11-17",
+   "titre": "Sénat : la rapporteure générale veut renforcer l'effort budgétaire « de l'ordre de 6 milliards d'euros »",
+   "source": "https://www.publicsenat.fr/actualites/parlementaire/fin-de-labattement-pour-les-retraites-non-remplacement-dun-fonctionnaire-sur-deux-le-senat-veut-renforcer-leffort-budgetaire-de-lordre-de-6",
+   "sourceTitre": "Public Sénat — « Fin de l'abattement pour les retraités, non-remplacement d'un fonctionnaire sur deux : le Sénat veut renforcer l'effort budgétaire »",
+   "theme": "autre",
+   "resume": "<p>Avant la séance publique du <b>20 novembre<\/b>, la rapporteure générale du Sénat <b>Christine Lavarde<\/b> (LR) a présenté la ligne de la commission des finances sur le <b>texte initial<\/b> du PLF 2027. Elle espère améliorer le solde d'un montant <b>de l'ordre de 6 milliards d'euros<\/b>, chiffre encore appelé à être affiné.<\/p><p>Parmi les pistes rapportées par la presse figurent la <b>suppression de l'abattement de 10 % sur les pensions<\/b> (environ <b>4,7 milliards d'euros<\/b> attendus en 2027) et des économies sur la fonction publique. Ces mesures relèvent surtout de la fiscalité des ménages et de la dépense.<\/p><p>Pour la fiscalité des affaires, la rapporteure avait déjà annoncé vouloir <b>recentrer l'apport-cession<\/b> (<span class=\"ref\">art. 5<\/span>), article dont le Gouvernement attend environ 500 millions d'euros. Le sort de la <b>surtaxe d'IS<\/b> (<span class=\"ref\">art. 15<\/span>) n'est pas précisé par les sources consultées : il se jouera en séance.<\/p>",
+   "refs": [
+    "PLF 2027, art. 5",
+    "PLF 2027, art. 15"
+   ],
+   "retenir": "Le Sénat cherche environ 6 milliards d'euros surtout côté ménages et dépenses ; pour les entreprises, l'apport-cession et la surtaxe d'IS restent les points à suivre en séance.",
+   "amdts": [
+    "Sénat",
+    "art. 5",
+    "art. 15"
+   ],
+   "cards": [
+    {
+     "q": "Quel est l'objectif chiffré de la rapporteure générale ?",
+     "a": "<p>Une amélioration du solde budgétaire <b>de l'ordre de 6 milliards d'euros<\/b> par rapport au texte du Gouvernement, avec des mesures de recettes et d'économies. Le chiffre est présenté comme provisoire et devra être confirmé par les votes en séance publique.<\/p>"
+    },
+    {
+     "q": "Quelles mesures sont évoquées ?",
+     "a": "<p>La presse cite surtout la <b>suppression de l'abattement de 10 %<\/b> sur les pensions de retraite (environ 4,7 milliards d'euros en 2027) et des économies sur la fonction publique. Ce sont des mesures ménages et dépenses, sans effet direct sur l'IS des sociétés.<\/p>"
+    },
+    {
+     "q": "Quel réflexe pour le conseil d'entreprise ?",
+     "a": "<p>Suivre en priorité le vote de l'<b>article 5<\/b> (apport-cession), que la rapporteure veut recentrer, et de l'<b>article 15<\/b> (surtaxe d'IS). Les opérations d'apport-cession en cours méritent une analyse sous plusieurs scénarios jusqu'à la CMP.<\/p>"
+    }
+   ],
+   "qcm": [
+    {
+     "q": "Quel ordre de grandeur d'effort supplémentaire la rapporteure générale du Sénat vise-t-elle ?",
+     "o": [
+      "Environ 1 milliard d'euros",
+      "De l'ordre de 6 milliards d'euros",
+      "Environ 20 milliards",
+      "Aucun effort supplémentaire n'est visé"
+     ],
+     "c": 1,
+     "e": "Christine Lavarde évoque une amélioration de l'ordre de 6 milliards d'euros, à affiner."
+    },
+    {
+     "q": "Quelle mesure ménages est citée comme rapportant environ 4,7 milliards d'euros en 2027 ?",
+     "o": [
+      "La hausse de la CSG sur le patrimoine",
+      "Une nouvelle tranche marginale d'impôt sur le revenu des ménages aisés",
+      "La suppression de l'abattement de 10 % sur les pensions",
+      "La fin du PFU"
+     ],
+     "c": 2,
+     "e": "La suppression de l'abattement de 10 % applicable aux pensions de retraite rapporterait environ 4,7 milliards d'euros en 2027 selon la presse."
+    }
+   ]
+  },
   {
    "id": "2026-11-16-senat-commission",
    "date": "2026-11-16",
