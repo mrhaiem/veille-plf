@@ -1,9 +1,9 @@
 window.VEILLE = {
  "meta": {
   "titre": "Sénat : séance publique sur la 1re partie à partir du 20 novembre",
-  "texte": "La commission des finances du Sénat a arrêté sa position sur le texte initial ; la rapporteure générale vise un effort budgétaire supplémentaire de l'ordre de 6 milliards d'euros. La séance publique s'ouvre le 20 novembre, pour un vote solennel le 9 décembre.",
+  "texte": "Le Sénat examinera en séance, à partir du 20 novembre, le texte initial du Gouvernement, avec un vote solennel prévu le 9 décembre. Le rapport provisoire de la rapporteure générale, Christine Lavarde, prévoit pour 2027 une baisse du produit net de l'IS.",
   "alerte": "Les amendements « adoptés » par les députés sont tous tombés : le droit applicable à suivre est le texte initial (dont la reconduction de la surtaxe d'IS, art. 15) tel que le Sénat le modifiera à partir du 12 novembre.",
-  "majLe": "2026-11-17T06:32:53Z",
+  "majLe": "2026-11-18T06:32:06Z",
   "etapes": [
    {
     "date": "1er oct.",
@@ -1001,6 +1001,28 @@ window.VEILLE = {
  ],
  "briefs": [
   {
+   "date": "2026-11-18",
+   "titre": "Sénat : le rapport général chiffre un recul de l'IS en 2027",
+   "intro": "Le Sénat examine le texte initial du Gouvernement ; la séance publique sur la 1re partie s'ouvre le 20 novembre.",
+   "items": [
+    {
+     "phrase": "Selon le rapport provisoire de la rapporteure générale du Sénat, le produit net de l'IS atteindrait 58,5 Md€ en 2027, en baisse de 1,8 Md€. C'est le seul grand impôt en recul, ce qui expose la surtaxe de l'art. 15 à des amendements de durcissement en séance.",
+     "num": "",
+     "cle": "art. 15"
+    },
+    {
+     "phrase": "Surtaxe d'IS (art. 15) : le texte initial, dont le Sénat est saisi, la reconduit pour un an en l'allégeant de 30 % ; les provisions d'IS 2027 des grands groupes restent à sécuriser jusqu'au vote du 9 décembre.",
+     "num": "",
+     "cle": "surtaxe"
+    },
+    {
+     "phrase": "Contrôle de la sélection contre la base officielle de l'Assemblée : aucun nouvel amendement ni changement de sort depuis la veille, et aucune correction nécessaire. Les amendements adoptés par les députés restent tombés depuis le rejet du 4 novembre.",
+     "num": "",
+     "cle": "tombé"
+    }
+   ]
+  },
+  {
    "date": "2026-11-17",
    "titre": "Sénat : cap sur 6 milliards d'effort, séance le 20 novembre",
    "intro": "Le Sénat examine le texte initial du Gouvernement ; la séance publique sur la 1re partie s'ouvre le 20 novembre.",
@@ -1378,6 +1400,62 @@ window.VEILLE = {
   }
  ],
  "actus": [
+  {
+   "id": "2026-11-18-recettes-is",
+   "date": "2026-11-18",
+   "titre": "Rapport général du Sénat : l'IS, seul grand impôt dont le produit recule en 2027",
+   "source": "https://www.senat.fr/fileadmin/Commissions/Finances/2026-2027/PLF_2027/Divers_PLF_2027/Rapport_provisoire_Tome_I.pdf",
+   "sourceTitre": "Sénat, commission des finances – rapport provisoire, tome I (C. Lavarde)",
+   "theme": "is",
+   "resume": "<p>Le <b>rapport provisoire<\/b> (tome I) de <b>Christine Lavarde<\/b>, rapporteure générale de la commission des finances du Sénat, chiffre le produit net de l'<b>impôt sur les sociétés<\/b> attendu en 2027 à <b>58,5 milliards d'euros<\/b>, soit une baisse de <b>1,8 milliard d'euros<\/b>.<\/p><p>Le rapport souligne que l'IS est la seule grande catégorie d'impôt dont le rendement diminue. Parallèlement, l'<span class=\"ref\">art. 15<\/span> du texte initial reconduit pour un an la contribution exceptionnelle sur les bénéfices des grandes entreprises, allégée de 30 % par rapport à 2026.<\/p><p>Le rapport sert de base à l'examen en séance de la 1re partie, qui s'ouvre le 20 novembre. Le Sénat part du texte du Gouvernement : les amendements votés par les députés sont tombés avec le rejet du 4 novembre.<\/p>",
+   "refs": [
+    "art. 15 PLF 2027",
+    "CGI, art. 235 ter ZAAA"
+   ],
+   "retenir": "Le produit de l'IS reculant en 2027, des sénateurs pourraient chercher à durcir la surtaxe de l'article 15 : restez prudents sur les estimations d'IS 2027 des grands groupes jusqu'au vote.",
+   "amdts": [
+    "art. 15",
+    "surtaxe"
+   ],
+   "cards": [
+    {
+     "q": "Quel produit d'IS le rapport du Sénat prévoit-il pour 2027 ?",
+     "a": "<p>Le rapport provisoire chiffre le produit net de l'IS à 58,5 milliards d'euros en 2027, en baisse de 1,8 milliard d'euros. Selon le rapport, c'est la seule grande catégorie d'impôt dont le produit recule.<\/p>"
+    },
+    {
+     "q": "Sur quel texte le Sénat travaille-t-il ?",
+     "a": "<p>Sur le texte initial du Gouvernement. L'Assemblée ayant rejeté la 1re partie le 4 novembre, aucun amendement des députés n'a été transmis. L'art. 15 du texte initial reconduit pour un an la contribution exceptionnelle des grandes entreprises, réduite de 30 %.<\/p>"
+    },
+    {
+     "q": "Quel calendrier retenir ?",
+     "a": "<p>La séance publique sur la 1re partie s'ouvre le 20 novembre et le vote solennel est prévu le 9 décembre, avant une commission mixte paritaire attendue à la mi-décembre.<\/p>"
+    }
+   ],
+   "qcm": [
+    {
+     "q": "Quel produit net de l'IS le rapport provisoire du Sénat prévoit-il pour 2027 ?",
+     "o": [
+      "60,3 milliards d'euros, en hausse",
+      "58,5 Md€",
+      "54 milliards d'euros, stable par rapport à 2026",
+      "62 Md€"
+     ],
+     "c": 1,
+     "e": "Le rapport provisoire chiffre l'IS net à 58,5 Md€ en 2027, en baisse de 1,8 Md€."
+    },
+    {
+     "q": "Sur quel texte la séance publique du Sénat s'ouvre-t-elle le 20 novembre ?",
+     "o": [
+      "Le texte adopté par l'Assemblée en 1re lecture",
+      "Le texte issu de la commission mixte paritaire",
+      "Le texte initial du Gouvernement",
+      "Un texte réécrit par le Conseil d'État"
+     ],
+     "c": 2,
+     "e": "L'Assemblée ayant rejeté la 1re partie le 4 novembre, le Sénat est saisi du texte initial du Gouvernement."
+    }
+   ]
+  },
   {
    "id": "2026-11-17-senat-effort",
    "date": "2026-11-17",
