@@ -1,9 +1,9 @@
 window.VEILLE = {
  "meta": {
-  "titre": "Sénat : séance publique sur la 1re partie à partir du 20 novembre",
-  "texte": "Le Sénat examinera en séance, à partir du 20 novembre, le texte initial du Gouvernement, avec un vote solennel prévu le 9 décembre. Le rapport provisoire de la rapporteure générale, Christine Lavarde, prévoit pour 2027 une baisse du produit net de l'IS.",
-  "alerte": "Les amendements « adoptés » par les députés sont tous tombés : le droit applicable à suivre est le texte initial (dont la reconduction de la surtaxe d'IS, art. 15) tel que le Sénat le modifiera à partir du 12 novembre.",
-  "majLe": "2026-11-18T06:32:06Z",
+  "titre": "Sénat : la séance publique sur la 1re partie s'ouvre le 20 novembre",
+  "texte": "Le Sénat examine en séance, du 20 novembre au 8 décembre, le texte initial du Gouvernement ; le dépôt des amendements de séance sur la 1re partie était clos le 19 novembre à 11 heures. Le vote solennel est prévu le 9 décembre, avant l'expiration le 17 décembre du délai constitutionnel de 70 jours.",
+  "alerte": "Si le Parlement ne s'est pas prononcé le 17 décembre, le Gouvernement pourrait mettre en vigueur le budget par ordonnances, a priori sur la base de son texte initial (dont la reconduction de la surtaxe d'IS, art. 15) : les amendements des députés, tous tombés, n'en feraient pas partie.",
+  "majLe": "2026-11-19T06:32:23Z",
   "etapes": [
    {
     "date": "1er oct.",
@@ -32,7 +32,7 @@ window.VEILLE = {
    },
    {
     "date": "20 nov.",
-    "label": "Sénat : début de l'examen en séance",
+    "label": "Sénat : séance publique sur la 1re partie (20 nov. – 8 déc.)",
     "etat": "encours"
    },
    {
@@ -43,6 +43,11 @@ window.VEILLE = {
    {
     "date": "mi-déc.",
     "label": "Commission mixte paritaire",
+    "etat": ""
+   },
+   {
+    "date": "17 déc.",
+    "label": "Fin du délai de 70 jours (art. 47 C) : ordonnances possibles",
     "etat": ""
    }
   ]
@@ -1001,6 +1006,33 @@ window.VEILLE = {
  ],
  "briefs": [
   {
+   "date": "2026-11-19",
+   "titre": "Sénat : ouverture de la séance publique, délai de 70 jours au 17 décembre",
+   "intro": "Le Sénat examine en séance, à partir du 20 novembre, le texte initial du Gouvernement ; vote solennel le 9 décembre.",
+   "items": [
+    {
+     "phrase": "Le délai constitutionnel de 70 jours expire le 17 décembre à minuit : à défaut de vote, des ordonnances reprendraient a priori le texte initial, surtaxe d'IS de l'art. 15 comprise, ce qui invite à ne pas anticiper sa disparition dans les provisions 2027.",
+     "num": "",
+     "cle": "surtaxe"
+    },
+    {
+     "phrase": "Les amendements de séance du Sénat sur la 1re partie étaient à déposer avant le 19 novembre à 11 heures ; ceux de la rapporteure générale reprennent la liasse adoptée en commission le 12 novembre, dont la réécriture de l'apport-cession (art. 5).",
+     "num": "",
+     "cle": "art. 5"
+    },
+    {
+     "phrase": "La commission des finances du Sénat s'est prononcée le 18 novembre sur les articles 3 et 49, réservés, et sur sa position d'ensemble sur la 1re partie ; l'issue précise n'est pas encore documentée dans nos sources.",
+     "num": "",
+     "cle": "Sénat"
+    },
+    {
+     "phrase": "Contrôle de la sélection contre la base officielle de l'Assemblée : aucun nouvel amendement ni changement de sort depuis la veille, aucune correction nécessaire ; les amendements adoptés par les députés restent tombés.",
+     "num": "",
+     "cle": "tombé"
+    }
+   ]
+  },
+  {
    "date": "2026-11-18",
    "titre": "Sénat : le rapport général chiffre un recul de l'IS en 2027",
    "intro": "Le Sénat examine le texte initial du Gouvernement ; la séance publique sur la 1re partie s'ouvre le 20 novembre.",
@@ -1400,6 +1432,64 @@ window.VEILLE = {
   }
  ],
  "actus": [
+  {
+   "id": "2026-11-19-calendrier-70-jours",
+   "date": "2026-11-19",
+   "titre": "Budget 2027 : le Sénat en séance jusqu'au 8 décembre, le délai de 70 jours expire le 17 décembre",
+   "source": "https://www.publicsenat.fr/actualites/politique/budget-2027-calendrier-49-3-ordonnancesquelles-sont-les-echeances-a-venir-et-les-scenarios-possibles",
+   "sourceTitre": "Public Sénat – Budget 2027 : calendrier, 49.3, ordonnances",
+   "theme": "autre",
+   "resume": "<p>Après le rejet de la 1re partie par l'Assemblée le <b>4 novembre<\/b> (458 voix contre 0), le Sénat examine en séance publique le <b>texte initial du Gouvernement<\/b> du <b>20 novembre au 8 décembre<\/b>, avec un <b>vote solennel le 9 décembre<\/b>. Le délai de dépôt des amendements de séance sur la 1re partie expirait le 19 novembre à 11 heures ; la commission des finances s'est prononcée le 18 novembre sur les articles 3 et 49, réservés, et sur sa position d'ensemble.<\/p><p>Selon Public Sénat, le délai constitutionnel de <b>70 jours<\/b> (<span class=\"ref\">art. 47 Constitution<\/span>) court à compter du 9 octobre et expire le <b>17 décembre à minuit<\/b>. Trois voies sont évoquées pour la suite : le <b>49.3<\/b>, utilisé pour la loi de finances 2026 après l'échec de deux motions de censure le 2 février 2026, les <b>ordonnances<\/b>, qui empêcheraient a priori le Gouvernement de modifier son texte initial, et une <b>loi spéciale<\/b>.<\/p><p>Le Premier ministre avait annoncé le 17 septembre un vote sans 49.3 ni ordonnances ; depuis le 4 novembre, le 49.3 est de nouveau présenté comme une option possible.<\/p>",
+   "refs": [
+    "art. 47 Constitution",
+    "art. 49 al. 3 Constitution",
+    "art. 15 PLF 2027"
+   ],
+   "retenir": "Tant que la CMP n'a pas abouti, le texte initial reste le scénario de référence, surtaxe d'IS comprise : en cas d'ordonnances, les amendements votés au Sénat pourraient ne pas être repris.",
+   "amdts": [
+    "art. 15",
+    "surtaxe",
+    "tombé"
+   ],
+   "cards": [
+    {
+     "q": "Quand expire le délai de 70 jours ?",
+     "a": "<p>Selon Public Sénat, le délai prévu par l'article 47 de la Constitution court à compter du 9 octobre et expire le 17 décembre à minuit. Si le Parlement ne s'est pas prononcé à cette date, le Gouvernement peut mettre en vigueur le projet par ordonnances.<\/p>"
+    },
+    {
+     "q": "Pourquoi le scénario des ordonnances intéresse-t-il le conseil ?",
+     "a": "<p>Les ordonnances empêcheraient a priori le Gouvernement de modifier son texte initial. Les mesures du projet déposé le 1er octobre, dont la reconduction allégée de la surtaxe d'IS (art. 15), s'appliqueraient alors sans les amendements parlementaires, qu'ils viennent de l'Assemblée ou du Sénat.<\/p>"
+    },
+    {
+     "q": "Quel est le calendrier au Sénat ?",
+     "a": "<p>La séance publique sur le projet de loi de finances court du 20 novembre au 8 décembre, avec un vote solennel le 9 décembre. Les amendements de séance sur la 1re partie devaient être déposés avant le 19 novembre à 11 heures.<\/p>"
+    }
+   ],
+   "qcm": [
+    {
+     "q": "Selon Public Sénat, quand expire le délai constitutionnel de 70 jours pour le PLF 2027 ?",
+     "o": [
+      "Le 9 décembre, jour du vote solennel au Sénat",
+      "Le 17 décembre à minuit",
+      "Le 31 décembre, à la fin de l'exercice budgétaire",
+      "Le 26 novembre à minuit"
+     ],
+     "c": 1,
+     "e": "Compté à partir du 9 octobre, le délai de 70 jours expire le 17 décembre à minuit."
+    },
+    {
+     "q": "Quelle limite est associée au scénario des ordonnances ?",
+     "o": [
+      "Elles exigent un vote conforme du Sénat",
+      "Elles ne peuvent porter que sur la 2e partie",
+      "Le Gouvernement ne pourrait a priori pas modifier son texte initial",
+      "Elles doivent impérativement être ratifiées par le Parlement avant le 1er janvier 2027"
+     ],
+     "c": 2,
+     "e": "Les ordonnances empêcheraient a priori le Gouvernement de modifier son texte initial."
+    }
+   ]
+  },
   {
    "id": "2026-11-18-recettes-is",
    "date": "2026-11-18",
