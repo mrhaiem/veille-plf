@@ -1,9 +1,9 @@
 window.VEILLE = {
  "meta": {
-  "titre": "Sénat : la séance publique sur la 1re partie s'ouvre le 20 novembre",
-  "texte": "Le Sénat examine en séance, du 20 novembre au 8 décembre, le texte initial du Gouvernement ; le dépôt des amendements de séance sur la 1re partie était clos le 19 novembre à 11 heures. Le vote solennel est prévu le 9 décembre, avant l'expiration le 17 décembre du délai constitutionnel de 70 jours.",
+  "titre": "Sénat : la séance publique sur le PLF 2027 s'ouvre ce 20 novembre",
+  "texte": "Le Sénat examine en séance, à partir du 20 novembre, le texte initial du Gouvernement, la 1re partie précédant les crédits ; le vote solennel est prévu le 9 décembre. Les amendements adoptés par sa commission des finances le 12 novembre, dont la réécriture de l'apport-cession et un volet taxe d'aménagement, doivent encore être votés en séance.",
   "alerte": "Si le Parlement ne s'est pas prononcé le 17 décembre, le Gouvernement pourrait mettre en vigueur le budget par ordonnances, a priori sur la base de son texte initial (dont la reconduction de la surtaxe d'IS, art. 15) : les amendements des députés, tous tombés, n'en feraient pas partie.",
-  "majLe": "2026-11-19T06:32:23Z",
+  "majLe": "2026-11-20T06:32:52Z",
   "etapes": [
    {
     "date": "1er oct.",
@@ -1006,6 +1006,33 @@ window.VEILLE = {
  ],
  "briefs": [
   {
+   "date": "2026-11-20",
+   "titre": "Sénat : ouverture de la séance publique, taxe d'aménagement retouchée en commission",
+   "intro": "Le Sénat entame ce 20 novembre l'examen en séance du texte initial du Gouvernement, vote solennel prévu le 9 décembre.",
+   "items": [
+    {
+     "phrase": "La commission des finances du Sénat propose d'allonger d'un an le délai de reprise de la taxe d'aménagement pour les opérations prescrites au 31 décembre 2026 : à surveiller pour les clients promoteurs et foncières qui comptaient sur cette prescription.",
+     "num": "",
+     "cle": "taxe d'aménagement"
+    },
+    {
+     "phrase": "Le même amendement aligne la surface taxable de la taxe d'aménagement sur celle de la taxe foncière et relève de 1 500 € à 2 000 € le seuil de paiement en une fois, sous réserve du vote en séance.",
+     "num": "",
+     "cle": "taxe d'aménagement"
+    },
+    {
+     "phrase": "La séance publique s'ouvre sur le texte initial, surtaxe d'IS de l'art. 15 comprise : les amendements de la commission (dont la réécriture de l'apport-cession, art. 5) ne seront acquis qu'après vote et CMP, avant l'échéance du 17 décembre.",
+     "num": "",
+     "cle": "art. 15"
+    },
+    {
+     "phrase": "Contrôle de la sélection contre la base officielle de l'Assemblée : aucun nouvel amendement ni changement de sort depuis la veille, aucune correction nécessaire ; les amendements adoptés par les députés restent tombés.",
+     "num": "",
+     "cle": "tombé"
+    }
+   ]
+  },
+  {
    "date": "2026-11-19",
    "titre": "Sénat : ouverture de la séance publique, délai de 70 jours au 17 décembre",
    "intro": "Le Sénat examine en séance, à partir du 20 novembre, le texte initial du Gouvernement ; vote solennel le 9 décembre.",
@@ -1432,6 +1459,63 @@ window.VEILLE = {
   }
  ],
  "actus": [
+  {
+   "id": "2026-11-20-taxe-amenagement",
+   "date": "2026-11-17",
+   "titre": "Sénat : la commission des finances retouche la taxe d'aménagement et allonge d'un an le délai de reprise",
+   "source": "https://www.legifiscal.fr/actualites-fiscales/4735-plf-2027-principaux-articles-adoptes-commission-finances-senat.html",
+   "sourceTitre": "Legifiscal — 17 nov. 2026",
+   "theme": "procedure",
+   "resume": "<p>Réunie le <b>12 novembre<\/b> sur le rapport de Christine Lavarde, la commission des finances du Sénat a adopté, après l'<span class=\"ref\">art. 26 PLF 2027<\/span>, un article additionnel consacré à la <b>taxe d'aménagement<\/b>. Selon Legifiscal, il aligne la <b>surface taxable<\/b> sur celle retenue pour la taxe foncière et relève de <b>1 500 € à 2 000 €<\/b> le seuil en deçà duquel la taxe est payée en une seule fois.<\/p><p>Le même amendement <b>allonge d'un an le délai de reprise<\/b> de l'administration pour les opérations dont ce droit arrive à échéance le <b>31 décembre 2026<\/b>, en invoquant les difficultés nées du transfert de la gestion de la taxe à la DGFiP. Le rapport de la commission relève une baisse du produit de la taxe de 56,2 % entre 2023 et 2025.<\/p><p>Ces mesures restent à confirmer en séance publique, ouverte le 20 novembre, puis en CMP ; le texte de la liasse est encore provisoire.<\/p>",
+   "refs": [
+    "art. 26 PLF 2027",
+    "taxe d'aménagement",
+    "délai de reprise"
+   ],
+   "retenir": "Pour les opérations immobilières des clients dont la taxe d'aménagement devait se prescrire fin 2026, mieux vaut ne pas tenir la prescription pour acquise tant que le vote du Sénat n'est pas connu.",
+   "amdts": [
+    "taxe d'aménagement",
+    "Sénat"
+   ],
+   "cards": [
+    {
+     "q": "Quelles opérations seraient concernées par l'allongement du délai de reprise ?",
+     "a": "<p>Selon l'exposé de l'amendement, l'année supplémentaire viserait les opérations pour lesquelles le droit de reprise de l'administration arrive à échéance le 31 décembre 2026. La justification avancée tient aux difficultés liées au transfert de la gestion de la taxe d'aménagement à la DGFiP.<\/p>"
+    },
+    {
+     "q": "Que change l'alignement de la surface taxable ?",
+     "a": "<p>La surface prise en compte pour la taxe d'aménagement serait alignée sur celle déclarée pour la taxe foncière. Pour les promoteurs, foncières et entreprises qui construisent ou agrandissent leurs locaux, l'assiette pourrait évoluer : il faudra relire le texte définitif avant de chiffrer un projet.<\/p>"
+    },
+    {
+     "q": "Ces mesures sont-elles acquises ?",
+     "a": "<p>Non. Elles ont été adoptées par la commission des finances le 12 novembre et doivent être votées en séance publique, ouverte le 20 novembre, puis passer la commission mixte paritaire. La liasse publiée par le Sénat porte encore la mention provisoire.<\/p>"
+    }
+   ],
+   "qcm": [
+    {
+     "q": "Selon Legifiscal, quel seuil de paiement en une seule fois la commission retient-elle pour la taxe d'aménagement ?",
+     "o": [
+      "1 000 €, au lieu de 1 500 € aujourd'hui",
+      "2 000 €",
+      "1 500 €, seuil maintenu sans changement",
+      "3 000 €, soit le double du seuil actuel"
+     ],
+     "c": 1,
+     "e": "La commission relève le seuil de 1 500 € à 2 000 €."
+    },
+    {
+     "q": "Pour quelles opérations le délai de reprise serait-il allongé d'un an ?",
+     "o": [
+      "Toutes les opérations taxées depuis la réforme de 2022 sur la gestion",
+      "Les permis délivrés après le 1er janvier 2027",
+      "Celles dont le droit de reprise expire le 31 décembre 2026",
+      "Les constructions de plus de 1 000 m² de surface"
+     ],
+     "c": 2,
+     "e": "L'extension vise les opérations dont le droit de reprise arrive à échéance au 31 décembre 2026, en raison du transfert à la DGFiP."
+    }
+   ]
+  },
   {
    "id": "2026-11-19-calendrier-70-jours",
    "date": "2026-11-19",
