@@ -1,9 +1,9 @@
 window.VEILLE = {
  "meta": {
-  "titre": "Sénat : la séance publique sur le PLF 2027 s'ouvre ce 20 novembre",
-  "texte": "Le Sénat examine en séance, à partir du 20 novembre, le texte initial du Gouvernement, la 1re partie précédant les crédits ; le vote solennel est prévu le 9 décembre. Les amendements adoptés par sa commission des finances le 12 novembre, dont la réécriture de l'apport-cession et un volet taxe d'aménagement, doivent encore être votés en séance.",
+  "titre": "Sénat : la séance publique sur la 1re partie du PLF 2027 est engagée",
+  "texte": "Le Sénat a ouvert le 20 novembre l'examen en séance du texte initial du Gouvernement ; les séances se poursuivent du 23 au 28 novembre, puis si nécessaire jusqu'au 9 décembre, date du vote solennel. Les amendements de sa commission des finances (dont la réécriture de l'apport-cession et le volet taxe d'aménagement) restent à voter en séance, puis à confirmer en CMP.",
   "alerte": "Si le Parlement ne s'est pas prononcé le 17 décembre, le Gouvernement pourrait mettre en vigueur le budget par ordonnances, a priori sur la base de son texte initial (dont la reconduction de la surtaxe d'IS, art. 15) : les amendements des députés, tous tombés, n'en feraient pas partie.",
-  "majLe": "2026-11-20T06:32:52Z",
+  "majLe": "2026-11-21T06:31:55Z",
   "etapes": [
    {
     "date": "1er oct.",
@@ -1005,6 +1005,33 @@ window.VEILLE = {
   }
  ],
  "briefs": [
+  {
+   "date": "2026-11-21",
+   "titre": "Sénat : la séance publique se poursuit, aucun changement côté Assemblée",
+   "intro": "Le Sénat poursuit l'examen en séance du texte initial du Gouvernement (séances du 23 au 28 novembre, puis si nécessaire jusqu'au 9 décembre, date du vote solennel).",
+   "items": [
+    {
+     "phrase": "Aucun résultat de vote du Sénat en séance n'était encore publié ce matin : la surtaxe d'IS (art. 15), la réécriture de l'apport-cession (art. 5) et les retouches de la taxe d'aménagement restent à ce stade des propositions, à ne pas intégrer dans les simulations clients.",
+     "num": "",
+     "cle": "art. 15"
+    },
+    {
+     "phrase": "L'amendement FINC.29 de la rapporteure générale, qui supprime le passage de 10 % à 20 % de la TVA sur certains services de télévision (art. 16), doit lui aussi encore être voté en séance.",
+     "num": "Sénat FINC.29",
+     "cle": "FINC.29"
+    },
+    {
+     "phrase": "Contrôle de la sélection contre la base officielle de l'Assemblée (collecte du 21 novembre) : aucun nouvel amendement ni changement de sort, aucune correction ; les amendements adoptés par les députés restent tombés avec le rejet de la 1re partie le 4 novembre.",
+     "num": "",
+     "cle": "tombé"
+    },
+    {
+     "phrase": "Échéance à garder en tête : si le Parlement ne s'est pas prononcé le 17 décembre, le Gouvernement pourrait recourir aux ordonnances (art. 47 C), a priori sur la base de son texte initial.",
+     "num": "",
+     "cle": "ordonnances"
+    }
+   ]
+  },
   {
    "date": "2026-11-20",
    "titre": "Sénat : ouverture de la séance publique, taxe d'aménagement retouchée en commission",
