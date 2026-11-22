@@ -1,9 +1,9 @@
 window.VEILLE = {
  "meta": {
-  "titre": "Sénat : la séance publique sur la 1re partie du PLF 2027 est engagée",
-  "texte": "Le Sénat a ouvert le 20 novembre l'examen en séance du texte initial du Gouvernement ; les séances se poursuivent du 23 au 28 novembre, puis si nécessaire jusqu'au 9 décembre, date du vote solennel. Les amendements de sa commission des finances (dont la réécriture de l'apport-cession et le volet taxe d'aménagement) restent à voter en séance, puis à confirmer en CMP.",
+  "titre": "Sénat : la séance publique sur la 1re partie du PLF 2027 reprend le 23 novembre",
+  "texte": "Le Sénat examine en séance le texte initial du Gouvernement depuis le 20 novembre ; les séances reprennent le 23 novembre, pour un vote solennel le 9 décembre. Aucun vote de séance sur les articles fiscaux des entreprises (surtaxe d'IS, apport-cession) n'était publié ce matin : les amendements de la commission des finances restent des propositions.",
   "alerte": "Si le Parlement ne s'est pas prononcé le 17 décembre, le Gouvernement pourrait mettre en vigueur le budget par ordonnances, a priori sur la base de son texte initial (dont la reconduction de la surtaxe d'IS, art. 15) : les amendements des députés, tous tombés, n'en feraient pas partie.",
-  "majLe": "2026-11-21T06:31:55Z",
+  "majLe": "2026-11-22T06:32:03Z",
   "etapes": [
    {
     "date": "1er oct.",
@@ -1005,6 +1005,33 @@ window.VEILLE = {
   }
  ],
  "briefs": [
+  {
+   "date": "2026-11-22",
+   "titre": "Sénat : pas encore de vote publié sur les articles fiscaux des entreprises",
+   "intro": "Après l'ouverture de la séance le 20 novembre, le Sénat reprend l'examen de la 1re partie le 23 novembre (vote solennel prévu le 9 décembre).",
+   "items": [
+    {
+     "phrase": "Aucun résultat de vote du Sénat en séance sur la surtaxe d'IS (art. 15) ou la réécriture de l'apport-cession (art. 5) n'était publié ce matin : à ce stade, rien à intégrer dans les simulations clients.",
+     "num": "",
+     "cle": "art. 15"
+    },
+    {
+     "phrase": "Contrôle de la sélection contre la base officielle de l'Assemblée (collecte du 21 novembre au soir) : aucun nouvel amendement, aucun changement de sort, aucune correction ; les amendements adoptés par les députés restent tombés avec le rejet de la 1re partie le 4 novembre.",
+     "num": "",
+     "cle": "tombé"
+    },
+    {
+     "phrase": "Le recours au 49.3 reste évoqué dans la presse comme un scénario parmi d'autres (loi spéciale, ordonnances), sans annonce du Gouvernement à ce stade.",
+     "num": "",
+     "cle": "49.3"
+    },
+    {
+     "phrase": "Échéance inchangée : si le Parlement ne s'est pas prononcé le 17 décembre, le Gouvernement pourrait recourir aux ordonnances (art. 47 C), a priori sur la base de son texte initial.",
+     "num": "",
+     "cle": "ordonnances"
+    }
+   ]
+  },
   {
    "date": "2026-11-21",
    "titre": "Sénat : la séance publique se poursuit, aucun changement côté Assemblée",
