@@ -1,9 +1,9 @@
 window.VEILLE = {
  "meta": {
-  "titre": "Sénat : la séance publique sur la 1re partie du PLF 2027 reprend le 23 novembre",
-  "texte": "Le Sénat examine en séance le texte initial du Gouvernement depuis le 20 novembre ; les séances reprennent le 23 novembre, pour un vote solennel le 9 décembre. Aucun vote de séance sur les articles fiscaux des entreprises (surtaxe d'IS, apport-cession) n'était publié ce matin : les amendements de la commission des finances restent des propositions.",
+  "titre": "Sénat : la 1re partie du PLF 2027 en séance jusqu'au 28 ou 29 novembre, la 2e partie à partir du 30 novembre",
+  "texte": "Le Sénat examine le texte initial du Gouvernement : la 1re partie (recettes) jusqu'au samedi 28 ou dimanche 29 novembre, puis la 2e partie du 30 novembre au 9 décembre, date du vote solennel. Aucun vote de séance sur les articles fiscaux des entreprises (surtaxe d'IS, apport-cession) n'était publié ce matin.",
   "alerte": "Si le Parlement ne s'est pas prononcé le 17 décembre, le Gouvernement pourrait mettre en vigueur le budget par ordonnances, a priori sur la base de son texte initial (dont la reconduction de la surtaxe d'IS, art. 15) : les amendements des députés, tous tombés, n'en feraient pas partie.",
-  "majLe": "2026-11-22T06:32:03Z",
+  "majLe": "2026-11-23T06:32:28Z",
   "etapes": [
    {
     "date": "1er oct.",
@@ -32,8 +32,13 @@ window.VEILLE = {
    },
    {
     "date": "20 nov.",
-    "label": "Sénat : séance publique sur la 1re partie (20 nov. – 8 déc.)",
+    "label": "Sénat : séance publique sur la 1re partie (20 – 28/29 nov.)",
     "etat": "encours"
+   },
+   {
+    "date": "30 nov.",
+    "label": "Sénat : séance publique sur la 2e partie (30 nov. – 9 déc.)",
+    "etat": ""
    },
    {
     "date": "9 déc.",
@@ -1006,6 +1011,33 @@ window.VEILLE = {
  ],
  "briefs": [
   {
+   "date": "2026-11-23",
+   "titre": "Sénat : la 1re partie du PLF 2027 votée d'ici le 28 ou 29 novembre",
+   "intro": "Le Sénat reprend aujourd'hui l'examen de la 1re partie du texte initial du Gouvernement, qui doit se conclure par un scrutin public le 28 ou le 29 novembre.",
+   "items": [
+    {
+     "phrase": "Calendrier précisé par le Sénat : recettes jusqu'au samedi 28 (ou dimanche 29) novembre, dépenses du 30 novembre au 9 décembre ; les votes sur la surtaxe d'IS (art. 15) et l'apport-cession (art. 5) sont donc attendus cette semaine.",
+     "num": "",
+     "cle": "art. 15"
+    },
+    {
+     "phrase": "La commission des finances du Sénat examine ce lundi 23 novembre les amendements de séance sur la 1re partie : ses avis donneront une première indication sur les retouches sénatoriales de la fiscalité des entreprises.",
+     "num": "",
+     "cle": "Sénat"
+    },
+    {
+     "phrase": "Aucun résultat de vote du Sénat en séance sur les articles fiscaux des entreprises n'était publié ce matin : rien à intégrer à ce stade dans les simulations clients.",
+     "num": "",
+     "cle": "apport-cession"
+    },
+    {
+     "phrase": "Contrôle de la sélection contre la base officielle de l'Assemblée (collecte du 23 novembre) : aucun nouvel amendement, aucun nouveau sort pertinent, aucune correction de la sélection.",
+     "num": "",
+     "cle": "tombé"
+    }
+   ]
+  },
+  {
    "date": "2026-11-22",
    "titre": "Sénat : pas encore de vote publié sur les articles fiscaux des entreprises",
    "intro": "Après l'ouverture de la séance le 20 novembre, le Sénat reprend l'examen de la 1re partie le 23 novembre (vote solennel prévu le 9 décembre).",
@@ -1513,6 +1545,59 @@ window.VEILLE = {
   }
  ],
  "actus": [
+  {
+   "id": "2026-11-23-calendrier-senat",
+   "date": "2026-11-23",
+   "titre": "Sénat : vote sur la 1re partie du PLF 2027 attendu le 28 ou le 29 novembre",
+   "source": "https://www.senat.fr/dossier-legislatif/pjlf2027.html",
+   "sourceTitre": "Sénat — dossier législatif « Budget 2027 »",
+   "theme": "procedure",
+   "resume": "<p>Le dossier législatif du Sénat précise le découpage de l'examen du <b>PLF 2027<\/b>, transmis le 19 novembre après le rejet de la 1re partie par l'Assemblée le 4 novembre. La <b>1re partie<\/b> (recettes), ouverte le <b>vendredi 20 novembre<\/b>, doit s'achever le <b>samedi 28<\/b> ou, le cas échéant, le <b>dimanche 29 novembre<\/b>, par un scrutin public.<\/p><p>La <b>2e partie<\/b> (dépenses) sera examinée du <b>lundi 30 novembre<\/b> au <b>mercredi 9 décembre<\/b>, jour du vote sur l'ensemble. Le <b>lundi 23 novembre<\/b>, la commission des finances, sur le rapport de Christine Lavarde, examine les <b>amendements de séance<\/b> déposés sur les articles de la 1re partie.<\/p><p>C'est donc d'ici la fin de la semaine que les sénateurs se prononceront sur les articles fiscaux des entreprises du texte initial, dont la reconduction, réduite de 30 % par rapport à 2026, de la contribution exceptionnelle sur les bénéfices des grandes entreprises (<span class=\"ref\">art. 15 PLF 2027<\/span>) et l'apport-cession (<span class=\"ref\">art. 5 PLF 2027<\/span>).<\/p>",
+   "refs": [
+    "art. 15 PLF 2027",
+    "art. 5 PLF 2027"
+   ],
+   "retenir": "Les votes du Sénat sur la surtaxe d'IS et l'apport-cession devraient tomber d'ici le 28 ou 29 novembre : prévoir de mettre à jour les simulations clients en fin de semaine.",
+   "amdts": [
+    "art. 15",
+    "apport-cession",
+    "Sénat"
+   ],
+   "cards": [
+    {
+     "q": "Quand le Sénat aura-t-il fini d'examiner les recettes ?",
+     "a": "<p>Selon le dossier législatif du Sénat, l'examen de la 1re partie se termine le samedi 28 novembre, ou le dimanche 29 si nécessaire, par un scrutin public. Les dispositions fiscales votées ne seront définitives qu'après la CMP et l'adoption du texte, ou à défaut par voie d'ordonnances.<\/p>"
+    },
+    {
+     "q": "Que se passe-t-il le 23 novembre ?",
+     "a": "<p>La commission des finances du Sénat examine les amendements de séance sur les articles de la 1re partie et arrête ses avis. Ces avis éclairent les chances d'adoption des amendements sénatoriaux sur l'IS, l'apport-cession ou les crédits d'impôt, sans préjuger du vote en séance.<\/p>"
+    }
+   ],
+   "qcm": [
+    {
+     "q": "Selon le calendrier du Sénat, quand l'examen de la 2e partie du PLF 2027 doit-il commencer ?",
+     "o": [
+      "Le vendredi 20 novembre",
+      "Le lundi 30 novembre",
+      "Le mercredi 9 décembre, jour du vote",
+      "Le jeudi 17 décembre, à l'expiration du délai de 70 jours"
+     ],
+     "c": 1,
+     "e": "La 2e partie (dépenses) est examinée du lundi 30 novembre au mercredi 9 décembre ; le 20 novembre correspond à l'ouverture de la 1re partie."
+    },
+    {
+     "q": "Sur quel texte le Sénat travaille-t-il en séance ?",
+     "o": [
+      "Le texte adopté par l'Assemblée nationale le 4 novembre",
+      "Le texte issu de la commission mixte paritaire",
+      "Le texte initial du Gouvernement",
+      "Le texte de la commission des finances de l'Assemblée"
+     ],
+     "c": 2,
+     "e": "L'Assemblée ayant rejeté la 1re partie le 4 novembre, le Sénat est saisi du texte initial du Gouvernement ; les amendements des députés sont tombés."
+    }
+   ]
+  },
   {
    "id": "2026-11-20-taxe-amenagement",
    "date": "2026-11-17",
