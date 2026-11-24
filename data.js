@@ -1,9 +1,9 @@
 window.VEILLE = {
  "meta": {
-  "titre": "Sénat : la 1re partie du PLF 2027 en séance jusqu'au 28 ou 29 novembre, la 2e partie à partir du 30 novembre",
-  "texte": "Le Sénat examine le texte initial du Gouvernement : la 1re partie (recettes) jusqu'au samedi 28 ou dimanche 29 novembre, puis la 2e partie du 30 novembre au 9 décembre, date du vote solennel. Aucun vote de séance sur les articles fiscaux des entreprises (surtaxe d'IS, apport-cession) n'était publié ce matin.",
+  "titre": "Sénat : premiers votes en séance sur la 1re partie du PLF 2027, la fiscalité des entreprises attendue d'ici le 28 ou 29 novembre",
+  "texte": "Le Sénat a commencé le 23 novembre à voter les articles de la 1re partie du texte initial, d'abord sur l'impôt sur le revenu (apprentis, indemnités d'ALD). L'apport-cession (art. 5) et la surtaxe d'IS (art. 15) restent à examiner avant le vote de la 1re partie, attendu le 28 ou le 29 novembre.",
   "alerte": "Si le Parlement ne s'est pas prononcé le 17 décembre, le Gouvernement pourrait mettre en vigueur le budget par ordonnances, a priori sur la base de son texte initial (dont la reconduction de la surtaxe d'IS, art. 15) : les amendements des députés, tous tombés, n'en feraient pas partie.",
-  "majLe": "2026-11-23T06:32:28Z",
+  "majLe": "2026-11-24T06:33:09Z",
   "etapes": [
    {
     "date": "1er oct.",
@@ -1011,6 +1011,38 @@ window.VEILLE = {
  ],
  "briefs": [
   {
+   "date": "2026-11-24",
+   "titre": "Sénat : premiers votes en séance, sur l'IR ; IS et apport-cession encore à venir",
+   "intro": "Le Sénat a commencé le 23 novembre à voter les articles de la 1re partie du texte initial, dont le scrutin d'ensemble reste attendu le 28 ou le 29 novembre.",
+   "items": [
+    {
+     "phrase": "Apprentis : le Sénat a aligné l'exonération d'IR de leurs salaires (CGI, art. 81 bis) sur celle des étudiants salariés, soit trois SMIC mensuels au lieu du SMIC annuel, mesure à signaler aux employeurs d'apprentis sous réserve de la CMP.",
+     "num": "",
+     "cle": "apprentis"
+    },
+    {
+     "phrase": "Volontariat international et réservistes : le Sénat n'a pas suivi sa commission qui voulait supprimer leurs exonérations, si bien que le régime actuel des VIE reste en l'état.",
+     "num": "",
+     "cle": "apprentis"
+    },
+    {
+     "phrase": "Indemnités journalières d'ALD entièrement imposées par 194 voix contre 146 (le Gouvernement en visait 50 %), un vote d'IR sans effet direct sur la fiscalité des entreprises.",
+     "num": "",
+     "cle": "Sénat"
+    },
+    {
+     "phrase": "Aucun vote du Sénat n'était publié ce matin sur l'apport-cession (art. 5) ni sur la surtaxe d'IS (art. 15) : les hypothèses de simulation restent celles du texte initial.",
+     "num": "",
+     "cle": "art. 15"
+    },
+    {
+     "phrase": "Contrôle de la sélection contre la base officielle de l'Assemblée (collecte du 24 novembre) : aucun nouvel amendement pertinent, aucune correction de statut.",
+     "num": "",
+     "cle": "tombé"
+    }
+   ]
+  },
+  {
    "date": "2026-11-23",
    "titre": "Sénat : la 1re partie du PLF 2027 votée d'ici le 28 ou 29 novembre",
    "intro": "Le Sénat reprend aujourd'hui l'examen de la 1re partie du texte initial du Gouvernement, qui doit se conclure par un scrutin public le 28 ou le 29 novembre.",
@@ -1545,6 +1577,64 @@ window.VEILLE = {
   }
  ],
  "actus": [
+  {
+   "id": "2026-11-23-senat-apprentis-ald",
+   "date": "2026-11-23",
+   "titre": "Sénat, 1ers votes en séance : exonération des apprentis réduite, IJ d'ALD entièrement imposées",
+   "source": "https://www.legifiscal.fr/actualites-fiscales/4744-plf-2027-senat-fiscalise-ij-ald-reduit-plafond-exoneration-apprentis.html",
+   "sourceTitre": "Legifiscal",
+   "theme": "salaries",
+   "resume": "<p>Le <b>lundi 23 novembre<\/b>, le Sénat a commencé à voter les articles de la 1re partie du <b>PLF 2027<\/b> (texte initial du Gouvernement). Les premiers scrutins ont porté sur l'impôt sur le revenu, à l'initiative de la rapporteure générale <b>Christine Lavarde<\/b>.<\/p><p>Selon Legifiscal, les sénateurs ont aligné l'exonération des salaires des <b>apprentis<\/b> (<span class=\"ref\">CGI, art. 81 bis<\/span>), aujourd'hui plafonnée au SMIC annuel, sur celle des étudiants salariés, soit <b>trois SMIC mensuels<\/b> (5 469 € par an). Ils n'ont en revanche pas suivi leur commission sur la suppression des exonérations des <b>réservistes<\/b> et du <b>volontariat international<\/b>.<\/p><p>Par <b>194 voix contre 146<\/b>, le Sénat a aussi soumis en totalité à l'impôt les indemnités journalières versées au titre d'une <b>affection de longue durée<\/b>, là où le Gouvernement visait 50 % ; le ministre David Amiel s'en est remis à la sagesse du Sénat. Aucun vote n'était encore intervenu sur l'apport-cession (<span class=\"ref\">art. 5 PLF 2027<\/span>) ni sur la surtaxe d'IS (<span class=\"ref\">art. 15 PLF 2027<\/span>).<\/p>",
+   "refs": [
+    "CGI, art. 81 bis",
+    "art. 5 PLF 2027",
+    "art. 15 PLF 2027"
+   ],
+   "retenir": "Pour les employeurs d'apprentis, l'exonération d'IR pourrait être ramenée à trois SMIC mensuels : mesure non définitive, suspendue à la CMP ou aux ordonnances, mais à anticiper dans la communication RH.",
+   "amdts": [
+    "apprentis",
+    "Sénat",
+    "art. 15"
+   ],
+   "cards": [
+    {
+     "q": "Que change le vote du Sénat pour les apprentis ?",
+     "a": "<p>Selon Legifiscal, l'exonération d'impôt sur le revenu des salaires d'apprentis, plafonnée aujourd'hui au SMIC annuel, serait alignée sur celle des étudiants salariés, soit trois SMIC mensuels par an. La mesure ne vaudra que si elle survit à la CMP ou figure dans des ordonnances ; la question de l'application des conditions d'âge et d'études reste discutée.<\/p>"
+    },
+    {
+     "q": "Le volontariat international (VIE) est-il touché ?",
+     "a": "<p>Non à ce stade : la commission des finances proposait de supprimer les exonérations des réservistes et du volontariat international, mais le Sénat ne l'a pas suivie en séance selon Legifiscal. Les groupes qui recourent au VIE conservent donc, en l'état, le régime actuel.<\/p>"
+    },
+    {
+     "q": "Où en est la fiscalité des entreprises au Sénat ?",
+     "a": "<p>Les premiers votes du 23 novembre ont porté sur l'impôt sur le revenu. L'apport-cession (art. 5) et la reconduction de la contribution exceptionnelle sur les bénéfices des grandes entreprises (art. 15) restent à examiner avant le vote de la 1re partie, attendu le 28 ou le 29 novembre.<\/p>"
+    }
+   ],
+   "qcm": [
+    {
+     "q": "Selon Legifiscal, à quel plafond le Sénat a-t-il aligné l'exonération des salaires d'apprentis ?",
+     "o": [
+      "Le SMIC annuel, comme aujourd'hui pour tous les apprentis du secteur privé",
+      "Trois SMIC mensuels, comme les étudiants salariés",
+      "Deux SMIC annuels",
+      "Aucun plafond : l'exonération est supprimée"
+     ],
+     "c": 1,
+     "e": "Le Sénat a aligné l'exonération de l'article 81 bis sur celle des étudiants salariés, soit trois SMIC mensuels (5 469 € par an), au lieu du SMIC annuel."
+    },
+    {
+     "q": "Quel a été le résultat du vote du Sénat sur l'imposition des indemnités journalières d'ALD ?",
+     "o": [
+      "Rejet par 194 voix contre 146",
+      "Adoption à main levée sans scrutin",
+      "Retrait de l'amendement",
+      "Adoption par 194 voix contre 146"
+     ],
+     "c": 3,
+     "e": "L'amendement de la rapporteure générale soumettant ces indemnités en totalité à l'impôt a été adopté par 194 voix contre 146, le Gouvernement s'en remettant à la sagesse du Sénat."
+    }
+   ]
+  },
   {
    "id": "2026-11-23-calendrier-senat",
    "date": "2026-11-23",
