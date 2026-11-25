@@ -1,0 +1,20 @@
+name: Sonde Sénat
+on:
+  push:
+    branches: [sonde-senat]
+jobs:
+  sonde:
+    runs-on: ubuntu-latest
+    steps:
+      - name: sonde
+        run: |
+          UA="Mozilla/5.0 (veille-plf-2027)"
+          for u in https://www.senat.fr/dossier-legislatif/pjlf2027.html https://www.senat.fr/dossier-legislatif/pjlf2026.html ; do
+            echo "=== $u"; curl -sL -A "$UA" -o p.html -w '%{http_code} %{size_download}\n' "$u"
+            iconv -f latin1 -t utf-8 p.html 2>/dev/null | grep -o 'href="[^"]*amendements[^"]*"' | sort -u | head -30
+            grep -o 'href="[^"]*/leg/[^"]*"' p.html | sort -u | head -15
+          done
+          for u in https://www.senat.fr/amendements/2025-2026/138/jeu_complet_2025-2026_138.csv https://www.senat.fr/amendements/2025-2026/138/accueil.html ; do
+            echo "=== $u"; curl -sL -A "$UA" -o f -w '%{http_code} %{size_download} %{content_type}\n' "$u"; file f; head -c 1500 f | iconv -f latin1 -t utf-8 ; echo
+          done
+          echo "=== data.senat.fr"; curl -sL -A "$UA" https://data.senat.fr/ameli/ | grep -o 'href="[^"]*"' | head -30
