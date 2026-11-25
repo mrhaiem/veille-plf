@@ -1,9 +1,9 @@
 window.VEILLE = {
  "meta": {
-  "titre": "Sénat : premiers votes en séance sur la 1re partie du PLF 2027, la fiscalité des entreprises attendue d'ici le 28 ou 29 novembre",
-  "texte": "Le Sénat a commencé le 23 novembre à voter les articles de la 1re partie du texte initial, d'abord sur l'impôt sur le revenu (apprentis, indemnités d'ALD). L'apport-cession (art. 5) et la surtaxe d'IS (art. 15) restent à examiner avant le vote de la 1re partie, attendu le 28 ou le 29 novembre.",
+  "titre": "Sénat : l'apport-cession recentré adopté en séance, la surtaxe d'IS encore à voter avant le scrutin du 28 ou 29 novembre",
+  "texte": "Le Sénat a adopté en séance la version de l'article 5 issue de sa commission, qui ne vise que les transmissions après cession des titres apportés, avec l'avis favorable du Gouvernement. La surtaxe d'IS (art. 15) reste à examiner avant le vote de la 1re partie, attendu le 28 ou le 29 novembre.",
   "alerte": "Si le Parlement ne s'est pas prononcé le 17 décembre, le Gouvernement pourrait mettre en vigueur le budget par ordonnances, a priori sur la base de son texte initial (dont la reconduction de la surtaxe d'IS, art. 15) : les amendements des députés, tous tombés, n'en feraient pas partie.",
-  "majLe": "2026-11-24T06:33:09Z",
+  "majLe": "2026-11-25T06:40:00Z",
   "etapes": [
    {
     "date": "1er oct.",
@@ -58,6 +58,25 @@ window.VEILLE = {
   ]
  },
  "amendements": [
+  {
+   "id": "senat-art5-apport",
+   "num": "Sénat FINC.9",
+   "titre": "Apport-cession : le Sénat adopte en séance la version recentrée de l'article 5",
+   "objet": "L'article 5 du texte initial met fin au report d'imposition de la plus-value d'apport (150-0 B ter) en cas de donation ou de succession des titres de la holding. L'amendement de la commission des finances, qui ne vise que les transmissions intervenant après une cession des titres apportés, a été adopté en séance, complété de plusieurs sous-amendements ; le Gouvernement s'y est dit favorable selon Fiscalonline.",
+   "pratique": "La donation de titres d'une holding qui n'a pas cédé les titres apportés ne ferait plus tomber le report dans cette version ; le détail des sous-amendements reste à vérifier au compte rendu et le sort final dépend de la CMP ou des ordonnances.",
+   "statut": "adopte",
+   "articlePLF": "art. 5",
+   "cgi": "CGI, art. 150-0 B ter",
+   "auteurs": "Commission des finances du Sénat (rapporteure générale)",
+   "groupe": "",
+   "gouv": "favorable",
+   "theme": "plusvalues",
+   "etape": "Sénat, séance publique 1re lecture",
+   "date": "2026-11-24",
+   "source": "https://fiscalonline.com/outils-fiscaux/apport-cession-plf2027-gouvernement-favorable-version-senatoriale",
+   "sourceTitre": "Fiscalonline",
+   "ajoute": "2026-11-25T06:40:00Z"
+  },
   {
    "id": "art15-suppr",
    "num": "I-69, I-563, I-648, I-944, I-1009, I-1326",
@@ -1011,6 +1030,33 @@ window.VEILLE = {
  ],
  "briefs": [
   {
+   "date": "2026-11-25",
+   "titre": "Sénat : l'apport-cession recentré voté en séance, avec l'aval du Gouvernement",
+   "intro": "Le Sénat poursuit l'examen en séance de la 1re partie du texte initial, dont il a adopté l'article 4 lundi soir ; le vote de la 1re partie reste attendu le 28 ou le 29 novembre.",
+   "items": [
+    {
+     "phrase": "Apport-cession (art. 5) : le Sénat a adopté en séance l'amendement de sa commission ne remettant en cause le report de 150-0 B ter qu'en cas de transmission après cession des titres apportés, complété de sous-amendements et avec l'avis favorable du Gouvernement selon Fiscalonline.",
+     "num": "",
+     "cle": "FINC.9"
+    },
+    {
+     "phrase": "L'appui du Gouvernement rend crédible une reprise de cette version en CMP ou dans d'éventuelles ordonnances : à intégrer dans les simulations de donation de titres de holding, sous réserve du détail des sous-amendements.",
+     "num": "",
+     "cle": "apport-cession"
+    },
+    {
+     "phrase": "Surtaxe d'IS (art. 15) : aucun vote du Sénat n'était publié ce matin, l'hypothèse de reconduction du texte initial reste la référence.",
+     "num": "",
+     "cle": "art. 15"
+    },
+    {
+     "phrase": "Contrôle de la sélection contre la base officielle de l'Assemblée (collecte du 25 novembre) : aucun nouvel amendement adopté, aucune correction de statut.",
+     "num": "",
+     "cle": "tombé"
+    }
+   ]
+  },
+  {
    "date": "2026-11-24",
    "titre": "Sénat : premiers votes en séance, sur l'IR ; IS et apport-cession encore à venir",
    "intro": "Le Sénat a commencé le 23 novembre à voter les articles de la 1re partie du texte initial, dont le scrutin d'ensemble reste attendu le 28 ou le 29 novembre.",
@@ -1577,6 +1623,63 @@ window.VEILLE = {
   }
  ],
  "actus": [
+  {
+   "id": "2026-11-24-senat-apport-cession",
+   "date": "2026-11-24",
+   "titre": "Apport-cession : le Sénat vote en séance la version recentrée de l'article 5, avec l'appui du Gouvernement",
+   "source": "https://fiscalonline.com/outils-fiscaux/apport-cession-plf2027-gouvernement-favorable-version-senatoriale",
+   "sourceTitre": "Fiscalonline",
+   "theme": "plusvalues",
+   "resume": "<p>Le texte initial du <b>PLF 2027<\/b>, dont le Sénat est saisi après le rejet de la 1re partie par l'Assemblée, prévoyait à l'article 5 de mettre fin au <b>report d'imposition<\/b> de la plus-value d'apport (<span class=\"ref\">CGI, art. 150-0 B ter<\/span>) lorsque les titres de la holding sont donnés ou transmis par succession.<\/p><p>La commission des finances du Sénat avait proposé de ne viser que les <b>transmissions intervenant après une cession des titres apportés<\/b> par la holding (amendement <b>FINC.9<\/b> de la liasse de la rapporteure générale, qui ne visait les décès qu'à compter de l'entrée en vigueur de la loi). Selon Fiscalonline, les sénateurs ont adopté cet amendement <b>en séance<\/b>, en le complétant par <b>plusieurs sous-amendements<\/b>, et le Gouvernement s'est déclaré <b>favorable<\/b> à cette version.<\/p><p>Le contenu exact des sous-amendements n'était pas accessible ce matin : il faudra le confirmer au compte rendu de séance. La rédaction finale dépendra de la CMP (mi-décembre) ou, à défaut d'adoption le 17 décembre, des éventuelles ordonnances.<\/p>",
+   "refs": [
+    "CGI, art. 150-0 B ter",
+    "art. 5 PLF 2027"
+   ],
+   "retenir": "Pour les donations de titres de holding d'apport, la version sénatoriale ne remettrait en cause le report qu'après cession des titres apportés ; l'appui du Gouvernement rend ce scénario crédible.",
+   "amdts": [
+    "apport-cession",
+    "FINC.9",
+    "art. 5"
+   ],
+   "cards": [
+    {
+     "q": "Quelle différence avec le texte initial ?",
+     "a": "<p>Le texte initial faisait tomber le report d'imposition de la plus-value d'apport dès la donation ou la succession des titres de la holding. La version adoptée par le Sénat, issue de sa commission des finances, ne vise que les transmissions intervenant après que la holding a cédé les titres apportés.<\/p>"
+    },
+    {
+     "q": "Quel est le poids de l'avis du Gouvernement ?",
+     "a": "<p>Selon Fiscalonline, le Gouvernement s'est dit favorable à la version sénatoriale. Comme il pourrait mettre en vigueur le budget par ordonnances si le Parlement ne s'est pas prononcé le 17 décembre, son ralliement rend plus probable une reprise de cette rédaction, sans le garantir.<\/p>"
+    },
+    {
+     "q": "Que faire pour les dossiers en cours ?",
+     "a": "<p>Identifier les holdings d'apport ayant déjà cédé les titres apportés : ce sont elles que viserait la remise en cause du report en cas de donation. Pour les autres, la version sénatoriale serait plus favorable, mais il faut attendre le détail des sous-amendements et la CMP avant de sécuriser un calendrier de donation.<\/p>"
+    }
+   ],
+   "qcm": [
+    {
+     "q": "Selon Fiscalonline, quelles transmissions vise la version de l'article 5 adoptée par le Sénat ?",
+     "o": [
+      "Toutes les donations et successions de titres de holding, quelle que soit la date de l apport",
+      "Les transmissions intervenant après une cession des titres apportés",
+      "Les seules successions ouvertes avant le 1er janvier 2027",
+      "Aucune : l'article a été supprimé"
+     ],
+     "c": 1,
+     "e": "La commission des finances avait proposé de ne viser que les transmissions intervenant après une cession des titres apportés ; le Sénat l'a suivie en séance, avec plusieurs sous-amendements."
+    },
+    {
+     "q": "Quelle position le Gouvernement a-t-il prise sur cette version selon Fiscalonline ?",
+     "o": [
+      "Défavorable",
+      "Sagesse du Sénat",
+      "Favorable",
+      "Il a demandé une seconde délibération sur l'article"
+     ],
+     "c": 2,
+     "e": "Le titre de l'article de Fiscalonline indique que le Gouvernement est favorable à la version sénatoriale de l'apport-cession."
+    }
+   ]
+  },
   {
    "id": "2026-11-23-senat-apprentis-ald",
    "date": "2026-11-23",
