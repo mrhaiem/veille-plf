@@ -2,16 +2,12 @@ name: Sonde Sénat
 on:
   push:
     branches: [sonde-senat]
-permissions:
-  contents: write
 jobs:
   sonde:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with: {python-version: "3.12"}
-      - run: python scripts/build_senat.py senat.json
       - run: |
-          git config user.name bot; git config user.email actions@users.noreply.github.com
-          git add senat.json textes/senat_premiere_partie.json; git commit -m "test senat [skip ci]"; git push origin HEAD:sonde-senat
+          for u in "https://mrhaiem.github.io/veille-plf/" "https://mrhaiem.github.io/veille-plf/index.html?v=9"; do
+            echo "=== $u"; curl -sSL -D h.txt -o p.html "$u"; grep -i "cache-control\|last-modified\|age:\|location" h.txt
+            echo "special: $(grep -c 'id=\"special\"' p.html) renderSpecial(): $(grep -c 'renderSpecial();' p.html) sp-open: $(grep -c sp-open p.html) b-senat: $(grep -c b-senat p.html)"
+          done
