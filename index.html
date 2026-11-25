@@ -220,7 +220,6 @@ body.searching .side{display:none}
   </aside>
   <main class="main">
 
-  <section id="special" class="special hidden" aria-labelledby="sp-title"></section>
   <nav class="tabs" role="tablist">
     <button class="tab" role="tab" aria-selected="true" data-tab="brief">Le point du matin</button>
     <button class="tab" role="tab" aria-selected="false" data-tab="search">Recherche</button>
@@ -746,7 +745,7 @@ $("#sq").addEventListener("keydown", e => { if(e.key==="Enter"){ e.preventDefaul
   META = V.meta || null; AMDT = Array.isArray(V.amendements) ? V.amendements : [];
   BRIEFS = Array.isArray(V.briefs) ? V.briefs : []; ACTUS = Array.isArray(V.actus) ? V.actus : [];
   if(!META){ $("#st-title").textContent = "Données indisponibles"; $("#st-text").textContent = "Le fichier de la veille (data.js) n'a pas pu être chargé."; }
-  renderMeta(); renderSpecial(); render(); renderActus(); renderBriefs();
+  renderMeta(); render(); renderActus(); renderBriefs();
   setTimeout(() => { if(!ALLp) loadAll(); }, 1200);
   const h = location.hash.slice(1); if(["brief","search","amdt","actu"].includes(h)) showPane(h);
   window.addEventListener("pagehide", markSeen);
