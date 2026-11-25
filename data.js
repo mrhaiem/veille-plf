@@ -1045,6 +1045,16 @@ window.VEILLE = {
      "cle": "apport-cession"
     },
     {
+     "phrase": "Management packages : le Sénat a adopté le 24 novembre l'amendement I-2013 rect. ter (Mme Paoli-Gagin, après l'art. 5), qui remplace le multiple de 3 de l'article 163 bis H du CGI par un coefficient croissant avec la durée de détention, plafonné à 5, neutralise l'apport à une société de managers non contrôlée par l'apporteur et ajuste le report d'imposition en cas de réinvestissement ; les amendements CRCE-K durcissant le régime sont tombés ou ont été rejetés.",
+     "num": "I-2013 rect. ter",
+     "cle": "163 bis H"
+    },
+    {
+     "phrase": "CDHR : le Sénat a adopté le 23 novembre l'amendement I-2297 rect. bis (M. Delcros, après l'art. 2), qui abroge les retraitements d'assiette propres à la contribution différentielle sur les hauts revenus (CGI, art. 224, II, 2° à 6°) pour l'aligner sur le revenu fiscal de référence de la CEHR ; les amendements portant le taux minimal de 20 % à 30 % ont été rejetés.",
+     "num": "I-2297 rect. bis",
+     "cle": "contribution différentielle"
+    },
+    {
      "phrase": "Surtaxe d'IS (art. 15) : aucun vote du Sénat n'était publié ce matin, l'hypothèse de reconduction du texte initial reste la référence.",
      "num": "",
      "cle": "art. 15"
