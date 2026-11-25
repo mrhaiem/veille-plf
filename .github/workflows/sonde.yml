@@ -2,27 +2,16 @@ name: Sonde Sénat
 on:
   push:
     branches: [sonde-senat]
+permissions:
+  contents: write
 jobs:
   sonde:
     runs-on: ubuntu-latest
     steps:
-      - name: sonde
-        run: |
-          UA="Mozilla/5.0 (veille-plf-2027)"
-          curl -sL -A "$UA" -o a.csv -w '%{http_code} %{size_download}\n' https://www.senat.fr/amendements/2026-2027/155/jeu_complet_2026-2027_155.csv
-          curl -sL -A "$UA" -o c.csv -w 'commission %{http_code} %{size_download}\n' https://www.senat.fr/amendements/commissions/2026-2027/155/jeu_complet_commission_2026-2027_155.csv
-          python3 - <<'PY'
-          import csv,io,collections
-          for f in ("a.csv","c.csv"):
-              try: t=open(f,encoding="cp1252",errors="replace").read()
-              except Exception as e: print(f,e); continue
-              if t.startswith("sep="): t=t.split("\n",1)[1]
-              rows=list(csv.DictReader(io.StringIO(t),delimiter="\t"))
-              print(f,len(rows), rows and [k for k in rows[0]])
-              if not rows: print(t[:500]); continue
-              K={k.strip():k for k in rows[0]}
-              for c in ("Nature","Sort","Subdivision","Au nom de"):
-                  print(c, collections.Counter(r[K[c]].strip() for r in rows).most_common(15))
-              for r in rows[:3]+rows[-2:]:
-                  print({k.strip():(v or "")[:160] for k,v in r.items()})
-          PY
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: python scripts/build_senat.py senat.json
+      - run: |
+          git config user.name bot; git config user.email actions@users.noreply.github.com
+          git add senat.json textes/senat_premiere_partie.json; git commit -m "test senat [skip ci]"; git push origin HEAD:sonde-senat
