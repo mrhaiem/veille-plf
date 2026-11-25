@@ -1,4 +1,4 @@
-name: Collecte des amendements PLF 2027
+name: Collecte des amendements PLF 2027 (AN et Sénat)
 
 on:
   schedule:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
   push:                      # relance aussi à chaque publication de résumés (la planification GitHub n'est pas fiable)
     branches: [main]
-    paths: ["resumes.json", "data.js"]
+    paths: ["resumes.json", "resumes_senat.json", "data.js"]
 
 permissions:
   contents: write
@@ -26,11 +26,14 @@ jobs:
           python-version: "3.12"
       - name: Télécharger et filtrer les amendements (open data AN)
         run: python scripts/build_amendements.py amendements.json
+      - name: Télécharger les amendements du Sénat (jeu complet CSV)
+        continue-on-error: true
+        run: python scripts/build_senat.py senat.json
       - name: Publier si changement
         run: |
           git config user.name "veille-plf-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add amendements.json textes/premiere_partie.json
+          git add amendements.json textes/premiere_partie.json senat.json textes/senat_premiere_partie.json
           if git diff --cached --quiet; then echo "Pas de changement"; exit 0; fi
           git commit -m "Amendements PLF 2027 : collecte du $(date -u +%Y-%m-%d)"
           git pull --rebase origin main

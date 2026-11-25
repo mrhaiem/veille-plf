@@ -186,6 +186,7 @@ body.searching .side{display:none}
 .arow .num:after{content:" ↗";color:var(--accent);font-size:11px}
 .arow p{margin:4px 0 0;font-size:14px}
 .b-autre{color:var(--muted)}.b-autre:before{content:"– "}
+.b-senat{color:var(--ink);border:1px solid var(--line);padding:0 6px;font-weight:600;letter-spacing:.02em}
 .arow .res{margin:6px 0 0}
 .arow .res b{color:var(--accent);font-weight:600}
 .arow .psg{font-size:13px;color:var(--muted);margin:6px 0 0;padding-left:10px;border-left:2px solid var(--line)}
@@ -230,7 +231,7 @@ body.searching .side{display:none}
   <section id="pane-brief"><div id="brief-now"></div><details class="past hidden" id="past"><summary>Points précédents</summary><div id="brief-past"></div></details></section>
 
   <section id="pane-search" class="hidden">
-    <p class="hint">Tape dans la barre en haut : mot-clé, article du CGI (219, 150-0 B ter, 787 B, 39 decies H…), numéro d'amendement (I-3089), député ou groupe. La recherche porte sur les 11 000 amendements déposés, classés par pertinence. Ou touche une suggestion :</p>
+    <p class="hint">Tape dans la barre en haut : mot-clé, article du CGI (219, 150-0 B ter, 787 B, 39 decies H…), numéro d'amendement (I-3089), député ou groupe. La recherche porte sur les amendements déposés à l'Assemblée et au Sénat, classés par pertinence. Ou touche une suggestion :</p>
     <div class="chips" id="sugg"></div>
     <div id="sel-sec" class="hidden"><div id="s-count"></div><div id="s-results"></div></div>
     <div id="all-sec" class="hidden">
@@ -391,10 +392,13 @@ const grpS = s => /^adopt/i.test(s) ? "adopte" : /^rejet/i.test(s) ? "rejete" : 
 function loadAll(){
   if(ALLp) return ALLp;
   $("#all-count").textContent = "Chargement des amendements…";
-  ALLp = fetch("amendements.json").then(r => r.ok ? r.json() : Promise.reject(r.status)).then(j => {
+  const sen = fetch("senat.json").then(r => r.ok ? r.json() : null).catch(() => null);
+  ALLp = fetch("amendements.json").then(r => r.ok ? r.json() : Promise.reject(r.status)).then(j => sen.then(s => {
+    IDX = Object.fromEntries(j.amendements.map(r => [r.n, r]));
+    if(s && Array.isArray(s.amendements)){ s.amendements.forEach(r => r.ch = "S"); j.amendements = j.amendements.concat(s.amendements); j.metaS = s.meta; }
     j.amendements.forEach(r => { const t = [r.n, r.art, r.aut, r.g, r.r, r.x, r.p, (r.k||[]).map(k => "article " + k + " du cgi").join(" ; ")].join(" | "); r._h = fold(t); r._c = compact(t); r._rs = fold(r.r || ""); r._hn = normT(t); r._g = grpS(r.s); });
-    IDX = Object.fromEntries(j.amendements.map(r => [r.n, r])); ALL = j; renderAll(); fillDl();
-  }).catch(() => { ALL = {err:1}; renderAll(); });
+    ALL = j; renderAll(); fillDl();
+  })).catch(() => { ALL = {err:1}; renderAll(); });
   return ALLp;
 }
 const STOP = new Set(["de","des","du","la","le","les","l","d","et","a","au","aux","en","pour","sur","par","un","une","dans","ou","sa","son","ses","leur","leurs","que","qui","ce","cet","cette","art","article","cgi"]);
@@ -565,7 +569,7 @@ function renderAll(){
   if(!ALL){ loadAll(); return; }
   if(ALL.err){ $("#all-count").textContent = "La base complète n'est pas disponible ici (elle se charge sur le site en ligne)."; $("#all-res").innerHTML=""; $("#all-f").innerHTML=""; $("#all-l").innerHTML=""; $("#all-more").classList.add("hidden"); return; }
   const nq = q.replace(/\s/g,"").toUpperCase(), isNum = /^(I{1,2}-)?(CF)?\d{1,5}$/.test(nq);
-  const clean = n => String(n).replace(/\s*\(.*\)\s*$/,"").toUpperCase(), strip = n => clean(n).replace(/^I+-/,"");
+  const clean = n => String(n).replace(/\s*\(.*\)\s*$/,"").replace(/\s+rect\b.*$/i,"").toUpperCase(), strip = n => clean(n).replace(/^I+-/,"");
   const terms = qterms(q), need = terms.length >= 3 ? Math.ceil(terms.length * 0.6) / terms.length : 1;
   const base = [];
   const aq = artQuery(q);
@@ -589,24 +593,25 @@ function renderAll(){
     if(strict || rel.cov >= need){ r._sc = rel.score + (strict ? 15 : 0); base.push(r); }
   }
   const cnt = k => base.filter(r => r._g===k).length;
-  const lieu = r => !allL || r.c===allL;
+  const lieu = r => !allL || (allL==="S" ? r.ch==="S" : (!r.ch && r.c===allL));
   $("#all-f").innerHTML = [["","Tous",base.length],["adopte","Adoptés",cnt("adopte")],["rejete","Rejetés",cnt("rejete")],["autre","Non soutenus, tombés, retirés…",cnt("autre")]]
     .map(([k,l,n]) => `<button class="chip" data-af="${k}" aria-pressed="${allF===k}">${l} (${n})</button>`).join("");
-  $("#all-l").innerHTML = [["","Séance et commission"],["séance","Séance"],["commission","Commission"]]
-    .map(([k,l]) => `<button class="chip" data-al="${k}" aria-pressed="${allL===k}">${l}</button>`).join("");
+  $("#all-l").innerHTML = [["","Assemblée et Sénat"],["séance","Assemblée – séance"],["commission","Assemblée – commission"],["S","Sénat"]]
+    .map(([k,l]) => `<button class="chip" data-al="${k}" aria-pressed="${allL===k}">${l}${k==="S"?" ("+base.filter(r=>r.ch==="S").length+")":""}</button>`).join("");
   const rows = base.filter(r => (!allF || r._g===allF) && lieu(r))
     .sort((x,y) => (y._sc - x._sc) || (x._g==="adopte"?0:1)-(y._g==="adopte"?0:1) || (x.c==="séance"?0:1)-(y.c==="séance"?0:1) || String(y.ds||y.d).localeCompare(String(x.ds||x.d)));
   $("#all-count").textContent = rows.length ? `${rows.length} amendement${rows.length>1?"s":""}` : "Aucun amendement ne correspond.";
   const cls = {adopte:"b-adopte", rejete:"b-rejete", autre:"b-autre"};
   $("#all-res").innerHTML = rows.slice(0, allLim).map(r => `<article class="arow">
     <div class="top">${r.u?`<a class="num" href="${esc(r.u)}" target="_blank" rel="noopener">${esc(r.n)}</a>`:`<span class="num">${esc(r.n)}</span>`}${r.dl?`<a class="dbt" href="${esc(r.dl)}" target="_blank" rel="noopener" title="Compte rendu des débats sur cet amendement">Débats</a>`:""}
-      <span class="badge ${cls[r._g]}">${esc(r.s||"—")}</span>${r._g==="adopte"?`<span class="caduc" title="Le projet a été rejeté en 1re lecture le 4 novembre 2026 : les amendements adoptés à l'Assemblée sont tombés">caduc depuis le rejet du 4/11</span>`:""}<span class="theme">${esc(r.art)} · ${esc(r.c)}</span>${rapLinks(r)}</div>
+      ${r.ch==="S"?`<span class="badge b-senat">Sénat</span>`:""}<span class="badge ${cls[r._g]}">${esc(r.s||"—")}</span>${r._g==="adopte"&&!r.ch?`<span class="caduc" title="Le projet a été rejeté en 1re lecture le 4 novembre 2026 : les amendements adoptés à l'Assemblée sont tombés">caduc depuis le rejet du 4/11</span>`:""}<span class="theme">${esc(r.art)}${r.ch?"":" · "+esc(r.c)}</span>${r.ch?"":rapLinks(r)}</div>
     <div class="meta">${esc(r.aut)}${r.g?" ("+esc(r.g)+")":""}${(r.ds||r.d)?" · "+fdate(r.ds||r.d):""}</div>
     ${r.r ? `<p class="res"><b>En bref :</b> ${hl(r.r, q)}</p>` : ""}
     ${(() => { const ps = passage(r, q); return ps ? `<p class="psg"><span>Passage contenant « ${esc(q)} » :</span> ${hl(ps, q)}</p>` : ""; })()}
     ${!r.r ? `<p>${hl(snip(r.x || r.p, q), q)}</p>` : ""}</article>`).join("");
   $("#all-more").classList.toggle("hidden", rows.length <= allLim);
-  $("#all-src").textContent = ALL.meta ? `Source : ${ALL.meta.source}, ${ALL.meta.total} amendements, mise à jour du ${new Date(ALL.meta.maj).toLocaleString("fr-FR",{dateStyle:"long",timeStyle:"short"})}.` : "";
+  const fd = m => new Date(m.maj).toLocaleString("fr-FR",{dateStyle:"long",timeStyle:"short"});
+  $("#all-src").textContent = ALL.meta ? `Sources : ${ALL.meta.source}, ${ALL.meta.total} amendements, mise à jour du ${fd(ALL.meta)}` + (ALL.metaS ? ` ; ${ALL.metaS.source}, ${ALL.metaS.total} amendements, mise à jour du ${fd(ALL.metaS)}.` : ".") : "";
 }
 function renderSearch(){
   const q = $("#sq").value.trim();
