@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
   push:                      # relance aussi à chaque publication de résumés (la planification GitHub n'est pas fiable)
     branches: [main]
-    paths: ["resumes.json", "resumes_senat.json", "data.js"]
+    paths: ["resumes.json", "resumes_senat.json", "data.js", ".github/workflows/amendements.yml", "scripts/**"]
 
 permissions:
   contents: write
@@ -36,5 +36,9 @@ jobs:
           git add amendements.json textes/premiere_partie.json senat.json textes/senat_premiere_partie.json
           if git diff --cached --quiet; then echo "Pas de changement"; exit 0; fi
           git commit -m "Amendements PLF 2027 : collecte du $(date -u +%Y-%m-%d)"
-          git pull --rebase origin main
-          git push origin HEAD:main
+          # GitHub rejette parfois le push (« fatal error in commit_refs_rules ») : on réessaie
+          for i in 1 2 3 4 5; do
+            git pull --rebase origin main && git push origin HEAD:main && exit 0
+            echo "Push refusé (essai $i), nouvel essai dans $((i*20)) s"; sleep $((i*20))
+          done
+          exit 1
