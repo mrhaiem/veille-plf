@@ -1,9 +1,9 @@
 window.VEILLE = {
  "meta": {
-  "titre": "Sénat : l'apport-cession recentré adopté en séance, la surtaxe d'IS encore à voter avant le scrutin du 28 ou 29 novembre",
-  "texte": "Le Sénat a adopté en séance la version de l'article 5 issue de sa commission, qui ne vise que les transmissions après cession des titres apportés, avec l'avis favorable du Gouvernement. La surtaxe d'IS (art. 15) reste à examiner avant le vote de la 1re partie, attendu le 28 ou le 29 novembre.",
+  "titre": "Sénat : surtaxe d'IS reconduite et pacte Papin assoupli, vote de la 1re partie attendu le 28 ou 29 novembre",
+  "texte": "Le Sénat a adopté le 25 novembre la reconduction de la contribution exceptionnelle sur les bénéfices des grandes entreprises (art. 15) et un pacte Papin assoupli (art. 10), puis le 26 novembre plusieurs articles additionnels dont des ajustements Pilier 2. Le vote sur l'ensemble de la 1re partie est attendu le 28 ou le 29 novembre.",
   "alerte": "Si le Parlement ne s'est pas prononcé le 17 décembre, le Gouvernement pourrait mettre en vigueur le budget par ordonnances, a priori sur la base de son texte initial (dont la reconduction de la surtaxe d'IS, art. 15) : les amendements des députés, tous tombés, n'en feraient pas partie.",
-  "majLe": "2026-11-25T06:40:00Z",
+  "majLe": "2026-11-26T06:45:00Z",
   "etapes": [
    {
     "date": "1er oct.",
@@ -59,6 +59,215 @@ window.VEILLE = {
  },
  "amendements": [
   {
+   "statut": "adopte",
+   "etape": "Sénat, séance publique 1re lecture",
+   "sourceTitre": "Public Sénat",
+   "ajoute": "2026-11-26T06:45:00Z",
+   "gouv": "favorable",
+   "groupe": "",
+   "cgi": "",
+   "id": "senat-art15-surtaxe",
+   "num": "Sénat n° 3084 (art. 15)",
+   "titre": "Surtaxe d'IS : le Sénat reconduit la contribution exceptionnelle pour un 3e exercice",
+   "objet": "Le Sénat a adopté l'article 15 du texte initial, qui reconduit pour un troisième exercice la contribution exceptionnelle sur les bénéfices des grandes entreprises, à un taux réduit par rapport à 2026 selon Ouest-France. Les amendements de suppression (dont n° 942 et n° 1605) et ceux relevant les taux ont été rejetés ; seul l'amendement n° 3084 de la commission, qui plafonne l'assiette de la contribution sur le fret maritime, a été adopté.",
+   "pratique": "Pour les groupes concernés, la reconduction devient le scénario central (texte du Sénat et texte initial du Gouvernement convergent) : provisionner l'IS 2026 en conséquence, sous réserve de la CMP ou des ordonnances.",
+   "articlePLF": "art. 15",
+   "auteurs": "Gouvernement ; Christine Lavarde (rapporteure générale) pour le n° 3084",
+   "theme": "is",
+   "date": "2026-11-25",
+   "source": "https://www.publicsenat.fr/actualites/politique/budget-le-senat-reconduit-la-surtaxe-sur-les-grandes-entreprises-allegee-de-2-milliards-deuros"
+  },
+  {
+   "statut": "adopte",
+   "etape": "Sénat, séance publique 1re lecture",
+   "sourceTitre": "Sénat — amendement",
+   "ajoute": "2026-11-26T06:45:00Z",
+   "gouv": "",
+   "groupe": "",
+   "cgi": "CGI, art. 39 decies J (nouveau)",
+   "id": "senat-papin-cedant-12mois",
+   "num": "Sénat n° 21, 328 rect. bis, 1052 rect., 1591 rect. quater, 2207 rect. bis",
+   "titre": "Pacte Papin : le cédant pourra accompagner le repreneur pendant douze mois",
+   "objet": "Amendements identiques adoptés à l'article 10 : pour le suramortissement de l'entreprise reprise, le cédant ne doit plus cesser toute fonction dès la cession, mais seulement toute fonction de direction de droit ou de fait ; les autres fonctions doivent cesser au plus tard douze mois après la cession.",
+   "pratique": "Permet d'organiser une période de transition contractuelle (mission d'accompagnement, contrat de travail non dirigeant) sans perdre le suramortissement ; bien documenter l'absence de direction de fait pendant cette période.",
+   "articlePLF": "art. 10",
+   "auteurs": "Commission des finances (rapporteure générale), MM. Rietmann, Berard, Grégory Blanc, Mme Delattre",
+   "theme": "reprise",
+   "date": "2026-11-25",
+   "source": "https://www.senat.fr/amendements/2026-2027/155/Amdt_I-21.html"
+  },
+  {
+   "statut": "adopte",
+   "etape": "Sénat, séance publique 1re lecture",
+   "sourceTitre": "Sénat — amendement",
+   "ajoute": "2026-11-26T06:45:00Z",
+   "gouv": "",
+   "groupe": "",
+   "cgi": "CGI, art. 150-0 D ter, 721, 726",
+   "id": "senat-papin-capital",
+   "num": "Sénat n° 22 rect., 1053 rect.",
+   "titre": "Pacte Papin : la société de reprise peut accueillir des investisseurs minoritaires",
+   "objet": "Pour l'abattement majoré sur la plus-value du cédant et le taux réduit de droits d'enregistrement, la société de reprise n'a plus à être détenue exclusivement par des salariés : il suffit que la majorité du capital et des droits de vote soit détenue par un ou plusieurs salariés de la société reprise.",
+   "pratique": "Ouvre le régime aux montages de reprise avec un fonds ou un investisseur minoritaire (LBO salarié) ; vérifier dans le texte final la durée de conservation de la majorité exigée.",
+   "articlePLF": "art. 10",
+   "auteurs": "Commission des finances (rapporteure générale), M. Grégory Blanc",
+   "theme": "reprise",
+   "date": "2026-11-25",
+   "source": "https://www.senat.fr/amendements/2026-2027/155/Amdt_I-22.html"
+  },
+  {
+   "statut": "adopte",
+   "etape": "Sénat, séance publique 1re lecture",
+   "sourceTitre": "Sénat — amendement",
+   "ajoute": "2026-11-26T06:45:00Z",
+   "gouv": "auteur (n° 3127)",
+   "groupe": "",
+   "cgi": "CGI, art. 39 decies J (nouveau) ; loi n° 78-763, art. 48 et 49",
+   "id": "senat-papin-scop",
+   "num": "Sénat n° 3127, 466 rect. ter, 1792 rect., 2986",
+   "titre": "Pacte Papin : reprises en Scop sécurisées",
+   "objet": "Le Sénat a adopté l'amendement du Gouvernement (n° 3127) et deux amendements identiques qui rendent le suramortissement applicable aux transformations d'une société en Scop, où les titres du cédant sont rachetés et annulés plutôt que cédés. Le n° 2986 ramène à quatre ans l'engagement de direction du salarié repreneur lorsque la cession intervient dans une transformation en Scop.",
+   "pratique": "Les transmissions aux salariés sous forme coopérative deviennent éligibles malgré l'absence de société de reprise distincte ; à intégrer dans l'étude des options de transmission des PME.",
+   "articlePLF": "art. 10",
+   "auteurs": "Gouvernement ; M. Canévet ; Mme Guhl",
+   "theme": "reprise",
+   "date": "2026-11-25",
+   "source": "https://www.senat.fr/amendements/2026-2027/155/Amdt_I-3127.html"
+  },
+  {
+   "statut": "adopte",
+   "etape": "Sénat, séance publique 1re lecture",
+   "sourceTitre": "Sénat — amendement",
+   "ajoute": "2026-11-26T06:45:00Z",
+   "gouv": "auteur",
+   "groupe": "",
+   "cgi": "CGI, art. 150-0 D ter",
+   "id": "senat-papin-agri",
+   "num": "Sénat n° 2779 rect., 2773",
+   "titre": "Pacte Papin agricole : abattement de 1 M€ et droits à 0,1 % pour les nouveaux agriculteurs",
+   "objet": "Deux amendements du Gouvernement adoptés à l'article 10 : l'abattement fixe du cédant partant à la retraite est porté à 1 000 000 € lorsque la cession profite à de nouveaux agriculteurs, sans condition d'âge (n° 2779 rect.), et les cessions d'immeubles ruraux à un nouvel agriculteur sont taxées à 0,1 % (n° 2773).",
+   "pratique": "Reprend en substance la mesure votée à l'Assemblée (I-4006, I-4007) et tombée le 4 novembre : piste à suivre pour les transmissions d'exploitations agricoles, avec contrôle des conditions de minimis.",
+   "articlePLF": "art. 10",
+   "auteurs": "Gouvernement",
+   "theme": "transmission",
+   "date": "2026-11-25",
+   "source": "https://www.senat.fr/amendements/2026-2027/155/Amdt_I-2779.html"
+  },
+  {
+   "statut": "adopte",
+   "etape": "Sénat, séance publique 1re lecture",
+   "sourceTitre": "Sénat — amendement",
+   "ajoute": "2026-11-26T06:45:00Z",
+   "gouv": "",
+   "groupe": "",
+   "cgi": "CGI, art. 39, 1, 5° ; 219",
+   "id": "senat-trpvlt",
+   "num": "Sénat n° 1586 rect. bis, 1463 rect. bis",
+   "titre": "Sous-compte « titres relevant du régime des plus-values à long terme » : coordination pour les dépréciations",
+   "objet": "Article additionnel après l'article 15 : coordination à l'article 39, 1, 5° du CGI pour que les règles de dépréciation des titres de participation visent aussi les titres inscrits au sous-compte spécial créé par la loi de finances pour 2026, dont l'inscription vaut présomption d'application du régime du long terme.",
+   "pratique": "Sécurise le traitement des provisions sur titres inscrits au sous-compte TRPVLT ; mesure proche de l'amendement I-2200 adopté à l'Assemblée puis tombé. À vérifier lors des arrêtés de comptes 2026.",
+   "articlePLF": "après art. 15",
+   "auteurs": "MM. Rietmann et Vincent Louault",
+   "theme": "plusvalues",
+   "date": "2026-11-25",
+   "source": "https://www.senat.fr/amendements/2026-2027/155/Amdt_I-1586.html"
+  },
+  {
+   "statut": "adopte",
+   "etape": "Sénat, séance publique 1re lecture",
+   "sourceTitre": "Sénat — amendement",
+   "ajoute": "2026-11-26T06:45:00Z",
+   "gouv": "",
+   "groupe": "",
+   "cgi": "CGI, art. 39 decies (nouveau dispositif)",
+   "id": "senat-art9-reconditionne",
+   "num": "Sénat n° 2769 rect., 1935 rect., 2098, 2302 rect.",
+   "titre": "Suramortissement « industrie 4.0 » : machines reconditionnées et plafond de 20 M€",
+   "objet": "À l'article 9, le Sénat étend le suramortissement aux biens reconditionnés ou remanufacturés par un professionnel (n° 2769 rect. et identiques). Le n° 2302 rect. (M. Delcros) plafonne les dépenses éligibles à 20 M€ par an et vise les investissements d'autoproduction d'énergie renouvelable.",
+   "pratique": "Les PME qui modernisent avec du matériel reconditionné pourraient en bénéficier ; le plafond de 20 M€ limite l'intérêt pour les gros programmes d'investissement industriel.",
+   "articlePLF": "art. 9",
+   "auteurs": "Mme Paoli-Gagin, MM. Uzenat, Grégory Blanc, Delcros",
+   "theme": "invest",
+   "date": "2026-11-25",
+   "source": "https://www.senat.fr/amendements/2026-2027/155/Amdt_I-2769.html"
+  },
+  {
+   "statut": "adopte",
+   "etape": "Sénat, séance publique 1re lecture",
+   "sourceTitre": "Sénat — amendement",
+   "ajoute": "2026-11-26T06:45:00Z",
+   "gouv": "",
+   "groupe": "",
+   "cgi": "CGI, art. 244 quater I",
+   "id": "senat-c3iv-nucleaire",
+   "num": "Sénat n° 1846 rect. ter, 2819",
+   "titre": "C3IV étendu à certains équipements de la filière nucléaire",
+   "objet": "Amendements identiques adoptés à l'article 9 : le crédit d'impôt au titre des investissements dans l'industrie verte s'appliquerait à la production de technologies de l'énergie nucléaire (composants, systèmes et métaux critiques listés).",
+   "pratique": "Ouvre une nouvelle catégorie d'investissements éligibles pour les industriels de la filière nucléaire ; agrément et liste précise à vérifier dans le texte final.",
+   "articlePLF": "art. 9",
+   "auteurs": "M. Vincent Louault, Mme Nieson",
+   "theme": "innovation",
+   "date": "2026-11-25",
+   "source": "https://www.senat.fr/amendements/2026-2027/155/Amdt_I-1846.html"
+  },
+  {
+   "statut": "adopte",
+   "etape": "Sénat, séance publique 1re lecture",
+   "sourceTitre": "Sénat — amendement",
+   "ajoute": "2026-11-26T06:45:00Z",
+   "gouv": "auteur",
+   "groupe": "",
+   "cgi": "CGI, art. 223 VK, 1679 decies",
+   "id": "senat-pilier2",
+   "num": "Sénat n° 2770",
+   "titre": "Pilier 2 : ajustements de l'imposition minimale mondiale",
+   "objet": "Amendement du Gouvernement adopté le 26 novembre (article additionnel après l'article 15) : il ajuste certaines modalités du dispositif « Pilier 2 » transposé par la loi de finances pour 2024 (notamment l'article 223 VK du CGI) et complète ces règles sur certains points.",
+   "pratique": "Groupes de plus de 750 M€ de CA : revoir les calculs GloBE et les déclarations à venir à la lumière de ces ajustements techniques, dont le détail doit être lu dans le dispositif complet.",
+   "articlePLF": "après art. 15",
+   "auteurs": "Gouvernement",
+   "theme": "international",
+   "date": "2026-11-26",
+   "source": "https://www.senat.fr/amendements/2026-2027/155/Amdt_I-2770.html"
+  },
+  {
+   "statut": "adopte",
+   "etape": "Sénat, séance publique 1re lecture",
+   "sourceTitre": "Sénat — amendement",
+   "ajoute": "2026-11-26T06:45:00Z",
+   "gouv": "",
+   "groupe": "RDPI (n° 225)",
+   "cgi": "CGI, art. 220 undecies A",
+   "id": "senat-velo",
+   "num": "Sénat n° 225, 363 rect., 1804 rect. bis",
+   "titre": "Réduction d'IS « flotte de vélos » prorogée jusqu'en 2030",
+   "objet": "Amendements identiques adoptés le 26 novembre : la réduction d'impôt de l'article 220 undecies A du CGI pour la mise à disposition de vélos aux salariés est prorogée du 31 décembre 2027 au 31 décembre 2030.",
+   "pratique": "Avantage modeste mais simple pour les entreprises équipant leurs salariés ; permet de planifier des contrats de flotte au-delà de 2027.",
+   "articlePLF": "après art. 15",
+   "auteurs": "Mme Havet, MM. Dhersin et Michaël Weber",
+   "theme": "is",
+   "date": "2026-11-26",
+   "source": "https://www.senat.fr/amendements/2026-2027/155/Amdt_I-225.html"
+  },
+  {
+   "statut": "rejete",
+   "etape": "Sénat, séance publique 1re lecture",
+   "sourceTitre": "Sénat — amendement",
+   "ajoute": "2026-11-26T06:45:00Z",
+   "gouv": "",
+   "groupe": "",
+   "cgi": "CGI, art. 216, 219, 244 quater B",
+   "id": "senat-rejets-qpfc-cir",
+   "num": "Sénat n° 1242, 1244, 2442, 1007 rect., 2438, 2533",
+   "titre": "Sénat : rejet des amendements sur la niche Copé, la QPFC et le CIR",
+   "objet": "Le 25 novembre, le Sénat a rejeté la suppression de la « niche Copé » (n° 1242), la suppression de la QPFC réduite intra-groupe (n° 1244) et le relèvement de la QPFC de 5 % à 10 % (n° 2442). Le 26 novembre, il a rejeté une série d'amendements de réforme ou de conditionnement du CIR (dont n° 1007 rect., 2438, 2533).",
+   "pratique": "Les régimes mère-fille, de plus-values sur titres de participation et du CIR sortent inchangés de la 1re partie au Sénat ; risque résiduel limité à la CMP.",
+   "articlePLF": "après art. 15",
+   "auteurs": "Groupes SER, CRCE-K, RDSE",
+   "theme": "is",
+   "date": "2026-11-26",
+   "source": "https://www.senat.fr/amendements/2026-2027/155/Amdt_I-2442.html"
+  },
+  {
    "id": "senat-art5-apport",
    "num": "Sénat FINC.9",
    "titre": "Apport-cession : le Sénat adopte en séance la version recentrée de l'article 5",
@@ -82,7 +291,7 @@ window.VEILLE = {
    "num": "I-69, I-563, I-648, I-944, I-1009, I-1326",
    "titre": "Suppression de la prorogation de la contribution exceptionnelle sur les bénéfices des grandes entreprises",
    "objet": "L'article 15 reconduisait pour un 3e exercice la contribution exceptionnelle (taux réduits à 15,7 % / 31,4 %) et prorogeait la contribution des armateurs au tonnage. Article supprimé par 79 voix contre 77.",
-   "pratique": "La suppression est tombée avec le rejet du 4 novembre : la reconduction de la contribution exceptionnelle figure dans le texte initial transmis au Sénat. Ne pas lever les provisions d'IS 2027 ; surveiller le vote du Sénat.",
+   "pratique": "La suppression est tombée avec le rejet du 4 novembre, et le Sénat a adopté le 25 novembre la reconduction prévue par le texte initial (voir fiche Sénat art. 15).",
    "statut": "supprime",
    "articlePLF": "art. 15",
    "cgi": "",
@@ -1030,6 +1239,48 @@ window.VEILLE = {
  ],
  "briefs": [
   {
+   "date": "2026-11-26",
+   "titre": "Sénat : surtaxe d'IS reconduite, pacte Papin assoupli",
+   "intro": "Le Sénat a voté les 25 et 26 novembre l'essentiel des articles 6 à 15 du texte initial et une série d'articles additionnels ; le vote de la 1re partie reste attendu le 28 ou le 29 novembre.",
+   "items": [
+    {
+     "phrase": "Surtaxe d'IS (art. 15) : le Sénat a reconduit la contribution exceptionnelle des grandes entreprises pour un 3e exercice, à taux réduit (environ 5 Md€ en 2027 selon Ouest-France), et rejeté tous les amendements de suppression : la provision redevient la règle.",
+     "num": "Sénat n° 3084",
+     "cle": "surtaxe"
+    },
+    {
+     "phrase": "Pacte Papin (art. 10) : le cédant pourra rester douze mois sans fonction de direction (n° 21 et identiques) et la société de reprise pourra accueillir des investisseurs minoritaires si les salariés gardent la majorité (n° 22 rect.).",
+     "num": "Sénat n° 21, 22 rect.",
+     "cle": "Papin"
+    },
+    {
+     "phrase": "Le Gouvernement a fait adopter à l'article 10 la prise en compte des reprises en Scop (n° 3127) et un volet agricole : abattement de 1 M€ pour les cessions à de nouveaux agriculteurs et droits de 0,1 % sur les immeubles ruraux.",
+     "num": "Sénat n° 3127, 2779 rect.",
+     "cle": "Scop"
+    },
+    {
+     "phrase": "Suramortissement 4.0 (art. 9) : extension aux machines reconditionnées et plafond de 20 M€ de dépenses par an ; le C3IV est ouvert à certains équipements nucléaires.",
+     "num": "Sénat n° 2769 rect., 2302 rect.",
+     "cle": "reconditionn"
+    },
+    {
+     "phrase": "Après l'art. 15 : coordination des dépréciations pour les titres inscrits au sous-compte « plus-values à long terme » (n° 1586 rect. bis), ajustements Pilier 2 du Gouvernement (n° 2770) et réduction d'IS vélos prorogée à 2030.",
+     "num": "Sénat n° 1586 rect. bis, 2770",
+     "cle": "Pilier 2"
+    },
+    {
+     "phrase": "Rejets notables : suppression de la niche Copé, relèvement ou suppression de la QPFC réduite et réformes du CIR ont toutes été écartées par le Sénat.",
+     "num": "Sénat n° 1242, 2442",
+     "cle": "QPFC"
+    },
+    {
+     "phrase": "Contrôle de la sélection contre la base de l'Assemblée (collecte du 26 novembre) : aucune correction de statut ; la fiche sur la suppression de l'art. 15 à l'AN renvoie désormais au vote du Sénat.",
+     "num": "",
+     "cle": "art. 15"
+    }
+   ]
+  },
+  {
    "date": "2026-11-25",
    "titre": "Sénat : l'apport-cession recentré voté en séance, avec l'aval du Gouvernement",
    "intro": "Le Sénat poursuit l'examen en séance de la 1re partie du texte initial, dont il a adopté l'article 4 lundi soir ; le vote de la 1re partie reste attendu le 28 ou le 29 novembre.",
@@ -1633,6 +1884,121 @@ window.VEILLE = {
   }
  ],
  "actus": [
+  {
+   "id": "2026-11-25-senat-surtaxe-is",
+   "date": "2026-11-25",
+   "titre": "Le Sénat reconduit la surtaxe d'IS des grandes entreprises pour un troisième exercice",
+   "source": "https://www.publicsenat.fr/actualites/politique/budget-le-senat-reconduit-la-surtaxe-sur-les-grandes-entreprises-allegee-de-2-milliards-deuros",
+   "sourceTitre": "Public Sénat",
+   "theme": "is",
+   "resume": "<p>Le Sénat a adopté l'<b>article 15<\/b> du texte initial du PLF 2027, qui reconduit pour un <b>troisième exercice<\/b> la contribution exceptionnelle sur les bénéfices des grandes entreprises. Selon Public Sénat, la mesure a été votée sans modification de cette contribution ; selon Ouest-France, le vote est intervenu à main levée et la contribution, à un taux réduit par rapport à 2026, doit rapporter <b>environ 5 Md€ en 2027<\/b>, contre plus de 7 Md€ en 2026, soit un allègement d'environ 2 Md€.<\/p><p>Les amendements de suppression (n° 942, n° 1605…) et ceux qui rehaussaient les taux ou abaissaient le seuil d'assujettissement ont été rejetés. Seul l'amendement <b>n° 3084<\/b> de la rapporteure générale a été adopté : il plafonne l'assiette de la contribution sur les entreprises de <b>transport maritime<\/b>, dont le rendement est attendu autour de 300 M€.<\/p><p>Le ministre de l'Économie a soutenu la mesure. Texte du Sénat et texte initial convergeant, la reconduction devient le scénario de référence pour la CMP comme pour d'éventuelles ordonnances (<span class=\"ref\">art. 47 C<\/span>).<\/p>",
+   "refs": [
+    "art. 15 PLF 2027",
+    "Sénat n° 3084"
+   ],
+   "retenir": "La surtaxe d'IS des grands groupes a désormais l'appui du Gouvernement et du Sénat : provisionner la contribution au titre de l'exercice 2026, à un taux réduit par rapport à l'an dernier.",
+   "amdts": [
+    "art. 15",
+    "surtaxe",
+    "contribution exceptionnelle"
+   ],
+   "cards": [
+    {
+     "q": "Pourquoi la suppression votée à l'Assemblée ne compte plus ?",
+     "a": "<p>Les députés avaient supprimé l'article 15 le 27 octobre, mais ce vote est tombé avec le rejet de la 1re partie le 4 novembre. Le Sénat est saisi du texte initial du Gouvernement, qui contient la reconduction, et il l'a adoptée.<\/p>"
+    },
+    {
+     "q": "Qu'a changé l'amendement n° 3084 ?",
+     "a": "<p>Il complète l'article 15 pour que l'assiette de la contribution exceptionnelle sur les entreprises de transport maritime soit retenue dans une limite de 3,75 Md€. L'objectif affiché par la commission est d'éviter que la ponction sur ce secteur dépasse les 300 M€ attendus.<\/p>"
+    },
+    {
+     "q": "Quel impact pour les provisions ?",
+     "a": "<p>Les groupes dans le champ de la contribution doivent la provisionner au titre de l'exercice concerné. Le risque d'une suppression en CMP paraît faible, puisque le Gouvernement et la majorité sénatoriale la soutiennent ; il reste à suivre les taux définitifs dans le texte de la CMP.<\/p>"
+    }
+   ],
+   "qcm": [
+    {
+     "q": "Quel rendement Ouest-France attribue-t-il à la surtaxe reconduite pour 2027 ?",
+     "o": [
+      "Environ 7 Md€",
+      "Environ 5 Md€",
+      "Environ 300 M€",
+      "Environ 2 Md€"
+     ],
+     "c": 1,
+     "e": "Ouest-France indique environ 5 Md€ en 2027, contre plus de 7 Md€ en 2026 ; 300 M€ correspondent au fret maritime et 2 Md€ à l'allègement."
+    },
+    {
+     "q": "Quel amendement à l'article 15 le Sénat a-t-il adopté ?",
+     "o": [
+      "Le n° 1605 de suppression de l'article",
+      "Le n° 1004 rect. portant le taux à 12 %",
+      "Le n° 2510 rétablissant le seuil de 1 Md€",
+      "Le n° 3084 plafonnant le fret maritime"
+     ],
+     "c": 3,
+     "e": "Selon la base du Sénat, seul le n° 3084 de la rapporteure générale a été adopté ; les amendements de suppression ou de durcissement ont été rejetés."
+    }
+   ]
+  },
+  {
+   "id": "2026-11-25-senat-papin",
+   "date": "2026-11-25",
+   "titre": "Pacte Papin : le Sénat assouplit la reprise des PME par les salariés",
+   "source": "https://www.senat.fr/amendements/2026-2027/155/Amdt_I-22.html",
+   "sourceTitre": "Sénat — amendements à l'article 10",
+   "theme": "reprise",
+   "resume": "<p>Le 25 novembre, le Sénat a adopté une quinzaine d'amendements à l'<b>article 10<\/b> (pacte « Papin »), selon la base officielle des amendements du Sénat.<\/p><p>Deux assouplissements de la commission des finances, repris par des amendements identiques de plusieurs groupes : le cédant peut rester dans l'entreprise <b>douze mois<\/b> après la cession, à condition de quitter immédiatement toute fonction de direction de droit ou de fait (<b>n° 21<\/b>, pour le suramortissement de <span class=\"ref\">CGI, art. 39 decies J<\/span>) ; la société de reprise peut accueillir des <b>investisseurs minoritaires<\/b>, la majorité du capital et des droits de vote devant être détenue par des salariés (<b>n° 22 rect.<\/b>, pour l'abattement et les droits d'enregistrement réduits).<\/p><p>Le Gouvernement a fait adopter la prise en compte des <b>reprises en Scop<\/b> (n° 3127) et un volet agricole : abattement de 1 M€ pour les cessions à de nouveaux agriculteurs (n° 2779 rect.) et taux de 0,1 % sur les immeubles ruraux (n° 2773). Le n° 1584 rect. étend le relèvement du plafond aux compléments de prix.<\/p>",
+   "refs": [
+    "art. 10 PLF 2027",
+    "CGI, art. 39 decies J",
+    "CGI, art. 150-0 D ter"
+   ],
+   "retenir": "Les reprises par salariés avec un investisseur minoritaire et un accompagnement du cédant d'un an deviennent compatibles avec le pacte Papin dans la version du Sénat ; à confirmer en CMP.",
+   "amdts": [
+    "Papin",
+    "art. 10",
+    "39 decies J"
+   ],
+   "cards": [
+    {
+     "q": "Que peut faire le cédant après la cession ?",
+     "a": "<p>Dans la version du Sénat, il doit cesser immédiatement toute fonction de direction, de droit ou de fait, mais peut conserver d'autres fonctions, par exemple d'accompagnement, pendant au plus douze mois. Le texte initial imposait l'arrêt de toute fonction dès la cession pour le suramortissement.<\/p>"
+    },
+    {
+     "q": "Un fonds peut-il entrer au capital de la société de reprise ?",
+     "a": "<p>Oui, à titre minoritaire : l'amendement n° 22 rect. remplace l'exigence d'un capital détenu en totalité par des salariés par une détention majoritaire du capital et des droits de vote par un ou plusieurs salariés. Cela facilite le financement des reprises par effet de levier.<\/p>"
+    },
+    {
+     "q": "Ces votes sont-ils acquis ?",
+     "a": "<p>Non. Ils figurent dans le texte du Sénat, qui doit encore voter la 1re partie puis l'ensemble le 9 décembre, avant la CMP. Faute d'adoption au 17 décembre, des ordonnances pourraient reprendre le texte initial, sans ces assouplissements sauf choix contraire du Gouvernement.<\/p>"
+    }
+   ],
+   "qcm": [
+    {
+     "q": "Quelle condition le Sénat retient-il pour la société de reprise (n° 22 rect.) ?",
+     "o": [
+      "Capital détenu à 100 % par des salariés",
+      "Majorité du capital et des votes aux salariés",
+      "Au moins un tiers du capital détenu par des salariés",
+      "Aucune condition de détention"
+     ],
+     "c": 1,
+     "e": "L'amendement remplace la détention intégrale par les salariés par une détention majoritaire du capital et des droits de vote."
+    },
+    {
+     "q": "Pendant combien de temps le cédant peut-il conserver des fonctions non dirigeantes ?",
+     "o": [
+      "Six mois",
+      "Vingt-quatre mois",
+      "Douze mois",
+      "Cinq ans"
+     ],
+     "c": 2,
+     "e": "Les amendements n° 21 et identiques prévoient la cessation des autres fonctions au plus tard douze mois après la cession."
+    }
+   ]
+  },
   {
    "id": "2026-11-24-senat-apport-cession",
    "date": "2026-11-24",
