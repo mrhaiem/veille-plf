@@ -1,9 +1,9 @@
 window.VEILLE = {
  "meta": {
-  "titre": "Sénat : surtaxe d'IS reconduite et pacte Papin assoupli, vote de la 1re partie attendu le 28 ou 29 novembre",
-  "texte": "Le Sénat a adopté le 25 novembre la reconduction de la contribution exceptionnelle sur les bénéfices des grandes entreprises (art. 15) et un pacte Papin assoupli (art. 10), puis le 26 novembre plusieurs articles additionnels dont des ajustements Pilier 2. Le vote sur l'ensemble de la 1re partie est attendu le 28 ou le 29 novembre.",
+  "titre": "Sénat : réforme des indemnités de rupture reportée à 2027, vote de la 1re partie attendu le 28 novembre",
+  "texte": "Le Sénat a limité la réforme fiscale des indemnités de rupture (art. 2) aux ruptures engagées à compter du 1er janvier 2027, après avoir reconduit la surtaxe d'IS et assoupli le pacte Papin. La CMP sur le PLFSS a échoué le 26 novembre ; le vote sur la 1re partie du PLF est attendu le 28 novembre.",
   "alerte": "Si le Parlement ne s'est pas prononcé le 17 décembre, le Gouvernement pourrait mettre en vigueur le budget par ordonnances, a priori sur la base de son texte initial (dont la reconduction de la surtaxe d'IS, art. 15) : les amendements des députés, tous tombés, n'en feraient pas partie.",
-  "majLe": "2026-11-26T06:45:00Z",
+  "majLe": "2026-11-27T06:40:00Z",
   "etapes": [
    {
     "date": "1er oct.",
@@ -58,6 +58,25 @@ window.VEILLE = {
   ]
  },
  "amendements": [
+  {
+   "id": "senat-art2-rupture",
+   "num": "Sénat n° 4 rect., 2023 rect., 2649",
+   "titre": "Indemnités de rupture : réforme reportée aux ruptures à compter du 1er janvier 2027",
+   "objet": "À l'article 2 (art. 80 duodecies du CGI), le Sénat a adopté le 23 novembre l'amendement de la commission modifié par le sous-amendement n° 2023 rect. : le nouveau plafond d'exonération (un PASS) ne viserait que les ruptures notifiées ou convenues à compter du 1er janvier 2027. L'amendement n° 2649 précise que ce plafond s'apprécie sur l'ensemble des indemnités concernées.",
+   "pratique": "Pour les départs de salariés ou de mandataires sociaux en cours de négociation, dater et documenter la notification ou la convention de rupture avant 2027 pourrait préserver le régime actuel, sous réserve du texte issu de la CMP.",
+   "statut": "adopte",
+   "articlePLF": "art. 2",
+   "cgi": "CGI, art. 80 duodecies",
+   "auteurs": "Commission des finances ; Mme Paoli-Gagin (n° 2023 rect.) ; M. Lévrier (n° 2649)",
+   "groupe": "",
+   "gouv": "favorable (n° 2649)",
+   "theme": "salaries",
+   "etape": "Sénat, séance publique 1re lecture",
+   "date": "2026-11-23",
+   "source": "https://www.senat.fr/amendements/2026-2027/155/Amdt_I-2649.html",
+   "sourceTitre": "Sénat — amendement",
+   "ajoute": "2026-11-27T06:40:00Z"
+  },
   {
    "statut": "adopte",
    "etape": "Sénat, séance publique 1re lecture",
@@ -1239,6 +1258,38 @@ window.VEILLE = {
  ],
  "briefs": [
   {
+   "date": "2026-11-27",
+   "titre": "Indemnités de rupture : réforme au 1er janvier 2027 ; échec de la CMP sur le PLFSS",
+   "intro": "Le Sénat poursuit l'examen de la 1re partie du PLF 2027, dont le vote est attendu le 28 novembre ; la CMP sur le budget de la Sécurité sociale a échoué le 26 novembre.",
+   "items": [
+    {
+     "phrase": "Indemnités de rupture (art. 2) : le Sénat a réservé le plafond d'exonération d'un PASS aux ruptures notifiées ou convenues à compter du 1er janvier 2027, ce qui ouvre une fenêtre pour sécuriser les départs négociés en 2026.",
+     "num": "Sénat n° 4 rect., 2023 rect.",
+     "cle": "rupture"
+    },
+    {
+     "phrase": "Le plafond d'un PASS s'apprécierait sur l'ensemble des indemnités de rupture (n° 2649, avis favorable du Gouvernement) : le cumul d'indemnités ne multiplierait pas l'exonération.",
+     "num": "Sénat n° 2649",
+     "cle": "80 duodecies"
+    },
+    {
+     "phrase": "PLFSS 2027 : la CMP du 26 novembre a échoué ; le texte repart en nouvelle lecture à l'Assemblée, et le volet social de la réforme des indemnités de rupture reste en suspens.",
+     "num": "",
+     "cle": "PLFSS"
+    },
+    {
+     "phrase": "Prélèvement forfaitaire unique : selon Public Sénat, les amendements de la gauche visant à supprimer ou modifier la flat tax ont été rejetés, avec le soutien du Gouvernement ; le régime des dividendes reste inchangé à ce stade.",
+     "num": "",
+     "cle": "PFU"
+    },
+    {
+     "phrase": "Base de l'Assemblée vérifiée : aucun nouveau sort sur le périmètre de la veille, les statuts de la sélection sont conformes (amendements AN tombés avec le rejet du 4 novembre).",
+     "num": "",
+     "cle": "tombé"
+    }
+   ]
+  },
+  {
    "date": "2026-11-26",
    "titre": "Sénat : surtaxe d'IS reconduite, pacte Papin assoupli",
    "intro": "Le Sénat a voté les 25 et 26 novembre l'essentiel des articles 6 à 15 du texte initial et une série d'articles additionnels ; le vote de la 1re partie reste attendu le 28 ou le 29 novembre.",
@@ -1884,6 +1935,118 @@ window.VEILLE = {
   }
  ],
  "actus": [
+  {
+   "id": "2026-11-26-cmp-plfss",
+   "date": "2026-11-26",
+   "titre": "Budget de la Sécu 2027 : échec de la CMP, le texte repart à l'Assemblée",
+   "source": "https://www.ouest-france.fr/economie/budget-collectivites-etat/budget-de-la-secu-2027-deputes-et-senateurs-echouent-a-trouver-un-accord-le-texte-renvoye-en-nouvelle-lecture-a-lassemblee-2a4e3726-e975-11f1-86c1-70195b4d2e52",
+   "sourceTitre": "Ouest-France",
+   "theme": "procedure",
+   "resume": "<p>Réunie le jeudi <b>26 novembre<\/b> au matin, la commission mixte paritaire (sept députés, sept sénateurs) n'est pas parvenue à un accord sur le <b>projet de loi de financement de la sécurité sociale pour 2027<\/b>. Un rapporteur a évoqué des convergences possibles sur une centaine d'articles, mais une dizaine d'articles restaient en suspens.<\/p><p>Le Sénat avait adopté le PLFSS le <b>18 novembre<\/b>, par 201 voix contre 124, après avoir notamment rétabli la réforme des retraites de 2023. Faute d'accord, le texte repart en <b>nouvelle lecture à l'Assemblée nationale<\/b>.<\/p><p>Pour les entreprises, l'enjeu immédiat porte sur les dispositions sociales attendues pour le 1er janvier 2027, dont le volet social de la réforme des indemnités de rupture (<span class=\"ref\">art. 6 PLFSS<\/span>), qui fait pendant à l'article 2 du PLF. Le budget de l'État suit sa propre navette au Sénat : vote sur les recettes attendu le 28 novembre, vote final le 9 décembre.<\/p>",
+   "refs": [
+    "PLFSS 2027",
+    "art. 6 PLFSS",
+    "art. 2 PLF 2027"
+   ],
+   "retenir": "Les paramètres sociaux 2027 (cotisations, volet social des indemnités de rupture) restent incertains jusqu'à la nouvelle lecture : paramétrer la paie et les accords de départ avec une clause de révision.",
+   "amdts": [
+    "rupture",
+    "PLFSS"
+   ],
+   "cards": [
+    {
+     "q": "Que se passe-t-il après l'échec de la CMP ?",
+     "a": "<p>Le texte retourne à l'Assemblée nationale pour une nouvelle lecture, puis au Sénat ; l'Assemblée peut ensuite être appelée à statuer définitivement. Les dispositions votées par chaque chambre ne sont donc pas encore acquises.<\/p>"
+    },
+    {
+     "q": "Quel lien avec le PLF 2027 ?",
+     "a": "<p>La réforme des indemnités de rupture est répartie entre l'article 2 du PLF (impôt sur le revenu) et l'article 6 du PLFSS (cotisations et CSG-CRDS). Les deux volets doivent être suivis séparément, car leurs rédactions et leurs calendriers diffèrent.<\/p>"
+    }
+   ],
+   "qcm": [
+    {
+     "q": "Quand la CMP sur le PLFSS 2027 a-t-elle échoué ?",
+     "o": [
+      "Le 18 novembre",
+      "Le 4 novembre",
+      "Le 9 décembre",
+      "Le 26 novembre"
+     ],
+     "c": 3,
+     "e": "La CMP s'est réunie le jeudi 26 novembre au matin ; le 18 novembre correspond au vote du Sénat sur le PLFSS."
+    },
+    {
+     "q": "Par quel score le Sénat avait-il adopté le PLFSS ?",
+     "o": [
+      "201 voix contre 124",
+      "248 voix contre 1",
+      "458 voix contre 0",
+      "194 voix contre 146"
+     ],
+     "c": 0,
+     "e": "Le Sénat a adopté le PLFSS le 18 novembre par 201 voix contre 124 ; 458 – 0 est le rejet de la 1re partie du PLF à l'Assemblée."
+    }
+   ]
+  },
+  {
+   "id": "2026-11-23-indemnites-rupture",
+   "date": "2026-11-23",
+   "titre": "Indemnités de rupture : le Sénat cible les ruptures à compter de 2027",
+   "source": "https://www.juriguide.com/2026/11/24/indemnites-rupture-fiscalite-2027-senat/",
+   "sourceTitre": "Juriguide",
+   "theme": "salaries",
+   "resume": "<p>L'<b>article 2<\/b> du PLF 2027 réforme le régime fiscal des indemnités de rupture (<span class=\"ref\">CGI, art. 80 duodecies<\/span>) : les indemnités de licenciement, de rupture conventionnelle ou de mise à la retraite ne seraient plus exonérées d'impôt sur le revenu que dans la limite d'<b>un PASS<\/b>. Le volet social figure à l'article 6 du PLFSS 2027.<\/p><p>Le 23 novembre, le Sénat a adopté l'amendement de sa commission des finances, qui visait d'abord une entrée en vigueur au 1er octobre 2026, modifié par le sous-amendement <b>n° 2023 rect.<\/b> de Mme Paoli-Gagin : la réforme ne concernerait que les ruptures <b>notifiées ou convenues à compter du 1er janvier 2027<\/b>, même si l'indemnité est versée plus tard. Selon le compte rendu cité par la presse, l'amendement modifié a recueilli 248 voix contre une. Une mesure transitoire maintiendrait l'ancien régime pour les indemnités liées à un PSE ou une RCC validé ou homologué avant 2027.<\/p><p>L'amendement <b>n° 2649<\/b> de M. Lévrier, adopté avec l'avis favorable du Gouvernement, précise que le plafond s'apprécie sur l'<b>ensemble des indemnités<\/b> concernées. Le texte doit encore passer en CMP.<\/p>",
+   "refs": [
+    "art. 2 PLF 2027",
+    "CGI, art. 80 duodecies",
+    "Sénat n° 2023 rect.",
+    "Sénat n° 2649"
+   ],
+   "retenir": "Pour un départ négocié de cadre ou de dirigeant, sécuriser la date de notification ou de signature de la rupture avant le 1er janvier 2027 pourrait préserver l'exonération actuelle, sous réserve de la CMP.",
+   "amdts": [
+    "rupture",
+    "80 duodecies",
+    "2649"
+   ],
+   "cards": [
+    {
+     "q": "Quelles ruptures seraient visées par la réforme ?",
+     "a": "<p>Dans la version du Sénat, seules les ruptures notifiées ou convenues à compter du 1er janvier 2027. Une rupture engagée en 2026 resterait sous le régime actuel même si l'indemnité est payée en 2027. La commission avait d'abord proposé le 1er octobre 2026, date du dépôt du projet.<\/p>"
+    },
+    {
+     "q": "Que change l'amendement n° 2649 ?",
+     "a": "<p>Il précise que le plafond d'exonération d'un PASS s'apprécie sur l'ensemble des indemnités concernées, et non indemnité par indemnité. Un cumul d'indemnités (légale, conventionnelle, transactionnelle) ne permettrait donc pas de multiplier le plafond.<\/p>"
+    },
+    {
+     "q": "Et les plans sociaux en cours ?",
+     "a": "<p>Une mesure transitoire conserverait l'ancien régime pour les indemnités versées dans le cadre d'un PSE ou d'une rupture conventionnelle collective validé ou homologué avant le 1er janvier 2027. Le volet social, porté par le PLFSS, est rédigé différemment et doit être vérifié séparément.<\/p>"
+    }
+   ],
+   "qcm": [
+    {
+     "q": "Quelle date d'entrée en vigueur le Sénat a-t-il retenue pour la réforme ?",
+     "o": [
+      "Le 1er octobre 2026, date du dépôt",
+      "Ruptures notifiées ou convenues dès 2027",
+      "Les indemnités effectivement versées à compter du 1er juillet 2027",
+      "Le lendemain de la publication de la loi"
+     ],
+     "c": 1,
+     "e": "Le sous-amendement n° 2023 rect. a remplacé le 1er octobre 2026 proposé par la commission par le 1er janvier 2027, apprécié à la date de notification ou de convention de la rupture."
+    },
+    {
+     "q": "Selon l'amendement n° 2649, comment s'apprécie le plafond d'un PASS ?",
+     "o": [
+      "Par indemnité, séparément",
+      "Par année civile de versement",
+      "Sur l'ensemble des indemnités concernées",
+      "Par employeur successif du salarié ou du dirigeant"
+     ],
+     "c": 2,
+     "e": "L'amendement de M. Lévrier, adopté avec l'avis favorable du Gouvernement, prévoit une appréciation globale du plafond sur toutes les indemnités concernées."
+    }
+   ]
+  },
   {
    "id": "2026-11-25-senat-surtaxe-is",
    "date": "2026-11-25",
