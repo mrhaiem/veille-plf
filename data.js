@@ -1,9 +1,9 @@
 window.VEILLE = {
  "meta": {
-  "titre": "Sénat : réforme des indemnités de rupture reportée à 2027, vote de la 1re partie attendu le 28 novembre",
-  "texte": "Le Sénat a limité la réforme fiscale des indemnités de rupture (art. 2) aux ruptures engagées à compter du 1er janvier 2027, après avoir reconduit la surtaxe d'IS et assoupli le pacte Papin. La CMP sur le PLFSS a échoué le 26 novembre ; le vote sur la 1re partie du PLF est attendu le 28 novembre.",
+  "titre": "Sénat, 1re partie : TVA à 5,5 % pour le neuf Jeanbrun, taxe YouTube durcie, TVA Canal+ préservée",
+  "texte": "Le Sénat a supprimé la hausse de TVA de la télévision payante, durci la fiscalité des plateformes et voté une TVA à 5,5 % pour le neuf acquis en Jeanbrun ; l'examen de la 1re partie se poursuit le 28 novembre (articles 28 à 42 encore en discussion). Le vote sur la 1re partie est attendu avant l'ouverture de la 2e partie le 30 novembre.",
   "alerte": "Si le Parlement ne s'est pas prononcé le 17 décembre, le Gouvernement pourrait mettre en vigueur le budget par ordonnances, a priori sur la base de son texte initial (dont la reconduction de la surtaxe d'IS, art. 15) : les amendements des députés, tous tombés, n'en feraient pas partie.",
-  "majLe": "2026-11-27T06:40:00Z",
+  "majLe": "2026-11-28T06:34:35Z",
   "etapes": [
    {
     "date": "1er oct.",
@@ -58,6 +58,196 @@ window.VEILLE = {
   ]
  },
  "amendements": [
+  {
+   "gouv": "",
+   "groupe": "",
+   "etape": "Sénat, séance publique 1re lecture",
+   "sourceTitre": "Sénat — amendement",
+   "ajoute": "2026-11-28T06:34:35Z",
+   "id": "senat-tsvg-abattement",
+   "num": "Sénat n° 25, 1214, 2110 rect., 2351 rect., 861 rect.",
+   "titre": "« Taxe YouTube » (TSV-G) : le Sénat supprime l'abattement des plateformes de partage de vidéos",
+   "objet": "L'article 12 du texte initial ramenait de 66 % à 33 % l'abattement d'assiette de la taxe sur la publicité diffusée par les plateformes gratuites de partage de vidéos. Le 26 novembre, le Sénat a adopté les amendements de la commission des finances et de plusieurs groupes qui suppriment cet abattement.",
+   "pratique": "Pour les plateformes de partage de vidéos, l'assiette de la taxe porterait sur l'intégralité des recettes publicitaires concernées ; à confirmer en CMP.",
+   "statut": "adopte",
+   "articlePLF": "art. 12",
+   "cgi": "CIBS, art. L. 454-21 et s.",
+   "auteurs": "Christine Lavarde (rapporteure générale), Sylvie Robert, Laurent Lafon, Pascal Savoldelli",
+   "theme": "autre",
+   "date": "2026-11-26",
+   "source": "https://www.senat.fr/amendements/2026-2027/155/Amdt_I-25.html"
+  },
+  {
+   "gouv": "",
+   "groupe": "LR",
+   "etape": "Sénat, séance publique 1re lecture",
+   "sourceTitre": "Sénat — amendement",
+   "ajoute": "2026-11-28T06:34:35Z",
+   "id": "senat-taxe-contenus-journalistiques",
+   "num": "Sénat n° 3054 rect. bis",
+   "titre": "Taxe de 3 % sur les recettes des services numériques exploitant des contenus journalistiques",
+   "objet": "Adopté le 26 novembre contre l'avis du Gouvernement selon la presse, l'amendement de Cédric Vial institue au profit de l'État une taxe sur les recettes tirées de certains services numériques (dont les moteurs de recherche en ligne) exploitant des contenus journalistiques, y compris par l'intelligence artificielle ; la presse évoque un taux de 3 % et une entrée en vigueur au 1er janvier 2027.",
+   "pratique": "Les grandes plateformes et fournisseurs d'IA pourraient supporter une nouvelle taxe sectorielle ; mesure fragile (avis défavorable du Gouvernement), à suivre en CMP.",
+   "statut": "adopte",
+   "articlePLF": "après art. 12",
+   "cgi": "Taxe nouvelle (non codifiée)",
+   "auteurs": "Cédric Vial",
+   "theme": "international",
+   "date": "2026-11-26",
+   "source": "https://www.senat.fr/amendements/2026-2027/155/Amdt_I-3054.html"
+  },
+  {
+   "gouv": "Gouvernement (amendement initial)",
+   "groupe": "",
+   "etape": "Sénat, séance publique 1re lecture",
+   "sourceTitre": "Sénat — amendement",
+   "ajoute": "2026-11-28T06:34:35Z",
+   "id": "senat-tva-jeanbrun",
+   "num": "Sénat n° 3151, 3153 rect. bis, 3155 rect., 3156, 3157 rect.",
+   "titre": "TVA à 5,5 % sur les logements neufs acquis en « Jeanbrun »",
+   "objet": "L'amendement du Gouvernement n° 3151 rapprochait le dispositif d'investissement locatif « Jeanbrun » du régime du logement locatif intermédiaire (taux intermédiaire en VEFA). Les sous-amendements de Sophie Primas et Amel Gacquerre, adoptés, retiennent le taux réduit de 5,5 % et l'étendent aux logements neufs vendus après achèvement ; selon la presse, le Gouvernement jugeait ce taux trop coûteux.",
+   "pratique": "Pour les promoteurs, le taux de TVA applicable aux ventes de logements neufs à des investisseurs Jeanbrun pourrait baisser fortement ; ne pas l'intégrer dans les grilles de prix avant le texte définitif.",
+   "statut": "adopte",
+   "articlePLF": "après art. 19",
+   "cgi": "CIBS, art. L. 231-68 et L. 231-75-1 (nouveau)",
+   "auteurs": "Le Gouvernement ; Sophie Primas, Amel Gacquerre (sous-amendements)",
+   "theme": "autre",
+   "date": "2026-11-27",
+   "source": "https://www.senat.fr/amendements/2026-2027/155/Amdt_I-3151.html"
+  },
+  {
+   "gouv": "",
+   "groupe": "",
+   "etape": "Sénat, séance publique 1re lecture",
+   "sourceTitre": "Sénat — amendement",
+   "ajoute": "2026-11-28T06:34:35Z",
+   "id": "senat-tva-export-spiritueux",
+   "num": "Sénat n° 1833 rect. ter",
+   "titre": "TVA : régime d'exonération pour les filières viticoles et le négoce exportateurs à plus de 85 %",
+   "objet": "Adopté le 26 novembre, l'amendement crée un régime particulier d'exonération de TVA pour les entreprises des filières viticoles et du négoce de boissons alcooliques dont plus de 85 % des ventes annuelles sont des exportations ou des livraisons intracommunautaires (exemple du Cognac), afin d'éviter l'accumulation de crédits de TVA.",
+   "pratique": "Pour les maisons de négoce très exportatrices, ce régime limiterait le préfinancement de la TVA d'amont ; conditions et formalités à vérifier dans le texte définitif.",
+   "statut": "adopte",
+   "articlePLF": "après art. 19",
+   "cgi": "CIBS, livre II (TVA)",
+   "auteurs": "François Bonneau",
+   "theme": "autre",
+   "date": "2026-11-26",
+   "source": "https://www.senat.fr/amendements/2026-2027/155/Amdt_I-1833.html"
+  },
+  {
+   "gouv": "",
+   "groupe": "",
+   "etape": "Sénat, séance publique 1re lecture",
+   "sourceTitre": "Sénat — amendement",
+   "ajoute": "2026-11-28T06:34:35Z",
+   "id": "senat-151septies-ja",
+   "num": "Sénat n° 2283 rect. quater, 162 rect. bis, 495 rect. bis, 545, 1828 rect., 2919 rect. bis",
+   "titre": "Plus-values professionnelles (151 septies) : règle des cinq ans adaptée aux jeunes agriculteurs en société",
+   "objet": "Le 26 novembre, le Sénat a adopté des amendements identiques complétant le d du 1° du II de l'article 151 septies du CGI pour les cessions réalisées par une société ou un groupement soumis à l'IR, afin de neutraliser les effets d'une décision du Conseil d'État du 30 avril 2024 pour les jeunes agriculteurs installés en société.",
+   "pratique": "Pour les GAEC et sociétés agricoles accueillant de jeunes associés, l'exonération des plus-values professionnelles pourrait être sécurisée malgré la condition d'exercice de cinq ans ; vérifier la rédaction finale avant toute cession.",
+   "statut": "adopte",
+   "articlePLF": "après art. 13",
+   "cgi": "CGI, art. 151 septies",
+   "auteurs": "Laurent Duplomb et sénateurs de plusieurs groupes",
+   "theme": "plusvalues",
+   "date": "2026-11-26",
+   "source": "https://www.senat.fr/amendements/2026-2027/155/Amdt_I-2283.html"
+  },
+  {
+   "gouv": "",
+   "groupe": "",
+   "etape": "Sénat, séance publique 1re lecture",
+   "sourceTitre": "Sénat — amendement",
+   "ajoute": "2026-11-28T06:34:35Z",
+   "id": "senat-dep-agricole",
+   "num": "Sénat n° 516 rect., 2028 rect., 164 rect. bis, 494 rect., 1466 rect. bis, 2948 rect. bis, 2781, 439 rect., 1620 rect. bis, 2949 rect. bis",
+   "titre": "Déduction pour épargne de précaution : plafond porté à 250 000 € et réintégration allégée",
+   "objet": "Le 26 novembre, le Sénat a adopté plusieurs modifications de l'article 73 du CGI : plafond de la DEP porté de 150 000 € à 250 000 €, part imposable des sommes utilisées ramenée de 70 % à 50 %, et report possible de la réintégration jusqu'au deuxième exercice suivant la consommation de stocks de fourrage (amendement du Gouvernement n° 2781).",
+   "pratique": "Pour les exploitations et sociétés agricoles, la DEP deviendrait un outil de lissage plus puissant ; à intégrer dans la planification des résultats 2027 avec prudence jusqu'au texte définitif.",
+   "statut": "adopte",
+   "articlePLF": "après art. 13",
+   "cgi": "CGI, art. 73",
+   "auteurs": "Le Gouvernement (n° 2781) et sénateurs de plusieurs groupes",
+   "theme": "autre",
+   "date": "2026-11-26",
+   "source": "https://www.senat.fr/amendements/2026-2027/155/Amdt_I-2781.html"
+  },
+  {
+   "gouv": "",
+   "groupe": "",
+   "etape": "Sénat, séance publique 1re lecture",
+   "sourceTitre": "Sénat — amendement",
+   "ajoute": "2026-11-28T06:34:35Z",
+   "id": "senat-paa-cooperatives",
+   "num": "Sénat n° 2285 rect. bis, 2912 rect. ter",
+   "titre": "Suramortissement « projets d'avenir agricole » ouvert aux coopératives et aux CUMA",
+   "objet": "À l'article 13, le Sénat a adopté le 26 novembre des amendements permettant aux coopératives agricoles relevant de l'article 207 du CGI, dont les CUMA, de bénéficier en totalité du suramortissement en faveur des projets d'avenir agricole.",
+   "pratique": "Les coopératives et CUMA soumises partiellement à l'IS pourraient déduire le suramortissement sur leurs investissements éligibles : à intégrer dans l'arbitrage des investissements 2027, sous réserve du texte définitif.",
+   "statut": "adopte",
+   "articlePLF": "art. 13",
+   "cgi": "CGI, art. 207 ; suramortissement PAA",
+   "auteurs": "Laurent Duplomb, M. Pla",
+   "theme": "invest",
+   "date": "2026-11-26",
+   "source": "https://www.senat.fr/amendements/2026-2027/155/Amdt_I-2285.html"
+  },
+  {
+   "gouv": "",
+   "groupe": "",
+   "etape": "Sénat, séance publique 1re lecture",
+   "sourceTitre": "Sénat — amendement",
+   "ajoute": "2026-11-28T06:34:35Z",
+   "id": "senat-credits-audiovisuel",
+   "num": "Sénat n° 1957 rect., 1699 rect. bis, 1958 rect., 1960 rect., 723 rect., 2636 rect., 2637 rect., 2638 rect.",
+   "titre": "Crédits d'impôt culturels : C2I prorogé à 2031, CIC animation à 40 %, assouplissements du crédit jeu vidéo",
+   "objet": "Le 26 novembre, le Sénat a adopté la prorogation du crédit d'impôt international (art. 220 quaterdecies) jusqu'en 2031, une refonte du barème du crédit audiovisuel de fiction, un taux de 40 % du crédit d'impôt cinéma pour l'animation, la prorogation du crédit théâtre jusqu'au 31 décembre 2030 et plusieurs assouplissements du crédit jeu vidéo (seuil de 100 000 € ramené à 50 000 €, dépenses de prototypage, agrément complémentaire).",
+   "pratique": "Pour les sociétés de production et studios, ces mesures pourraient améliorer la visibilité sur les crédits d'impôt sectoriels ; à confirmer en CMP avant d'intégrer ces paramètres dans les plans de financement.",
+   "statut": "adopte",
+   "articlePLF": "après art. 12",
+   "cgi": "CGI, art. 220 sexies, 220 terdecies, 220 quaterdecies, 220 sexdecies",
+   "auteurs": "Cédric Vial, Sylvie Robert, Dominique Vérien, Colombe Brossel et autres",
+   "theme": "innovation",
+   "date": "2026-11-26",
+   "source": "https://www.senat.fr/amendements/2026-2027/155/Amdt_I-1960.html"
+  },
+  {
+   "gouv": "Gouvernement",
+   "groupe": "",
+   "etape": "Sénat, séance publique 1re lecture",
+   "sourceTitre": "Sénat — amendement",
+   "ajoute": "2026-11-28T06:34:35Z",
+   "id": "senat-39-4-vehicules",
+   "num": "Sénat n° 2785",
+   "titre": "Véhicules de tourisme : correction du renvoi de l'article 39, 4 pour le crédit-bail et la location",
+   "objet": "Amendement rédactionnel du Gouvernement, adopté le 27 novembre, qui corrige une erreur de renvoi au 4 de l'article 39 du CGI afin que la limitation de déductibilité des amortissements des véhicules de tourisme s'applique pleinement aux opérations de crédit-bail ou de location.",
+   "pratique": "Sécurise la réintégration, chez le preneur, de la fraction des loyers correspondant à l'amortissement non déductible : à vérifier dans les retraitements extra-comptables des flottes louées.",
+   "statut": "adopte",
+   "articlePLF": "après art. 25",
+   "cgi": "CGI, art. 39, 4",
+   "auteurs": "Le Gouvernement",
+   "theme": "is",
+   "date": "2026-11-27",
+   "source": "https://www.senat.fr/amendements/2026-2027/155/Amdt_I-2785.html"
+  },
+  {
+   "gouv": "",
+   "groupe": "",
+   "etape": "Sénat, séance publique 1re lecture",
+   "sourceTitre": "Sénat — amendement",
+   "ajoute": "2026-11-28T06:34:35Z",
+   "id": "senat-rejets-rachats-tonnage",
+   "num": "Sénat n° 1068, 1069, 1270 rect., 2543, 1002 rect., 1171, 2869 rect. bis, 1064, 1246, 2516",
+   "titre": "Sénat : rejet des durcissements sur les rachats d'actions, la taxe au tonnage et le CIR",
+   "objet": "Le 26 novembre, le Sénat a rejeté les amendements visant à asseoir la taxe sur les réductions de capital sur le prix réellement payé ou à supprimer certaines exonérations (art. 17), à plafonner ou supprimer la taxation au tonnage, et à conditionner le CIR au maintien de l'emploi et des activités en France.",
+   "pratique": "À ce stade, la taxe sur les rachats d'actions, le régime de taxation au tonnage et les conditions du CIR ne sont pas durcis par le Sénat ; à surveiller en CMP.",
+   "statut": "rejete",
+   "articlePLF": "art. 17 ; après art. 15",
+   "cgi": "CGI, art. 209-0 B, 244 quater B ; taxe sur les réductions de capital",
+   "auteurs": "Groupes GEST, SER, CRCE-K, RDSE",
+   "theme": "distrib",
+   "date": "2026-11-26",
+   "source": "https://www.senat.fr/amendements/2026-2027/155/Amdt_I-1069.html"
+  },
   {
    "id": "senat-art2-rupture",
    "num": "Sénat n° 4 rect., 2023 rect., 2649",
@@ -1238,25 +1428,72 @@ window.VEILLE = {
   },
   {
    "id": "senat-art16-tva",
-   "num": "Sénat FINC.29",
-   "titre": "TVA de la télévision payante : la commission du Sénat s'oppose au passage de 10 % à 20 %",
-   "objet": "L'article 16 du texte initial porte de 10 % à 20 % le taux de TVA applicable à certains services de télévision. L'amendement FINC.29 de la rapporteure générale propose de supprimer l'article ; la presse indique que la commission des finances s'est opposée à ce doublement.",
-   "pratique": "Pour les opérateurs et distributeurs de services de télévision payante, le taux réduit pourrait être préservé ; prudence tant que le vote en séance (à partir du 20 novembre) et la CMP ne sont pas intervenus.",
-   "statut": "attente",
+   "num": "Sénat n° 29, 202, 226, 943, 1256, 1537, 2227 rect., 2342 rect., 3031",
+   "titre": "TVA de la télévision payante : le Sénat supprime le passage de 10 % à 20 %",
+   "objet": "L'article 16 du texte initial portait de 10 % à 20 % le taux de TVA applicable à certains services de télévision. Le 26 novembre, le Sénat a adopté en séance les amendements identiques de suppression de l'article, dont celui de la commission des finances (n° 29).",
+   "pratique": "Le taux de 10 % serait maintenu pour les services de télévision payante concernés ; l'Assemblée avait elle aussi voté la suppression le 2 novembre. Prudence jusqu'à la CMP et au texte définitif.",
+   "statut": "supprime",
    "articlePLF": "art. 16",
    "cgi": "CGI, art. 279",
-   "auteurs": "Christine Lavarde (rapporteure générale)",
-   "groupe": "LR",
+   "auteurs": "Christine Lavarde (rapporteure générale) et sénateurs de plusieurs groupes",
+   "groupe": "",
    "gouv": "",
    "theme": "autre",
-   "etape": "Sénat, commission des finances (vote en séance à venir)",
-   "date": "2026-11-12",
-   "source": "https://www.cbnews.fr/medias/plf-2027-senat-veut-preserver-tva-reduite-canal-taxer-davantage-publicite-plateformes-video",
-   "sourceTitre": "CB News",
+   "etape": "Sénat, séance publique 1re lecture",
+   "date": "2026-11-26",
+   "source": "https://www.senat.fr/amendements/2026-2027/155/Amdt_I-29.html",
+   "sourceTitre": "Sénat — amendement",
    "ajoute": "2026-11-16T06:30:00Z"
   }
  ],
  "briefs": [
+  {
+   "date": "2026-11-28",
+   "titre": "Sénat : taxe YouTube durcie, TVA Canal+ préservée, TVA à 5,5 % pour le neuf Jeanbrun",
+   "intro": "Le Sénat a poursuivi jusqu'au 28 novembre l'examen de la 1re partie du PLF 2027 (articles additionnels après l'article 26, puis articles 28 à 42 restant à examiner) ; le vote sur la 1re partie est attendu en fin de semaine.",
+   "items": [
+    {
+     "phrase": "Correction : la suppression de l'article 16 (TVA des services de télévision portée de 10 % à 20 %) n'est plus seulement un vote de commission, le Sénat l'a adoptée en séance le 26 novembre (n° 29 et identiques).",
+     "num": "Sénat n° 29",
+     "cle": "art. 16"
+    },
+    {
+     "phrase": "TVA immobilière : le Sénat a voté le taux de 5,5 % pour les logements neufs vendus à des investisseurs Jeanbrun, y compris après achèvement, au-delà du taux intermédiaire proposé par le Gouvernement.",
+     "num": "Sénat n° 3151, 3153 rect. bis",
+     "cle": "Jeanbrun"
+    },
+    {
+     "phrase": "Plateformes : l'abattement de la taxe sur la publicité des plateformes de partage de vidéos (TSV-G) est supprimé, et une taxe de 3 % sur les recettes des services exploitant des contenus journalistiques est créée contre l'avis du Gouvernement.",
+     "num": "Sénat n° 25, 3054 rect. bis",
+     "cle": "TSV-G"
+    },
+    {
+     "phrase": "Négoce de spiritueux et de vins : un régime d'exonération de TVA est créé pour les entreprises réalisant plus de 85 % de ventes à l'export ou intracommunautaires, afin de limiter les crédits de TVA.",
+     "num": "Sénat n° 1833 rect. ter",
+     "cle": "1833"
+    },
+    {
+     "phrase": "Fiscalité agricole : DEP plafonnée à 250 000 €, réintégration ramenée à 50 %, suramortissement PAA ouvert aux coopératives et CUMA, et règle des cinq ans de l'article 151 septies adaptée aux jeunes agriculteurs en société.",
+     "num": "Sénat n° 516 rect., 2285 rect. bis, 2283 rect. quater",
+     "cle": "151 septies"
+    },
+    {
+     "phrase": "Crédits d'impôt culturels : C2I prorogé jusqu'en 2031, crédit cinéma à 40 % pour l'animation et crédit jeu vidéo assoupli, utiles pour les plans de financement des studios.",
+     "num": "Sénat n° 1957 rect., 1960 rect.",
+     "cle": "220 sexies"
+    },
+    {
+     "phrase": "Rejets : la taxe sur les rachats d'actions (art. 17), la taxation au tonnage et les conditions du CIR ne sont pas durcies par le Sénat.",
+     "num": "Sénat n° 1069, 2869 rect. bis, 1246",
+     "cle": "rachats"
+    },
+    {
+     "phrase": "Base de l'Assemblée vérifiée : aucun nouveau sort depuis le rejet du 4 novembre, les statuts AN de la sélection sont conformes.",
+     "num": "",
+     "cle": "tombé"
+    }
+   ]
+  },
   {
    "date": "2026-11-27",
    "titre": "Indemnités de rupture : réforme au 1er janvier 2027 ; échec de la CMP sur le PLFSS",
@@ -1935,6 +2172,119 @@ window.VEILLE = {
   }
  ],
  "actus": [
+  {
+   "id": "2026-11-26-senat-plateformes",
+   "date": "2026-11-26",
+   "titre": "Plateformes numériques : le Sénat supprime l'abattement de la « taxe YouTube » et crée une taxe sur les contenus journalistiques",
+   "source": "https://www.publicsenat.fr/actualites/politique/youtube-tiktok-facebook-le-senat-supprime-labattement-fiscal-dont-beneficient-les-plateformes",
+   "sourceTitre": "Public Sénat",
+   "theme": "autre",
+   "resume": "<p>Le <b>26 novembre<\/b>, le Sénat a examiné les articles de la 1re partie consacrés à la fiscalité audiovisuelle et numérique. L'article 12 du texte initial ramenait de 66 % à 33 % l'abattement d'assiette de la taxe sur la publicité diffusée par les plateformes gratuites de partage de vidéos (<span class=\"ref\">TSV-G<\/span>) ; les sénateurs ont <b>supprimé l'abattement<\/b>, à l'unanimité selon la presse.<\/p><p>Le même jour, le Sénat a adopté contre l'avis du Gouvernement l'amendement de Cédric Vial (<span class=\"ref\">Sénat n° 3054 rect. bis<\/span>) créant une <b>taxe de 3 %<\/b> sur les recettes des services numériques exploitant des contenus journalistiques, y compris par l'intelligence artificielle, au profit du budget de l'État. Il a aussi supprimé l'article 16, qui portait la TVA de certains services de télévision de 10 % à 20 %.<\/p><p>Ces votes de 1re lecture restent soumis à la CMP.<\/p>",
+   "refs": [
+    "art. 12 PLF 2027",
+    "art. 16 PLF 2027",
+    "Sénat n° 3054 rect. bis",
+    "Sénat n° 29"
+   ],
+   "retenir": "Les groupes numériques et audiovisuels doivent modéliser deux scénarios pour 2027 : texte du Gouvernement (abattement à 33 %, TVA télévision à 20 %) ou version du Sénat.",
+   "amdts": [
+    "TSV-G",
+    "3054",
+    "art. 16"
+   ],
+   "cards": [
+    {
+     "q": "Que change la suppression de l'abattement de la TSV-G ?",
+     "a": "<p>Les plateformes gratuites de partage de vidéos ne bénéficieraient plus de la réduction d'assiette de 66 % (33 % dans le texte initial) : la taxe sur la publicité porterait sur la totalité des recettes publicitaires concernées.<\/p>"
+    },
+    {
+     "q": "Quelle est la portée de la taxe sur les contenus journalistiques ?",
+     "a": "<p>Elle viserait les recettes tirées de services numériques, dont les moteurs de recherche, exploitant des contenus journalistiques, au taux de 3 % selon la presse. Adoptée contre l'avis du Gouvernement, elle reste fragile en CMP.<\/p>"
+    },
+    {
+     "q": "Qu'est devenu l'article 16 sur la TVA de la télévision ?",
+     "a": "<p>Le Sénat l'a supprimé en adoptant les amendements identiques de la commission des finances et de plusieurs groupes : le taux de 10 % serait maintenu. L'Assemblée avait voté la même suppression le 2 novembre avant le rejet du texte.<\/p>"
+    }
+   ],
+   "qcm": [
+    {
+     "q": "Quel était l'abattement de la TSV-G prévu par le texte initial de l'article 12 ?",
+     "o": [
+      "50 %",
+      "66 %",
+      "33 %",
+      "15 %"
+     ],
+     "c": 2,
+     "e": "Le Gouvernement ramenait l'abattement de 66 % à 33 % ; le Sénat l'a supprimé."
+    },
+    {
+     "q": "Quel avis le Gouvernement a-t-il donné sur la taxe de 3 % sur les contenus journalistiques ?",
+     "o": [
+      "Un avis défavorable",
+      "Un avis favorable",
+      "Une sagesse du Sénat",
+      "Aucun avis exprimé"
+     ],
+     "c": 0,
+     "e": "Selon la presse, l'amendement de Cédric Vial a été adopté malgré l'avis défavorable du Gouvernement."
+    }
+   ]
+  },
+  {
+   "id": "2026-11-27-senat-tva-jeanbrun",
+   "date": "2026-11-27",
+   "titre": "Le Sénat vote une TVA à 5,5 % pour le neuf acquis en « Jeanbrun »",
+   "source": "https://bourseinside.fr/immobilier/tva-sur-le-neuf-a-55-le-vote-choc-du-senat-pour-linvestissement-locatif-qui-peut-vraiment-en-profiter/",
+   "sourceTitre": "Bourse Inside",
+   "theme": "autre",
+   "resume": "<p>Dans le cadre du compromis proposé par le Premier ministre autour du logement, le Gouvernement a déposé un amendement (<span class=\"ref\">Sénat n° 3151<\/span>) rapprochant le dispositif d'investissement locatif « Jeanbrun » du régime du logement locatif intermédiaire, avec un <b>taux intermédiaire de TVA<\/b> sur les acquisitions en VEFA.<\/p><p>Les sénateurs sont allés plus loin : les sous-amendements de Sophie Primas et d'Amel Gacquerre retiennent le <b>taux réduit de 5,5 %<\/b>, au lieu de 20 %, pour les logements neufs achetés en 2027 ou 2028 afin d'être loués en Jeanbrun, et étendent la mesure aux <b>logements achevés mais invendus<\/b>. Le ministre des Comptes publics a jugé ce taux trop coûteux et incohérent avec celui du logement social.<\/p><p>La mesure n'est votée qu'en 1re lecture au Sénat ; son sort dépend de la CMP, voire d'une mise en œuvre par ordonnance qui reposerait sur le texte du Gouvernement.<\/p>",
+   "refs": [
+    "Sénat n° 3151",
+    "Sénat n° 3153 rect. bis",
+    "Sénat n° 3156",
+    "CIBS, art. L. 231-68"
+   ],
+   "retenir": "Pour les promoteurs, la baisse de TVA sur les ventes à investisseurs Jeanbrun n'est qu'un vote sénatorial : prévoir dans les contrats de réservation une clause d'ajustement du prix au taux définitif.",
+   "amdts": [
+    "Jeanbrun",
+    "3151"
+   ],
+   "cards": [
+    {
+     "q": "Quelle différence entre l'amendement du Gouvernement et le vote du Sénat ?",
+     "a": "<p>Le Gouvernement proposait d'aligner le Jeanbrun sur le logement locatif intermédiaire, avec un taux intermédiaire réservé aux acquisitions en VEFA. Le Sénat a retenu le taux réduit de 5,5 % et l'a étendu aux logements neufs déjà achevés mais non vendus.<\/p>"
+    },
+    {
+     "q": "Quelle est la portée du vote à ce stade ?",
+     "a": "<p>Il s'agit d'un vote de 1re lecture au Sénat, contre l'avis du Gouvernement sur le taux. Le dispositif peut être modifié ou supprimé en commission mixte paritaire ; en cas de budget par ordonnances, seul le texte du Gouvernement servirait a priori de base.<\/p>"
+    }
+   ],
+   "qcm": [
+    {
+     "q": "Quel taux de TVA le Sénat a-t-il retenu pour le neuf acquis en Jeanbrun ?",
+     "o": [
+      "10 %",
+      "5,5 %",
+      "20 %",
+      "2,1 %"
+     ],
+     "c": 1,
+     "e": "Le Sénat a retenu 5,5 % ; le Gouvernement proposait un taux intermédiaire (10 %) limité à la VEFA."
+    },
+    {
+     "q": "Quels logements le Sénat a-t-il ajoutés au champ de la mesure ?",
+     "o": [
+      "Les logements sociaux en PLAI",
+      "Les résidences secondaires",
+      "Les logements neufs achevés et invendus",
+      "Les logements anciens rénovés en zone tendue"
+     ],
+     "c": 2,
+     "e": "Les sous-amendements étendent le taux réduit aux logements neufs vendus après achèvement, et pas seulement aux ventes en VEFA."
+    }
+   ]
+  },
   {
    "id": "2026-11-26-cmp-plfss",
    "date": "2026-11-26",
